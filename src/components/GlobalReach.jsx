@@ -108,7 +108,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
             {EXPORT_COUNTRIES.map((country) => (
               <div
                 key={country.name}
-                className="country-card group p-3.5 bg-white border border-[#D9D9D6] hover:border-[#A94728] rounded-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-sm flex flex-col items-center text-center justify-center cursor-default"
+                className="country-card group p-3.5 bg-white border border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-sm flex flex-col items-center text-center justify-center cursor-default"
               >
                 {/* Clean, properly proportioned real flag asset */}
                 <div className="w-8 h-5 mb-2.5 overflow-hidden rounded-xs border border-black/10 shadow-xs flex items-center justify-center bg-gray-50">
@@ -149,7 +149,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
           </div>
 
           {/* Premium India Distribution Section on Warm Light Orange / Cream (#F4E5DC) */}
-          <div className="india-grid bg-[#F4E5DC] border-2 border-[#D9D9D6] p-6 sm:p-10 rounded-sm relative overflow-hidden shadow-industrial">
+          <div className="india-grid bg-[#F4E5DC] border-2 border-[#D9D9D6] p-6 sm:p-10 rounded-lg relative overflow-hidden shadow-industrial">
             {/* Subtle Abstract Map Watermark */}
             <div className="absolute right-4 bottom-2 opacity-5 pointer-events-none select-none">
               <Globe className="w-96 h-96 text-[#202427]" />
@@ -164,7 +164,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
                   Coordinated multimodal dispatch across Indian states and industrial corridors.
                 </p>
               </div>
-              <div className="tech-label text-xs font-mono bg-white text-[#A94728] font-bold px-3.5 py-2 rounded-sm border border-[#D9D9D6] shadow-xs self-start">
+              <div className="tech-label text-xs font-mono bg-white text-[#A94728] font-bold px-3.5 py-2 rounded-md border border-[#D9D9D6] shadow-xs self-start">
                 CENTRAL HUB: MUMBAI, MAHARASHTRA
               </div>
             </div>
@@ -181,7 +181,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
                 return (
                   <div
                     key={state}
-                    className={`india-state-card ${bgStyles} p-3 border border-[#D9D9D6] hover:border-[#A94728] rounded-sm transition-all duration-200 flex items-center gap-2 group hover:-translate-y-0.5 hover:shadow-xs`}
+                    className={`india-state-card ${bgStyles} p-3 border border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all duration-200 flex items-center gap-2 group hover:-translate-y-0.5 hover:shadow-xs`}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#A94728] flex-shrink-0 group-hover:scale-125 transition-transform" />
                     <span className="text-xs sm:text-sm font-bold text-[#202427] group-hover:text-[#A94728] transition-colors truncate">

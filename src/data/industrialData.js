@@ -43,13 +43,30 @@ export const COMPANY_DETAILS = {
   tagline: "Precision Industrial Metal Products & Fittings Supply",
   specialization: "Mfg. of : Stainless Steel / Carbon Steel Pipes Fitting, Forge Fitting & Flanges. Stockist and Suppliers in : Stainless Steel, Pipe, Plate, Round & All Ferrous Metals",
   address: "Shop No. 6, Plumber Chawl, Shantabi Building, Ground Floor, 4th Cross Lane, Khetwadi, P. B Marg, Mumbai - 400 004, Maharashtra, India.",
+  shortAddress: "Shop No. 6, Shantabi Bldg, 4th Cross Lane, Khetwadi, Mumbai - 400 004",
   emails: [
     "sales@rudhirametalindustries.com",
     "info@rudhirametalindustries.com"
   ],
-  phone: "+91 98696 10976",
-  whatsappNumber: "+919869610976",
+  phone: "+91 96198 06901",
+  secondaryPhone: "+91 79775 67294",
+  contacts: [
+    {
+      name: "Bharat Kumar",
+      phone: "+91 96198 06901",
+      cleanPhone: "+919619806901",
+      whatsappNumber: "919619806901"
+    },
+    {
+      name: "Navin Kumar",
+      phone: "+91 79775 67294",
+      cleanPhone: "+917977567294",
+      whatsappNumber: "917977567294"
+    }
+  ],
+  whatsappNumber: "+919619806901",
   whatsappDefaultMsg: "Hello Rudhira Metal Industries, I would like to inquire about your industrial metal products and request a quotation.",
+  website: "www.rudhirametalindustries.com",
   year: 2026,
 };
 

@@ -19,7 +19,7 @@ export default function IndustriesCarousel({ onSelectIndustry }) {
     tweenRef.current = gsap.to(track, {
       xPercent: -50,
       repeat: -1,
-      duration: 42,
+      duration: 20,
       ease: 'none',
     });
 
@@ -130,7 +130,7 @@ export default function IndustriesCarousel({ onSelectIndustry }) {
             <div
               key={`${item.id}-${idx}`}
               onClick={() => onSelectIndustry(item.name)}
-              className="relative w-[300px] sm:w-[340px] h-[380px] sm:h-[410px] flex-shrink-0 bg-[#202427] rounded-sm overflow-hidden border border-[#D9D9D6] hover:border-[#A94728] transition-all duration-300 group cursor-pointer shadow-industrial hover:shadow-industrial-hover"
+              className="relative w-[300px] sm:w-[340px] h-[380px] sm:h-[410px] flex-shrink-0 bg-[#202427] rounded-lg overflow-hidden border border-[#D9D9D6] hover:border-[#A94728] transition-all duration-300 group cursor-pointer shadow-industrial hover:shadow-industrial-hover"
             >
               {/* Dominant Industrial Image from user folder */}
               <img

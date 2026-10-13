@@ -80,7 +80,7 @@ export default function QualityStandards() {
             return (
               <div
                 key={item.id}
-                className={`quality-module group relative p-7 sm:p-8 ${moduleBgs} border rounded-sm flex flex-col justify-between overflow-hidden shadow-xl hover:-translate-y-2 hover:border-[#A94728] transition-all duration-300`}
+                className={`quality-module group relative p-7 sm:p-8 ${moduleBgs} border rounded-lg flex flex-col justify-between overflow-hidden shadow-xl hover:-translate-y-2 hover:border-[#A94728] transition-all duration-300`}
               >
                 {/* Orange Corner Details */}
                 <div className="corner-bracket-tl" />
@@ -94,10 +94,10 @@ export default function QualityStandards() {
                 <div>
                   {/* Top Bar: Icon Container & Technical Code */}
                   <div className="flex items-center justify-between mb-8">
-                    <div className="p-2.5 bg-[#344B5C] rounded-sm border border-white/20 group-hover:bg-[#A94728] transition-colors shadow-sm">
+                    <div className="p-2.5 bg-[#344B5C] rounded-md border border-white/20 group-hover:bg-[#A94728] transition-colors shadow-sm">
                       {icons[index]}
                     </div>
-                    <span className="text-[11px] font-mono font-bold text-[#F4E5DC] bg-white/10 px-2.5 py-1 rounded-sm border border-white/15">
+                    <span className="text-[11px] font-mono font-bold text-[#F4E5DC] bg-white/10 px-2.5 py-1 rounded-md border border-white/15">
                       {item.code}
                     </span>
                   </div>

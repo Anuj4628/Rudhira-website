@@ -127,7 +127,7 @@ export default function HeroSlider({ onOpenEnquiry }) {
       <div className="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-center my-auto">
         <div className={`hero-slide-${currentSlide} max-w-4xl text-left`}>
           {/* 1. Frosted Translucent Dark Glass Card with High Blur */}
-          <div className="hero-headline-card hero-glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-9 shadow-2xl">
+          <div className="hero-headline-card hero-glass-card rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-9 shadow-2xl">
             {/* Title with Orange Highlight */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black text-white tracking-tight leading-[1.12] mb-3 sm:mb-4 uppercase drop-shadow-sm">
               {slide.titlePrefix}
@@ -185,7 +185,7 @@ export default function HeroSlider({ onOpenEnquiry }) {
             {slide.specs.map((spec) => (
               <div
                 key={spec.label}
-                className="hero-glass-spec rounded-xl p-3 sm:p-3.5 flex flex-col justify-center"
+                className="hero-glass-spec rounded-lg p-3 sm:p-3.5 flex flex-col justify-center"
               >
                 <div className="text-[10px] font-mono text-white/70 uppercase tracking-wider mb-1 font-semibold">
                   {spec.label}

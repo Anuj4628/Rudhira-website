@@ -88,7 +88,7 @@ Sent via Rudhira Metal Official Portal`;
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      <div className="relative w-full max-w-2xl bg-white border border-[#D9D9D6] rounded-sm shadow-2xl overflow-hidden my-8">
+      <div className="relative w-full max-w-2xl bg-white border border-[#D9D9D6] rounded-lg shadow-2xl overflow-hidden my-8">
         {/* Modal Top Bar */}
         <div className="bg-[#202427] text-white px-6 py-4 flex items-center justify-between border-b border-[#A94728]/40">
           <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ Sent via Rudhira Metal Official Portal`;
               Thank you, {formData.name || 'valued partner'}. Your inquiry has been routed to our Mumbai commercial sales desk.
             </p>
 
-            <div className="p-4 bg-white border border-[#D9D9D6] rounded-sm max-w-sm mx-auto mb-6 font-mono text-xs text-left space-y-1">
+            <div className="p-4 bg-white border border-[#D9D9D6] rounded-lg max-w-sm mx-auto mb-6 font-mono text-xs text-left space-y-1">
               <div><span className="text-[#6B7280]">REFERENCE:</span> <strong className="text-[#A94728]">{rfqNumber}</strong></div>
               <div><span className="text-[#6B7280]">PRODUCT:</span> <strong>{formData.product || 'Industrial Metal Supply'}</strong></div>
               <div><span className="text-[#6B7280]">DESK EMAIL:</span> <strong>{COMPANY_DETAILS.emails[0]}</strong></div>

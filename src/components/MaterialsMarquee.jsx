@@ -38,7 +38,7 @@ export default function MaterialsMarquee({ onSelectMaterial }) {
             <div
               key={`mat-${i}`}
               onClick={() => onSelectMaterial(mat)}
-              className="inline-flex items-center gap-3 px-6 sm:px-8 py-4 sm:py-5 bg-[#A94728] hover:bg-[#90391D] border-2 border-[#F4E5DC]/30 hover:border-white text-white rounded-sm transition-all duration-200 cursor-pointer group shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-95"
+              className="inline-flex items-center gap-3 px-6 sm:px-8 py-4 sm:py-5 bg-[#A94728] hover:bg-[#90391D] border-2 border-[#F4E5DC]/30 hover:border-white text-white rounded-lg transition-all duration-200 cursor-pointer group shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-95"
             >
               <span className="text-[#F4E5DC] group-hover:text-white font-mono text-base sm:text-lg font-bold transition-colors">
                 [

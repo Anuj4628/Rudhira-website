@@ -75,25 +75,25 @@ export default function Clientele() {
         </div>
 
         {/* ONE LARGE Premium Clientele Panel with Original Brand Color Logos */}
-        <div className="clientele-panel bg-[#272B2E] border-2 border-white/15 p-6 sm:p-10 rounded-sm shadow-2xl">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+        <div className="clientele-panel bg-[#272B2E] border-2 border-white/15 p-5 sm:p-8 rounded-lg shadow-2xl">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
             {CLIENT_PARTNERS.map((client) => (
               <div
                 key={client.name}
-                className="client-logo-card group h-36 sm:h-40 bg-white border border-[#D9D9D6] hover:border-[#A94728] rounded-sm p-4 sm:p-5 flex flex-col items-center justify-between text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-1 cursor-default shadow-sm"
+                className="client-logo-card group h-28 sm:h-[120px] bg-white border border-[#D9D9D6] hover:border-[#A94728] rounded-lg p-2.5 sm:p-3 flex flex-col items-center justify-between text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 cursor-default shadow-sm"
               >
-                {/* SVG Logo: Rendered in its ORIGINAL BRAND COLOR with crisp scaling and clean padding */}
-                <div className="h-16 w-full flex items-center justify-center px-2 py-1">
+                {/* 1. Large, properly scaled company logo maximizing available card space */}
+                <div className="w-full flex-1 flex items-center justify-center min-h-0 px-1">
                   <img
                     src={client.logo}
                     alt={`${client.name} Logo`}
-                    className="max-h-14 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="max-h-[60px] sm:max-h-[68px] w-full max-w-[92%] object-contain transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
 
-                {/* Company Name clearly visible below logo */}
-                <span className="text-xs font-bold text-[#202427] group-hover:text-[#A94728] transition-colors leading-tight line-clamp-1 mt-1">
+                {/* 2. Company Name neatly aligned underneath */}
+                <span className="text-[11px] sm:text-xs font-bold text-[#202427] group-hover:text-[#A94728] transition-colors leading-tight line-clamp-1 mt-1">
                   {client.name}
                 </span>
               </div>

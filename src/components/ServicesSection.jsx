@@ -93,7 +93,7 @@ export default function ServicesSection({ onOpenEnquiry }) {
               <div
                 key={service.id}
                 onClick={onOpenEnquiry}
-                className={`service-card group relative ${colSpan} ${service.cardBg} ${service.borderColor} border rounded-sm p-7 sm:p-8 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden`}
+                className={`service-card group relative ${colSpan} ${service.cardBg} ${service.borderColor} border rounded-lg p-7 sm:p-8 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden`}
               >
                 {/* Corner Brackets */}
                 <div className="corner-bracket-tl" />
@@ -107,12 +107,12 @@ export default function ServicesSection({ onOpenEnquiry }) {
                 <div>
                   {/* Top Bar: Icon + Technical Service Code */}
                   <div className="flex items-center justify-between mb-8">
-                    <div className={`p-3 rounded-sm ${service.textColor} bg-black/10 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105`}>
+                    <div className={`p-3 rounded-md ${service.textColor} bg-black/10 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105`}>
                       {icons[index]}
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className={`text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-sm ${service.textColor} bg-black/10`}>
+                      <span className={`text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-md ${service.textColor} bg-black/10`}>
                         {service.tag}
                       </span>
                       <span className="font-mono text-sm font-bold opacity-60">

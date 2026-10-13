@@ -88,7 +88,7 @@ export default function WhyChooseUs({ onOpenEnquiry }) {
             <div
               key={item.id}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="group relative p-7 bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-industrial-hover flex flex-col justify-between"
+              className="group relative p-7 bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-industrial-hover flex flex-col justify-between"
             >
               {/* Corner Accent Details */}
               <div className="corner-bracket-tl" />
@@ -100,7 +100,7 @@ export default function WhyChooseUs({ onOpenEnquiry }) {
                   <span className="font-mono text-3xl font-extrabold text-[#202427] group-hover:text-[#A94728] transition-colors">
                     {item.id}
                   </span>
-                  <div className="p-2.5 bg-white rounded-sm border border-[#D9D9D6] shadow-sm group-hover:border-[#A94728]/40 group-hover:bg-[#F4E5DC]/50 transition-all">
+                  <div className="p-2.5 bg-white rounded-md border border-[#D9D9D6] shadow-sm group-hover:border-[#A94728]/40 group-hover:bg-[#F4E5DC]/50 transition-all">
                     {icons[index]}
                   </div>
                 </div>

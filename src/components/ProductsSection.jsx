@@ -82,14 +82,14 @@ export default function ProductsSection({ onSelectProduct }) {
               key={product.id}
               ref={(el) => (cardsRef.current[index] = el)}
               onClick={() => onSelectProduct(product.name)}
-              className="group relative w-full max-w-[390px] lg:max-w-[400px] bg-[#7E321F] border border-[#90391D]/60 rounded-sm overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#F4E5DC]/60 p-3.5 sm:p-4 shadow-xl"
+              className="group relative w-full max-w-[390px] lg:max-w-[400px] bg-[#7E321F] border border-[#90391D]/60 rounded-lg overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#F4E5DC]/60 p-3.5 sm:p-4 shadow-xl"
             >
               {/* Subtle Inset Frame & Orange Corner Brackets */}
               <div className="corner-bracket-tl" />
               <div className="corner-bracket-br" />
 
               {/* Increased Image Height (270-290px) for Crystal-Clear Product View */}
-              <div className="relative w-full h-[270px] sm:h-[290px] overflow-hidden rounded-sm bg-black/25">
+              <div className="relative w-full h-[270px] sm:h-[290px] overflow-hidden rounded-md bg-black/25">
                 <img
                   src={product.image}
                   alt={product.name}
