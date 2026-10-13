@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #A94728;
+  --color-brand-orange-deep: #7E321F;
+  --color-brand-orange-warm-light: #F4E5DC;
+  --color-brand-orange-hover: #90391D;
+  --color-brand-cream: #F8F5F1;
+  --color-brand-graphite: #202427;
+  --color-brand-graphite-dark: #171A1C;
+  --color-brand-steel-blue: #344B5C;
+  --color-brand-steel-blue-dark: #273845;
+  --color-brand-steel-blue-light: #415A6B;
+  --color-brand-muted-blue: #5D7382;
+  --color-brand-light-blue: #E7EEF2;
+  --color-brand-white: #FFFFFF;
+  --color-brand-border-grey: #D9D9D6;
+  --color-brand-border-light: #E5E4E0;
+  --color-brand-text-muted: #6B7280;
+
+  --font-sans: "Plus Jakarta Sans", "Manrope", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #F8F5F1;
+  color: #202427;
+  font-family: 'Plus Jakarta Sans', 'Manrope', system-ui, -apple-system, sans-serif;
+}
+
+::selection {
+  background-color: #A94728;
+  color: #FFFFFF;
+}
+
+/* Technical Industrial Patterns */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(169, 71, 40, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(169, 71, 40, 0.08) 1px, transparent 1px);
+}
+
+.bg-steel-grid-pattern {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+.bg-dark-grid-pattern {
+  background-size: 44px 44px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Technical Label Styling */
+.tech-label {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4E5DC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A94728;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7E321F;
+}
+
+/* Industrial Corner Brackets */
+.corner-bracket-tl {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #A94728;
+  border-left: 2px solid #A94728;
+  pointer-events: none;
+}
+
+.corner-bracket-br {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 12px;
+  height: 12px;
+  border-bottom: 2px solid #A94728;
+  border-right: 2px solid #A94728;
+  pointer-events: none;
+}
+
+/* Card Shadows */
+.shadow-industrial {
+  box-shadow: 0 4px 20px -2px rgba(32, 36, 39, 0.08);
+}
+
+.shadow-industrial-hover {
+  box-shadow: 0 14px 34px -4px rgba(32, 36, 39, 0.16);
+}
+
+/* Frosted Glass Utilities for Hero Section */
+.hero-glass-card {
+  background: rgba(11, 21, 29, 0.62);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  backdrop-filter: blur(28px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.hero-glass-pill {
+  background: rgba(11, 21, 29, 0.62);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.hero-glass-spec {
+  background: rgba(11, 21, 29, 0.62);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hero-glass-strip {
+  background: rgba(11, 21, 29, 0.72);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated nav underline from center */
+.nav-line-effect {
+  position: relative;
+}
+.nav-line-effect::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #A94728;
+  transition: all 0.25s ease-out;
+  transform: translateX(-50%);
+}
+.nav-line-effect:hover::after {
+  width: 100%;
+}
+
+/* Continuous Infinite Marquee Animation for Metallurgical Spectrum */
+@keyframes marquee-infinite-slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track-continuous {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-infinite-slide 30s linear infinite;
+}
+
+.marquee-track-continuous:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
