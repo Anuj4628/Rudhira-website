@@ -3,12 +3,24 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
 import { PRODUCTS_DATA } from '../data/industrialData';
+import { getProductSeoSlug } from '../data/productsData';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ProductsSection({ onSelectProduct }) {
+export default function ProductsSection({ onSelectProduct, onNavigate }) {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+
+  const getProductSlug = (name) => {
+    const clean = name.toLowerCase();
+    if (clean.includes('flange')) return 'flanges';
+    if (clean.includes('fastener')) return 'fasteners';
+    if (clean.includes('pipe') && clean.includes('tube')) return 'pipes-and-tubes';
+    if (clean.includes('fitting')) return 'butt-weld-fittings';
+    if (clean.includes('sheet') || clean.includes('plate')) return 'sheets-and-plates';
+    if (clean.includes('bar')) return 'rods-and-bars';
+    return 'flanges';
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -81,7 +93,14 @@ export default function ProductsSection({ onSelectProduct }) {
             <div
               key={product.id}
               ref={(el) => (cardsRef.current[index] = el)}
-              onClick={() => onSelectProduct(product.name)}
+              onClick={() => {
+                if (onNavigate) {
+                  const slug = getProductSlug(product.name);
+                  onNavigate('product-category', null, `/products/${getProductSeoSlug(slug)}`);
+                } else if (onSelectProduct) {
+                  onSelectProduct(product.name);
+                }
+              }}
               className="group relative w-full max-w-[390px] lg:max-w-[400px] bg-[#7E321F] border border-[#90391D]/60 rounded-lg overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#F4E5DC]/60 p-3.5 sm:p-4 shadow-xl"
             >
               {/* Subtle Inset Frame & Orange Corner Brackets */}
@@ -138,6 +157,23 @@ export default function ProductsSection({ onSelectProduct }) {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* All Products Button Centered Below the 6th Product Card */}
+        <div className="mt-12 sm:mt-16 text-center flex justify-center">
+          <a
+            href="/products"
+            onClick={(e) => {
+              e.preventDefault();
+              if (onNavigate) {
+                onNavigate('products-landing', null, '/products');
+              }
+            }}
+            className="inline-flex items-center gap-2.5 bg-[#A94728] hover:bg-[#7E321F] text-white text-xs sm:text-sm font-extrabold uppercase tracking-widest px-8 sm:px-10 py-3.5 sm:py-4 rounded-sm shadow-xl hover:shadow-2xl transition-all duration-200 active:scale-95 group cursor-pointer border border-[#A94728]"
+          >
+            <span>All Products</span>
+            <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </a>
         </div>
       </div>
     </section>

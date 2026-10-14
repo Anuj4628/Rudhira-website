@@ -87,6 +87,25 @@ body {
   background: #7E321F;
 }
 
+/* Slim Sticky Sidebar Scrollbar */
+.sidebar-sticky-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #A94728 transparent;
+}
+.sidebar-sticky-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar-sticky-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-sticky-scroll::-webkit-scrollbar-thumb {
+  background: #A94728/40;
+  border-radius: 4px;
+}
+.sidebar-sticky-scroll::-webkit-scrollbar-thumb:hover {
+  background: #A94728;
+}
+
 /* Industrial Corner Brackets */
 .corner-bracket-tl {
   position: absolute;

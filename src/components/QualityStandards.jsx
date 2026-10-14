@@ -1,13 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FileCheck, Search, Ruler, Box } from 'lucide-react';
-import { QUALITY_STANDARDS_ITEMS } from '../data/industrialData';
+import { FileCheck, Search, Ruler, Box, ShieldCheck, Download, Eye, CheckCircle2, Award, ExternalLink } from 'lucide-react';
+import { QUALITY_STANDARDS_ITEMS, COMPANY_CERTIFICATES } from '../data/industrialData';
+import CertificateModal from './common/CertificateModal';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function QualityStandards() {
   const sectionRef = useRef(null);
+  const [certModalOpen, setCertModalOpen] = useState(false);
+  const [activeCertId, setActiveCertId] = useState('iso-9001-2015');
 
   const icons = [
     <FileCheck className="w-6 h-6 text-[#F4E5DC]" key="q1" />,
@@ -38,6 +41,11 @@ export default function QualityStandards() {
     return () => ctx.revert();
   }, []);
 
+  const handleOpenCert = (certId) => {
+    setActiveCertId(certId);
+    setCertModalOpen(true);
+  };
+
   return (
     <section
       id="quality"
@@ -67,8 +75,8 @@ export default function QualityStandards() {
           </p>
         </div>
 
-        {/* 4 Large Editorial Feature Modules (Not basic white Bootstrap cards) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        {/* 4 Large Editorial Feature Modules */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-20 sm:mb-24">
           {QUALITY_STANDARDS_ITEMS.map((item, index) => {
             const moduleBgs = [
               'bg-[#273845] border-white/20',
@@ -129,7 +137,124 @@ export default function QualityStandards() {
             );
           })}
         </div>
+
+        {/* ========================================================
+            OFFICIAL CERTIFICATES & ACCREDITATION SHOWCASE
+            ======================================================== */}
+        <div className="pt-12 border-t border-white/20">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-3">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#F4E5DC]" />
+              <span className="tech-label text-[#F4E5DC] font-bold text-xs">
+                OFFICIAL ACCREDITATIONS & VERIFIED DOCUMENTS
+              </span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3">
+              Certified Quality & Statutory Compliance
+            </h3>
+            <p className="text-sm sm:text-base text-[#E7EEF2]/85">
+              View and download our authenticated ISO 9001:2015 Quality Management System Certification and Government of India GST Registration Certificate.
+            </p>
+          </div>
+
+          {/* 2 Official Certificate Showcase Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {COMPANY_CERTIFICATES.map((cert) => (
+              <div
+                key={cert.id}
+                className="bg-[#202427] border-2 border-white/20 hover:border-[#A94728] rounded-xl p-6 sm:p-7 shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              >
+                {/* Accent Top Ribbon */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#A94728] via-[#F4E5DC] to-[#A94728]" />
+
+                <div>
+                  {/* Card Header */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#A94728]/20 border border-[#A94728]/50 text-[#F4E5DC] font-mono text-xs font-bold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                      <span>{cert.badge}</span>
+                    </div>
+
+                    <span className="text-[11px] font-mono text-white/60 tracking-wider">
+                      VERIFIED RECORD
+                    </span>
+                  </div>
+
+                  {/* Document Thumbnail Preview Frame */}
+                  <div
+                    onClick={() => handleOpenCert(cert.id)}
+                    className="relative w-full h-52 sm:h-60 bg-[#171A1C] rounded-lg border border-white/15 overflow-hidden mb-5 cursor-pointer group/img flex items-center justify-center p-2"
+                  >
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-contain filter contrast-105 group-hover/img:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-[#202427]/60 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-xs">
+                      <div className="inline-flex items-center gap-2 bg-[#A94728] text-white px-4 py-2 rounded-sm text-xs font-mono font-bold uppercase tracking-wider shadow-lg">
+                        <Eye className="w-4 h-4" />
+                        <span>Inspect Certificate</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Title & Metadata */}
+                  <h4 className="text-xl font-extrabold text-white mb-2 group-hover:text-[#F4E5DC] transition-colors">
+                    {cert.title}
+                  </h4>
+                  <p className="text-xs text-[#E7EEF2]/75 leading-relaxed mb-4">
+                    {cert.subtitle}
+                  </p>
+
+                  <div className="p-3 bg-white/5 rounded border border-white/10 space-y-1.5 font-mono text-xs mb-5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#E7EEF2]/60">Certificate / Reg No:</span>
+                      <strong className="text-[#F4E5DC]">{cert.certificateNo}</strong>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#E7EEF2]/60">Issuing Body:</span>
+                      <span className="text-white text-right truncate max-w-[200px]">{cert.issuingBody}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#E7EEF2]/60">Validity:</span>
+                      <span className="text-[#25D366] font-bold">{cert.expiryDate}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-3">
+                  <button
+                    type="button"
+                    onClick={() => handleOpenCert(cert.id)}
+                    className="inline-flex items-center gap-1.5 bg-[#A94728] hover:bg-[#7E321F] text-white px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-colors cursor-pointer shadow-md"
+                  >
+                    <Eye className="w-3.5 h-3.5" />
+                    <span>View Full Certificate</span>
+                  </button>
+
+                  <a
+                    href={cert.pdfUrl}
+                    download
+                    className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/25 text-[#F4E5DC] hover:text-white px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-colors"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Download PDF</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {/* Embedded Certificate Viewer Modal */}
+      <CertificateModal
+        isOpen={certModalOpen}
+        onClose={() => setCertModalOpen(false)}
+        initialCertId={activeCertId}
+      />
     </section>
   );
 }
+

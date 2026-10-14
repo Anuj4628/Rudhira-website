@@ -1,9 +1,24 @@
 import React from 'react';
 import { MATERIALS_LIST } from '../data/industrialData';
+import { getMaterialSeoSlug } from '../data/productsData';
 
-export default function MaterialsMarquee({ onSelectMaterial }) {
+export default function MaterialsMarquee({ onSelectMaterial, onNavigate }) {
   // Repeated twice to create an exact 50% loop for seamless infinite continuous slide
   const marqueeItems = [...MATERIALS_LIST, ...MATERIALS_LIST];
+
+  const getMaterialSlug = (name) => {
+    const clean = name.toLowerCase();
+    if (clean.includes('super duplex')) return 'super-duplex-stainless-steel';
+    if (clean.includes('duplex')) return 'duplex-stainless-steel';
+    if (clean.includes('stainless')) return 'stainless-steel';
+    if (clean.includes('carbon')) return 'carbon-steel';
+    if (clean.includes('high alloy')) return 'high-alloy-steel';
+    if (clean.includes('exotic')) return 'exotic-alloys';
+    if (clean.includes('nickel') || clean.includes('inconel') || clean.includes('monel') || clean.includes('hastelloy')) return 'nickel-alloys';
+    if (clean.includes('titanium')) return 'titanium';
+    if (clean.includes('alloy')) return 'alloy-steel';
+    return 'stainless-steel';
+  };
 
   return (
     <section
@@ -26,9 +41,18 @@ export default function MaterialsMarquee({ onSelectMaterial }) {
           Materials We Work With
         </h2>
 
-        <p className="text-base sm:text-lg lg:text-xl text-[#E7EEF2]/85 font-normal max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg lg:text-xl text-[#E7EEF2]/85 font-normal max-w-2xl mx-auto leading-relaxed mb-6">
           High Performance Alloys & Specialty Steel Grades. Certified inventory selected for demanding industrial applications and diverse engineering requirements.
         </p>
+
+        {onNavigate && (
+          <button
+            onClick={() => onNavigate('materials-landing', null, '/materials')}
+            className="inline-flex items-center gap-2 bg-white/10 hover:bg-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-sm border border-white/20 transition-all cursor-pointer"
+          >
+            <span>View All 9 Certified Material Families →</span>
+          </button>
+        )}
       </div>
 
       {/* CONTINUOUS MARQUEE BANNER WITH LOGO ORANGE CARDS */}
@@ -37,7 +61,14 @@ export default function MaterialsMarquee({ onSelectMaterial }) {
           {marqueeItems.map((mat, i) => (
             <div
               key={`mat-${i}`}
-              onClick={() => onSelectMaterial(mat)}
+              onClick={() => {
+                if (onNavigate) {
+                  const slug = getMaterialSlug(mat);
+                  onNavigate('material-family', null, `/materials/${getMaterialSeoSlug(slug)}`);
+                } else if (onSelectMaterial) {
+                  onSelectMaterial(mat);
+                }
+              }}
               className="inline-flex items-center gap-3 px-6 sm:px-8 py-4 sm:py-5 bg-[#A94728] hover:bg-[#90391D] border-2 border-[#F4E5DC]/30 hover:border-white text-white rounded-lg transition-all duration-200 cursor-pointer group shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-95"
             >
               <span className="text-[#F4E5DC] group-hover:text-white font-mono text-base sm:text-lg font-bold transition-colors">

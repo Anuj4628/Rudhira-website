@@ -3,16 +3,20 @@ import { Mail, MapPin, ArrowUpRight, Globe } from 'lucide-react';
 import { FaWhatsapp, FaPhone } from 'react-icons/fa6';
 import { COMPANY_DETAILS } from '../data/industrialData';
 
-export default function Footer({ onOpenEnquiry }) {
+export default function Footer({ onNavigate, onOpenEnquiry }) {
   const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
     COMPANY_DETAILS.whatsappDefaultMsg
   )}`;
 
-  const scrollTo = (e, id) => {
+  const handleFooterNav = (e, page, anchor = null) => {
     e.preventDefault();
-    const el = document.querySelector(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    if (onNavigate) {
+      onNavigate(page, anchor);
+    } else if (anchor) {
+      const el = document.querySelector(anchor);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -26,13 +30,18 @@ export default function Footer({ onOpenEnquiry }) {
           {/* Column 1: Brand & Credentials (5 cols) */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-5">
-              <div className="bg-white p-2 rounded-md inline-block shadow-sm">
+              <a
+                href="/"
+                onClick={(e) => handleFooterNav(e, 'home')}
+                className="bg-white p-2 rounded-md inline-block shadow-sm cursor-pointer hover:opacity-95 transition-opacity"
+                aria-label="Rudhira Metal Industries - Home"
+              >
                 <img
                   src="/assets/rudhira-logo.png"
                   alt="Rudhira Metal Industries Logo"
                   className="h-10 sm:h-11 w-auto object-contain"
                 />
-              </div>
+              </a>
             </div>
 
             <p className="text-sm text-[#D9D9D6] leading-relaxed mb-5 max-w-md">
@@ -43,9 +52,17 @@ export default function Footer({ onOpenEnquiry }) {
               <div className="tech-label text-[10px] text-[#A94728] mb-1 font-bold">
                 COMMERCIAL SCOPE // VISITING CARD DETAILS
               </div>
-              <p className="text-xs font-mono text-[#E7EEF2]/80 leading-relaxed">
+              <p className="text-xs font-mono text-[#E7EEF2]/80 leading-relaxed mb-2">
                 {COMPANY_DETAILS.specialization}
               </p>
+              <div className="pt-2 border-t border-white/10 flex flex-wrap items-center gap-2 text-[11px] font-mono text-[#F4E5DC]">
+                <span className="inline-flex items-center gap-1 bg-[#A94728]/30 px-2 py-0.5 rounded border border-[#A94728]/40">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]" />
+                  ISO 9001:2015 CERTIFIED
+                </span>
+                <span className="text-white/40">•</span>
+                <span>GSTIN: {COMPANY_DETAILS.gstin}</span>
+              </div>
             </div>
           </div>
 
@@ -57,8 +74,8 @@ export default function Footer({ onOpenEnquiry }) {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="#hero"
-                  onClick={(e) => scrollTo(e, '#hero')}
+                  href="/"
+                  onClick={(e) => handleFooterNav(e, 'home', '#hero')}
                   className="text-white/80 hover:text-[#A94728] transition-colors flex items-center gap-1.5"
                 >
                   <span className="text-[#A94728] text-xs">›</span> Home
@@ -66,8 +83,8 @@ export default function Footer({ onOpenEnquiry }) {
               </li>
               <li>
                 <a
-                  href="#why-us"
-                  onClick={(e) => scrollTo(e, '#why-us')}
+                  href="/about"
+                  onClick={(e) => handleFooterNav(e, 'about')}
                   className="text-white/80 hover:text-[#A94728] transition-colors flex items-center gap-1.5"
                 >
                   <span className="text-[#A94728] text-xs">›</span> About Us
@@ -75,35 +92,44 @@ export default function Footer({ onOpenEnquiry }) {
               </li>
               <li>
                 <a
-                  href="#products"
-                  onClick={(e) => scrollTo(e, '#products')}
+                  href="/products"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) onNavigate('products-landing', null, '/products');
+                  }}
                   className="text-white/80 hover:text-[#A94728] transition-colors flex items-center gap-1.5"
                 >
-                  <span className="text-[#A94728] text-xs">›</span> Products
+                  <span className="text-[#A94728] text-xs">›</span> Product
                 </a>
               </li>
               <li>
                 <a
-                  href="#materials"
-                  onClick={(e) => scrollTo(e, '#materials')}
+                  href="/materials"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) onNavigate('materials-landing', null, '/materials');
+                  }}
                   className="text-white/80 hover:text-[#A94728] transition-colors flex items-center gap-1.5"
                 >
-                  <span className="text-[#A94728] text-xs">›</span> Materials
+                  <span className="text-[#A94728] text-xs">›</span> Material
                 </a>
               </li>
               <li>
                 <a
-                  href="#quality"
-                  onClick={(e) => scrollTo(e, '#quality')}
+                  href="/certificates"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) onNavigate('certificates', null, '/certificates');
+                  }}
                   className="text-white/80 hover:text-[#A94728] transition-colors flex items-center gap-1.5"
                 >
-                  <span className="text-[#A94728] text-xs">›</span> Certificates & Quality
+                  <span className="text-[#A94728] text-xs">›</span> Certificates
                 </a>
               </li>
               <li>
                 <a
-                  href="#footer"
-                  onClick={(e) => scrollTo(e, '#footer')}
+                  href="/contact"
+                  onClick={(e) => handleFooterNav(e, 'contact')}
                   className="text-white/80 hover:text-[#A94728] transition-colors flex items-center gap-1.5"
                 >
                   <span className="text-[#A94728] text-xs">›</span> Contact

@@ -1,0 +1,183 @@
+import React, { useState, useEffect } from 'react';
+import {
+  Factory,
+  Layers,
+  ArrowUpRight,
+  Search,
+  CheckCircle2,
+  Filter,
+  ArrowRight,
+  ShieldCheck
+} from 'lucide-react';
+import Breadcrumbs from '../../components/common/Breadcrumbs';
+import { PRODUCT_CATEGORIES, getProductSeoSlug } from '../../data/productsData';
+
+export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
+  const [selectedDivision, setSelectedDivision] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const filteredProducts = PRODUCT_CATEGORIES.filter((prod) => {
+    const matchesDivision =
+      selectedDivision === 'All' || prod.division === selectedDivision;
+    const matchesSearch =
+      prod.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      prod.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      prod.standards.some((s) => s.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesDivision && matchesSearch;
+  });
+
+  return (
+    <div className="pt-[88px] sm:pt-[96px] lg:pt-[104px] bg-[#F8F5F1] min-h-screen">
+      {/* Breadcrumb Navigation */}
+      <Breadcrumbs
+        items={[{ label: 'Products Directory', href: '/products' }]}
+        onNavigate={onNavigate}
+      />
+
+      {/* Hero Section */}
+      <section className="bg-[#202427] text-white py-16 sm:py-20 relative overflow-hidden border-b border-[#D9D9D6]">
+        <div className="absolute inset-0 bg-dark-grid-pattern opacity-25 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
+            <span className="tech-label text-xs font-bold text-[#F4E5DC] tracking-widest uppercase">
+              INDUSTRIAL PRODUCT CATALOG // 18 CATEGORIES
+            </span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Complete Industrial Metal Products Directory
+          </h1>
+
+          <p className="text-base sm:text-lg text-[#D9D9D6]/85 max-w-3xl leading-relaxed mb-8">
+            Manufactured and stocked in strict compliance with ASME, ASTM, and DIN standards. Explore our full range of piping components, forged flanges, fittings, structural bars, and flat-rolled materials.
+          </p>
+
+          {/* Search & Filter Toolbar */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-white/5 p-3 rounded-lg border border-white/10 max-w-4xl">
+            {/* Filter Buttons */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
+              {['All', 'Manufacturer', 'Supplier'].map((div) => (
+                <button
+                  key={div}
+                  onClick={() => setSelectedDivision(div)}
+                  className={`px-4 py-2 rounded text-xs font-bold font-mono tracking-wider transition-all whitespace-nowrap cursor-pointer ${
+                    selectedDivision === div
+                      ? 'bg-[#A94728] text-white shadow-sm'
+                      : 'bg-white/10 text-white/80 hover:bg-white/20 hover:text-white'
+                  }`}
+                >
+                  {div === 'All' ? 'ALL PRODUCTS (18)' : `${div.toUpperCase()} DIVISION (9)`}
+                </button>
+              ))}
+            </div>
+
+            {/* Search Input */}
+            <div className="relative flex-1 sm:max-w-xs">
+              <Search className="w-4 h-4 text-white/50 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                placeholder="Search products or standards..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-9 pr-3 py-2 bg-white/10 border border-white/20 rounded text-xs text-white placeholder-white/50 focus:outline-none focus:border-[#A94728]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Grid */}
+      <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#D9D9D6]">
+          <div className="text-xs font-mono font-bold text-[#202427]">
+            SHOWING <span className="text-[#A94728]">{filteredProducts.length}</span> CATEGORIES
+          </div>
+          <div className="text-xs text-[#202427]/60 font-mono">
+            CLICK ANY PRODUCT TO VIEW APPLICABLE MATERIALS & GRADES
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredProducts.map((prod) => (
+            <div
+              key={prod.id}
+              className="group bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-lg overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                {/* Image Header with Division Badge */}
+                <div className="relative h-56 sm:h-60 overflow-hidden bg-black/10">
+                  <img
+                    src={prod.defaultImage}
+                    alt={prod.name}
+                    className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-106"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <span
+                      className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow-sm ${
+                        prod.division === 'Manufacturer'
+                          ? 'bg-[#A94728] text-white'
+                          : 'bg-[#202427] text-white'
+                      }`}
+                    >
+                      {prod.division.toUpperCase()}
+                    </span>
+                    {prod.hasTypes && (
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-white text-[#202427] shadow-sm">
+                        DEDICATED TYPES
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-xl font-extrabold text-[#202427] group-hover:text-[#A94728] transition-colors mb-2">
+                    {prod.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#202427]/75 leading-relaxed mb-4 line-clamp-2">
+                    {prod.shortDesc}
+                  </p>
+
+                  {/* Size Range & Standards Strip */}
+                  <div className="p-3 bg-[#F8F5F1] rounded border border-[#D9D9D6] space-y-1 text-xs font-mono mb-4">
+                    <div className="text-[11px] text-[#202427]/70 truncate">
+                      <span className="font-bold text-[#202427]">Sizes:</span> {prod.sizeRange}
+                    </div>
+                    <div className="text-[11px] text-[#A94728] font-bold truncate">
+                      <span>Standards:</span> {prod.standards.slice(0, 3).join(', ')}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="p-5 sm:p-6 pt-0 border-t border-[#D9D9D6]/60 mt-auto flex items-center justify-between gap-3">
+                <button
+                  onClick={() => onNavigate('product-category', null, `/products/${getProductSeoSlug(prod.slug)}`)}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A94728] hover:text-[#7E321F] uppercase font-mono tracking-wider cursor-pointer group-hover:underline"
+                >
+                  <span>Select Materials & Grades</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </button>
+
+                <button
+                  onClick={() => onOpenEnquiry(prod.name, '')}
+                  className="inline-flex items-center gap-1 bg-[#202427] hover:bg-[#A94728] text-white text-[11px] font-bold px-3 py-1.5 rounded transition-colors cursor-pointer"
+                >
+                  <span>RFQ</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}

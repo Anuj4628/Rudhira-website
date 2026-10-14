@@ -50,6 +50,10 @@ export const COMPANY_DETAILS = {
   ],
   phone: "+91 96198 06901",
   secondaryPhone: "+91 79775 67294",
+  isoCertification: "ISO 9001:2015",
+  isoCertNo: "26DQQC40",
+  gstin: "27BXMPP3576J1ZQ",
+  registrationAddress: "Ground Floor, A1, Plot-288/290, Momin Building, Falkland Road 3rd Lane, Khetwadi, Girgaon, Mumbai - 400 004, Maharashtra, India.",
   contacts: [
     {
       name: "Bharat Kumar",
@@ -504,3 +508,41 @@ export const QUALITY_STANDARDS_ITEMS = [
     accent: "bg-[#344B5C]"
   }
 ];
+
+export const COMPANY_CERTIFICATES = [
+  {
+    id: "iso-9001-2015",
+    type: "ISO CERTIFICATION",
+    badge: "ISO 9001:2015",
+    title: "ISO 9001:2015 Quality Management System",
+    subtitle: "Certificate of Registration — Quality Management System",
+    certificateNo: "26DQQC40",
+    issuingBody: "ROHS Certification Pvt. Ltd.",
+    accreditation: "EIAC (Emirates International Accreditation Centre) CB-QMS-035 & IAF MLA Member",
+    issueDate: "19/08/2026",
+    expiryDate: "18/08/2029",
+    scope: "Manufacturer of Flanges and Supplier of Carbon Steel, Alloy Steel, Stainless Steel, Pipe Fittings, Forge Fittings, Nickel, Titanium, Copper, Brass and Bars, Valves, Ferrous & Non-Ferrous Metals Fasteners, Pipes, Plates, Coil.",
+    image: "/certificates/iso-9001-2015-certificate.png",
+    pdfUrl: "/certificates/iso-9001-2015-certificate.pdf",
+    tags: ["ISO 9001:2015", "IAF MLA Member", "EIAC Accredited", "QMS Certified"]
+  },
+  {
+    id: "gst-registration",
+    type: "GOVERNMENT REGISTRATION",
+    badge: "GST REG-06",
+    title: "GST Registration Certificate",
+    subtitle: "Government of India — Form GST REG-06 [See Rule 10(1)]",
+    certificateNo: "27BXMPP3576J1ZQ",
+    legalName: "BHARAT KUMAR",
+    tradeName: "Rudhira Metal Industries",
+    issuingBody: "Goods and Services Tax Network, Government of India",
+    jurisdiction: "State of Maharashtra, Mumbai Central",
+    issueDate: "04/08/2026",
+    expiryDate: "Regular / Valid Ongoing",
+    scope: "Principal Place of Business: Ground Floor, A1, Plot-288/290, Momin Building, Falkland Road 3rd Lane, Khetwadi, Girgaon, Mumbai - 400 004, Maharashtra, India.",
+    image: "/certificates/gst-registration-certificate-page-1.png",
+    pdfUrl: "/certificates/gst-registration-certificate.pdf",
+    tags: ["GSTIN: 27BXMPP3576J1ZQ", "Govt. of India", "Tax Verified", "Form GST REG-06"]
+  }
+];
+
