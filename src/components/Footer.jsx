@@ -33,13 +33,13 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
               <a
                 href="/"
                 onClick={(e) => handleFooterNav(e, 'home')}
-                className="bg-white p-2 rounded-md inline-block shadow-sm cursor-pointer hover:opacity-95 transition-opacity"
+                className="inline-block cursor-pointer hover:opacity-95 transition-opacity"
                 aria-label="Rudhira Metal Industries - Home"
               >
                 <img
                   src="/assets/rudhira-logo.png"
                   alt="Rudhira Metal Industries Logo"
-                  className="h-10 sm:h-11 w-auto object-contain"
+                  className="h-18 sm:h-22 lg:h-24 w-auto object-contain"
                 />
               </a>
             </div>

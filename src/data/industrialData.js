@@ -2,10 +2,10 @@
 // Redesigned with user-supplied assets, 25 export countries, partner SVGs, and brand color rhythm
 
 // Import matching high-definition Hero backgrounds corresponding directly to content
-import heroPipesImg from '../assets/Product BG/precision-pipes-tubes-hero-bg.png';
+import heroPipesImg from '../assets/Product BG/industrial-steel-pipes-hero-bg.jpg';
 import heroFlangesImg from '../assets/Product BG/forged-flanges-fittings-hero-bg.jpg';
 import heroPlatesCoilsImg from '../assets/Product BG/heavy-engineering-hero-bg.jpg';
-import heroBarsAlloysImg from '../assets/Product BG/superior round and bars engineeres to be perfomed.png';
+import heroBarsAlloysImg from '../assets/Product BG/precision-round-bars-hero-bg.jpg';
 
 // Import user-provided Product images
 import pipesShowcase from '../assets/New Product img/Pipes/pipes-showcase.jpg';

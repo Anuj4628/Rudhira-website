@@ -4,68 +4,14 @@ import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, ShieldCheck } from
 
 // Crystal-clear industrial image assets (preserved exactly)
 import heroPlatesCoilsImg from '../assets/Product BG/heavy-engineering-hero-bg.jpg';
-import heroPipesImg from '../assets/Product BG/precision-pipes-tubes-hero-bg.png';
-import heroBarsAlloysImg from '../assets/Product BG/superior round and bars engineeres to be perfomed.png';
+import heroPipesImg from '../assets/Product BG/industrial-steel-pipes-hero-bg.jpg';
+import heroBarsAlloysImg from '../assets/Product BG/precision-round-bars-hero-bg.jpg';
 import heroFlangesImg from '../assets/Product BG/forged-flanges-fittings-hero-bg.jpg';
 
 // Four slides adhering to the exact advertisement design system
 const HERO_SLIDES_DATA = [
   {
     id: "01",
-    focus: "Heavy Engineering Plates",
-    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
-    darkBadge: "INDUSTRIAL METAL PRODUCTS",
-    mainHeading: "HEAVY ENGINEERING PLATES",
-    supportingLine: "SHEETS • PLATES • COILS",
-    techHeader: "STAINLESS STEEL STOCK",
-    techSpecs: "SS 304 • 304L • 316 • 316L • 321 • 310S • DUPLEX 2205",
-    techFinish: "HOT & COLD ROLLED • PRECISION FINISH",
-    adPromoEyebrow: "SPECIFIED STOCK",
-    adPromoTitle: "CUSTOM CUT SIZES",
-    badgeLine1: "PRIME",
-    badgeLine2: "QUALITY",
-    badgeLine3: "100% PMI",
-    image: heroPlatesCoilsImg,
-    alt: "Heavy engineering plates, coils and industrial steel stock"
-  },
-  {
-    id: "02",
-    focus: "Industrial Steel Coils",
-    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
-    darkBadge: "INDUSTRIAL METAL PRODUCTS",
-    mainHeading: "INDUSTRIAL STEEL COILS",
-    supportingLine: "PRECISION ROLLED METAL STOCK",
-    techHeader: "STAINLESS STEEL & ALLOY COILS",
-    techSpecs: "SS 304 • 316L • 321H • DUPLEX 2205 • 310S",
-    techFinish: "AVAILABLE GRADES AND FINISHES PER EN 10204 3.1",
-    adPromoEyebrow: "SLIT SPECIFICATION",
-    adPromoTitle: "PRECISION SLIT COILS",
-    badgeLine1: "PRIME",
-    badgeLine2: "STOCK",
-    badgeLine3: "CERTIFIED",
-    image: heroPipesImg,
-    alt: "Industrial stainless steel coils and slit strips"
-  },
-  {
-    id: "03",
-    focus: "Precision Round Bars",
-    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
-    darkBadge: "INDUSTRIAL METAL PRODUCTS",
-    mainHeading: "PRECISION ROUND BARS",
-    supportingLine: "ROUND • HEX • FLAT BARS",
-    techHeader: "ENGINEERED METAL STOCK FOR INDUSTRIAL APPLICATIONS",
-    techSpecs: "SS 304 / 316L • 17-4PH • DUPLEX 2205 • INCONEL",
-    techFinish: "CENTERLESS GROUND • 3MM TO 450MM DIAMETER",
-    adPromoEyebrow: "TOLERANCE GROUND",
-    adPromoTitle: "BRIGHT GROUND BARS",
-    badgeLine1: "READY",
-    badgeLine2: "STOCK",
-    badgeLine3: "H9 / H11",
-    image: heroBarsAlloysImg,
-    alt: "Superior precision round bars and structural steel stock"
-  },
-  {
-    id: "04",
     focus: "Custom Product Requirements",
     topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
     darkBadge: "INDUSTRIAL METAL PRODUCTS",
@@ -81,23 +27,80 @@ const HERO_SLIDES_DATA = [
     badgeLine3: "DESK",
     image: heroFlangesImg,
     alt: "Custom cut stainless steel profiles and forged fittings"
+  },
+  {
+    id: "02",
+    focus: "Industrial Steel Pipes",
+    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
+    darkBadge: "INDUSTRIAL METAL PRODUCTS",
+    mainHeading: "INDUSTRIAL STEEL PIPES",
+    supportingLine: "SEAMLESS • WELDED • ERW PIPES",
+    techHeader: "STAINLESS STEEL & ALLOY PIPES",
+    techSpecs: "SS 304 • 316L • 321H • DUPLEX 2205 • INCONEL",
+    techFinish: "AVAILABLE IN ASTM A312 / A358 • SCH 10S TO SCH XXS",
+    adPromoEyebrow: "PIPE SPECIFICATION",
+    adPromoTitle: "SEAMLESS & ERW PIPES",
+    badgeLine1: "PRIME",
+    badgeLine2: "PIPES",
+    badgeLine3: "100% PMI",
+    image: heroPipesImg,
+    alt: "Industrial steel pipes, seamless tubes and ERW piping stock"
+  },
+  {
+    id: "03",
+    focus: "Heavy Engineering Plates",
+    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
+    darkBadge: "INDUSTRIAL METAL PRODUCTS",
+    mainHeading: "HEAVY ENGINEERING PLATES",
+    supportingLine: "SHEETS • PLATES • STRUCTURAL STEEL",
+    techHeader: "STAINLESS STEEL STOCK",
+    techSpecs: "SS 304 • 304L • 316 • 316L • 321 • 310S • DUPLEX 2205",
+    techFinish: "HOT & COLD ROLLED • PRECISION FINISH",
+    adPromoEyebrow: "SPECIFIED STOCK",
+    adPromoTitle: "CUSTOM CUT SIZES",
+    badgeLine1: "PRIME",
+    badgeLine2: "QUALITY",
+    badgeLine3: "100% PMI",
+    image: heroPlatesCoilsImg,
+    alt: "Heavy engineering plates, sheets and industrial steel stock"
+  },
+  {
+    id: "04",
+    focus: "Precision Round Bars",
+    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
+    darkBadge: "INDUSTRIAL METAL PRODUCTS",
+    mainHeading: "PRECISION ROUND BARS",
+    supportingLine: "ROUND • HEX • FLAT BARS",
+    techHeader: "ENGINEERED METAL STOCK FOR INDUSTRIAL APPLICATIONS",
+    techSpecs: "SS 304 / 316L • 17-4PH • DUPLEX 2205 • INCONEL",
+    techFinish: "CENTERLESS GROUND • 3MM TO 450MM DIAMETER",
+    adPromoEyebrow: "TOLERANCE GROUND",
+    adPromoTitle: "BRIGHT GROUND BARS",
+    badgeLine1: "READY",
+    badgeLine2: "STOCK",
+    badgeLine3: "H9 / H11",
+    image: heroBarsAlloysImg,
+    alt: "Superior precision round bars, hex bars and structural steel stock"
   }
 ];
 
 export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const slideDuration = 7000;
+  const [isPlaying] = useState(true);
+  const [slideDirection, setSlideDirection] = useState('next');
+  const slideDuration = 4500; // Fast, energetic 4.5s tenure per slide
 
   const slidesContainerRef = useRef(null);
   const touchStartXRef = useRef(null);
   const autoPlayTimerRef = useRef(null);
 
   const nextSlide = useCallback(() => {
+    setSlideDirection('next');
     setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES_DATA.length);
   }, []);
 
   const prevSlide = useCallback(() => {
+    setSlideDirection('prev');
     setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES_DATA.length) % HERO_SLIDES_DATA.length);
   }, []);
 
@@ -111,7 +114,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide, prevSlide]);
 
-  // Autoplay timer with pause on hover
+  // Autoplay timer runs continuously without pause on hover
   useEffect(() => {
     if (isPlaying) {
       autoPlayTimerRef.current = setInterval(() => {
@@ -123,18 +126,25 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
     };
   }, [isPlaying, nextSlide, currentSlide]);
 
-  // Subtle entrance animation on slide change
+  // Smooth staggered slide-in animation on slide change
   useEffect(() => {
     const ctx = gsap.context(() => {
+      const xOffset = slideDirection === 'next' ? 45 : -45;
       gsap.fromTo(
-        `.ad-graphic-block`,
-        { opacity: 0, x: 20 },
-        { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out' }
+        '.hero-slide-anim',
+        { opacity: 0, x: xOffset },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.65,
+          stagger: 0.07,
+          ease: 'power3.out'
+        }
       );
     }, slidesContainerRef);
 
     return () => ctx.revert();
-  }, [currentSlide]);
+  }, [currentSlide, slideDirection]);
 
   const handleTouchStart = (e) => {
     touchStartXRef.current = e.touches[0].clientX;
@@ -158,33 +168,38 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
       className="relative w-full min-h-[580px] lg:h-[100dvh] lg:min-h-[620px] lg:max-h-[860px] bg-[#0c0f12] select-none flex flex-col justify-center pt-20 sm:pt-24 lg:pt-[85px] pb-20 sm:pb-24 lg:pb-0 overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      onMouseEnter={() => setIsPlaying(false)}
-      onMouseLeave={() => setIsPlaying(true)}
       aria-label="Rudhira Metal Industries Hero Advertisement Slider"
     >
-      {/* 1. FULL-WIDTH BACKGROUND INDUSTRIAL PHOTOGRAPHY */}
+      {/* 1. FULL-WIDTH BACKGROUND INDUSTRIAL PHOTOGRAPHY WITH ROOM MOVEMENT */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-        {HERO_SLIDES_DATA.map((item, index) => (
-          <div
-            key={item.id}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              index === currentSlide ? 'opacity-100 z-0' : 'opacity-0 -z-10'
-            }`}
-          >
-            <img
-              src={item.image}
-              alt={item.alt}
-              className="w-full h-full object-cover object-center sm:object-[40%_center] lg:object-center"
-              loading={index === 0 ? 'eager' : 'lazy'}
-            />
-          </div>
-        ))}
+        {HERO_SLIDES_DATA.map((item, index) => {
+          const isActive = index === currentSlide;
+          return (
+            <div
+              key={item.id}
+              className={`absolute inset-0 transition-opacity duration-700 ease-out overflow-hidden ${
+                isActive
+                  ? 'opacity-100 z-0'
+                  : 'opacity-0 pointer-events-none -z-10'
+              }`}
+            >
+              <img
+                key={`${item.id}-${isActive}`}
+                src={item.image}
+                alt={item.alt}
+                className={`w-full h-full object-cover object-center sm:object-[35%_center] lg:object-center ${
+                  isActive ? 'hero-room-active' : ''
+                }`}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+            </div>
+          );
+        })}
 
-        {/* Localized right-side directional gradient: keeps left steel photography bright & visible, while ensuring right-hand ad text is ultra-crisp */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/45 to-[#0c0f12]/85 z-[1]" />
+        {/* Fully clear background without any black overlays */}
       </div>
 
-      {/* 2. ADVERTISEMENT GRAPHIC COMPOSITION */}
+      {/* 2. ADVERTISEMENT GRAPHIC COMPOSITION WITH STAGGERED SLIDE-IN */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-4 sm:py-6">
         <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
           
@@ -192,10 +207,10 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
           <div className="hidden lg:block lg:flex-1" />
 
           {/* Right Column: Advertisement Design Layout Cluster */}
-          <div className="ad-graphic-block w-full lg:w-[620px] xl:w-[680px] 2xl:w-[720px] lg:ml-auto flex flex-col items-start text-left">
+          <div className="w-full lg:w-[620px] xl:w-[680px] 2xl:w-[720px] lg:ml-auto flex flex-col items-start text-left">
             
             {/* A. TOP PROMOTIONAL RIBBON */}
-            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3.5 w-full">
+            <div className="hero-slide-anim flex flex-wrap items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3.5 w-full">
               <div
                 className="bg-[#C34B2B] text-white text-xs sm:text-xs md:text-sm font-black tracking-wider uppercase px-4 sm:px-5 py-1.5 sm:py-2 shadow-lg relative inline-block"
                 style={{
@@ -212,17 +227,17 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
             </div>
 
             {/* B. MAIN PRODUCT HEADLINE */}
-            <div className="mb-3 sm:mb-3.5">
-              <h1 className="text-2xl sm:text-4xl lg:text-[40px] xl:text-[46px] 2xl:text-[50px] font-black text-white tracking-tight uppercase leading-[1.08] drop-shadow-sm">
+            <div className="hero-slide-anim mb-3 sm:mb-3.5">
+              <h1 className="text-2xl sm:text-4xl lg:text-[40px] xl:text-[46px] 2xl:text-[50px] font-black text-white tracking-tight uppercase leading-[1.08] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] [text-shadow:_0_3px_12px_rgba(0,0,0,0.85)]">
                 {slide.mainHeading}
               </h1>
-              <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-[#E05A36] tracking-wide uppercase mt-1">
+              <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-[#E05A36] tracking-wide uppercase mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">
                 {slide.supportingLine}
               </div>
             </div>
 
             {/* C. COMPACT TECHNICAL PRODUCT DETAILS */}
-            <div className="w-full bg-[#111417]/92 backdrop-blur-md border-l-4 border-l-[#C34B2B] border-y border-r border-white/15 p-3.5 sm:p-4 mb-3.5 sm:mb-4 shadow-xl">
+            <div className="hero-slide-anim w-full bg-[#111417]/92 backdrop-blur-md border-l-4 border-l-[#C34B2B] border-y border-r border-white/15 p-3.5 sm:p-4 mb-3.5 sm:mb-4 shadow-xl">
               <div className="text-[11px] sm:text-xs font-mono font-bold text-[#E05A36] uppercase tracking-wider mb-1">
                 {slide.techHeader}
               </div>
@@ -235,7 +250,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
             </div>
 
             {/* D. ADVERTISEMENT-STYLE GRAPHIC BADGES */}
-            <div className="flex items-center w-full max-w-[480px] sm:max-w-[520px] mb-4 sm:mb-5 relative">
+            <div className="hero-slide-anim flex items-center w-full max-w-[480px] sm:max-w-[520px] mb-4 sm:mb-5 relative">
               {/* Angled Gold Bar */}
               <div
                 className="flex-1 bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-white py-2 sm:py-2.5 px-5 sm:px-7 shadow-lg"
@@ -266,7 +281,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
             </div>
 
             {/* E. CTA BUTTONS */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-3.5">
+            <div className="hero-slide-anim flex flex-wrap items-center gap-3 sm:gap-3.5">
               {/* Primary Solid Terracotta Button */}
               <button
                 type="button"
@@ -298,6 +313,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
           </div>
         </div>
       </div>
+
 
       {/* 3. FUNCTIONAL LEFT AND RIGHT SIDE SLIDER ARROWS */}
       <button

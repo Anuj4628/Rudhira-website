@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowUpRight, Mail, MapPin, ChevronDown, ShieldCheck } from 'lucide-react';
 import { FaWhatsapp, FaPhone } from 'react-icons/fa6';
-import { COMPANY_DETAILS } from '../data/industrialData';
+import { COMPANY_DETAILS, COMPANY_CERTIFICATES } from '../data/industrialData';
 import ProductMegaMenu from './mega-menu/ProductMegaMenu';
 import MaterialsMegaMenu from './mega-menu/MaterialsMegaMenu';
 import CertificatesMegaMenu from './mega-menu/CertificatesMegaMenu';
@@ -22,12 +22,15 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
+  const headerRef = useRef(null);
   const productTimeoutRef = useRef(null);
   const materialTimeoutRef = useRef(null);
   const certificatesTimeoutRef = useRef(null);
 
   const handleProductMouseEnter = () => {
     if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
+    if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
+    if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
     setMaterialsMegaOpen(false);
     setCertificatesMegaOpen(false);
     setProductMegaOpen(true);
@@ -36,11 +39,13 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const handleProductMouseLeave = () => {
     productTimeoutRef.current = setTimeout(() => {
       setProductMegaOpen(false);
-    }, 220);
+    }, 200);
   };
 
   const handleMaterialMouseEnter = () => {
+    if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
     if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
+    if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
     setProductMegaOpen(false);
     setCertificatesMegaOpen(false);
     setMaterialsMegaOpen(true);
@@ -49,10 +54,12 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const handleMaterialMouseLeave = () => {
     materialTimeoutRef.current = setTimeout(() => {
       setMaterialsMegaOpen(false);
-    }, 220);
+    }, 200);
   };
 
   const handleCertificatesMouseEnter = () => {
+    if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
+    if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
     if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
     setProductMegaOpen(false);
     setMaterialsMegaOpen(false);
@@ -62,7 +69,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const handleCertificatesMouseLeave = () => {
     certificatesTimeoutRef.current = setTimeout(() => {
       setCertificatesMegaOpen(false);
-    }, 220);
+    }, 200);
   };
 
   const closeAllMenus = () => {
@@ -75,6 +82,27 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     setMobileMenuOpen(false);
     setHoveredIndex(null);
   };
+
+  // Close menus on Escape key or outside click
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        closeAllMenus();
+      }
+    };
+    const handleClickOutside = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) {
+        closeAllMenus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -118,9 +146,6 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     return false;
   };
 
-
-
-
   const handleNavClick = (e, link) => {
     e.preventDefault();
     closeAllMenus();
@@ -146,6 +171,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     <>
       {/* Fixed Architectural Industrial Header */}
       <header
+        ref={headerRef}
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         onMouseLeave={() => {
           handleProductMouseLeave();
@@ -159,13 +185,13 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
             
             {/* 1. Left: Contrasting White Angled Location Block */}
-            <div className="relative bg-white text-[#A94728] py-2 pl-4 sm:pl-6 pr-8 sm:pr-10 flex items-center gap-2 text-xs sm:text-[13px] font-sans font-bold [clip-path:polygon(0_0,100%_0,calc(100%-18px)_100%,0_100%)] shadow-xs flex-shrink-0">
+            <div className="relative bg-white text-[#A94728] py-1 pl-4 sm:pl-5 pr-7 sm:pr-9 flex items-center gap-1.5 text-xs font-sans font-bold [clip-path:polygon(0_0,100%_0,calc(100%-16px)_100%,0_100%)] shadow-xs flex-shrink-0">
               <MapPin className="w-3.5 h-3.5 text-[#A94728] flex-shrink-0 stroke-[2.2]" />
               <span className="whitespace-nowrap">Khetwadi, Mumbai - 400 004</span>
             </div>
 
             {/* Right Row: 2. ISO Badge | 3. Email | 4. Bharat | 5. Navin */}
-            <div className="flex items-center gap-3.5 lg:gap-5 pr-4 sm:pr-6 lg:pr-8 py-2 text-xs sm:text-[13px] font-sans text-white">
+            <div className="flex items-center gap-3.5 lg:gap-4.5 pr-4 sm:pr-6 lg:pr-8 py-1 text-xs font-sans text-white">
               
               {/* 2. ISO 9001:2015 Certification with Reference */}
               <button
@@ -179,7 +205,6 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-white group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span className="whitespace-nowrap">ISO 9001:2015 CERTIFIED</span>
-                <span className="text-white/80 text-[11px] font-normal">#26DQQC40</span>
               </button>
 
               <span className="text-white/40">|</span>
@@ -249,15 +274,15 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
           </div>
         </div>
 
-        {/* MAIN NAVIGATION BAR (Crisp White Background Following Image 1 Layout) */}
+        {/* MAIN NAVIGATION BAR (Crisp White Background, Compact & Premium) */}
         <div
           className={`transition-all duration-300 relative bg-white border-b border-gray-200/90 ${
-            isScrolled ? 'shadow-md py-1.5 sm:py-2' : 'py-2.5 sm:py-3 shadow-xs'
+            isScrolled ? 'shadow-md py-1.5' : 'py-2 sm:py-2.5 shadow-xs'
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             
-            {/* LEFT: Prominent Rudhira Metal Logo with Generous Breathing Room */}
+            {/* LEFT: Rudhira Metal Logo */}
             <div className="flex items-center">
               <a
                 href="/"
@@ -272,21 +297,21 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                 <img
                   src="/assets/rudhira-logo.png"
                   alt="Rudhira Metal Industries Logo"
-                  className={`w-auto object-contain transition-all duration-300 ${
+                  className={`w-auto object-contain transition-all duration-300 origin-left ${
                     isScrolled
-                      ? 'h-13 sm:h-[54px] lg:h-[66px] xl:h-[72px]'
-                      : 'h-15 sm:h-[62px] lg:h-[74px] xl:h-[80px]'
+                      ? 'h-12 sm:h-14 lg:h-16 xl:h-[68px]'
+                      : 'h-16 sm:h-20 lg:h-24 xl:h-[96px]'
                   }`}
                   loading="eager"
                 />
               </a>
             </div>
 
-            {/* RIGHT SIDE: Navigation Items + GET A QUOTE Button (Grouped Right like Image 1) */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+            {/* RIGHT SIDE: Navigation Items + GET A QUOTE Button */}
+            <div className="hidden lg:flex items-center gap-5 xl:gap-7">
               
               <nav
-                className="flex items-center gap-6 xl:gap-8"
+                className="flex items-center gap-5 xl:gap-7"
                 aria-label="Main Navigation"
                 onMouseLeave={() => setHoveredIndex(null)}
               >
@@ -303,7 +328,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   return (
                     <div
                       key={link.name}
-                      className="relative py-2 select-none group"
+                      className="relative py-1.5 select-none group"
                       onMouseEnter={() => {
                         setHoveredIndex(index);
                         if (link.isMega === 'product') handleProductMouseEnter();
@@ -319,7 +344,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link)}
-                        className={`inline-flex items-center gap-1.5 text-[15px] xl:text-[16px] font-bold font-sans tracking-tight transition-colors duration-200 cursor-pointer ${
+                        aria-expanded={link.isMega ? isOpen : undefined}
+                        aria-haspopup={link.isMega ? 'menu' : undefined}
+                        className={`inline-flex items-center gap-1.5 text-[14.5px] xl:text-[15.5px] font-bold font-sans tracking-tight transition-colors duration-200 cursor-pointer ${
                           isTarget || isOpen
                             ? 'text-[#A94728]'
                             : 'text-[#171A1C] hover:text-[#A94728]'
@@ -341,40 +368,91 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
                       {/* Brand-Colored Subtle Underline Indicator */}
                       <span
-                        className={`absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-[#A94728] rounded-full transition-all duration-200 ${
+                        className={`absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#A94728] rounded-full transition-all duration-200 ${
                           isTarget || isOpen
                             ? 'opacity-100 scale-x-100'
                             : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
                         }`}
                       />
+
+                      {/* Dropdown 1: Product Dropdown directly beneath Product */}
+                      {link.isMega === 'product' && (
+                        <ProductMegaMenu
+                          isOpen={productMegaOpen}
+                          onClose={() => setProductMegaOpen(false)}
+                          onMouseEnter={handleProductMouseEnter}
+                          onMouseLeave={handleProductMouseLeave}
+                          onNavigate={(view, anchor, urlPath) => {
+                            closeAllMenus();
+                            if (onNavigate) onNavigate(view, anchor, urlPath);
+                          }}
+                          onOpenEnquiry={(prod) => {
+                            closeAllMenus();
+                            if (onOpenEnquiry) onOpenEnquiry(prod);
+                          }}
+                        />
+                      )}
+
+                      {/* Dropdown 2: Material Dropdown directly beneath Material */}
+                      {link.isMega === 'material' && (
+                        <MaterialsMegaMenu
+                          isOpen={materialsMegaOpen}
+                          onClose={() => setMaterialsMegaOpen(false)}
+                          onMouseEnter={handleMaterialMouseEnter}
+                          onMouseLeave={handleMaterialMouseLeave}
+                          onNavigate={(view, anchor, urlPath) => {
+                            closeAllMenus();
+                            if (onNavigate) onNavigate(view, anchor, urlPath);
+                          }}
+                        />
+                      )}
+
+                      {/* Dropdown 3: Certificates Dropdown directly beneath Certificates */}
+                      {link.isMega === 'certificates' && (
+                        <CertificatesMegaMenu
+                          isOpen={certificatesMegaOpen}
+                          onClose={() => setCertificatesMegaOpen(false)}
+                          onMouseEnter={handleCertificatesMouseEnter}
+                          onMouseLeave={handleCertificatesMouseLeave}
+                          onNavigate={(view, anchor, urlPath) => {
+                            closeAllMenus();
+                            if (onNavigate) onNavigate(view, anchor, urlPath);
+                          }}
+                          onOpenCertModal={(certId) => {
+                            closeAllMenus();
+                            setActiveCertId(certId);
+                            setCertModalOpen(true);
+                          }}
+                        />
+                      )}
                     </div>
                   );
                 })}
               </nav>
 
-              {/* GET A QUOTE Prominent Corporate CTA Button with BLACK Font */}
+              {/* GET A QUOTE Corporate CTA Button */}
               <button
                 onClick={() => {
                   closeAllMenus();
                   if (onOpenEnquiry) onOpenEnquiry('Navbar Header RFQ');
                 }}
-                className="btn-wave group relative inline-flex items-center justify-center gap-2 border-2 border-[#A94728] bg-[#F4E5DC] hover:bg-[#EBD2C2] text-black !text-black text-xs sm:text-[13.5px] font-black uppercase tracking-wider px-6 sm:px-7 py-2.5 sm:py-3 rounded-md shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                className="btn-wave group relative inline-flex items-center justify-center gap-2 border-2 border-[#A94728] bg-[#F4E5DC] hover:bg-[#EBD2C2] text-black !text-black text-xs sm:text-[13px] font-black uppercase tracking-wider px-5 sm:px-6 py-2 sm:py-2.5 rounded-md shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
                 aria-label="Get A Quote"
               >
                 <span className="relative z-10 text-black !text-black font-black">GET A QUOTE</span>
-                <ArrowUpRight className="relative z-10 w-4 h-4 stroke-[2.5] text-black !text-black transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="relative z-10 w-3.5 h-3.5 stroke-[2.5] text-black !text-black transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
 
             </div>
 
-            {/* Mobile / Tablet Header Controls (Always visible with BLACK Font) */}
-            <div className="flex lg:hidden items-center gap-2.5 sm:gap-3">
+            {/* Mobile / Tablet Header Controls */}
+            <div className="flex lg:hidden items-center gap-2 sm:gap-2.5">
               <button
                 onClick={() => {
                   closeAllMenus();
                   if (onOpenEnquiry) onOpenEnquiry('Mobile Header RFQ');
                 }}
-                className="btn-wave inline-flex items-center justify-center gap-1.5 border-2 border-[#A94728] bg-[#F4E5DC] hover:bg-[#EBD2C2] text-black !text-black text-xs font-black uppercase tracking-wider px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-md shadow-xs"
+                className="btn-wave inline-flex items-center justify-center gap-1.5 border-2 border-[#A94728] bg-[#F4E5DC] hover:bg-[#EBD2C2] text-black !text-black text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-md shadow-xs"
               >
                 <span className="text-black !text-black font-black">GET A QUOTE</span>
                 <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] text-black !text-black" />
@@ -382,7 +460,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 sm:p-2.5 rounded-lg border border-gray-200 text-[#171A1C] hover:bg-gray-100 transition-colors cursor-pointer"
+                className="p-1.5 sm:p-2 rounded-lg border border-gray-200 text-[#171A1C] hover:bg-gray-100 transition-colors cursor-pointer"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -390,49 +468,6 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
             </div>
 
           </div>
-
-          {/* Desktop Mega Menus Mounted with Smooth Hover Handlers */}
-          <ProductMegaMenu
-            isOpen={productMegaOpen}
-            onClose={() => setProductMegaOpen(false)}
-            onMouseEnter={handleProductMouseEnter}
-            onMouseLeave={handleProductMouseLeave}
-            onNavigate={(view, anchor, urlPath) => {
-              closeAllMenus();
-              if (onNavigate) onNavigate(view, anchor, urlPath);
-            }}
-            onOpenEnquiry={(prod) => {
-              closeAllMenus();
-              if (onOpenEnquiry) onOpenEnquiry(prod);
-            }}
-          />
-
-          <MaterialsMegaMenu
-            isOpen={materialsMegaOpen}
-            onClose={() => setMaterialsMegaOpen(false)}
-            onMouseEnter={handleMaterialMouseEnter}
-            onMouseLeave={handleMaterialMouseLeave}
-            onNavigate={(view, anchor, urlPath) => {
-              closeAllMenus();
-              if (onNavigate) onNavigate(view, anchor, urlPath);
-            }}
-          />
-
-          <CertificatesMegaMenu
-            isOpen={certificatesMegaOpen}
-            onClose={() => setCertificatesMegaOpen(false)}
-            onMouseEnter={handleCertificatesMouseEnter}
-            onMouseLeave={handleCertificatesMouseLeave}
-            onNavigate={(view, anchor, urlPath) => {
-              closeAllMenus();
-              if (onNavigate) onNavigate(view, anchor, urlPath);
-            }}
-            onOpenCertModal={(certId) => {
-              closeAllMenus();
-              setActiveCertId(certId);
-              setCertModalOpen(true);
-            }}
-          />
         </div>
       </header>
 
@@ -446,7 +481,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                 <img
                   src="/assets/rudhira-logo.png"
                   alt="Rudhira Metal Industries"
-                  className="h-10 w-auto object-contain"
+                  className="h-16 sm:h-20 w-auto object-contain"
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
@@ -504,7 +539,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                           {mobileProductExpanded && (
                             <div className="mt-2 pl-3 py-2 space-y-2 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20 max-h-60 overflow-y-auto sidebar-sticky-scroll">
                               <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase">
-                                MANUFACTURING DIVISION (9)
+                                MANUFACTURING DIVISION ({PRODUCT_CATEGORIES.filter((p) => p.division === 'Manufacturer').length})
                               </div>
                               <div className="grid grid-cols-1 gap-1">
                                 {PRODUCT_CATEGORIES.filter((p) => p.division === 'Manufacturer').map((cat) => (
@@ -512,9 +547,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                     key={cat.id}
                                     onClick={() => {
                                       closeAllMenus();
-                                      if (onNavigate) onNavigate('product-category', null, `/products/${cat.slug}`);
+                                      if (onNavigate) onNavigate('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`);
                                     }}
-                                    className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate"
+                                    className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
                                   >
                                     • {cat.name}
                                   </button>
@@ -522,7 +557,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                               </div>
 
                               <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase pt-2 border-t border-gray-200">
-                                STOCKIST & SUPPLY DIVISION (9)
+                                STOCKIST & SUPPLY DIVISION ({PRODUCT_CATEGORIES.filter((p) => p.division === 'Supplier').length})
                               </div>
                               <div className="grid grid-cols-1 gap-1">
                                 {PRODUCT_CATEGORIES.filter((p) => p.division === 'Supplier').map((cat) => (
@@ -532,7 +567,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                       closeAllMenus();
                                       if (onNavigate) onNavigate('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`);
                                     }}
-                                    className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate"
+                                    className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
                                   >
                                     • {cat.name}
                                   </button>
@@ -545,9 +580,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                     closeAllMenus();
                                     if (onNavigate) onNavigate('products-landing', null, '/products');
                                   }}
-                                  className="text-[11px] font-mono font-bold text-[#A94728] hover:underline"
+                                  className="text-[11px] font-mono font-bold text-[#A94728] hover:underline cursor-pointer"
                                 >
-                                  View All 18 Products Directory →
+                                  View All {PRODUCT_CATEGORIES.length} Products Directory →
                                 </button>
                               </div>
                             </div>
@@ -579,7 +614,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                             </button>
                             <button
                               onClick={() => setMobileMaterialExpanded(!mobileMaterialExpanded)}
-                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded"
+                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded cursor-pointer"
                               aria-label="Expand materials"
                             >
                               <ChevronDown
@@ -593,7 +628,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                           {mobileMaterialExpanded && (
                             <div className="mt-2 pl-3 py-2 space-y-1.5 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20 max-h-60 overflow-y-auto sidebar-sticky-scroll">
                               <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase">
-                                9 ALLOY FAMILIES
+                                {MATERIAL_CATEGORIES.length} ALLOY FAMILIES
                               </div>
                               {MATERIAL_CATEGORIES.map((mat) => (
                                 <button
@@ -602,7 +637,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                     closeAllMenus();
                                     if (onNavigate) onNavigate('material-family', null, `/materials/${getMaterialSeoSlug(mat.slug)}`);
                                   }}
-                                  className="block text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate"
+                                  className="block text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
                                 >
                                   • {mat.name}
                                 </button>
@@ -614,9 +649,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                     closeAllMenus();
                                     if (onNavigate) onNavigate('materials-landing', null, '/materials');
                                   }}
-                                  className="text-[11px] font-mono font-bold text-[#A94728] hover:underline"
+                                  className="text-[11px] font-mono font-bold text-[#A94728] hover:underline cursor-pointer"
                                 >
-                                  View All 9 Metallurgy Families →
+                                  View All {MATERIAL_CATEGORIES.length} Metallurgy Families →
                                 </button>
                               </div>
                             </div>
@@ -648,7 +683,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                             </button>
                             <button
                               onClick={() => setMobileCertificatesExpanded(!mobileCertificatesExpanded)}
-                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded"
+                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded cursor-pointer"
                               aria-label="Expand certificates"
                             >
                               <ChevronDown
@@ -663,7 +698,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                             <div className="mt-2 pl-3 pr-2 py-2.5 space-y-2 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20">
                               <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase flex items-center justify-between">
                                 <span>OFFICIAL ACCREDITATIONS</span>
-                                <span className="text-[9px] text-gray-400">2 DOCUMENTS</span>
+                                <span className="text-[9px] text-gray-400">{COMPANY_CERTIFICATES.length} DOCUMENTS</span>
                               </div>
 
                               {/* ISO 9001:2015 Button */}

@@ -654,7 +654,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                 <ShieldCheck className="w-4 h-4 text-[#A94728]" />
                 <span className="font-bold text-[#202427]">QUALITY ACCREDITATION:</span>
                 <span className="bg-[#F8F5F1] px-2.5 py-1 rounded border border-[#D9D9D6] text-[#202427] font-bold">
-                  ISO 9001:2015 (Cert No: 26DQQC40)
+                  ISO 9001:2015 CERTIFIED
                 </span>
               </div>
             </div>

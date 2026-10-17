@@ -88,7 +88,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
             <div className="flex flex-wrap items-center gap-3 font-mono text-xs sm:text-[13px] text-[#D9D9D6]">
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-white/5 border border-white/15">
                 <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
-                <span>ISO 9001:2015 (Cert: 26DQQC40)</span>
+                <span>ISO 9001:2015 CERTIFIED</span>
               </div>
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-white/5 border border-white/15">
                 <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
