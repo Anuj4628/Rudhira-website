@@ -1,28 +1,105 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import gsap from 'gsap';
-import { ArrowRight, Layers, Phone, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
-import { HERO_SLIDES, COMPANY_DETAILS } from '../data/industrialData';
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, ShieldCheck } from 'lucide-react';
 
-export default function HeroSlider({ onOpenEnquiry }) {
+// Crystal-clear industrial image assets (preserved exactly)
+import heroPlatesCoilsImg from '../assets/Product BG/heavy-engineering-hero-bg.jpg';
+import heroPipesImg from '../assets/Product BG/precision-pipes-tubes-hero-bg.png';
+import heroBarsAlloysImg from '../assets/Product BG/superior round and bars engineeres to be perfomed.png';
+import heroFlangesImg from '../assets/Product BG/forged-flanges-fittings-hero-bg.jpg';
+
+// Four slides adhering to the exact advertisement design system
+const HERO_SLIDES_DATA = [
+  {
+    id: "01",
+    focus: "Heavy Engineering Plates",
+    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
+    darkBadge: "INDUSTRIAL METAL PRODUCTS",
+    mainHeading: "HEAVY ENGINEERING PLATES",
+    supportingLine: "SHEETS • PLATES • COILS",
+    techHeader: "STAINLESS STEEL STOCK",
+    techSpecs: "SS 304 • 304L • 316 • 316L • 321 • 310S • DUPLEX 2205",
+    techFinish: "HOT & COLD ROLLED • PRECISION FINISH",
+    adPromoEyebrow: "SPECIFIED STOCK",
+    adPromoTitle: "CUSTOM CUT SIZES",
+    badgeLine1: "PRIME",
+    badgeLine2: "QUALITY",
+    badgeLine3: "100% PMI",
+    image: heroPlatesCoilsImg,
+    alt: "Heavy engineering plates, coils and industrial steel stock"
+  },
+  {
+    id: "02",
+    focus: "Industrial Steel Coils",
+    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
+    darkBadge: "INDUSTRIAL METAL PRODUCTS",
+    mainHeading: "INDUSTRIAL STEEL COILS",
+    supportingLine: "PRECISION ROLLED METAL STOCK",
+    techHeader: "STAINLESS STEEL & ALLOY COILS",
+    techSpecs: "SS 304 • 316L • 321H • DUPLEX 2205 • 310S",
+    techFinish: "AVAILABLE GRADES AND FINISHES PER EN 10204 3.1",
+    adPromoEyebrow: "SLIT SPECIFICATION",
+    adPromoTitle: "PRECISION SLIT COILS",
+    badgeLine1: "PRIME",
+    badgeLine2: "STOCK",
+    badgeLine3: "CERTIFIED",
+    image: heroPipesImg,
+    alt: "Industrial stainless steel coils and slit strips"
+  },
+  {
+    id: "03",
+    focus: "Precision Round Bars",
+    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
+    darkBadge: "INDUSTRIAL METAL PRODUCTS",
+    mainHeading: "PRECISION ROUND BARS",
+    supportingLine: "ROUND • HEX • FLAT BARS",
+    techHeader: "ENGINEERED METAL STOCK FOR INDUSTRIAL APPLICATIONS",
+    techSpecs: "SS 304 / 316L • 17-4PH • DUPLEX 2205 • INCONEL",
+    techFinish: "CENTERLESS GROUND • 3MM TO 450MM DIAMETER",
+    adPromoEyebrow: "TOLERANCE GROUND",
+    adPromoTitle: "BRIGHT GROUND BARS",
+    badgeLine1: "READY",
+    badgeLine2: "STOCK",
+    badgeLine3: "H9 / H11",
+    image: heroBarsAlloysImg,
+    alt: "Superior precision round bars and structural steel stock"
+  },
+  {
+    id: "04",
+    focus: "Custom Product Requirements",
+    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
+    darkBadge: "INDUSTRIAL METAL PRODUCTS",
+    mainHeading: "METAL STOCK FOR YOUR REQUIREMENTS",
+    supportingLine: "PRODUCT RANGE • MATERIAL GRADES • CUT SIZES",
+    techHeader: "CONTACT OUR TEAM FOR PRODUCT AVAILABILITY AND QUOTATIONS",
+    techSpecs: "CNC PLASMA, LASER & WATERJET PLATE BLANKS",
+    techFinish: "FORGED FITTINGS, FLANGES & STRUCTURAL COMPONENTS",
+    adPromoEyebrow: "BESPOKE ORDERS",
+    adPromoTitle: "CUSTOM CUT SIZES",
+    badgeLine1: "EXPERT",
+    badgeLine2: "SALES",
+    badgeLine3: "DESK",
+    image: heroFlangesImg,
+    alt: "Custom cut stainless steel profiles and forged fittings"
+  }
+];
+
+export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const slideDuration = 6000; // 6s per slide
+  const slideDuration = 7000;
 
   const slidesContainerRef = useRef(null);
   const touchStartXRef = useRef(null);
   const autoPlayTimerRef = useRef(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES_DATA.length);
   }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES_DATA.length) % HERO_SLIDES_DATA.length);
   }, []);
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -34,7 +111,7 @@ export default function HeroSlider({ onOpenEnquiry }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide, prevSlide]);
 
-  // Autoplay timer
+  // Autoplay timer with pause on hover
   useEffect(() => {
     if (isPlaying) {
       autoPlayTimerRef.current = setInterval(() => {
@@ -46,35 +123,13 @@ export default function HeroSlider({ onOpenEnquiry }) {
     };
   }, [isPlaying, nextSlide, currentSlide]);
 
-  // Handle slide transitions with GSAP
+  // Subtle entrance animation on slide change
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate headline container
       gsap.fromTo(
-        `.hero-slide-${currentSlide} .hero-headline-card`,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }
-      );
-
-      // Animate buttons
-      gsap.fromTo(
-        `.hero-slide-${currentSlide} .hero-buttons-row`,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.15 }
-      );
-
-      // Animate specs
-      gsap.fromTo(
-        `.hero-slide-${currentSlide} .hero-specs-row`,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.25 }
-      );
-
-      // Background subtle scale 1.05 -> 1.0
-      gsap.fromTo(
-        `.hero-bg-${currentSlide}`,
-        { scale: 1.05 },
-        { scale: 1.0, duration: 6.0, ease: 'power1.out' }
+        `.ad-graphic-block`,
+        { opacity: 0, x: 20 },
+        { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out' }
       );
     }, slidesContainerRef);
 
@@ -94,216 +149,223 @@ export default function HeroSlider({ onOpenEnquiry }) {
     touchStartXRef.current = null;
   };
 
-  const slide = HERO_SLIDES[currentSlide];
+  const slide = HERO_SLIDES_DATA[currentSlide];
 
   return (
-    <>
-      <section
-        id="hero"
+    <section
+      id="hero"
       ref={slidesContainerRef}
-      className="relative w-full min-h-[50vh] max-h-[520px] sm:min-h-[560px] sm:max-h-none lg:h-[100svh] lg:min-h-[780px] bg-[#121B22] overflow-hidden select-none flex flex-col justify-between pt-16 sm:pt-28 lg:pt-36 pb-3 sm:pb-6"
+      className="relative w-full min-h-[580px] lg:h-[100dvh] lg:min-h-[620px] lg:max-h-[860px] bg-[#0c0f12] select-none flex flex-col justify-center pt-20 sm:pt-24 lg:pt-[85px] pb-20 sm:pb-24 lg:pb-0 overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      aria-label="Industrial Hero Showcase"
+      onMouseEnter={() => setIsPlaying(false)}
+      onMouseLeave={() => setIsPlaying(true)}
+      aria-label="Rudhira Metal Industries Hero Advertisement Slider"
     >
-      {/* 4 Background Slides with user-provided images */}
-      {HERO_SLIDES.map((item, index) => (
-        <div
-          key={item.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentSlide ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
-          }`}
-        >
-          {/* Authentic Industrial Image - 100% Clear, No Black Darkening */}
-          <img
-            src={item.image}
-            alt={item.alt}
-            className={`hero-bg-${index} absolute inset-0 w-full h-full object-cover object-center transform will-change-transform`}
-            loading={index === 0 ? 'eager' : 'lazy'}
-          />
-        </div>
-      ))}
-
-      {/* Main Hero Content - Aligned with website layout container */}
-      <div className="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-center my-auto">
-        <div className={`hero-slide-${currentSlide} max-w-4xl text-left`}>
-          {/* 1. Frosted Translucent Dark Glass Card with High Blur */}
-          <div className="hero-headline-card hero-glass-card rounded-lg sm:rounded-2xl p-4 sm:p-7 md:p-9 shadow-2xl">
-            {/* Title with Orange Highlight */}
-            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-[44px] font-black text-white tracking-tight leading-[1.15] mb-2 sm:mb-4 uppercase drop-shadow-sm">
-              {slide.titlePrefix}
-              <span className="text-[#A94728]">{slide.titleHighlight}</span>
-              {slide.titleSuffix}
-            </h1>
-
-            {/* Description */}
-            <p className="text-[11px] sm:text-sm md:text-base text-white/95 font-medium leading-relaxed max-w-3xl drop-shadow-xs line-clamp-2 sm:line-clamp-none">
-              {slide.description}
-            </p>
+      {/* 1. FULL-WIDTH BACKGROUND INDUSTRIAL PHOTOGRAPHY */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+        {HERO_SLIDES_DATA.map((item, index) => (
+          <div
+            key={item.id}
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+              index === currentSlide ? 'opacity-100 z-0' : 'opacity-0 -z-10'
+            }`}
+          >
+            <img
+              src={item.image}
+              alt={item.alt}
+              className="w-full h-full object-cover object-center sm:object-[40%_center] lg:object-center"
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
           </div>
+        ))}
 
-          {/* 2. Action Buttons in a Row Directly Underneath */}
-          <div className="hero-buttons-row mt-3 sm:mt-5 flex flex-wrap items-center gap-2.5 sm:gap-4">
-            {/* GET A QUOTE */}
-            <button
-              onClick={() => onOpenEnquiry('Industrial Piping & Metal Products Requirement')}
-              className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#A94728] hover:bg-[#8D381D] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl shadow-xl transition-all active:scale-95 cursor-pointer group"
-            >
-              <span>GET A QUOTE</span>
-              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
-            </button>
+        {/* Localized right-side directional gradient: keeps left steel photography bright & visible, while ensuring right-hand ad text is ultra-crisp */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/45 to-[#0c0f12]/85 z-[1]" />
+      </div>
 
-            {/* EXPLORE PRODUCTS - Frosted Glass Blur */}
-            <a
-              href="#products"
-              className="inline-flex items-center gap-1.5 sm:gap-2 hero-glass-pill hover:bg-white/10 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-3.5 sm:px-6 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all active:scale-95 cursor-pointer"
-            >
-              <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#A94728]" />
-              <span>EXPLORE PRODUCTS</span>
-            </a>
+      {/* 2. ADVERTISEMENT GRAPHIC COMPOSITION */}
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-4 sm:py-6">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+          
+          {/* Left Column: Negative Space allowing background photography to breathe */}
+          <div className="hidden lg:block lg:flex-1" />
 
-            {/* SALES HOTLINE - Desktop / Tablet Only */}
-            <a
-              href={`tel:${COMPANY_DETAILS.phone.replace(/[^0-9+]/g, '')}`}
-              className="hidden md:inline-flex items-center gap-2.5 hero-glass-pill hover:bg-white/10 text-white px-4 sm:px-5 py-2.5 rounded-xl transition-all active:scale-95 cursor-pointer"
-            >
-              <div className="w-7 h-7 rounded-full bg-[#A94728]/25 flex items-center justify-center text-[#A94728]">
-                <Phone className="w-3.5 h-3.5" />
-              </div>
-              <div className="text-left">
-                <div className="text-[9px] font-mono font-bold text-white/70 uppercase tracking-widest leading-none mb-1">
-                  SALES HOTLINE
-                </div>
-                <div className="text-xs sm:text-sm font-extrabold text-white font-mono leading-none">
-                  {COMPANY_DETAILS.phone}
-                </div>
-              </div>
-            </a>
-          </div>
-
-          {/* 3. Row of 3 Technical Spec Cards with Frosted Glass Blur (Desktop / Tablet) */}
-          <div className="hero-specs-row mt-4 sm:mt-5 hidden md:grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3.5 max-w-3xl">
-            {slide.specs.map((spec) => (
+          {/* Right Column: Advertisement Design Layout Cluster */}
+          <div className="ad-graphic-block w-full lg:w-[620px] xl:w-[680px] 2xl:w-[720px] lg:ml-auto flex flex-col items-start text-left">
+            
+            {/* A. TOP PROMOTIONAL RIBBON */}
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3.5 w-full">
               <div
-                key={spec.label}
-                className="hero-glass-spec rounded-lg p-3 sm:p-3.5 flex flex-col justify-center"
+                className="bg-[#C34B2B] text-white text-xs sm:text-xs md:text-sm font-black tracking-wider uppercase px-4 sm:px-5 py-1.5 sm:py-2 shadow-lg relative inline-block"
+                style={{
+                  clipPath: 'polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%)'
+                }}
               >
-                <div className="text-[10px] font-mono text-white/70 uppercase tracking-wider mb-1 font-semibold">
-                  {spec.label}
+                <span>{slide.topRibbon}</span>
+              </div>
+
+              {/* Compact Dark Technical Badge */}
+              <div className="bg-[#111417]/95 text-[#E7EEF2] text-[11px] sm:text-xs font-mono font-bold tracking-wider px-3.5 sm:px-4 py-1.5 sm:py-2 border border-white/20 uppercase shadow-md">
+                <span>{slide.darkBadge}</span>
+              </div>
+            </div>
+
+            {/* B. MAIN PRODUCT HEADLINE */}
+            <div className="mb-3 sm:mb-3.5">
+              <h1 className="text-2xl sm:text-4xl lg:text-[40px] xl:text-[46px] 2xl:text-[50px] font-black text-white tracking-tight uppercase leading-[1.08] drop-shadow-sm">
+                {slide.mainHeading}
+              </h1>
+              <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-[#E05A36] tracking-wide uppercase mt-1">
+                {slide.supportingLine}
+              </div>
+            </div>
+
+            {/* C. COMPACT TECHNICAL PRODUCT DETAILS */}
+            <div className="w-full bg-[#111417]/92 backdrop-blur-md border-l-4 border-l-[#C34B2B] border-y border-r border-white/15 p-3.5 sm:p-4 mb-3.5 sm:mb-4 shadow-xl">
+              <div className="text-[11px] sm:text-xs font-mono font-bold text-[#E05A36] uppercase tracking-wider mb-1">
+                {slide.techHeader}
+              </div>
+              <div className="text-xs sm:text-sm lg:text-[15px] font-mono text-white font-bold leading-snug mb-1">
+                {slide.techSpecs}
+              </div>
+              <div className="text-[11px] sm:text-xs font-mono text-white/75 font-medium">
+                {slide.techFinish}
+              </div>
+            </div>
+
+            {/* D. ADVERTISEMENT-STYLE GRAPHIC BADGES */}
+            <div className="flex items-center w-full max-w-[480px] sm:max-w-[520px] mb-4 sm:mb-5 relative">
+              {/* Angled Gold Bar */}
+              <div
+                className="flex-1 bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-white py-2 sm:py-2.5 px-5 sm:px-7 shadow-lg"
+                style={{
+                  clipPath: 'polygon(18px 0, 100% 0, 100% 100%, 0 100%)'
+                }}
+              >
+                <div className="text-[10px] sm:text-[11px] font-mono font-black tracking-wider text-black/80 uppercase">
+                  {slide.adPromoEyebrow}
                 </div>
-                <div className="text-xs sm:text-sm font-bold text-white tracking-wide">
-                  {spec.value}
+                <div className="text-base sm:text-xl lg:text-2xl font-black text-white tracking-wide uppercase leading-tight drop-shadow-sm">
+                  {slide.adPromoTitle}
                 </div>
               </div>
-            ))}
+
+              {/* Overlapping Red Circular Badge */}
+              <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-[#B91C1C] text-white border-2 border-white shadow-xl flex flex-col items-center justify-center text-center -ml-4 sm:-ml-6 z-20 flex-shrink-0 transform transition-transform hover:scale-105">
+                <span className="text-[9px] sm:text-[10px] font-black tracking-wider leading-none uppercase">
+                  {slide.badgeLine1}
+                </span>
+                <span className="text-xs sm:text-sm lg:text-base font-black tracking-wider leading-none uppercase my-0.5">
+                  {slide.badgeLine2}
+                </span>
+                <span className="text-[8px] sm:text-[9px] font-mono font-bold tracking-widest text-[#F4E5DC] leading-none uppercase">
+                  {slide.badgeLine3}
+                </span>
+              </div>
+            </div>
+
+            {/* E. CTA BUTTONS */}
+            <div className="flex flex-wrap items-center gap-3 sm:gap-3.5">
+              {/* Primary Solid Terracotta Button */}
+              <button
+                type="button"
+                onClick={() => onOpenEnquiry && onOpenEnquiry(slide.focus)}
+                className="inline-flex items-center justify-center gap-2 bg-[#C34B2B] hover:bg-[#A93F23] text-white text-xs sm:text-sm font-extrabold tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                aria-label="Get A Quote"
+              >
+                <span>GET A QUOTE</span>
+                <ArrowUpRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.2]" />
+              </button>
+
+              {/* Secondary Outlined Button */}
+              <a
+                href="#products"
+                onClick={(e) => {
+                  if (onNavigate) {
+                    e.preventDefault();
+                    onNavigate('products-landing', '#products', '/products');
+                  }
+                }}
+                className="inline-flex items-center justify-center gap-2 bg-[#16191D]/90 hover:bg-[#16191D] text-white text-xs sm:text-sm font-extrabold tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white/25 hover:border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md"
+                aria-label="View Product Range"
+              >
+                <span>VIEW PRODUCT RANGE</span>
+                <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
 
-      {/* Bottom Area: Catalogue Specs + Pagination + Alloy Strip + Dots */}
-      <div className="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-auto pt-2 sm:pt-4">
-        {/* Row 1: Catalogue Specs & Slide Pagination Pill */}
-        <div className="flex items-center justify-between gap-3 mb-2 sm:mb-3">
-          {/* Left Catalogue Spec Pills (Desktop / Large Screens) */}
-          <div className="hidden lg:flex flex-wrap items-center gap-2 sm:gap-2.5">
-            <div className="bg-[#A94728]/25 border border-[#A94728]/50 text-white text-xs font-mono font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 backdrop-blur-xl shadow-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A94728] animate-pulse" />
-              <span className="text-[#ff784f]">CATALOGUE SPECS:</span>
-            </div>
+      {/* 3. FUNCTIONAL LEFT AND RIGHT SIDE SLIDER ARROWS */}
+      <button
+        type="button"
+        onClick={prevSlide}
+        className="absolute left-3 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/60 hover:bg-[#C34B2B] text-white/90 hover:text-white border border-white/20 hover:border-transparent flex items-center justify-center transition-all duration-200 cursor-pointer backdrop-blur-xs shadow-xl hover:scale-105 active:scale-95"
+        aria-label="Previous Slide"
+        title="Previous Slide"
+      >
+        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+      </button>
 
-            {slide.catalogueSpecs.map((item) => (
-              <div
-                key={item}
-                className="hero-glass-pill text-white/95 text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5"
-              >
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#A94728]" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
+      <button
+        type="button"
+        onClick={nextSlide}
+        className="absolute right-3 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/60 hover:bg-[#C34B2B] text-white/90 hover:text-white border border-white/20 hover:border-transparent flex items-center justify-center transition-all duration-200 cursor-pointer backdrop-blur-xs shadow-xl hover:scale-105 active:scale-95"
+        aria-label="Next Slide"
+        title="Next Slide"
+      >
+        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+      </button>
 
-          {/* Right Pagination Pill - Compact & Visible on All Screens */}
-          <div className="hero-glass-pill px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 ml-auto">
-            <span className="font-mono text-[11px] sm:text-xs font-bold">
-              <span className="text-[#A94728]">0{currentSlide + 1}</span>
-              <span className="text-white/40 mx-1">/</span>
-              <span className="text-white/70">0{HERO_SLIDES.length}</span>
-            </span>
-
-            <div className="flex items-center gap-0.5 sm:gap-1 border-l border-white/20 pl-1.5 sm:pl-2">
-              <button
-                onClick={prevSlide}
-                className="p-0.5 sm:p-1 text-white/70 hover:text-white rounded hover:bg-white/10 transition-colors cursor-pointer active:scale-95"
-                aria-label="Previous slide"
-              >
-                <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="p-0.5 sm:p-1 text-white/70 hover:text-white rounded hover:bg-white/10 transition-colors cursor-pointer active:scale-95"
-                aria-label="Next slide"
-              >
-                <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              </button>
-            </div>
-          </div>
+      {/* 4. DEDICATED BOTTOM SLIDE CONTROLS (Positioned bottom-left: never overlaps CTA buttons or floating actions) */}
+      <div className="absolute bottom-5 sm:bottom-7 left-6 sm:left-10 lg:left-16 z-30 flex items-center gap-3 bg-[#111417]/85 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-white/20 shadow-2xl">
+        {/* Slide Counter Numbers */}
+        <div className="flex items-center gap-1.5 font-mono text-xs sm:text-sm text-white/90">
+          <span className="font-extrabold text-[#E05A36]">0{currentSlide + 1}</span>
+          <span className="text-white/30">/</span>
+          <span className="text-white/60">04</span>
         </div>
 
-        {/* Row 2: Bottom Alloy Specs Ticker Strip with Frosted Glass (Desktop Only) */}
-        <div className="hero-glass-strip rounded-xl px-4 py-2.5 hidden md:flex flex-wrap items-center justify-between gap-y-2 gap-x-4 text-xs font-mono text-white/90">
-          {slide.bottomStrip.map((item) => (
-            <div key={item.label} className="flex items-center gap-1.5">
-              <span className="text-white/60">{item.label}</span>
-              <span className="text-white font-bold">{item.value}</span>
-            </div>
-          ))}
-        </div>
+        <div className="h-3.5 w-px bg-white/25" />
 
-        {/* Row 3: Bottom Slide Navigation Dots */}
-        <div className="flex items-center justify-center gap-1.5 mt-2 sm:mt-3">
-          {HERO_SLIDES.map((_, idx) => (
+        {/* Slide Indicator Pills with Animated Progress Bar for Active Slide */}
+        <div className="flex items-center gap-2">
+          {HERO_SLIDES_DATA.map((_, idx) => (
             <button
-              key={`dot-${idx}`}
-              onClick={() => goToSlide(idx)}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer relative overflow-hidden ${
                 idx === currentSlide
-                  ? 'w-6 bg-[#A94728] shadow-md'
-                  : 'w-2 bg-white/40 hover:bg-white/80'
+                  ? 'w-10 bg-[#C34B2B]'
+                  : 'w-2.5 bg-white/35 hover:bg-white/70'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
-            />
+            >
+              {idx === currentSlide && (
+                <span
+                  key={`${idx}-${currentSlide}`}
+                  className="absolute inset-0 bg-white/90 rounded-full"
+                  style={{
+                    animation: isPlaying ? `heroProgress ${slideDuration}ms linear forwards` : 'none'
+                  }}
+                />
+              )}
+            </button>
           ))}
+        </div>
+
+        {/* Slide Focus Name (desktop subtle label) */}
+        <div className="hidden md:flex items-center pl-1 border-l border-white/15">
+          <span className="font-mono text-[11px] text-white/70 tracking-wider uppercase font-semibold">
+            {slide.focus}
+          </span>
         </div>
       </div>
     </section>
-
-    {/* Mobile Secondary Specs Strip — Placed cleanly below hero fold on mobile */}
-    <div className="md:hidden bg-[#182128] text-white border-b border-white/10 px-4 py-3 select-none">
-      <div className="flex items-center justify-between text-[10px] font-mono font-bold text-[#A94728] uppercase mb-2">
-        <span>CURRENT SLIDE SPECIFICATIONS</span>
-        <span className="text-white/50">0{currentSlide + 1} / 0{HERO_SLIDES.length}</span>
-      </div>
-
-      {/* 3 Spec Cards in a neat 3-col micro-grid */}
-      <div className="grid grid-cols-3 gap-2 mb-2">
-        {slide.specs.map((spec) => (
-          <div key={spec.label} className="bg-white/5 rounded p-1.5 border border-white/10 text-center">
-            <div className="text-[9px] font-mono text-white/60 uppercase truncate">{spec.label}</div>
-            <div className="text-[11px] font-bold text-white truncate">{spec.value}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* Catalogue Specs Pills */}
-      <div className="flex flex-wrap items-center gap-1.5 pt-1.5 border-t border-white/10 text-[10px]">
-        <span className="text-[#A94728] font-mono font-bold">SPECS:</span>
-        {slide.catalogueSpecs.map((item) => (
-          <span key={item} className="bg-white/5 px-2 py-0.5 rounded text-white/90 border border-white/10">
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
-  </>
-);
+  );
 }
+
+

@@ -1,31 +1,29 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ShieldCheck, Layers, Truck, Headset, Sparkles } from 'lucide-react';
-import { WHY_CHOOSE_US_DATA } from '../data/industrialData';
+import { ShieldCheck, Layers, Truck, Headset, ArrowRight } from 'lucide-react';
+
+// Exactly two authentic industrial photographs for the overlapping collage
+import whyUsInspectionImg from '../assets/images/why-us-inspection.jpg';
+import whyUsMachineryImg from '../assets/images/why-us-machinery.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function WhyChooseUs({ onOpenEnquiry }) {
+export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
   const sectionRef = useRef(null);
-  const cardsRef = useRef([]);
-
-  const icons = [
-    <ShieldCheck className="w-6 h-6 text-[#A94728] stroke-[1.5]" key="i1" />,
-    <Layers className="w-6 h-6 text-[#A94728] stroke-[1.5]" key="i2" />,
-    <Truck className="w-6 h-6 text-[#A94728] stroke-[1.5]" key="i3" />,
-    <Headset className="w-6 h-6 text-[#A94728] stroke-[1.5]" key="i4" />,
-  ];
+  const collageRef = useRef(null);
+  const contentRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Smooth fade & slide-in on scroll
       gsap.fromTo(
-        '.why-header',
-        { opacity: 0, y: 30 },
+        collageRef.current,
+        { opacity: 0, x: -30 },
         {
           opacity: 1,
-          y: 0,
-          duration: 0.8,
+          x: 0,
+          duration: 0.85,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -35,17 +33,17 @@ export default function WhyChooseUs({ onOpenEnquiry }) {
       );
 
       gsap.fromTo(
-        cardsRef.current,
-        { opacity: 0, y: 40 },
+        contentRef.current,
+        { opacity: 0, x: 30 },
         {
           opacity: 1,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.12,
+          x: 0,
+          duration: 0.85,
           ease: 'power2.out',
+          delay: 0.1,
           scrollTrigger: {
-            trigger: '.why-grid',
-            start: 'top 85%',
+            trigger: sectionRef.current,
+            start: 'top 80%',
           },
         }
       );
@@ -58,81 +56,154 @@ export default function WhyChooseUs({ onOpenEnquiry }) {
     <section
       id="why-us"
       ref={sectionRef}
-      className="py-24 sm:py-28 bg-[#F4E5DC] border-b border-[#D9D9D6] relative overflow-hidden"
+      className="py-24 sm:py-28 lg:py-32 bg-[#FAF8F5] border-t border-b border-[#EAE6DE] relative overflow-hidden select-none"
+      aria-label="Why Choose Rudhira Metal Industries"
     >
-      {/* Engineering-grid background on warm light orange */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-80 pointer-events-none" />
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+        
+        {/* Two-Column Premium Industrial Layout */}
+        <div className="flex flex-col lg:flex-row items-center lg:items-center gap-14 lg:gap-16 xl:gap-22">
+          
+          {/* LEFT SIDE: Exactly Two Industrial Photographs in an Overlapping Collage */}
+          <div
+            ref={collageRef}
+            className="w-full lg:w-1/2 flex items-center justify-center"
+          >
+            <div className="relative w-full max-w-[540px] pb-12 sm:pb-16 pt-2">
+              
+              {/* Image 1 (Larger Primary Image): Metallurgical Inspection Engineer */}
+              <div className="relative z-10 w-[84%] sm:w-[82%] rounded-md overflow-hidden shadow-xl border-2 border-white bg-[#EFECE6]">
+                <img
+                  src={whyUsInspectionImg}
+                  alt="Quality assurance engineer inspecting precision steel flange and bar"
+                  className="w-full h-[320px] sm:h-[400px] lg:h-[440px] object-cover object-center transition-transform duration-500 hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header - Centered Layout */}
-        <div className="why-header text-center mx-auto max-w-3xl mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-            <span className="tech-label text-[#A94728] font-bold text-xs">
-              02 — WHY CHOOSE US
-            </span>
+              {/* Image 2 (Smaller Secondary Image): Industrial CNC Laser Processing Machinery */}
+              <div className="absolute z-20 bottom-0 right-0 w-[58%] sm:w-[56%] rounded-md overflow-hidden shadow-2xl border-4 border-[#FAF8F5] bg-[#EFECE6]">
+                <img
+                  src={whyUsMachineryImg}
+                  alt="Industrial CNC steel plate cutting machinery and steel coils"
+                  className="w-full h-[200px] sm:h-[250px] lg:h-[280px] object-cover object-center transition-transform duration-500 hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </div>
+
+            </div>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#202427] tracking-tight leading-tight mb-4">
-            Why Choose Us
-          </h2>
-
-          <p className="text-base sm:text-lg lg:text-xl text-[#202427]/75 font-normal max-w-2xl mx-auto leading-relaxed">
-            Engineered for Quality. Built for Reliability. Technical integrity, transparent supply chains, and dependable product execution tailored for industry professionals.
-          </p>
-        </div>
-
-        {/* 4 Premium Industrial Feature Cards */}
-        <div className="why-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {WHY_CHOOSE_US_DATA.map((item, index) => (
-            <div
-              key={item.id}
-              ref={(el) => (cardsRef.current[index] = el)}
-              className="group relative p-7 bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-industrial-hover flex flex-col justify-between"
-            >
-              {/* Corner Accent Details */}
-              <div className="corner-bracket-tl" />
-              <div className="corner-bracket-br" />
-
-              <div>
-                {/* Top Number & Diamond/Icon Container */}
-                <div className="flex items-center justify-between mb-6">
-                  <span className="font-mono text-3xl font-extrabold text-[#202427] group-hover:text-[#A94728] transition-colors">
-                    {item.id}
-                  </span>
-                  <div className="p-2.5 bg-white rounded-md border border-[#D9D9D6] shadow-sm group-hover:border-[#A94728]/40 group-hover:bg-[#F4E5DC]/50 transition-all">
-                    {icons[index]}
-                  </div>
-                </div>
-
-                {/* Subtitle Eyebrow */}
-                <div className="tech-label text-[11px] text-[#A94728] mb-1 font-bold tracking-widest">
-                  {item.subtitle}
-                </div>
-
-                {/* Main Card Title */}
-                <h3 className="text-xl font-extrabold text-[#202427] mb-3 tracking-tight group-hover:text-[#A94728] transition-colors">
-                  {item.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-xs sm:text-sm text-[#202427]/75 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Bottom Layered Border & Technical Badge: RMI / 01 → */}
-              <div className="mt-8 pt-4 border-t border-[#D9D9D6] group-hover:border-[#A94728]/40 flex items-center justify-between text-xs font-mono">
-                <span className="font-bold text-[#202427] tracking-wider">
-                  {item.badge}
-                </span>
-                <span className="text-[#A94728] font-bold group-hover:translate-x-1 transition-transform">
-                  →
-                </span>
-              </div>
+          {/* RIGHT SIDE: Bolder, Larger Why Choose Us Content */}
+          <div
+            ref={contentRef}
+            className="w-full lg:w-1/2 flex flex-col justify-center"
+          >
+            {/* Small Eyebrow Label (12–14px bold) */}
+            <div className="flex items-center gap-2.5 text-xs sm:text-[13px] font-mono tracking-widest text-[#C34B2B] uppercase font-bold mb-3 sm:mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#C34B2B]" />
+              <span>WHY CHOOSE US</span>
             </div>
-          ))}
+
+            {/* Main Section Heading: 44–58px desktop, ExtraBold 800 */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[54px] font-extrabold text-[#191C1F] tracking-tight leading-[1.12] mb-5 sm:mb-6 font-sans">
+              Built on Quality. <br />
+              <span className="text-[#C34B2B]">Driven by Reliability.</span>
+            </h2>
+
+            {/* Main Description: 18–20px desktop */}
+            <p className="text-base sm:text-lg lg:text-[19px] text-[#4A5568] leading-relaxed mb-9 max-w-xl font-normal font-sans">
+              Rudhira Metal Industries delivers quality-focused metal products, dependable supply, and professional support to meet demanding industrial requirements.
+            </p>
+
+            {/* Four Benefits in a Clean, Well-Spaced Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 mb-9 pt-1">
+              
+              {/* 1. Quality-Focused Supply */}
+              <div className="flex items-start gap-4">
+                <div className="p-2.5 rounded-sm bg-[#C34B2B]/10 text-[#C34B2B] flex-shrink-0 mt-1">
+                  <ShieldCheck className="w-5 h-5 stroke-[2.2]" />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-[17px] font-bold text-[#191C1F] tracking-tight font-sans">
+                    Quality-Focused Supply
+                  </h3>
+                  <p className="text-sm sm:text-[15px] text-[#555E68] leading-relaxed mt-1 font-sans">
+                    Carefully sourced materials with a strong focus on quality and dimensional consistency.
+                  </p>
+                </div>
+              </div>
+
+              {/* 2. Wide Product Range */}
+              <div className="flex items-start gap-4">
+                <div className="p-2.5 rounded-sm bg-[#C34B2B]/10 text-[#C34B2B] flex-shrink-0 mt-1">
+                  <Layers className="w-5 h-5 stroke-[2.2]" />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-[17px] font-bold text-[#191C1F] tracking-tight font-sans">
+                    Wide Product Range
+                  </h3>
+                  <p className="text-sm sm:text-[15px] text-[#555E68] leading-relaxed mt-1 font-sans">
+                    Stainless steel plates, coils, round bars, hex bars, and other available product categories.
+                  </p>
+                </div>
+              </div>
+
+              {/* 3. Reliable Supply */}
+              <div className="flex items-start gap-4">
+                <div className="p-2.5 rounded-sm bg-[#C34B2B]/10 text-[#C34B2B] flex-shrink-0 mt-1">
+                  <Truck className="w-5 h-5 stroke-[2.2]" />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-[17px] font-bold text-[#191C1F] tracking-tight font-sans">
+                    Reliable Supply
+                  </h3>
+                  <p className="text-sm sm:text-[15px] text-[#555E68] leading-relaxed mt-1 font-sans">
+                    Organized stock handling and dependable coordination to support customer requirements.
+                  </p>
+                </div>
+              </div>
+
+              {/* 4. Professional Support */}
+              <div className="flex items-start gap-4">
+                <div className="p-2.5 rounded-sm bg-[#C34B2B]/10 text-[#C34B2B] flex-shrink-0 mt-1">
+                  <Headset className="w-5 h-5 stroke-[2.2]" />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-[17px] font-bold text-[#191C1F] tracking-tight font-sans">
+                    Professional Support
+                  </h3>
+                  <p className="text-sm sm:text-[15px] text-[#555E68] leading-relaxed mt-1 font-sans">
+                    Responsive assistance for product enquiries, material specifications, and quotations.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Learn More Button linking to existing About Us page */}
+            <div className="pt-6 border-t border-[#E5E0D8] flex items-center justify-between">
+              <button
+                type="button"
+                onClick={() => {
+                  if (onNavigate) {
+                    onNavigate('about', null, '/about');
+                  } else {
+                    window.location.href = '/about';
+                  }
+                }}
+                className="inline-flex items-center gap-2.5 text-sm sm:text-base font-bold tracking-wider uppercase text-[#191C1F] hover:text-[#C34B2B] transition-colors py-1 group cursor-pointer"
+                aria-label="Learn More About Rudhira Metal Industries"
+              >
+                <span>LEARN MORE ABOUT US</span>
+                <ArrowRight className="w-4 h-4 text-[#C34B2B] group-hover:translate-x-1.5 transition-transform duration-200" />
+              </button>
+            </div>
+
+          </div>
+
         </div>
+
       </div>
     </section>
   );

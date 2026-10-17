@@ -87,18 +87,18 @@ export default function GlobalReach({ onOpenEnquiry }) {
         {/* AREA 01: COUNTRIES WE EXPORT TO - Centered Large Heading */}
         <div className="mb-24">
           <div className="reach-export-header text-center mx-auto max-w-3xl mb-14 sm:mb-16">
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 sm:mb-5">
               <Globe className="w-4 h-4 text-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs">
+              <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
                 05 — GLOBAL REACH
               </span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#202427] tracking-tight leading-tight mb-4">
+            <h2 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-extrabold text-[#202427] tracking-tight leading-[1.12] mb-4 sm:mb-5 font-sans">
               Countries We Export To
             </h2>
 
-            <p className="text-base sm:text-lg lg:text-xl text-[#202427]/75 font-normal max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-[19px] text-[#202427]/80 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
               Global engineering destinations and strategic international supply corridors. Direct container logistics for critical project specifications.
             </p>
           </div>
@@ -121,7 +121,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
                 </div>
 
                 {/* Country Name Only */}
-                <span className="text-xs sm:text-sm font-bold text-[#202427] group-hover:text-[#A94728] transition-colors leading-tight">
+                <span className="text-sm sm:text-[15px] font-bold text-[#202427] group-hover:text-[#A94728] transition-colors leading-tight font-sans">
                   {country.name}
                 </span>
               </div>
@@ -132,18 +132,18 @@ export default function GlobalReach({ onOpenEnquiry }) {
         {/* AREA 02: SERVING REQUIREMENTS ACROSS INDIA - Centered Large Heading */}
         <div>
           <div className="reach-india-header text-center mx-auto max-w-3xl mb-14 sm:mb-16">
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 sm:mb-5">
               <MapPin className="w-4 h-4 text-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs">
+              <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
                 06 — NATIONWIDE DISTRIBUTION
               </span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#202427] tracking-tight leading-tight mb-4">
+            <h2 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-extrabold text-[#202427] tracking-tight leading-[1.12] mb-4 sm:mb-5 font-sans">
               Serving Requirements Across India
             </h2>
 
-            <p className="text-base sm:text-lg lg:text-xl text-[#202427]/75 font-normal max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-[19px] text-[#202427]/80 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
               Designed for nationwide industrial reach with central stockist logistics in Mumbai. Prompt dispatch across all manufacturing clusters and project sites.
             </p>
           </div>

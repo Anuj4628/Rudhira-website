@@ -20,6 +20,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const [certModalOpen, setCertModalOpen] = useState(false);
   const [activeCertId, setActiveCertId] = useState('iso-9001-2015');
 
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   const productTimeoutRef = useRef(null);
   const materialTimeoutRef = useRef(null);
   const certificatesTimeoutRef = useRef(null);
@@ -34,7 +36,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const handleProductMouseLeave = () => {
     productTimeoutRef.current = setTimeout(() => {
       setProductMegaOpen(false);
-    }, 180);
+    }, 220);
   };
 
   const handleMaterialMouseEnter = () => {
@@ -47,7 +49,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const handleMaterialMouseLeave = () => {
     materialTimeoutRef.current = setTimeout(() => {
       setMaterialsMegaOpen(false);
-    }, 180);
+    }, 220);
   };
 
   const handleCertificatesMouseEnter = () => {
@@ -60,19 +62,23 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const handleCertificatesMouseLeave = () => {
     certificatesTimeoutRef.current = setTimeout(() => {
       setCertificatesMegaOpen(false);
-    }, 180);
+    }, 220);
   };
 
   const closeAllMenus = () => {
+    if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
+    if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
+    if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
     setProductMegaOpen(false);
     setMaterialsMegaOpen(false);
     setCertificatesMegaOpen(false);
     setMobileMenuOpen(false);
+    setHoveredIndex(null);
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
+      if (window.scrollY > 24) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -96,7 +102,13 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     if (currentPage === 'about') return link.page === 'about';
     if (currentPage === 'contact') return link.page === 'contact';
     if (currentPage === 'certificates') return link.name === 'Certificates';
-    if (currentPage === 'products-landing' || currentPage === 'product-category' || currentPage === 'product-material' || currentPage === 'grade-detail' || currentPage === 'product-type-detail') {
+    if (
+      currentPage === 'products-landing' ||
+      currentPage === 'product-category' ||
+      currentPage === 'product-material' ||
+      currentPage === 'grade-detail' ||
+      currentPage === 'product-type-detail'
+    ) {
       return link.name === 'Product';
     }
     if (currentPage === 'materials-landing' || currentPage === 'material-family') {
@@ -105,6 +117,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     if (currentPage === 'home') return link.name === 'Home';
     return false;
   };
+
+
+
 
   const handleNavClick = (e, link) => {
     e.preventDefault();
@@ -129,120 +144,121 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
   return (
     <>
-      {/* Fixed Header with Top Contact Bar & Main Navigation */}
+      {/* Fixed Architectural Industrial Header */}
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         onMouseLeave={() => {
           handleProductMouseLeave();
           handleMaterialMouseLeave();
           handleCertificatesMouseLeave();
+          setHoveredIndex(null);
         }}
       >
-        {/* TOP CONTACT & CERTIFICATION UTILITY BAR */}
-        <div className="hidden md:block bg-[#1A1D20] text-[#D9D9D6] border-b border-white/10 text-xs py-1 px-4 sm:px-6 lg:px-8">
-          {/* Mobile view: hidden to keep top bar clean on small screens */}
-
-          {/* Desktop/Tablet view: full contact info exactly as currently appears */}
-          <div className="hidden md:flex max-w-7xl mx-auto flex-wrap items-center justify-between gap-y-1.5 gap-x-4">
-            {/* Left: Email & Address */}
-            <div className="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs">
-              <a
-                href={`mailto:${COMPANY_DETAILS.emails[0]}`}
-                className="inline-flex items-center gap-1.5 hover:text-[#A94728] transition-colors"
-                title="Send Inquiry Email"
-              >
-                <Mail className="w-3.5 h-3.5 text-[#A94728] flex-shrink-0" />
-                <span className="font-mono">{COMPANY_DETAILS.emails[0]}</span>
-              </a>
-
-              <span className="hidden lg:inline text-white/25">|</span>
-
-              <span className="hidden md:inline-flex items-center gap-1.5 text-white/70">
-                <MapPin className="w-3.5 h-3.5 text-[#A94728] flex-shrink-0" />
-                <span>Khetwadi, Mumbai</span>
-              </span>
+        {/* TOP INFORMATION STRIP (Full-Width Terracotta Orange with White Angled Location Block) */}
+        <div className="hidden md:block bg-[#A94728] text-white select-none border-b border-[#923C20] shadow-xs">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            
+            {/* 1. Left: Contrasting White Angled Location Block */}
+            <div className="relative bg-white text-[#A94728] py-2 pl-4 sm:pl-6 pr-8 sm:pr-10 flex items-center gap-2 text-xs sm:text-[13px] font-sans font-bold [clip-path:polygon(0_0,100%_0,calc(100%-18px)_100%,0_100%)] shadow-xs flex-shrink-0">
+              <MapPin className="w-3.5 h-3.5 text-[#A94728] flex-shrink-0 stroke-[2.2]" />
+              <span className="whitespace-nowrap">Khetwadi, Mumbai - 400 004</span>
             </div>
 
-            {/* Center / Highlight: ISO 9001:2015 CERTIFIED COMPANY */}
-            <div className="flex items-center justify-center my-0.5 sm:my-0">
+            {/* Right Row: 2. ISO Badge | 3. Email | 4. Bharat | 5. Navin */}
+            <div className="flex items-center gap-3.5 lg:gap-5 pr-4 sm:pr-6 lg:pr-8 py-2 text-xs sm:text-[13px] font-sans text-white">
+              
+              {/* 2. ISO 9001:2015 Certification with Reference */}
               <button
                 type="button"
                 onClick={() => {
                   setActiveCertId('iso-9001-2015');
                   setCertModalOpen(true);
                 }}
-                className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#A94728]/25 hover:bg-[#A94728]/40 border border-[#A94728]/60 text-[#F4E5DC] hover:text-white font-mono text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase transition-all shadow-xs cursor-pointer group"
-                title="Click to view ISO 9001:2015 Certificate"
+                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-sans text-xs font-bold tracking-wider uppercase transition-all cursor-pointer group shadow-xs flex-shrink-0"
+                title="Click to view Official ISO 9001:2015 Certificate"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-                <ShieldCheck className="w-3.5 h-3.5 text-[#F4E5DC] group-hover:scale-110 transition-transform" />
-                <span>ISO 9001:2015 CERTIFIED COMPANY</span>
+                <ShieldCheck className="w-3.5 h-3.5 text-white group-hover:scale-110 transition-transform flex-shrink-0" />
+                <span className="whitespace-nowrap">ISO 9001:2015 CERTIFIED</span>
+                <span className="text-white/80 text-[11px] font-normal">#26DQQC40</span>
               </button>
-            </div>
 
-            {/* Right: Bharat Kumar & Navin Kumar Phone Contacts with WhatsApp */}
-            <div className="flex items-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs">
-              {/* Bharat Kumar */}
-              <div className="inline-flex items-center gap-1.5">
-                <span className="text-white/60 hidden sm:inline text-[11px]">Bharat Kumar:</span>
+              <span className="text-white/40">|</span>
+
+              {/* 3. Email */}
+              <a
+                href={`mailto:${COMPANY_DETAILS.emails[0]}`}
+                className="inline-flex items-center gap-1.5 text-white hover:text-white/85 transition-colors group flex-shrink-0"
+                title="Send Quotation Email"
+              >
+                <Mail className="w-3.5 h-3.5 text-white group-hover:scale-110 transition-transform flex-shrink-0" />
+                <span className="whitespace-nowrap font-medium">{COMPANY_DETAILS.emails[0]}</span>
+              </a>
+
+              <span className="text-white/40">|</span>
+
+              {/* 4. Bharat Phone & WhatsApp */}
+              <div className="inline-flex items-center gap-1.5 flex-shrink-0">
+                <span className="text-white/80 hidden xl:inline text-xs">Bharat:</span>
                 <a
                   href={`tel:${COMPANY_DETAILS.contacts[0].cleanPhone}`}
-                  className="font-mono font-bold text-white hover:text-[#A94728] transition-colors flex items-center gap-1"
+                  className="font-sans font-semibold text-white hover:text-white/85 transition-colors flex items-center gap-1 whitespace-nowrap"
                   title="Call Bharat Kumar"
                 >
-                  <FaPhone className="w-2.5 h-2.5 text-[#A94728] sm:hidden" />
+                  <FaPhone className="w-2.5 h-2.5 text-white/90 sm:hidden" />
                   <span>{COMPANY_DETAILS.contacts[0].phone}</span>
                 </a>
                 <a
                   href={`https://wa.me/${COMPANY_DETAILS.contacts[0].whatsappNumber}?text=${encodeURIComponent(COMPANY_DETAILS.whatsappDefaultMsg)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#25D366] hover:scale-110 transition-transform p-0.5"
+                  className="text-white hover:text-emerald-200 hover:scale-115 transition-transform p-0.5"
                   title="Chat with Bharat Kumar on WhatsApp"
                   aria-label="Chat with Bharat Kumar on WhatsApp"
                 >
-                  <FaWhatsapp className="w-3.5 h-3.5" />
+                  <FaWhatsapp className="w-4 h-4 text-emerald-300 drop-shadow-xs" />
                 </a>
               </div>
 
-              <span className="text-white/30 hidden xs:inline">|</span>
+              <span className="text-white/40 hidden sm:inline">|</span>
 
-              {/* Navin Kumar */}
-              <div className="inline-flex items-center gap-1.5">
-                <span className="text-white/60 hidden sm:inline text-[11px]">Navin Kumar:</span>
+              {/* 5. Navin Phone & WhatsApp */}
+              <div className="hidden sm:inline-flex items-center gap-1.5 flex-shrink-0">
+                <span className="text-white/80 hidden xl:inline text-xs">Navin:</span>
                 <a
                   href={`tel:${COMPANY_DETAILS.contacts[1].cleanPhone}`}
-                  className="font-mono font-bold text-white hover:text-[#A94728] transition-colors flex items-center gap-1"
+                  className="font-sans font-semibold text-white hover:text-white/85 transition-colors flex items-center gap-1 whitespace-nowrap"
                   title="Call Navin Kumar"
                 >
-                  <FaPhone className="w-2.5 h-2.5 text-[#A94728] sm:hidden" />
+                  <FaPhone className="w-2.5 h-2.5 text-white/90 sm:hidden" />
                   <span>{COMPANY_DETAILS.contacts[1].phone}</span>
                 </a>
                 <a
                   href={`https://wa.me/${COMPANY_DETAILS.contacts[1].whatsappNumber}?text=${encodeURIComponent(COMPANY_DETAILS.whatsappDefaultMsg)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#25D366] hover:scale-110 transition-transform p-0.5"
+                  className="text-white hover:text-emerald-200 hover:scale-115 transition-transform p-0.5"
                   title="Chat with Navin Kumar on WhatsApp"
                   aria-label="Chat with Navin Kumar on WhatsApp"
                 >
-                  <FaWhatsapp className="w-3.5 h-3.5" />
+                  <FaWhatsapp className="w-4 h-4 text-emerald-300 drop-shadow-xs" />
                 </a>
               </div>
+
             </div>
+
           </div>
         </div>
 
-        {/* MAIN NAVIGATION BAR */}
+        {/* MAIN NAVIGATION BAR (Crisp White Background Following Image 1 Layout) */}
         <div
-          className={`transition-all duration-300 relative ${isScrolled
-            ? 'bg-[#F8F5F1] shadow-md border-b border-[#D9D9D6] py-1 sm:py-1.5'
-            : 'bg-[#F8F5F1]/95 backdrop-blur-md border-b border-[#202427]/10 py-1.5 sm:py-2'
-            }`}
+          className={`transition-all duration-300 relative bg-white border-b border-gray-200/90 ${
+            isScrolled ? 'shadow-md py-1.5 sm:py-2' : 'py-2.5 sm:py-3 shadow-xs'
+          }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            {/* Brand Logo & ISO 9001:2015 Tag */}
-            <div className="flex items-center gap-2.5 sm:gap-3.5">
+            
+            {/* LEFT: Prominent Rudhira Metal Logo with Generous Breathing Room */}
+            <div className="flex items-center">
               <a
                 href="/"
                 onClick={(e) => {
@@ -250,156 +266,132 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   closeAllMenus();
                   if (onNavigate) onNavigate('home');
                 }}
-                className="flex items-center focus:outline-none transition-transform duration-200 hover:opacity-95"
+                className="flex items-center focus:outline-none transition-transform duration-200 hover:opacity-95 py-0.5"
                 aria-label="Rudhira Metal Industries - Home"
               >
                 <img
                   src="/assets/rudhira-logo.png"
                   alt="Rudhira Metal Industries Logo"
-                  className={`w-auto object-contain transition-all duration-300 ${isScrolled
-                    ? 'h-18 xs:h-[42px] sm:h-[54px] lg:h-[66px] xl:h-[72px]'
-                    : 'h-18 xs:h-[48px] sm:h-[62px] lg:h-[76px] xl:h-[82px]'
-                    }`}
+                  className={`w-auto object-contain transition-all duration-300 ${
+                    isScrolled
+                      ? 'h-13 sm:h-[54px] lg:h-[66px] xl:h-[72px]'
+                      : 'h-15 sm:h-[62px] lg:h-[74px] xl:h-[80px]'
+                  }`}
                   loading="eager"
                 />
               </a>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveCertId('iso-9001-2015');
-                  setCertModalOpen(true);
-                }}
-                className="hidden sm:flex flex-col border-l-2 border-[#A94728]/35 pl-2.5 sm:pl-3 py-0.5 text-left cursor-pointer group"
-                title="View ISO 9001:2015 Certificate"
-              >
-                <span className="text-[10px] xl:text-[11px] font-mono font-extrabold text-[#A94728] uppercase tracking-wider flex items-center gap-1 group-hover:underline">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]" />
-                  ISO 9001:2015
-                </span>
-                <span className="text-[9px] font-mono font-semibold text-[#202427]/75 tracking-tight">
-                  CERTIFIED COMPANY
-                </span>
-              </button>
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-7 xl:gap-8" aria-label="Main Navigation">
-              {navLinks.map((link) => {
-                const active = isLinkActive(link);
+            {/* RIGHT SIDE: Navigation Items + GET A QUOTE Button (Grouped Right like Image 1) */}
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+              
+              <nav
+                className="flex items-center gap-6 xl:gap-8"
+                aria-label="Main Navigation"
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                {navLinks.map((link, index) => {
+                  const active = isLinkActive(link);
+                  const isHovered = hoveredIndex === index;
+                  const isTarget = hoveredIndex !== null ? isHovered : active;
 
-                if (link.isMega === 'product') {
+                  const isOpen =
+                    (link.isMega === 'product' && productMegaOpen) ||
+                    (link.isMega === 'material' && materialsMegaOpen) ||
+                    (link.isMega === 'certificates' && certificatesMegaOpen);
+
                   return (
                     <div
                       key={link.name}
-                      className="relative py-2"
-                      onMouseEnter={handleProductMouseEnter}
-                      onMouseLeave={handleProductMouseLeave}
+                      className="relative py-2 select-none group"
+                      onMouseEnter={() => {
+                        setHoveredIndex(index);
+                        if (link.isMega === 'product') handleProductMouseEnter();
+                        else if (link.isMega === 'material') handleMaterialMouseEnter();
+                        else if (link.isMega === 'certificates') handleCertificatesMouseEnter();
+                      }}
+                      onMouseLeave={() => {
+                        if (link.isMega === 'product') handleProductMouseLeave();
+                        else if (link.isMega === 'material') handleMaterialMouseLeave();
+                        else if (link.isMega === 'certificates') handleCertificatesMouseLeave();
+                      }}
                     >
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link)}
-                        className={`inline-flex items-center gap-1 text-sm font-bold tracking-wide transition-colors py-1 nav-line-effect cursor-pointer ${active || productMegaOpen
-                          ? 'text-[#A94728] font-extrabold after:!w-full'
-                          : 'text-[#202427] hover:text-[#A94728]'
-                          }`}
+                        className={`inline-flex items-center gap-1.5 text-[15px] xl:text-[16px] font-bold font-sans tracking-tight transition-colors duration-200 cursor-pointer ${
+                          isTarget || isOpen
+                            ? 'text-[#A94728]'
+                            : 'text-[#171A1C] hover:text-[#A94728]'
+                        }`}
                       >
                         <span>{link.name}</span>
-                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productMegaOpen ? 'rotate-180 text-[#A94728]' : 'text-[#202427]/60'}`} />
+                        {link.isMega && (
+                          <ChevronDown
+                            className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                              isOpen
+                                ? 'rotate-180 text-[#A94728]'
+                                : isTarget
+                                ? 'text-[#A94728]'
+                                : 'text-gray-400 group-hover:text-[#A94728]'
+                            }`}
+                          />
+                        )}
                       </a>
+
+                      {/* Brand-Colored Subtle Underline Indicator */}
+                      <span
+                        className={`absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-[#A94728] rounded-full transition-all duration-200 ${
+                          isTarget || isOpen
+                            ? 'opacity-100 scale-x-100'
+                            : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
+                        }`}
+                      />
                     </div>
                   );
-                }
+                })}
+              </nav>
 
-                if (link.isMega === 'material') {
-                  return (
-                    <div
-                      key={link.name}
-                      className="relative py-2"
-                      onMouseEnter={handleMaterialMouseEnter}
-                      onMouseLeave={handleMaterialMouseLeave}
-                    >
-                      <a
-                        href={link.href}
-                        onClick={(e) => handleNavClick(e, link)}
-                        className={`inline-flex items-center gap-1 text-sm font-bold tracking-wide transition-colors py-1 nav-line-effect cursor-pointer ${active || materialsMegaOpen
-                          ? 'text-[#A94728] font-extrabold after:!w-full'
-                          : 'text-[#202427] hover:text-[#A94728]'
-                          }`}
-                      >
-                        <span>{link.name}</span>
-                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${materialsMegaOpen ? 'rotate-180 text-[#A94728]' : 'text-[#202427]/60'}`} />
-                      </a>
-                    </div>
-                  );
-                }
-
-                if (link.isMega === 'certificates') {
-                  return (
-                    <div
-                      key={link.name}
-                      className="relative py-2"
-                      onMouseEnter={handleCertificatesMouseEnter}
-                      onMouseLeave={handleCertificatesMouseLeave}
-                    >
-                      <a
-                        href={link.href}
-                        onClick={(e) => handleNavClick(e, link)}
-                        className={`inline-flex items-center gap-1 text-sm font-bold tracking-wide transition-colors py-1 nav-line-effect cursor-pointer ${active || certificatesMegaOpen
-                          ? 'text-[#A94728] font-extrabold after:!w-full'
-                          : 'text-[#202427] hover:text-[#A94728]'
-                          }`}
-                      >
-                        <span>{link.name}</span>
-                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${certificatesMegaOpen ? 'rotate-180 text-[#A94728]' : 'text-[#202427]/60'}`} />
-                      </a>
-                    </div>
-                  );
-                }
-
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link)}
-                    className={`text-sm font-bold tracking-wide transition-colors py-1 nav-line-effect ${active
-                      ? 'text-[#A94728] font-extrabold after:!w-full'
-                      : 'text-[#202427] hover:text-[#A94728]'
-                      }`}
-                  >
-                    {link.name}
-                  </a>
-                );
-              })}
-            </nav>
-
-            {/* Right Action: GET QUOTE */}
-            <div className="hidden sm:flex items-center gap-4">
+              {/* GET A QUOTE Prominent Corporate CTA Button with BLACK Font */}
               <button
                 onClick={() => {
                   closeAllMenus();
-                  onOpenEnquiry();
+                  if (onOpenEnquiry) onOpenEnquiry('Navbar Header RFQ');
                 }}
-                className="inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#7E321F] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-sm shadow-sm transition-all duration-150 active:scale-[0.97] group cursor-pointer"
+                className="btn-wave group relative inline-flex items-center justify-center gap-2 border-2 border-[#A94728] bg-[#F4E5DC] hover:bg-[#EBD2C2] text-black !text-black text-xs sm:text-[13.5px] font-black uppercase tracking-wider px-6 sm:px-7 py-2.5 sm:py-3 rounded-md shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                aria-label="Get A Quote"
               >
-                <span>Get Quote</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span className="relative z-10 text-black !text-black font-black">GET A QUOTE</span>
+                <ArrowUpRight className="relative z-10 w-4 h-4 stroke-[2.5] text-black !text-black transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
+
             </div>
 
-            {/* Mobile Menu Button — clean single hamburger toggle */}
-            <div className="flex sm:hidden items-center">
+            {/* Mobile / Tablet Header Controls (Always visible with BLACK Font) */}
+            <div className="flex lg:hidden items-center gap-2.5 sm:gap-3">
+              <button
+                onClick={() => {
+                  closeAllMenus();
+                  if (onOpenEnquiry) onOpenEnquiry('Mobile Header RFQ');
+                }}
+                className="btn-wave inline-flex items-center justify-center gap-1.5 border-2 border-[#A94728] bg-[#F4E5DC] hover:bg-[#EBD2C2] text-black !text-black text-xs font-black uppercase tracking-wider px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-md shadow-xs"
+              >
+                <span className="text-black !text-black font-black">GET A QUOTE</span>
+                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] text-black !text-black" />
+              </button>
+
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-sm border border-[#D9D9D6] text-[#202427] hover:bg-[#F4E5DC]"
+                className="p-2 sm:p-2.5 rounded-lg border border-gray-200 text-[#171A1C] hover:bg-gray-100 transition-colors cursor-pointer"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
+
           </div>
 
-          {/* Desktop Mega Menus Mounted with Seamless Hover Handlers */}
+          {/* Desktop Mega Menus Mounted with Smooth Hover Handlers */}
           <ProductMegaMenu
             isOpen={productMegaOpen}
             onClose={() => setProductMegaOpen(false)}
@@ -409,9 +401,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
               closeAllMenus();
               if (onNavigate) onNavigate(view, anchor, urlPath);
             }}
-            onOpenEnquiry={(prod, mat) => {
+            onOpenEnquiry={(prod) => {
               closeAllMenus();
-              onOpenEnquiry(prod, mat);
+              if (onOpenEnquiry) onOpenEnquiry(prod);
             }}
           />
 
@@ -444,66 +436,75 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
         </div>
       </header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Redesigned Mobile Drawer Navigation with Active Indicator Bars */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden bg-[#202427]/70 backdrop-blur-sm">
-          <div className="fixed top-0 right-0 w-full max-w-sm h-full bg-[#F8F5F1] border-l border-[#D9D9D6] shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+        <div className="fixed inset-0 z-50 lg:hidden bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="fixed top-0 right-0 w-full max-w-sm h-full bg-white border-l border-gray-200 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
             <div>
-              {/* Drawer Top Header with Logo & Close button */}
-              <div className="flex items-center justify-between pb-4 border-b border-[#D9D9D6]">
+              {/* Header with Logo & Close Button */}
+              <div className="flex items-center justify-between pb-4 border-b border-gray-100">
                 <img
                   src="/assets/rudhira-logo.png"
                   alt="Rudhira Metal Industries"
-                  className="h-10 w-20 object-contain"
+                  className="h-10 w-auto object-contain"
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-sm border border-[#D9D9D6] text-[#202427] hover:bg-[#F4E5DC] transition-colors"
+                  className="p-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100 transition-colors"
                   aria-label="Close navigation menu"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Navigation Links */}
+              {/* Navigation Links Accordion */}
               <div className="mt-5">
-                <div className="tech-label text-[#A94728] mb-2 text-xs font-bold">
-                  NAVIGATION
+                <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase tracking-widest mb-2">
+                  NAVIGATION MENU
                 </div>
+
                 <nav className="flex flex-col space-y-1">
                   {navLinks.map((link) => {
                     const active = isLinkActive(link);
 
+                    // Product Accordion
                     if (link.isMega === 'product') {
                       return (
-                        <div key={link.name} className="border-b border-[#D9D9D6]/40 py-1.5">
+                        <div
+                          key={link.name}
+                          className={`border-b border-gray-100 py-1.5 rounded-xl transition-colors ${
+                            active ? 'border-l-4 border-l-[#A94728] bg-[#A94728]/5 pl-2.5' : ''
+                          }`}
+                        >
                           <div className="flex items-center justify-between">
                             <button
                               onClick={() => {
                                 closeAllMenus();
                                 if (onNavigate) onNavigate('products-landing', null, '/products');
                               }}
-                              className={`text-base font-bold transition-colors ${active ? 'text-[#A94728]' : 'text-[#202427]'
-                                }`}
+                              className={`text-base font-bold transition-colors ${
+                                active ? 'text-[#A94728] font-black' : 'text-[#1C2024]'
+                              }`}
                             >
                               Product
                             </button>
                             <button
                               onClick={() => setMobileProductExpanded(!mobileProductExpanded)}
-                              className="p-1.5 text-[#202427]/70 hover:text-[#A94728] rounded"
+                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded"
                               aria-label="Expand product categories"
                             >
                               <ChevronDown
-                                className={`w-4 h-4 transition-transform ${mobileProductExpanded ? 'rotate-180 text-[#A94728]' : ''
-                                  }`}
+                                className={`w-4 h-4 transition-transform ${
+                                  mobileProductExpanded ? 'rotate-180 text-[#A94728]' : ''
+                                }`}
                               />
                             </button>
                           </div>
 
                           {mobileProductExpanded && (
-                            <div className="mt-2 pl-3 py-2 space-y-2 bg-[#F4E5DC]/30 rounded-lg border border-[#A94728]/20 max-h-60 overflow-y-auto">
+                            <div className="mt-2 pl-3 py-2 space-y-2 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20 max-h-60 overflow-y-auto sidebar-sticky-scroll">
                               <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase">
-                                MANUFACTURER DIVISION
+                                MANUFACTURING DIVISION (9)
                               </div>
                               <div className="grid grid-cols-1 gap-1">
                                 {PRODUCT_CATEGORIES.filter((p) => p.division === 'Manufacturer').map((cat) => (
@@ -513,15 +514,15 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                       closeAllMenus();
                                       if (onNavigate) onNavigate('product-category', null, `/products/${cat.slug}`);
                                     }}
-                                    className="text-left text-xs font-medium text-[#202427] hover:text-[#A94728] py-1 truncate"
+                                    className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate"
                                   >
                                     • {cat.name}
                                   </button>
                                 ))}
                               </div>
 
-                              <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase pt-2 border-t border-[#D9D9D6]">
-                                SUPPLIER DIVISION
+                              <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase pt-2 border-t border-gray-200">
+                                STOCKIST & SUPPLY DIVISION (9)
                               </div>
                               <div className="grid grid-cols-1 gap-1">
                                 {PRODUCT_CATEGORIES.filter((p) => p.division === 'Supplier').map((cat) => (
@@ -531,14 +532,14 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                       closeAllMenus();
                                       if (onNavigate) onNavigate('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`);
                                     }}
-                                    className="text-left text-xs font-medium text-[#202427] hover:text-[#A94728] py-1 truncate"
+                                    className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate"
                                   >
                                     • {cat.name}
                                   </button>
                                 ))}
                               </div>
 
-                              <div className="pt-2 border-t border-[#D9D9D6]">
+                              <div className="pt-2 border-t border-gray-200">
                                 <button
                                   onClick={() => {
                                     closeAllMenus();
@@ -546,7 +547,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                   }}
                                   className="text-[11px] font-mono font-bold text-[#A94728] hover:underline"
                                 >
-                                  View All 18 Products →
+                                  View All 18 Products Directory →
                                 </button>
                               </div>
                             </div>
@@ -555,36 +556,44 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                       );
                     }
 
+                    // Material Accordion
                     if (link.isMega === 'material') {
                       return (
-                        <div key={link.name} className="border-b border-[#D9D9D6]/40 py-1.5">
+                        <div
+                          key={link.name}
+                          className={`border-b border-gray-100 py-1.5 rounded-xl transition-colors ${
+                            active ? 'border-l-4 border-l-[#A94728] bg-[#A94728]/5 pl-2.5' : ''
+                          }`}
+                        >
                           <div className="flex items-center justify-between">
                             <button
                               onClick={() => {
                                 closeAllMenus();
                                 if (onNavigate) onNavigate('materials-landing', null, '/materials');
                               }}
-                              className={`text-base font-bold transition-colors ${active ? 'text-[#A94728]' : 'text-[#202427]'
-                                }`}
+                              className={`text-base font-bold transition-colors ${
+                                active ? 'text-[#A94728] font-black' : 'text-[#1C2024]'
+                              }`}
                             >
                               Material
                             </button>
                             <button
                               onClick={() => setMobileMaterialExpanded(!mobileMaterialExpanded)}
-                              className="p-1.5 text-[#202427]/70 hover:text-[#A94728] rounded"
+                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded"
                               aria-label="Expand materials"
                             >
                               <ChevronDown
-                                className={`w-4 h-4 transition-transform ${mobileMaterialExpanded ? 'rotate-180 text-[#A94728]' : ''
-                                  }`}
+                                className={`w-4 h-4 transition-transform ${
+                                  mobileMaterialExpanded ? 'rotate-180 text-[#A94728]' : ''
+                                }`}
                               />
                             </button>
                           </div>
 
                           {mobileMaterialExpanded && (
-                            <div className="mt-2 pl-3 py-2 space-y-1.5 bg-[#F4E5DC]/30 rounded-lg border border-[#A94728]/20 max-h-60 overflow-y-auto">
+                            <div className="mt-2 pl-3 py-2 space-y-1.5 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20 max-h-60 overflow-y-auto sidebar-sticky-scroll">
                               <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase">
-                                9 MATERIAL FAMILIES
+                                9 ALLOY FAMILIES
                               </div>
                               {MATERIAL_CATEGORIES.map((mat) => (
                                 <button
@@ -593,13 +602,13 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                     closeAllMenus();
                                     if (onNavigate) onNavigate('material-family', null, `/materials/${getMaterialSeoSlug(mat.slug)}`);
                                   }}
-                                  className="block text-left text-xs font-medium text-[#202427] hover:text-[#A94728] py-1 truncate"
+                                  className="block text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate"
                                 >
                                   • {mat.name}
                                 </button>
                               ))}
 
-                              <div className="pt-2 border-t border-[#D9D9D6]">
+                              <div className="pt-2 border-t border-gray-200">
                                 <button
                                   onClick={() => {
                                     closeAllMenus();
@@ -607,7 +616,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                   }}
                                   className="text-[11px] font-mono font-bold text-[#A94728] hover:underline"
                                 >
-                                  View All Materials Overview →
+                                  View All 9 Metallurgy Families →
                                 </button>
                               </div>
                             </div>
@@ -616,37 +625,45 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                       );
                     }
 
+                    // Certificates Accordion
                     if (link.isMega === 'certificates') {
                       return (
-                        <div key={link.name} className="border-b border-[#D9D9D6]/40 py-1.5">
+                        <div
+                          key={link.name}
+                          className={`border-b border-gray-100 py-1.5 rounded-xl transition-colors ${
+                            active ? 'border-l-4 border-l-[#A94728] bg-[#A94728]/5 pl-2.5' : ''
+                          }`}
+                        >
                           <div className="flex items-center justify-between">
                             <button
                               onClick={() => {
                                 closeAllMenus();
                                 if (onNavigate) onNavigate('certificates', null, '/certificates');
                               }}
-                              className={`text-base font-bold transition-colors ${active ? 'text-[#A94728]' : 'text-[#202427]'
-                                }`}
+                              className={`text-base font-bold transition-colors ${
+                                active ? 'text-[#A94728] font-black' : 'text-[#1C2024]'
+                              }`}
                             >
                               Certificates
                             </button>
                             <button
                               onClick={() => setMobileCertificatesExpanded(!mobileCertificatesExpanded)}
-                              className="p-1.5 text-[#202427]/70 hover:text-[#A94728] rounded"
+                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded"
                               aria-label="Expand certificates"
                             >
                               <ChevronDown
-                                className={`w-4 h-4 transition-transform ${mobileCertificatesExpanded ? 'rotate-180 text-[#A94728]' : ''
-                                  }`}
+                                className={`w-4 h-4 transition-transform ${
+                                  mobileCertificatesExpanded ? 'rotate-180 text-[#A94728]' : ''
+                                }`}
                               />
                             </button>
                           </div>
 
                           {mobileCertificatesExpanded && (
-                            <div className="mt-2 pl-3 pr-2 py-2.5 space-y-2 bg-[#F4E5DC]/30 rounded-lg border border-[#A94728]/20">
+                            <div className="mt-2 pl-3 pr-2 py-2.5 space-y-2 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20">
                               <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase flex items-center justify-between">
                                 <span>OFFICIAL ACCREDITATIONS</span>
-                                <span className="text-[9px] text-[#202427]/60">2 DOCUMENTS</span>
+                                <span className="text-[9px] text-gray-400">2 DOCUMENTS</span>
                               </div>
 
                               {/* ISO 9001:2015 Button */}
@@ -656,10 +673,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                   setActiveCertId('iso-9001-2015');
                                   setCertModalOpen(true);
                                 }}
-                                className="w-full text-left p-2 bg-white hover:bg-[#F4E5DC] rounded border border-[#D9D9D6] transition-colors flex items-center justify-between"
+                                className="w-full text-left p-2.5 bg-white hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors flex items-center justify-between"
                               >
                                 <div className="min-w-0 pr-2">
-                                  <div className="text-xs font-bold text-[#202427] truncate">
+                                  <div className="text-xs font-bold text-[#1C2024] truncate">
                                     ISO 9001:2015 Certificate
                                   </div>
                                   <div className="text-[10px] font-mono text-[#A94728]">
@@ -678,10 +695,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                   setActiveCertId('gst-registration');
                                   setCertModalOpen(true);
                                 }}
-                                className="w-full text-left p-2 bg-white hover:bg-[#F4E5DC] rounded border border-[#D9D9D6] transition-colors flex items-center justify-between"
+                                className="w-full text-left p-2.5 bg-white hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors flex items-center justify-between"
                               >
                                 <div className="min-w-0 pr-2">
-                                  <div className="text-xs font-bold text-[#202427] truncate">
+                                  <div className="text-xs font-bold text-[#1C2024] truncate">
                                     GST Registration (REG-06)
                                   </div>
                                   <div className="text-[10px] font-mono text-[#A94728]">
@@ -693,7 +710,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                 </span>
                               </button>
 
-                              <div className="pt-2 border-t border-[#D9D9D6]">
+                              <div className="pt-2 border-t border-gray-200">
                                 <button
                                   onClick={() => {
                                     closeAllMenus();
@@ -701,7 +718,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                   }}
                                   className="text-[11px] font-mono font-bold text-[#A94728] hover:underline flex items-center gap-1"
                                 >
-                                  <span>View Full Quality & Compliance Center</span>
+                                  <span>View Quality & Compliance Center</span>
                                   <span>→</span>
                                 </button>
                               </div>
@@ -711,18 +728,20 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                       );
                     }
 
+                    // Standard Links (Home, About Us, Contact)
                     return (
                       <a
                         key={link.name}
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link)}
-                        className={`flex items-center justify-between text-base font-bold py-2.5 border-b border-[#D9D9D6]/40 transition-colors ${active
-                          ? 'text-[#A94728]'
-                          : 'text-[#202427] hover:text-[#A94728]'
-                          }`}
+                        className={`flex items-center justify-between text-base font-bold py-2.5 px-3 rounded-xl transition-all duration-200 ${
+                          active
+                            ? 'bg-[#A94728]/10 text-[#A94728] border-l-4 border-[#A94728] pl-3.5 font-extrabold shadow-2xs'
+                            : 'text-[#1C2024] hover:text-[#A94728] hover:bg-gray-50'
+                        }`}
                       >
                         <span>{link.name}</span>
-                        <span className="text-xs text-[#A94728] font-mono font-bold">
+                        <span className="text-xs font-mono font-bold">
                           {active ? '● ACTIVE' : '→'}
                         </span>
                       </a>
@@ -732,18 +751,18 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
               </div>
             </div>
 
-            {/* Direct Contact Details from Visiting Card */}
-            <div className="pt-5 border-t border-[#D9D9D6] space-y-4">
-              <div className="tech-label text-[#A94728] text-xs font-bold">
-                DIRECT CONTACT DESK
+            {/* Direct Contact Desk Section */}
+            <div className="pt-5 border-t border-gray-200 space-y-4">
+              <div className="text-[10px] font-mono font-bold text-[#A94728] tracking-widest uppercase">
+                DIRECT SALES DESK
               </div>
 
               {/* Contacts with Direct Call & WhatsApp */}
-              <div className="space-y-2.5 bg-white p-3 rounded-lg border border-[#D9D9D6]">
+              <div className="space-y-2.5 bg-[#FAF9F7] p-3 rounded-xl border border-gray-200/80">
                 {COMPANY_DETAILS.contacts.map((contact) => (
                   <div key={contact.name} className="flex items-center justify-between text-xs">
                     <div>
-                      <div className="font-bold text-[#202427]">{contact.name}</div>
+                      <div className="font-bold text-[#1C2024]">{contact.name}</div>
                       <a href={`tel:${contact.cleanPhone}`} className="text-[#A94728] font-mono font-semibold">
                         {contact.phone}
                       </a>
@@ -751,7 +770,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                     <div className="flex items-center gap-1.5">
                       <a
                         href={`tel:${contact.cleanPhone}`}
-                        className="p-1.5 bg-[#F8F5F1] hover:bg-[#A94728] hover:text-white rounded-sm text-[#202427] transition-colors"
+                        className="p-1.5 bg-white hover:bg-[#A94728] hover:text-white rounded-md text-[#202427] transition-colors border border-gray-200"
                         title={`Call ${contact.name}`}
                       >
                         <FaPhone className="w-3 h-3" />
@@ -760,7 +779,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         href={`https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(COMPANY_DETAILS.whatsappDefaultMsg)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 bg-[#25D366]/10 hover:bg-[#25D366] text-[#25D366] hover:text-white rounded-sm transition-colors"
+                        className="p-1.5 bg-emerald-50 hover:bg-emerald-500 text-emerald-600 hover:text-white rounded-md transition-colors border border-emerald-200"
                         title={`WhatsApp ${contact.name}`}
                       >
                         <FaWhatsapp className="w-3.5 h-3.5" />
@@ -770,60 +789,19 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                 ))}
               </div>
 
-              {/* Mobile ISO 9001:2015 Accreditation Box */}
-              <div
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setActiveCertId('iso-9001-2015');
-                  setCertModalOpen(true);
-                }}
-                className="p-2.5 bg-[#A94728]/10 hover:bg-[#A94728]/20 border border-[#A94728]/30 rounded-lg flex items-center justify-between cursor-pointer transition-colors"
-              >
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-[#A94728]" />
-                  <div>
-                    <div className="text-[11px] font-mono font-bold text-[#A94728] uppercase">
-                      ISO 9001:2015 CERTIFIED
-                    </div>
-                    <div className="text-[10px] text-[#202427]/70">
-                      Cert No: 26DQQC40 • Tap to view
-                    </div>
-                  </div>
-                </div>
-                <span className="text-xs font-mono font-bold text-[#A94728]">VIEW →</span>
-              </div>
-
-              {/* Emails & Address */}
-              <div className="space-y-2 text-xs text-[#202427]">
-                <div className="flex flex-col gap-1 font-mono text-xs">
-                  <a href={`mailto:${COMPANY_DETAILS.emails[0]}`} className="text-[#A94728] hover:underline flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 flex-shrink-0" />
-                    <span>{COMPANY_DETAILS.emails[0]}</span>
-                  </a>
-                  <a href={`mailto:${COMPANY_DETAILS.emails[1]}`} className="text-[#202427]/70 hover:underline flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 flex-shrink-0 opacity-60" />
-                    <span>{COMPANY_DETAILS.emails[1]}</span>
-                  </a>
-                </div>
-                <div className="flex items-start gap-2 text-[11px] text-[#202427]/80 pt-1">
-                  <MapPin className="w-3.5 h-3.5 text-[#A94728] flex-shrink-0 mt-0.5" />
-                  <span className="leading-tight">
-                    {COMPANY_DETAILS.address}
-                  </span>
-                </div>
-              </div>
-
+              {/* Get Quote Action */}
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenEnquiry();
+                  if (onOpenEnquiry) onOpenEnquiry('Mobile Drawer RFQ');
                 }}
-                className="w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#7E321F] text-white text-sm font-bold uppercase tracking-wider py-3 rounded-sm shadow-md transition-colors active:scale-[0.97]"
+                className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8D381D] text-white text-sm font-extrabold uppercase tracking-wider py-3 rounded-md shadow-md transition-all active:scale-[0.97]"
               >
-                <span>Get Quote</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <span className="text-white">GET A QUOTE</span>
+                <ArrowUpRight className="w-4 h-4 stroke-[2.5] text-white" />
               </button>
             </div>
+
           </div>
         </div>
       )}

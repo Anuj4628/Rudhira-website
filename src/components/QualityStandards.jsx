@@ -59,18 +59,18 @@ export default function QualityStandards() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Centered Layout */}
         <div className="quality-header text-center mx-auto max-w-3xl mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-4">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 mb-4 sm:mb-5">
             <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-            <span className="tech-label text-[#F4E5DC] font-bold text-xs">
+            <span className="tech-label text-[#F4E5DC] font-bold text-xs sm:text-[13px]">
               08 — SPECIFICATION ASSURANCE
             </span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Quality & Inspection Standards
+          <h2 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-extrabold text-white tracking-tight leading-[1.12] mb-4 sm:mb-5 font-sans">
+            Quality &amp; Inspection Standards
           </h2>
 
-          <p className="text-base sm:text-lg lg:text-xl text-[#E7EEF2]/85 font-normal max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-[19px] text-[#E7EEF2]/90 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
             Compliance, verification, and zero-tolerance dimensional deviation. Strict material traceability and positive material identification (PMI) on every dispatched batch.
           </p>
         </div>
@@ -105,7 +105,7 @@ export default function QualityStandards() {
                     <div className="p-2.5 bg-[#344B5C] rounded-md border border-white/20 group-hover:bg-[#A94728] transition-colors shadow-sm">
                       {icons[index]}
                     </div>
-                    <span className="text-[11px] font-mono font-bold text-[#F4E5DC] bg-white/10 px-2.5 py-1 rounded-md border border-white/15">
+                    <span className="text-xs font-mono font-bold text-[#F4E5DC] bg-white/10 px-2.5 py-1 rounded-md border border-white/15">
                       {item.code}
                     </span>
                   </div>
@@ -116,12 +116,12 @@ export default function QualityStandards() {
                   </div>
 
                   {/* Module Title */}
-                  <h3 className="text-xl font-extrabold text-white mb-3 tracking-tight group-hover:text-[#F4E5DC] transition-colors">
+                  <h3 className="text-xl sm:text-[22px] font-extrabold text-white mb-3 tracking-tight group-hover:text-[#F4E5DC] transition-colors font-sans">
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-[#E7EEF2]/80 leading-relaxed">
+                  <p className="text-sm sm:text-[15px] text-[#E7EEF2]/85 leading-relaxed font-sans">
                     {item.description}
                   </p>
                 </div>
@@ -227,7 +227,7 @@ export default function QualityStandards() {
                   <button
                     type="button"
                     onClick={() => handleOpenCert(cert.id)}
-                    className="inline-flex items-center gap-1.5 bg-[#A94728] hover:bg-[#7E321F] text-white px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-colors cursor-pointer shadow-md"
+                    className="btn-wave inline-flex items-center gap-1.5 border border-[#A94728] text-[#F4E5DC] px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-all cursor-pointer shadow-md"
                   >
                     <Eye className="w-3.5 h-3.5" />
                     <span>View Full Certificate</span>
@@ -236,7 +236,7 @@ export default function QualityStandards() {
                   <a
                     href={cert.pdfUrl}
                     download
-                    className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/25 text-[#F4E5DC] hover:text-white px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-colors"
+                    className="btn-wave inline-flex items-center gap-1.5 border border-white/30 text-[#F4E5DC] px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-all shadow-sm"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Download PDF</span>

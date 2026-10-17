@@ -78,18 +78,18 @@ export default function IndustriesCarousel({ onSelectIndustry }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
         <div className="industries-header text-center mx-auto max-w-3xl">
-          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 sm:mb-5">
             <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-            <span className="tech-label text-[#A94728] font-bold text-xs">
+            <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
               04 — SECTOR APPLICATIONS
             </span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#202427] tracking-tight leading-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-extrabold text-[#202427] tracking-tight leading-[1.12] mb-4 sm:mb-5 font-sans">
             Industries We Serve
           </h2>
 
-          <p className="text-base sm:text-lg lg:text-xl text-[#202427]/75 font-normal max-w-2xl mx-auto leading-relaxed mb-6">
+          <p className="text-base sm:text-lg lg:text-[19px] text-[#202427]/80 font-normal max-w-2xl mx-auto leading-relaxed mb-6 font-sans">
             Supplying critical engineering materials and precision components across heavy industrial and export manufacturing sectors.
           </p>
 

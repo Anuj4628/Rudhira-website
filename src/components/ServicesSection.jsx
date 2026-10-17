@@ -67,18 +67,18 @@ export default function ServicesSection({ onOpenEnquiry }) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Centered Layout */}
         <div className="services-header text-center mx-auto max-w-3xl mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-4">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 mb-4 sm:mb-5">
             <span className="w-2 h-2 rounded-full bg-[#F4E5DC]" />
-            <span className="tech-label text-[#F4E5DC] font-bold text-xs">
+            <span className="tech-label text-[#F4E5DC] font-bold text-xs sm:text-[13px]">
               03 — VALUE ADDED SERVICES
             </span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-extrabold text-white tracking-tight leading-[1.12] mb-4 sm:mb-5 font-sans">
             Value Added Services
           </h2>
 
-          <p className="text-base sm:text-lg lg:text-xl text-[#F4E5DC]/90 font-normal max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-[19px] text-[#F4E5DC]/95 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
             Supporting your requirements beyond standard supply. Precision secondary processing, specialized cutting, testing, finishing, and export packaging.
           </p>
         </div>
@@ -122,17 +122,17 @@ export default function ServicesSection({ onOpenEnquiry }) {
                   </div>
 
                   {/* Eyebrow */}
-                  <div className={`tech-label text-[11px] font-bold tracking-widest mb-1 ${service.accentColor}`}>
+                  <div className={`tech-label text-xs font-bold tracking-widest mb-1.5 ${service.accentColor}`}>
                     {service.id} — SERVICE
                   </div>
 
                   {/* Title */}
-                  <h3 className={`text-2xl font-extrabold ${service.textColor} mb-3 tracking-tight group-hover:translate-x-0.5 transition-transform`}>
+                  <h3 className={`text-2xl sm:text-[26px] font-extrabold ${service.textColor} mb-3 tracking-tight group-hover:translate-x-0.5 transition-transform font-sans`}>
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className={`text-sm ${service.textColor} opacity-85 leading-relaxed`}>
+                  <p className={`text-[15px] sm:text-base ${service.textColor} opacity-90 leading-relaxed font-sans`}>
                     {service.description}
                   </p>
                 </div>

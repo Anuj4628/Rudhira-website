@@ -58,18 +58,18 @@ export default function Clientele() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Centered Layout */}
         <div className="clients-header text-center mx-auto max-w-3xl mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-4">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 mb-4 sm:mb-5">
             <Building2 className="w-4 h-4 text-[#A94728]" />
-            <span className="tech-label text-[#F4E5DC] font-bold text-xs">
+            <span className="tech-label text-[#F4E5DC] font-bold text-xs sm:text-[13px]">
               07 — INDUSTRIAL PARTNERSHIPS
             </span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-extrabold text-white tracking-tight leading-[1.12] mb-4 sm:mb-5 font-sans">
             Our Clients
           </h2>
 
-          <p className="text-base sm:text-lg lg:text-xl text-[#F4E5DC]/85 font-normal max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-[19px] text-[#F4E5DC]/90 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
             Trusted by businesses across industrial and engineering sectors. Supplying precision metal products, fittings, and flanges to premier industrial enterprises.
           </p>
         </div>

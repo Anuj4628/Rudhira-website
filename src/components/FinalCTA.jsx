@@ -26,20 +26,20 @@ export default function FinalCTA({ onOpenEnquiry }) {
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6 max-w-3xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold text-white tracking-tight leading-[1.12] mb-6 max-w-3xl mx-auto font-sans">
           Looking for the Right Metal Product for Your Requirement?
         </h2>
 
         {/* Subtitle */}
-        <p className="text-base sm:text-lg text-[#F4E5DC]/90 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-base sm:text-lg lg:text-[19px] text-[#F4E5DC]/95 font-normal max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
           Let's discuss your material and product requirements. Our technical sales team is ready to evaluate specifications, verify stock availability, and submit quotation proposals.
         </p>
 
-        {/* Buttons */}
+        {/* Buttons (15–17px, Bold 700) */}
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
           <button
             onClick={onOpenEnquiry}
-            className="inline-flex items-center gap-2.5 bg-white hover:bg-[#F8F5F1] text-[#7E321F] text-sm font-extrabold uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl transition-all duration-150 active:scale-[0.97] cursor-pointer group"
+            className="btn-wave inline-flex items-center gap-2.5 border-2 border-white text-white text-sm sm:text-base font-extrabold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-xl transition-all duration-150 active:scale-[0.97] cursor-pointer group"
           >
             <span>Send an Enquiry</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -49,7 +49,7 @@ export default function FinalCTA({ onOpenEnquiry }) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-[#202427] hover:bg-[#171A1C] border border-white/20 text-white text-sm font-bold uppercase tracking-wider px-7 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97]"
+            className="btn-wave inline-flex items-center gap-2.5 border border-white/60 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-7 sm:px-8 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97]"
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
             <span>WhatsApp Us</span>

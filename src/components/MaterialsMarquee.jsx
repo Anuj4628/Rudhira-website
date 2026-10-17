@@ -30,25 +30,25 @@ export default function MaterialsMarquee({ onSelectMaterial, onNavigate }) {
       <div className="absolute inset-0 bg-steel-grid-pattern opacity-30 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-center mb-12 sm:mb-14">
-        <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-4">
+        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 mb-4 sm:mb-5">
           <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-          <span className="tech-label text-[#F4E5DC] font-bold text-xs">
+          <span className="tech-label text-[#F4E5DC] font-bold text-xs sm:text-[13px]">
             02 — METALLURGICAL SPECTRUM
           </span>
         </div>
 
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+        <h2 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-extrabold text-white tracking-tight leading-[1.12] mb-4 sm:mb-5 font-sans">
           Materials We Work With
         </h2>
 
-        <p className="text-base sm:text-lg lg:text-xl text-[#E7EEF2]/85 font-normal max-w-2xl mx-auto leading-relaxed mb-6">
-          High Performance Alloys & Specialty Steel Grades. Certified inventory selected for demanding industrial applications and diverse engineering requirements.
+        <p className="text-base sm:text-lg lg:text-[19px] text-[#E7EEF2]/90 font-normal max-w-2xl mx-auto leading-relaxed mb-7 font-sans">
+          High Performance Alloys &amp; Specialty Steel Grades. Certified inventory selected for demanding industrial applications and diverse engineering requirements.
         </p>
 
         {onNavigate && (
           <button
             onClick={() => onNavigate('materials-landing', null, '/materials')}
-            className="inline-flex items-center gap-2 bg-white/10 hover:bg-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-sm border border-white/20 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 bg-white/10 hover:bg-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-7 py-3 rounded-sm border border-white/25 transition-all cursor-pointer shadow-sm hover:shadow-md"
           >
             <span>View All 9 Certified Material Families →</span>
           </button>

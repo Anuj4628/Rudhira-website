@@ -152,7 +152,7 @@ Sent via Rudhira Metal Official Portal`;
               <p className="text-xs font-mono text-[#A94728] font-bold uppercase">
                 RUDHIRA METAL INDUSTRIES • MUMBAI, INDIA
               </p>
-              <h4 className="text-lg font-bold text-[#202427]">
+              <h4 className="text-xl sm:text-2xl font-extrabold text-[#202427]">
                 Specify Your Material & Product Requirement
               </h4>
             </div>
@@ -160,7 +160,7 @@ Sent via Rudhira Metal Official Portal`;
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               {/* Product Select */}
               <div>
-                <label className="block text-xs font-mono font-bold text-[#202427] uppercase mb-1">
+                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
                   Product Category *
                 </label>
                 <select
@@ -168,7 +168,7 @@ Sent via Rudhira Metal Official Portal`;
                   value={formData.product}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 text-sm bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
                 >
                   <option value="">Select Product...</option>
                   {PRODUCTS_DATA.map((p) => (
@@ -183,7 +183,7 @@ Sent via Rudhira Metal Official Portal`;
 
               {/* Material Grade */}
               <div>
-                <label className="block text-xs font-mono font-bold text-[#202427] uppercase mb-1">
+                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
                   Material Grade / Alloy *
                 </label>
                 <select
@@ -191,7 +191,7 @@ Sent via Rudhira Metal Official Portal`;
                   value={formData.material}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 text-sm bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
                 >
                   <option value="">Select Material Grade...</option>
                   {MATERIALS_LIST.map((m) => (
@@ -205,7 +205,7 @@ Sent via Rudhira Metal Official Portal`;
 
               {/* Contact Name */}
               <div>
-                <label className="block text-xs font-mono font-bold text-[#202427] uppercase mb-1">
+                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
                   Contact Person *
                 </label>
                 <input
@@ -215,13 +215,13 @@ Sent via Rudhira Metal Official Portal`;
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 text-sm bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
                 />
               </div>
 
               {/* Company Name */}
               <div>
-                <label className="block text-xs font-mono font-bold text-[#202427] uppercase mb-1">
+                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
                   Company / Firm Name
                 </label>
                 <input
@@ -230,13 +230,13 @@ Sent via Rudhira Metal Official Portal`;
                   placeholder="e.g. Apex Engineering Ltd"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 text-sm bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
                 />
               </div>
 
               {/* Email */}
               <div>
-                <label className="block text-xs font-mono font-bold text-[#202427] uppercase mb-1">
+                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
                   Official Email *
                 </label>
                 <input
@@ -246,13 +246,13 @@ Sent via Rudhira Metal Official Portal`;
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 text-sm bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
                 />
               </div>
 
               {/* Phone / Mobile */}
               <div>
-                <label className="block text-xs font-mono font-bold text-[#202427] uppercase mb-1">
+                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
                   Phone / WhatsApp *
                 </label>
                 <input
@@ -262,7 +262,7 @@ Sent via Rudhira Metal Official Portal`;
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 text-sm bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
                 />
               </div>
             </div>
@@ -270,7 +270,7 @@ Sent via Rudhira Metal Official Portal`;
             {/* Quantity & Specifications */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
               <div className="sm:col-span-1">
-                <label className="block text-xs font-mono font-bold text-[#202427] uppercase mb-1">
+                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
                   Quantity / Tonnage
                 </label>
                 <input
@@ -279,12 +279,12 @@ Sent via Rudhira Metal Official Portal`;
                   placeholder="e.g. 500 Meters / 2 Tons"
                   value={formData.quantity}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 text-sm bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
                 />
               </div>
 
               <div className="sm:col-span-2">
-                <label className="block text-xs font-mono font-bold text-[#202427] uppercase mb-1">
+                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
                   Dimensions / Schedule / Wall Thickness / Notes
                 </label>
                 <input
@@ -293,7 +293,7 @@ Sent via Rudhira Metal Official Portal`;
                   placeholder="e.g. 2 inch NB, Sch 40, ASTM A312, Seamless"
                   value={formData.specifications}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 text-sm bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
                 />
               </div>
             </div>
@@ -304,28 +304,28 @@ Sent via Rudhira Metal Official Portal`;
                 <button
                   type="button"
                   onClick={handleWhatsAppSend}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer active:scale-95"
+                  className="btn-wave inline-flex items-center gap-1.5 px-4 py-2.5 border border-[#25D366] text-[#25D366] rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
                 >
-                  <MessageCircle className="w-3.5 h-3.5" />
+                  <MessageCircle className="w-4 h-4" />
                   <span>Send via WhatsApp</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={handleEmailSend}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#202427] hover:bg-[#171A1C] text-white rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer active:scale-95"
+                  className="btn-wave inline-flex items-center gap-1.5 px-4 py-2.5 border border-[#202427]/40 text-[#202427] rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
                 >
-                  <Mail className="w-3.5 h-3.5" />
+                  <Mail className="w-4 h-4" />
                   <span>Send via Email</span>
                 </button>
               </div>
 
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#7E321F] text-white px-6 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer"
+                className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3 rounded-sm transition-all shadow-md active:scale-95 cursor-pointer"
               >
                 <span>Submit RFQ</span>
-                <Send className="w-3.5 h-3.5" />
+                <Send className="w-4 h-4" />
               </button>
             </div>
           </form>

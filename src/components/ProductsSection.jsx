@@ -71,18 +71,18 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Centered Layout */}
         <div className="products-header text-center mx-auto max-w-3xl mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 sm:mb-5">
             <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-            <span className="tech-label text-[#A94728] font-bold text-xs">
+            <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
               01 — PRODUCT RANGE
             </span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#202427] tracking-tight leading-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-extrabold text-[#202427] tracking-tight leading-[1.12] mb-4 sm:mb-5 font-sans">
             Our Products
           </h2>
 
-          <p className="text-base sm:text-lg lg:text-xl text-[#202427]/75 font-normal max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-[19px] text-[#202427]/80 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
             Metal Products for Diverse Industrial Requirements. Precision-engineered solutions designed for demanding engineering applications.
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
               <div className="pt-5 pb-2 px-1.5 flex-1 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-2">
-                    <h3 className="text-2xl sm:text-[26px] font-extrabold text-white tracking-tight group-hover:text-[#F4E5DC] transition-colors">
+                    <h3 className="text-2xl sm:text-[26px] font-extrabold text-white tracking-tight group-hover:text-[#F4E5DC] transition-colors font-sans">
                       {product.name}
                     </h3>
                     <div className="w-9 h-9 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#7E321F] transition-all duration-200 flex-shrink-0 shadow-sm">
@@ -142,13 +142,13 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
                     </div>
                   </div>
 
-                  <p className="text-sm sm:text-base text-[#F4E5DC]/90 font-normal leading-relaxed line-clamp-2">
+                  <p className="text-[15px] sm:text-base text-[#F4E5DC]/95 font-normal leading-relaxed line-clamp-2 font-sans">
                     {product.description}
                   </p>
                 </div>
 
                 {/* Technical Bottom Line */}
-                <div className="mt-5 pt-3.5 border-t border-white/20 flex items-center justify-between text-xs font-mono text-[#F4E5DC]/75">
+                <div className="mt-5 pt-3.5 border-t border-white/20 flex items-center justify-between text-xs sm:text-[13px] font-mono text-[#F4E5DC]/80">
                   <span className="tracking-wide">{product.spec}</span>
                   <span className="text-[#F4E5DC] font-bold group-hover:translate-x-1 transition-transform">
                     Inquire →
@@ -159,7 +159,7 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
           ))}
         </div>
 
-        {/* All Products Button Centered Below the 6th Product Card */}
+        {/* All Products Button Centered Below the 6th Product Card (15–17px, Bold 700) */}
         <div className="mt-12 sm:mt-16 text-center flex justify-center">
           <a
             href="/products"
@@ -169,7 +169,7 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
                 onNavigate('products-landing', null, '/products');
               }
             }}
-            className="inline-flex items-center gap-2.5 bg-[#A94728] hover:bg-[#7E321F] text-white text-xs sm:text-sm font-extrabold uppercase tracking-widest px-8 sm:px-10 py-3.5 sm:py-4 rounded-sm shadow-xl hover:shadow-2xl transition-all duration-200 active:scale-95 group cursor-pointer border border-[#A94728]"
+            className="btn-wave inline-flex items-center gap-2.5 border-2 border-[#A94728] text-[#A94728] text-sm sm:text-base font-extrabold uppercase tracking-widest px-8 sm:px-10 py-3.5 sm:py-4 rounded-sm shadow-md hover:shadow-xl transition-all duration-200 active:scale-95 group cursor-pointer"
           >
             <span>All Products</span>
             <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

@@ -66,37 +66,37 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 backdrop-blur-md mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
               <ShieldCheck className="w-4 h-4 text-[#A94728]" />
-              <span className="tech-label text-xs sm:text-sm font-bold tracking-widest text-[#F4E5DC] uppercase">
-                OFFICIAL ACCREDITATIONS & STATUTORY COMPLIANCE
+              <span className="tech-label text-xs sm:text-[13px] font-bold tracking-widest text-[#F4E5DC] uppercase">
+                OFFICIAL ACCREDITATIONS &amp; STATUTORY COMPLIANCE
               </span>
             </div>
 
-            {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
-              Verified Certificates &{' '}
+            {/* Main Title (76–96px desktop scale) */}
+            <h1 className="text-4xl sm:text-6xl lg:text-[68px] xl:text-[74px] font-extrabold text-white tracking-tight leading-[1.05] mb-6 font-sans">
+              Verified Certificates &amp;{' '}
               <span className="text-[#F4E5DC] block mt-1">
                 Quality Management
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg lg:text-xl text-[#E7EEF2]/90 leading-relaxed mb-8 max-w-2xl font-normal">
+            {/* Subtitle (18–20px desktop) */}
+            <p className="text-base sm:text-lg lg:text-[20px] text-[#E7EEF2]/95 leading-relaxed mb-8 max-w-2xl font-normal font-sans">
               Rudhira Metal Industries operates under accredited quality systems and official government registrations. Inspect our third-party audited ISO 9001:2015 certification and Government of India GST credentials below.
             </p>
 
             {/* Key Credential Badges */}
-            <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-[#D9D9D6]">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 border border-white/15">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" />
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs sm:text-[13px] text-[#D9D9D6]">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-white/5 border border-white/15">
+                <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
                 <span>ISO 9001:2015 (Cert: 26DQQC40)</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 border border-white/15">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" />
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-white/5 border border-white/15">
+                <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
                 <span>GSTIN: 27BXMPP3576J1ZQ</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 border border-white/15">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" />
-                <span>IAF MLA & EIAC Accredited</span>
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-white/5 border border-white/15">
+                <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
+                <span>IAF MLA &amp; EIAC Accredited</span>
               </div>
             </div>
           </div>
@@ -398,7 +398,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={() => onOpenEnquiry && onOpenEnquiry('', 'Certified Inventory')}
-              className="inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#7E321F] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-colors cursor-pointer"
+              className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all cursor-pointer"
             >
               <span>Request Quote with MTC</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -406,7 +406,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
 
             <button
               onClick={() => onNavigate && onNavigate('contact')}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm transition-colors cursor-pointer"
+              className="btn-wave inline-flex items-center gap-2 border border-white/30 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm transition-all cursor-pointer"
             >
               <span>Contact Sales Desk</span>
             </button>

@@ -201,29 +201,29 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
             {/* Small Eyebrow */}
             <div className="about-hero-anim inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 backdrop-blur-md mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-              <span className="tech-label text-xs sm:text-sm font-bold tracking-widest text-[#F4E5DC] uppercase">
+              <span className="tech-label text-xs sm:text-[13px] font-bold tracking-widest text-[#F4E5DC] uppercase">
                 ABOUT RUDHIRA METAL INDUSTRIES
               </span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="about-hero-anim text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] mb-6">
+            {/* Main Heading (76–96px desktop) */}
+            <h1 className="about-hero-anim text-4xl sm:text-6xl lg:text-[70px] xl:text-[76px] font-extrabold text-white tracking-tight leading-[1.05] mb-6 font-sans">
               Built on Strength.{' '}
               <span className="text-[#F4E5DC] block mt-1">
                 Driven by Precision.
               </span>
             </h1>
 
-            {/* Supporting Text */}
-            <p className="about-hero-anim text-base sm:text-lg lg:text-xl text-[#E7EEF2]/90 font-normal leading-relaxed mb-10 max-w-2xl">
+            {/* Supporting Text (18–20px desktop) */}
+            <p className="about-hero-anim text-base sm:text-lg lg:text-[20px] text-[#E7EEF2]/95 font-normal leading-relaxed mb-10 max-w-2xl font-sans">
               Rudhira Metal Industries is committed to delivering dependable metal solutions with a strong focus on quality, precision, consistency and long-term customer relationships.
             </p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons (15–17px, Bold 700) */}
             <div className="about-hero-anim flex flex-wrap items-center gap-4 sm:gap-5">
               <button
                 onClick={() => onNavigate('home', '#products')}
-                className="inline-flex items-center gap-2.5 bg-[#A94728] hover:bg-[#7E321F] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer group"
+                className="btn-wave inline-flex items-center gap-2.5 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer group"
               >
                 <span>Explore Our Products</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -231,15 +231,15 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
 
               <button
                 onClick={() => onNavigate('contact')}
-                className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-sm shadow-md transition-all duration-150 active:scale-[0.97] cursor-pointer backdrop-blur-sm"
+                className="btn-wave inline-flex items-center gap-2.5 border border-white/60 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-md transition-all duration-150 active:scale-[0.97] cursor-pointer"
               >
                 <span>Get in Touch</span>
-                <ArrowRight className="w-4 h-4 text-[#F4E5DC]" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </button>
             </div>
 
             {/* Technical Credential Pills */}
-            <div className="about-hero-anim mt-12 pt-8 border-t border-white/15 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs font-mono text-[#D9D9D6]">
+            <div className="about-hero-anim mt-12 pt-8 border-t border-white/15 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs sm:text-[13px] font-mono text-[#D9D9D6]">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
                 <span>MUMBAI CENTRAL INDUSTRIAL STOCKIST</span>
@@ -247,12 +247,12 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               <span className="text-white/20 hidden sm:inline">|</span>
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
-                <span>STAINLESS, CARBON & ALLOY STEELS</span>
+                <span>STAINLESS, CARBON &amp; ALLOY STEELS</span>
               </div>
               <span className="text-white/20 hidden md:inline">|</span>
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
-                <span>PAN-INDIA & EXPORT DISPATCH</span>
+                <span>PAN-INDIA &amp; EXPORT DISPATCH</span>
               </div>
             </div>
           </div>
@@ -287,10 +287,10 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
 
                 {/* Floating Technical Badge */}
                 <div className="absolute bottom-5 left-5 right-5 sm:right-auto bg-[#202427]/90 backdrop-blur-md border border-white/20 p-4 rounded-md shadow-xl text-white">
-                  <div className="tech-label text-[11px] text-[#A94728] font-bold mb-1">
+                  <div className="tech-label text-xs text-[#A94728] font-bold mb-1">
                     ESTABLISHED METAL STOCKIST
                   </div>
-                  <div className="text-sm font-bold text-white">
+                  <div className="text-sm sm:text-base font-bold text-white font-sans">
                     Rudhira Metal Industries • Mumbai Central Hub
                   </div>
                   <div className="text-xs text-[#D9D9D6] mt-0.5 font-mono">
@@ -305,18 +305,18 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 self-start">
                 <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-                <span className="tech-label text-[#A94728] font-bold text-xs">
+                <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
                   WHO WE ARE
                 </span>
               </div>
 
-              {/* Heading */}
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#202427] tracking-tight leading-tight mb-6">
+              {/* Heading (44–58px desktop) */}
+              <h2 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-extrabold text-[#202427] tracking-tight leading-[1.14] mb-6 font-sans">
                 Engineering Reliability Into Every Metal Solution
               </h2>
 
-              {/* Realistic Corporate Copy */}
-              <div className="space-y-4 text-sm sm:text-base text-[#202427]/80 leading-relaxed font-normal">
+              {/* Realistic Corporate Copy (16–18px desktop) */}
+              <div className="space-y-4 text-base sm:text-[17px] text-[#202427]/85 leading-relaxed font-normal font-sans">
                 <p>
                   <strong className="text-[#202427]">Rudhira Metal Industries</strong> is a dedicated industrial metal supplier and stockist headquartered in Mumbai's historic industrial trading corridor at Khetwadi. We specialize in supplying high-integrity stainless steel, carbon steel, and alloy piping infrastructure, forged fittings, flanges, plates, and round bars to engineering contractors and mission-critical industries.
                 </p>
@@ -492,7 +492,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               <div className="mt-8 pt-4 border-t border-white/20">
                 <button
                   onClick={onOpenEnquiry}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#7E321F] text-white text-xs font-bold uppercase tracking-wider py-3 rounded-sm shadow-sm transition-colors cursor-pointer active:scale-95"
+                  className="btn-wave w-full inline-flex items-center justify-center gap-2 border-2 border-[#A94728] text-white text-xs font-bold uppercase tracking-wider py-3 rounded-sm shadow-sm transition-all cursor-pointer active:scale-95"
                 >
                   <span>Request RFQ Assessment</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -675,7 +675,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <button
               onClick={() => onNavigate('contact')}
-              className="inline-flex items-center gap-2.5 bg-white hover:bg-[#F8F5F1] text-[#7E321F] text-sm font-extrabold uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl transition-all duration-150 active:scale-[0.97] cursor-pointer group"
+              className="btn-wave inline-flex items-center gap-2.5 border-2 border-white text-white text-sm font-extrabold uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl transition-all duration-150 active:scale-[0.97] cursor-pointer group"
             >
               <span>Talk to Our Team</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -683,10 +683,10 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
 
             <button
               onClick={() => onNavigate('home', '#products')}
-              className="inline-flex items-center gap-2.5 bg-[#202427] hover:bg-[#171A1C] border border-white/20 text-white text-sm font-bold uppercase tracking-wider px-7 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer"
+              className="btn-wave inline-flex items-center gap-2.5 border border-white/40 text-white text-sm font-bold uppercase tracking-wider px-7 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer"
             >
               <span>View Products</span>
-              <ArrowRight className="w-4 h-4 text-[#F4E5DC]" />
+              <ArrowRight className="w-4 h-4 text-white" />
             </button>
           </div>
 

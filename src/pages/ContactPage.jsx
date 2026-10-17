@@ -308,25 +308,25 @@ Sent via Rudhira Metal Official Contact Portal`;
             {/* Eyebrow */}
             <div className="contact-hero-anim inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 backdrop-blur-md mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-              <span className="tech-label text-xs sm:text-sm font-bold tracking-widest text-[#F4E5DC] uppercase">
+              <span className="tech-label text-xs sm:text-[13px] font-bold tracking-widest text-[#F4E5DC] uppercase">
                 CONTACT RUDHIRA METAL INDUSTRIES
               </span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="contact-hero-anim text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] mb-6">
+            {/* Main Heading (76–96px desktop) */}
+            <h1 className="contact-hero-anim text-4xl sm:text-6xl lg:text-[70px] xl:text-[76px] font-extrabold text-white tracking-tight leading-[1.05] mb-6 font-sans">
               Let's Build the Right Metal{' '}
               <span className="text-[#F4E5DC] block mt-1">
                 Solution Together
               </span>
             </h1>
 
-            {/* Supporting Text */}
-            <p className="contact-hero-anim text-base sm:text-lg lg:text-xl text-[#E7EEF2]/90 font-normal leading-relaxed mb-10 max-w-2xl">
+            {/* Supporting Text (18–20px desktop) */}
+            <p className="contact-hero-anim text-base sm:text-lg lg:text-[20px] text-[#E7EEF2]/95 font-normal leading-relaxed mb-10 max-w-2xl font-sans">
               Have a product requirement, project enquiry or sourcing need? Our team is ready to understand your requirement and help you move forward.
             </p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons (15–17px, Bold 700) */}
             <div className="contact-hero-anim flex flex-wrap items-center gap-4 sm:gap-5">
               <a
                 href="#quote-form"
@@ -334,7 +334,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                   e.preventDefault();
                   document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center gap-2.5 bg-[#A94728] hover:bg-[#7E321F] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer group"
+                className="btn-wave inline-flex items-center gap-2.5 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer group"
               >
                 <span>Request a Quote</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -342,16 +342,16 @@ Sent via Rudhira Metal Official Contact Portal`;
 
               <a
                 href={`tel:${COMPANY_DETAILS.contacts[0].cleanPhone}`}
-                className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-sm shadow-md transition-all duration-150 active:scale-[0.97] cursor-pointer backdrop-blur-sm"
+                className="btn-wave inline-flex items-center gap-2.5 border border-white/60 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-md transition-all duration-150 active:scale-[0.97] cursor-pointer"
               >
-                <FaPhone className="w-3.5 h-3.5 text-[#F4E5DC]" />
+                <FaPhone className="w-3.5 h-3.5 text-white" />
                 <span>Call Us ({COMPANY_DETAILS.contacts[0].phone})</span>
               </a>
 
               <button
                 type="button"
                 onClick={() => onNavigate('home', '#products')}
-                className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/15 border border-white/20 text-white/80 hover:text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-3.5 rounded-sm transition-all duration-150 active:scale-[0.97] cursor-pointer backdrop-blur-xs"
+                className="btn-wave inline-flex items-center gap-2 border border-white/40 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-4 rounded-sm transition-all duration-150 active:scale-[0.97] cursor-pointer"
               >
                 <span>View Products</span>
               </button>
@@ -663,7 +663,7 @@ Sent via Rudhira Metal Official Contact Portal`;
               <button
                 type="button"
                 onClick={() => handleOpenCert('iso-9001-2015')}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#F8F5F1] hover:bg-[#F4E5DC] text-[#A94728] border border-[#D9D9D6] hover:border-[#A94728] rounded text-xs font-mono font-bold transition-colors cursor-pointer"
+                className="btn-wave inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#A94728] text-[#A94728] rounded text-xs font-mono font-bold transition-all cursor-pointer"
               >
                 <span>View ISO Certificate</span>
                 <ExternalLink className="w-3 h-3" />
@@ -672,7 +672,7 @@ Sent via Rudhira Metal Official Contact Portal`;
               <button
                 type="button"
                 onClick={() => handleOpenCert('gst-registration')}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#F8F5F1] hover:bg-[#F4E5DC] text-[#202427] hover:text-[#A94728] border border-[#D9D9D6] hover:border-[#A94728] rounded text-xs font-mono font-bold transition-colors cursor-pointer"
+                className="btn-wave inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#202427]/40 text-[#202427] rounded text-xs font-mono font-bold transition-all cursor-pointer"
               >
                 <span>View GST Certificate</span>
                 <ExternalLink className="w-3 h-3" />
@@ -931,7 +931,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                 <div className="flex flex-wrap items-center justify-center gap-4">
                   <button
                     onClick={handleSendWhatsApp}
-                    className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer active:scale-95 shadow-md"
+                    className="btn-wave inline-flex items-center gap-2 border border-[#25D366] text-[#25D366] px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-sm"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>Forward via WhatsApp</span>
@@ -939,7 +939,7 @@ Sent via Rudhira Metal Official Contact Portal`;
 
                   <button
                     onClick={handleSendEmail}
-                    className="inline-flex items-center gap-2 bg-[#202427] hover:bg-[#171A1C] text-white px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer active:scale-95 shadow-md"
+                    className="btn-wave inline-flex items-center gap-2 border border-[#202427]/40 text-[#202427] px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-sm"
                   >
                     <Mail className="w-4 h-4" />
                     <span>Send via Email Client</span>
@@ -947,7 +947,7 @@ Sent via Rudhira Metal Official Contact Portal`;
 
                   <button
                     onClick={handleResetForm}
-                    className="inline-flex items-center gap-2 bg-white hover:bg-[#F8F5F1] text-[#202427] border border-[#D9D9D6] px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer active:scale-95"
+                    className="btn-wave inline-flex items-center gap-2 border border-[#D9D9D6] text-[#202427] px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
                   >
                     <span>Submit Another Enquiry</span>
                   </button>
@@ -1234,7 +1234,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                     <button
                       type="button"
                       onClick={handleSendWhatsApp}
-                      className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer active:scale-95 shadow-xs"
+                      className="btn-wave inline-flex items-center gap-2 border border-[#25D366] text-[#25D366] px-4 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-xs"
                       title="Send directly on WhatsApp"
                     >
                       <FaWhatsapp className="w-3.5 h-3.5" />
@@ -1244,7 +1244,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                     <button
                       type="button"
                       onClick={handleSendEmail}
-                      className="inline-flex items-center gap-2 bg-[#202427] hover:bg-[#171A1C] text-white px-4 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer active:scale-95 shadow-xs"
+                      className="btn-wave inline-flex items-center gap-2 border border-[#202427]/40 text-[#202427] px-4 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-xs"
                       title="Open draft in Email client"
                     >
                       <Mail className="w-3.5 h-3.5" />
@@ -1256,7 +1256,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#7E321F] disabled:opacity-60 text-white px-8 py-3.5 rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 shadow-md active:scale-95 cursor-pointer"
+                    className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-[#A94728] disabled:opacity-60 px-8 py-3.5 rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 shadow-md active:scale-95 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>

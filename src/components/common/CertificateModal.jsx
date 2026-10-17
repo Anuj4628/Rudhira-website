@@ -228,7 +228,7 @@ export default function CertificateModal({ isOpen, onClose, initialCertId = 'iso
           <span>RUDHIRA METAL INDUSTRIES // CERTIFIED DOCUMENTATION</span>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 bg-[#202427] hover:bg-[#171A1C] text-white rounded font-bold cursor-pointer transition-colors"
+            className="btn-wave px-4 py-1.5 border border-[#202427]/40 text-[#202427] rounded font-bold cursor-pointer transition-all"
           >
             Close Viewer
           </button>

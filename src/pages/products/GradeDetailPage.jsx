@@ -127,35 +127,35 @@ export default function GradeDetailPage({
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-5">
                 {material.name} Grade {cleanGradeName} {product.name}
               </h1>
 
-              <p className="text-base sm:text-lg text-[#E7EEF2]/90 leading-relaxed mb-6 max-w-3xl">
+              <p className="text-lg sm:text-xl text-[#E7EEF2] leading-relaxed mb-6 max-w-3xl">
                 {grade.overview}
               </p>
 
               {/* Quick Specs Highlight Bar */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 bg-white/5 rounded-lg border border-white/10 mb-8 max-w-3xl">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 p-4 sm:p-5 bg-white/5 rounded-lg border border-white/10 mb-8 max-w-3xl">
                 <div>
-                  <div className="text-[10px] font-mono text-white/50 uppercase">Material Family</div>
-                  <div className="text-xs sm:text-sm font-bold text-white mt-0.5">{material.shortName}</div>
+                  <div className="text-xs font-mono text-white/60 uppercase">Material Family</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-1">{material.shortName}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono text-white/50 uppercase">Tensile Strength</div>
-                  <div className="text-xs sm:text-sm font-bold text-[#A94728] mt-0.5">
+                  <div className="text-xs font-mono text-white/60 uppercase">Tensile Strength</div>
+                  <div className="text-sm sm:text-base font-bold text-[#A94728] mt-1">
                     {propertiesData['Tensile Strength'] || 'Specification Dep.'}
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono text-white/50 uppercase">Yield (0.2%)</div>
-                  <div className="text-xs sm:text-sm font-bold text-white mt-0.5">
+                  <div className="text-xs font-mono text-white/60 uppercase">Yield (0.2%)</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-1">
                     {propertiesData['Yield Strength (0.2% Offset)'] || propertiesData['Yield Strength (0.2%)'] || propertiesData['Yield Strength'] || 'Standard'}
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono text-white/50 uppercase">Product Form</div>
-                  <div className="text-xs sm:text-sm font-bold text-white mt-0.5">{product.name}</div>
+                  <div className="text-xs font-mono text-white/60 uppercase">Product Form</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-1">{product.name}</div>
                 </div>
               </div>
 
@@ -168,7 +168,7 @@ export default function GradeDetailPage({
                       material.name
                     )
                   }
-                  className="inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#7E321F] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <span>Request RFQ for Grade {cleanGradeName}</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -176,7 +176,7 @@ export default function GradeDetailPage({
 
                 <a
                   href="#standards-table"
-                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-3.5 rounded-sm border border-white/20 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm sm:text-base font-bold uppercase tracking-wider px-5 py-3.5 rounded-sm border border-white/20 transition-all cursor-pointer"
                 >
                   <FileText className="w-4 h-4 text-[#A94728]" />
                   <span>View Governing Standards</span>
@@ -185,31 +185,31 @@ export default function GradeDetailPage({
             </div>
 
             {/* Right Card: Inspection & Test Certificate Guarantee */}
-            <div className="lg:col-span-4 bg-white/5 backdrop-blur-md p-6 rounded-xl border border-white/10">
+            <div className="lg:col-span-4 bg-white/5 backdrop-blur-md p-6 sm:p-7 rounded-xl border border-white/10">
               <div className="flex items-center gap-2.5 text-xs font-mono font-bold text-[#A94728] uppercase mb-3">
                 <ShieldCheck className="w-4 h-4 text-[#A94728]" />
                 <span>CERTIFICATION & TESTING</span>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                 EN 10204 3.1 Certified Supply
               </h3>
 
-              <p className="text-xs text-[#D9D9D6] leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-[#D9D9D6] leading-relaxed mb-4">
                 Every dispatch of Grade {cleanGradeName} {product.name.toLowerCase()} includes complete metallurgical Mill Test Certificates (MTC), heat numbers, chemical composition analysis, and mechanical tensile test reports.
               </p>
 
-              <div className="space-y-2 text-xs text-[#D9D9D6] border-t border-white/10 pt-3">
+              <div className="space-y-2.5 text-xs sm:text-sm text-[#D9D9D6] border-t border-white/10 pt-3">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#A94728] flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#A94728] flex-shrink-0" />
                   <span>100% PMI Spectro Tested</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#A94728] flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#A94728] flex-shrink-0" />
                   <span>Hydrostatic / Ultrasonic Tested</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#A94728] flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#A94728] flex-shrink-0" />
                   <span>Third-Party Inspection (TUV, DNV, BV)</span>
                 </div>
               </div>
@@ -225,22 +225,22 @@ export default function GradeDetailPage({
           <div className="lg:col-span-8 space-y-10 sm:space-y-12 min-w-0">
             {/* Chemical Composition */}
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#D9D9D6]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#D9D9D6] gap-2">
                 <div>
-                  <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+                  <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
                     METALLURGICAL ANALYSIS
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#202427]">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
                     Chemical Composition of Grade {cleanGradeName}
                   </h2>
                 </div>
-                <span className="text-[11px] font-mono text-[#202427]/60 bg-[#F8F5F1] px-2.5 py-1 rounded border border-[#D9D9D6]">
+                <span className="text-xs font-mono text-[#202427]/70 bg-[#F8F5F1] px-3 py-1 rounded border border-[#D9D9D6]">
                   Weight % Max / Nominal
                 </span>
               </div>
 
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs sm:text-sm">
+                <table className="w-full text-left text-sm sm:text-base">
                   <thead>
                     <tr className="bg-[#202427] text-white">
                       <th className="py-3 px-4 font-bold rounded-l">Element</th>
@@ -261,7 +261,7 @@ export default function GradeDetailPage({
                 </table>
               </div>
 
-              <p className="text-[11px] text-[#202427]/60 font-mono mt-4">
+              <p className="text-xs sm:text-sm text-[#202427]/70 font-mono mt-4">
                 * Note: Chemical composition limits comply with ASTM / ASME standard requirements. Special heat melts with customized chemistry available upon technical request.
               </p>
             </section>
@@ -269,10 +269,10 @@ export default function GradeDetailPage({
             {/* Mechanical & Physical Properties */}
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               <div className="pb-4 mb-6 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
                   MECHANICAL INTEGRITY
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#202427]">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
                   Mechanical Properties & Physical Parameters
                 </h2>
               </div>
@@ -283,8 +283,8 @@ export default function GradeDetailPage({
                     key={prop}
                     className="p-4 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6] flex flex-col justify-between"
                   >
-                    <span className="text-xs font-mono text-[#202427]/70 uppercase">{prop}</span>
-                    <span className="text-base sm:text-lg font-extrabold text-[#202427] mt-1 font-mono">
+                    <span className="text-xs sm:text-sm font-mono text-[#202427]/70 uppercase">{prop}</span>
+                    <span className="text-lg sm:text-xl font-extrabold text-[#202427] mt-1 font-mono">
                       {val}
                     </span>
                   </div>
@@ -295,16 +295,16 @@ export default function GradeDetailPage({
             {/* Manufacturing Configurations: Product Types Available in this Grade (TYPES SECOND) */}
             {types.length > 0 && (
               <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
-                <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#D9D9D6]">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#D9D9D6] gap-2">
                   <div>
-                    <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+                    <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
                       MANUFACTURING CONFIGURATIONS
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-[#202427]">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
                       {product.name} Types Available in Grade {cleanGradeName}
                     </h2>
                   </div>
-                  <span className="text-xs font-mono text-[#A94728] font-bold">
+                  <span className="text-xs sm:text-sm font-mono text-[#A94728] font-bold">
                     {types.length} Standard Types
                   </span>
                 </div>
@@ -320,9 +320,9 @@ export default function GradeDetailPage({
                           `/products/${product.slug}/${material.slug}/types/${type.slug}`
                         )
                       }
-                      className="group p-3 bg-[#F8F5F1] hover:bg-[#F4E5DC] border border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all cursor-pointer flex items-center justify-between"
+                      className="group p-3.5 bg-[#F8F5F1] hover:bg-[#F4E5DC] border border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all cursor-pointer flex items-center justify-between"
                     >
-                      <span className="text-xs font-bold text-[#202427] group-hover:text-[#A94728] transition-colors truncate">
+                      <span className="text-xs sm:text-sm font-bold text-[#202427] group-hover:text-[#A94728] transition-colors truncate">
                         {type.name}
                       </span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#A94728] group-hover:translate-x-1 transition-transform flex-shrink-0" />
@@ -335,19 +335,19 @@ export default function GradeDetailPage({
             {/* Governing Standards Table (SPECIFICATIONS THIRD) */}
             <section id="standards-table" className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs scroll-mt-28">
               <div className="pb-4 mb-6 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
                   SPECIFICATION DIRECTORY
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#202427]">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
                   Governing ASTM / ASME Standards by Product Form
                 </h2>
-                <p className="text-xs text-[#202427]/70 mt-1">
+                <p className="text-sm text-[#202427]/75 mt-1">
                   Standards vary based on manufacturing method and product form. Below are the verified governing standards for Grade {cleanGradeName}:
                 </p>
               </div>
 
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs sm:text-sm">
+                <table className="w-full text-left text-sm sm:text-base">
                   <thead>
                     <tr className="bg-[#202427] text-white">
                       <th className="py-3 px-4 font-bold rounded-l">Product Form</th>
@@ -394,19 +394,19 @@ export default function GradeDetailPage({
             {/* Industrial Applications */}
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               <div className="pb-4 mb-6 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
                   END-USE ENVIRONMENTS
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#202427]">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
                   Typical Applications for Grade {cleanGradeName}
                 </h2>
               </div>
 
               <div className="space-y-3">
                 {applicationsList.map((app, idx) => (
-                  <div key={idx} className="flex items-start gap-3 p-3 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6]">
-                    <CheckCircle2 className="w-4 h-4 text-[#A94728] flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-[#202427] font-medium leading-relaxed">
+                  <div key={idx} className="flex items-start gap-3 p-3.5 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6]">
+                    <CheckCircle2 className="w-5 h-5 text-[#A94728] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-[#202427] font-medium leading-relaxed">
                       {app}
                     </span>
                   </div>
@@ -419,31 +419,31 @@ export default function GradeDetailPage({
           <div className="lg:col-span-4">
             <aside className="space-y-6 lg:sticky lg:top-28 max-h-[calc(100vh-8.5rem)] lg:overflow-y-auto sidebar-sticky-scroll">
               {/* Direct Quote Prefilled Box */}
-              <div className="bg-[#202427] text-white p-5 sm:p-6 rounded-xl border border-white/10 shadow-md">
+              <div className="bg-[#202427] text-white p-6 sm:p-7 rounded-xl border border-white/10 shadow-md">
                 <div className="flex items-center gap-2 text-xs font-mono text-[#A94728] font-bold uppercase mb-2">
                   <Zap className="w-4 h-4 text-[#A94728]" />
                   <span>QUICK QUOTE DESK</span>
                 </div>
 
-                <h3 className="text-lg font-extrabold text-white mb-2">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2">
                   Enquire for Grade {cleanGradeName}
                 </h3>
 
-                <p className="text-xs text-[#D9D9D6] leading-relaxed mb-4">
+                <p className="text-sm text-[#D9D9D6] leading-relaxed mb-4">
                   Need immediate pricing, cut lengths, or Mill Test Certificates for Grade {cleanGradeName} {product.name.toLowerCase()}?
                 </p>
 
-                <div className="space-y-2 mb-5 text-xs font-mono">
-                  <div className="p-2 bg-white/5 rounded border border-white/10 flex justify-between">
-                    <span className="text-white/50">Product:</span>
+                <div className="space-y-2 mb-5 text-xs sm:text-sm font-mono">
+                  <div className="p-2.5 bg-white/5 rounded border border-white/10 flex justify-between">
+                    <span className="text-white/60">Product:</span>
                     <span className="font-bold text-white">{product.name}</span>
                   </div>
-                  <div className="p-2 bg-white/5 rounded border border-white/10 flex justify-between">
-                    <span className="text-white/50">Material:</span>
+                  <div className="p-2.5 bg-white/5 rounded border border-white/10 flex justify-between">
+                    <span className="text-white/60">Material:</span>
                     <span className="font-bold text-white">{material.name}</span>
                   </div>
-                  <div className="p-2 bg-white/5 rounded border border-white/10 flex justify-between">
-                    <span className="text-white/50">Grade:</span>
+                  <div className="p-2.5 bg-white/5 rounded border border-white/10 flex justify-between">
+                    <span className="text-white/60">Grade:</span>
                     <span className="font-bold text-[#A94728]">Grade {cleanGradeName}</span>
                   </div>
                 </div>
@@ -455,14 +455,14 @@ export default function GradeDetailPage({
                       material.name
                     )
                   }
-                  className="w-full bg-[#A94728] hover:bg-[#7E321F] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+                  className="btn-wave w-full border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
                 >
                   <span>Request Price & Delivery</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
 
                 <div className="mt-4 pt-4 border-t border-white/10 text-center">
-                  <span className="text-[11px] text-white/50 font-mono">
+                  <span className="text-xs text-white/60 font-mono">
                     Usually quoted within 2 hours
                   </span>
                 </div>

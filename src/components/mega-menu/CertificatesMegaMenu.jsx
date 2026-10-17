@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Download, Eye, FileText, ArrowRight, ExternalLink } from 'lucide-react';
+import { Download, Eye, ArrowRight } from 'lucide-react';
 import { COMPANY_CERTIFICATES } from '../../data/industrialData';
 
 export default function CertificatesMegaMenu({
@@ -32,49 +32,54 @@ export default function CertificatesMegaMenu({
 
   return (
     <div
-      className="absolute top-full left-1/2 -translate-x-1/2 w-[92vw] max-w-[740px] bg-[#FDFCFB] border border-[#D9D9D6] border-t-2 border-t-[#A94728] rounded-b-xl shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150 select-none before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
+      className="absolute top-full left-1/2 -translate-x-1/2 w-[92vw] max-w-[820px] bg-white border border-[#E3CEBF] border-t-2 border-t-[#A94728] rounded-xl shadow-xl z-50 mega-menu-enter select-none before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 overflow-hidden"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="p-4 sm:p-5">
-        {/* Top Header */}
-        <div className="flex items-center justify-between pb-2 mb-3 border-b border-[#D9D9D6]/80">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-            <ShieldCheck className="w-4 h-4 text-[#A94728]" />
-            <span className="text-xs font-extrabold uppercase tracking-wider text-[#202427]">
-              Official Company Accreditations
+      {/* Top Header Banner */}
+      <div className="bg-[#FAF9F7] border-b border-[#E3CEBF]/60 px-6 py-3.5 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div>
+            <span className="text-xs font-mono font-bold text-[#A94728] tracking-widest uppercase block leading-none">
+              QUALITY ACCREDITATIONS & COMPLIANCE
+            </span>
+            <span className="text-[11px] text-gray-500 font-medium">
+              VERIFIED GOVERNMENT OF INDIA & INTERNATIONAL REGISTRATIONS
             </span>
           </div>
-          <span className="text-[10px] font-mono font-bold text-[#A94728] bg-[#A94728]/10 px-2 py-0.5 rounded border border-[#A94728]/20">
-            2 Verified Documents
-          </span>
         </div>
 
-        {/* 2 Certificate Cards Side-by-Side */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+        <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">
+          2 OFFICIAL DOCUMENTS
+        </span>
+      </div>
+
+      {/* 2 Certificate Cards Side-by-Side */}
+      <div className="p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {COMPANY_CERTIFICATES.map((cert) => (
             <div
               key={cert.id}
-              className="group p-3.5 bg-white hover:bg-[#F4E5DC]/40 border border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all duration-200 shadow-2xs flex flex-col justify-between"
+              className="group p-4 bg-white hover:bg-[#FAF9F7] border border-gray-100 hover:border-[#A94728]/40 rounded-xl transition-all duration-200 shadow-2xs hover:shadow-xs flex flex-col justify-between"
             >
               <div>
-                {/* Top Badge & Number */}
-                <div className="flex items-center justify-between mb-2">
+                {/* Header Badge */}
+                <div className="flex items-center justify-between mb-3">
                   <span className="text-[10px] font-mono font-bold text-[#A94728] bg-[#A94728]/10 px-2 py-0.5 rounded">
                     {cert.badge}
                   </span>
-                  <span className="text-[10px] font-mono text-[#202427]/60">
-                    VERIFIED
+                  <span className="text-[10px] font-mono text-gray-400 font-semibold">
+                    OFFICIAL ATTESTATION
                   </span>
                 </div>
 
-                {/* Thumbnail and Title Row */}
+                {/* Content Row */}
                 <div
                   onClick={(e) => handleCardClick(e, cert.id)}
-                  className="flex items-start gap-3 cursor-pointer mb-2.5"
+                  className="flex items-start gap-3.5 cursor-pointer mb-3"
                 >
-                  <div className="w-14 h-18 bg-[#FAF9F6] border border-[#D9D9D6] rounded p-1 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform overflow-hidden shadow-2xs">
+                  <div className="w-14 h-18 bg-gray-50 border border-gray-200 rounded-lg p-1 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform overflow-hidden shadow-2xs">
                     <img
                       src={cert.image}
                       alt={cert.title}
@@ -84,13 +89,13 @@ export default function CertificatesMegaMenu({
                   </div>
 
                   <div className="min-w-0 flex-1">
-                    <h4 className="text-xs font-bold text-[#202427] group-hover:text-[#A94728] transition-colors leading-snug mb-1">
+                    <h4 className="text-xs font-bold text-[#1C2024] group-hover:text-[#A94728] transition-colors leading-snug">
                       {cert.title}
                     </h4>
-                    <p className="text-[11px] font-mono text-[#A94728] font-bold truncate">
+                    <p className="text-[11px] font-mono text-[#A94728] font-bold mt-1">
                       {cert.certificateNo}
                     </p>
-                    <p className="text-[10px] text-[#202427]/70 truncate mt-0.5">
+                    <p className="text-[10.5px] text-gray-500 font-sans mt-0.5 line-clamp-2">
                       {cert.issuingBody}
                     </p>
                   </div>
@@ -98,46 +103,46 @@ export default function CertificatesMegaMenu({
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-2.5 border-t border-[#D9D9D6]/60 flex items-center justify-between gap-2 text-xs font-mono">
+              <div className="pt-3 border-t border-gray-100 flex items-center justify-between gap-2 text-xs font-mono">
                 <button
                   type="button"
                   onClick={(e) => handleCardClick(e, cert.id)}
-                  className="inline-flex items-center gap-1 text-[11px] font-bold text-[#A94728] hover:underline cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A94728] hover:text-[#7E321F] hover:underline cursor-pointer"
                 >
-                  <Eye className="w-3 h-3" />
-                  <span>Inspect</span>
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>Inspect Document</span>
                 </button>
 
                 <a
                   href={cert.pdfUrl}
                   download
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1 text-[10px] font-bold text-[#202427] hover:text-[#A94728] bg-[#F8F5F1] hover:bg-white px-2 py-1 rounded border border-[#D9D9D6] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-gray-700 hover:text-[#A94728] bg-gray-50 hover:bg-white px-2.5 py-1 rounded-md border border-gray-200 transition-colors cursor-pointer"
                 >
                   <Download className="w-3 h-3 text-[#A94728]" />
-                  <span>PDF</span>
+                  <span>PDF Copy</span>
                 </a>
               </div>
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Bottom Banner & Link to /certificates */}
-        <div className="pt-2.5 border-t border-[#D9D9D6] flex flex-wrap items-center justify-between gap-2 text-[11px]">
-          <div className="flex items-center gap-2 text-[#202427]/70 font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
-            <span>EN 10204 3.1 Mill Certificates • 100% PMI Spectro Verified</span>
-          </div>
-
-          <a
-            href="/certificates"
-            onClick={handleGoToCertificatesPage}
-            className="inline-flex items-center gap-1 font-bold text-[#A94728] hover:text-[#7E321F] hover:underline transition-colors"
-          >
-            <span>View Full Certificates Page</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+      {/* Bottom Footer */}
+      <div className="bg-[#FAF9F7] border-t border-gray-100 px-6 py-2.5 flex flex-wrap items-center justify-between text-xs font-mono">
+        <div className="flex items-center gap-2 text-gray-500 text-[11px]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
+          <span>Full Quality Audits & Mill Test Reports Provided with Every Consignment</span>
         </div>
+
+        <a
+          href="/certificates"
+          onClick={handleGoToCertificatesPage}
+          className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#A94728] hover:text-[#7E321F] uppercase tracking-wider hover:underline cursor-pointer"
+        >
+          <span>View Dedicated Quality & Certificates Page</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </a>
       </div>
     </div>
   );

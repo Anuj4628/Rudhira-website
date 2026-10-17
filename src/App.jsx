@@ -291,7 +291,10 @@ export default function App() {
       {currentPage === 'home' && (
         <main className="flex-grow">
           {/* Full-Screen Industrial Hero Slider */}
-          <HeroSlider onOpenEnquiry={() => handleOpenEnquiry()} />
+          <HeroSlider
+            onOpenEnquiry={handleOpenEnquiry}
+            onNavigate={navigateTo}
+          />
 
           {/* Industrial Trust Strip */}
           <TrustStrip />
@@ -303,7 +306,7 @@ export default function App() {
           <MaterialsMarquee onSelectMaterial={handleSelectMaterial} onNavigate={navigateTo} />
 
           {/* 03 — Why Choose Us */}
-          <WhyChooseUs onOpenEnquiry={() => handleOpenEnquiry()} />
+          <WhyChooseUs onOpenEnquiry={() => handleOpenEnquiry()} onNavigate={navigateTo} />
 
           {/* 04 — Value Added Services */}
           <ServicesSection onOpenEnquiry={() => handleOpenEnquiry()} />

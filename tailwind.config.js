@@ -26,7 +26,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Manrope', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Barlow Condensed"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       letterSpacing: {

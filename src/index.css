@@ -18,8 +18,13 @@
   --color-brand-border-light: #E5E4E0;
   --color-brand-text-muted: #6B7280;
 
-  --font-sans: "Plus Jakarta Sans", "Manrope", system-ui, sans-serif;
+  --font-sans: "Manrope", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Barlow Condensed", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.font-display {
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 html {
@@ -31,7 +36,7 @@ html {
 body {
   background-color: #F8F5F1;
   color: #202427;
-  font-family: 'Plus Jakarta Sans', 'Manrope', system-ui, -apple-system, sans-serif;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
 }
 
 ::selection {
@@ -171,9 +176,10 @@ body {
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
 }
 
-/* Animated nav underline from center */
+/* Animated nav underline from center with industrial bracket feel */
 .nav-line-effect {
   position: relative;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 .nav-line-effect::after {
   content: '';
@@ -181,13 +187,39 @@ body {
   bottom: -4px;
   left: 50%;
   width: 0;
-  height: 2px;
+  height: 2.5px;
   background-color: #A94728;
-  transition: all 0.25s ease-out;
+  border-radius: 2px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateX(-50%);
 }
-.nav-line-effect:hover::after {
+.nav-line-effect:hover::after,
+.nav-line-effect.is-active::after {
   width: 100%;
+}
+
+/* Mega menu smooth entrance */
+@keyframes megaMenuIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.mega-menu-enter {
+  animation: megaMenuIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle architectural grid pattern for mega menu sidebars */
+.bg-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(169, 71, 40, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(169, 71, 40, 0.04) 1px, transparent 1px);
+  background-size: 16px 16px;
 }
 
 /* Continuous Infinite Marquee Animation for Metallurgical Spectrum */
@@ -217,5 +249,210 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================================
+   INDUSTRIAL HERO CONTROL PANEL STYLES
+   ======================================================== */
+
+/* Chamfer Corner Clips for Engineering Aesthetics */
+.clip-chamfer-corner {
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+.clip-chamfer-btn {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+}
+
+.clip-chamfer-module {
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+/* Diagonal Light Sweep Animation for Get A Quote CTA */
+@keyframes sweepLight {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(280%) skewX(-20deg);
+  }
+}
+
+.animate-sweep-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-sweep-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+  z-index: 10;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-sweep-hover:hover::before {
+  transform: translateX(320%) skewX(-20deg);
+}
+
+/* Secondary CTA traveling border highlight */
+@keyframes borderGlowPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.tech-border-glow {
+  background: linear-gradient(90deg, rgba(169, 71, 40, 0.2) 0%, rgba(255, 120, 79, 0.8) 50%, rgba(169, 71, 40, 0.2) 100%);
+  background-size: 200% 100%;
+  animation: borderGlowPulse 3s ease-in-out infinite;
+}
+
+/* Hide scrollbar for clean horizontal rail */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ========================================================
+   GLOBAL LIQUID WAVE RISING HOVER EFFECT
+   Transparent by default, rising burnt-orange wave fill on hover
+   ======================================================== */
+
+@keyframes liquidWaveFlow {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 600px;
+  }
+}
+
+.btn-wave {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  transition: color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.2s ease !important;
+  z-index: 0;
+}
+
+/* Ensure all child text, icons, and contents sit safely above the liquid layers */
+.btn-wave > * {
+  position: relative;
+  z-index: 3;
+  transition: color 0.3s ease, stroke 0.3s ease, fill 0.3s ease;
+}
+
+/* Primary Liquid Layer (Burnt Orange #A94728) with dynamic wave crest */
+.btn-wave::before {
+  content: "";
+  position: absolute;
+  left: -20%;
+  bottom: 0;
+  width: 140%;
+  height: calc(100% + 24px);
+  pointer-events: none;
+  z-index: 1;
+  background: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 60' preserveAspectRatio='none'%3E%3Cpath d='M0,25 C150,55 350,-5 450,25 C550,55 600,25 600,25 L600,60 L0,60 Z' fill='%23A94728'/%3E%3C/svg%3E") top left / 300px 18px repeat-x,
+    linear-gradient(#A94728, #A94728) bottom left / 100% calc(100% - 16px) no-repeat;
+  transform: translate3d(0, 102%, 0);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Secondary Depth Layer (Deep Burnt Orange #842E15) with offset wave crest for rich fluid realism */
+.btn-wave::after {
+  content: "";
+  position: absolute;
+  left: -20%;
+  bottom: 0;
+  width: 140%;
+  height: calc(100% + 32px);
+  pointer-events: none;
+  z-index: 2;
+  background: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 60' preserveAspectRatio='none'%3E%3Cpath d='M0,30 C120,-5 320,55 420,20 C520,-5 600,30 600,30 L600,60 L0,60 Z' fill='%23842E15' fill-opacity='0.7'/%3E%3C/svg%3E") top left / 360px 20px repeat-x,
+    linear-gradient(rgba(132, 46, 21, 0.7), rgba(132, 46, 21, 0.7)) bottom left / 100% calc(100% - 18px) no-repeat;
+  transform: translate3d(0, 102%, 0);
+  transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1);
+  will-change: transform;
+}
+
+/* Hover State: Wave rises smoothly from bottom to top while undulating horizontally */
+.btn-wave:hover::before {
+  transform: translate3d(0, 0%, 0);
+  animation: liquidWaveFlow 3s linear infinite;
+}
+
+.btn-wave:hover::after {
+  transform: translate3d(0, 0%, 0);
+  animation: liquidWaveFlow 2.2s linear infinite reverse;
+}
+
+/* Hover Border & Subtle Shadow */
+.btn-wave:hover {
+  border-color: #A94728 !important;
+  box-shadow: 0 8px 24px -4px rgba(169, 71, 40, 0.35);
+}
+
+/* Text and Icon Contrast: Smooth transition to clean white on hover */
+.btn-wave:hover,
+.btn-wave:hover > *,
+.btn-wave:hover span,
+.btn-wave:hover p,
+.btn-wave:hover div,
+.btn-wave:hover strong {
+  color: #FFFFFF !important;
+}
+
+.btn-wave:hover svg,
+.btn-wave:hover path {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+/* Accessible focus-visible state */
+.btn-wave:focus-visible {
+  outline: 2px solid #A94728 !important;
+  outline-offset: 3px !important;
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .btn-wave::before,
+  .btn-wave::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hero Slider Progress Bar Keyframes */
+@keyframes heroProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
   }
 }

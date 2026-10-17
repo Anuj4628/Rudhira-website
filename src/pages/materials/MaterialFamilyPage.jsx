@@ -60,20 +60,20 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-5">
                 {material.name}
               </h1>
 
-              <p className="text-base sm:text-lg text-[#E7EEF2]/90 leading-relaxed mb-6 max-w-2xl">
+              <p className="text-lg sm:text-xl text-[#E7EEF2] leading-relaxed mb-6 max-w-2xl">
                 {material.overview}
               </p>
 
               {/* Key Characteristics */}
-              <div className="p-4 bg-white/5 rounded-lg border border-white/10 mb-8 max-w-xl">
-                <div className="text-xs font-mono font-bold text-[#A94728] uppercase mb-2">
+              <div className="p-4 sm:p-5 bg-white/5 rounded-lg border border-white/10 mb-8 max-w-xl">
+                <div className="text-xs sm:text-sm font-mono font-bold text-[#A94728] uppercase mb-2">
                   METALLURGICAL PERFORMANCE PROFILE:
                 </div>
-                <ul className="space-y-1.5 text-xs text-[#D9D9D6]">
+                <ul className="space-y-2 text-xs sm:text-sm text-[#D9D9D6]">
                   {material.keyCharacteristics.map((char) => (
                     <li key={char} className="flex items-start gap-2">
                       <span className="text-[#A94728] font-bold">›</span>
@@ -87,7 +87,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => onOpenEnquiry(`${material.name} Requirements`, material.name)}
-                  className="inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#7E321F] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <span>Request Quote for {material.shortName}</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -95,9 +95,9 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
 
                 <a
                   href="#product-forms"
-                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-3.5 rounded-sm border border-white/20 transition-all cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-2 border border-white/30 text-white text-sm sm:text-base font-bold uppercase tracking-wider px-5 py-3.5 rounded-sm transition-all cursor-pointer"
                 >
-                  <Layers className="w-4 h-4 text-[#A94728]" />
+                  <Layers className="w-4 h-4 text-white" />
                   <span>View Available Product Forms</span>
                 </a>
               </div>
@@ -135,15 +135,15 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
         <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-8 border-b border-[#D9D9D6]">
           <div>
-            <span className="tech-label text-xs font-bold text-[#A94728] uppercase">
+            <span className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
               RESEARCHED ALLOY SPECIFICATIONS
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#202427]">
               Available Grades in {material.name}
             </h2>
           </div>
 
-          <span className="text-xs font-mono text-[#202427]/60 bg-white px-3 py-1 rounded border border-[#D9D9D6]">
+          <span className="text-xs sm:text-sm font-mono text-[#202427]/70 bg-white px-3.5 py-1 rounded border border-[#D9D9D6]">
             Select a grade below or browse product forms
           </span>
         </div>
@@ -164,10 +164,10 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-lg font-extrabold text-[#202427] group-hover:text-[#A94728] transition-colors">
+                    <span className="text-xl font-bold text-[#202427] group-hover:text-[#A94728] transition-colors">
                       {grade.name}
                     </span>
-                    <span className="text-[10px] font-mono text-[#A94728] font-bold group-hover:translate-x-1 transition-transform">
+                    <span className="text-xs font-mono text-[#A94728] font-bold group-hover:translate-x-1 transition-transform">
                       →
                     </span>
                   </div>
@@ -176,12 +176,12 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
                     {grade.unNumber}
                   </div>
 
-                  <p className="text-xs text-[#202427]/75 line-clamp-3 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-[#202427]/75 line-clamp-3 leading-relaxed mb-4">
                     {grade.overview}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#D9D9D6]/60 flex items-center justify-between text-[11px] font-mono text-[#A94728] font-bold">
+                <div className="pt-3 border-t border-[#D9D9D6]/60 flex items-center justify-between text-xs font-mono text-[#A94728] font-bold">
                   <span>VIEW TECHNICAL DATASHEET</span>
                   <span>›</span>
                 </div>
@@ -201,16 +201,16 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-lg font-extrabold text-[#202427] group-hover:text-[#A94728]">
+                    <span className="text-xl font-bold text-[#202427] group-hover:text-[#A94728]">
                       Grade {gName}
                     </span>
-                    <span className="text-[10px] font-mono text-[#A94728] font-bold">RFQ →</span>
+                    <span className="text-xs font-mono text-[#A94728] font-bold">RFQ →</span>
                   </div>
-                  <p className="text-xs text-[#202427]/70 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-[#202427]/70 leading-relaxed mb-4">
                     Standard commercial and high-integrity specification for {material.name.toLowerCase()} components.
                   </p>
                 </div>
-                <div className="pt-3 border-t border-[#D9D9D6]/60 text-[11px] font-mono text-[#A94728] font-bold">
+                <div className="pt-3 border-t border-[#D9D9D6]/60 text-xs font-mono text-[#A94728] font-bold">
                   REQUEST SPEC & PRICING
                 </div>
               </div>
@@ -223,13 +223,13 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
       <section id="product-forms" className="bg-white py-16 sm:py-20 border-t border-b border-[#D9D9D6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+            <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
               PRODUCT ARCHITECTURE
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#202427] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#202427] tracking-tight">
               Product Forms Available in {material.name}
             </h2>
-            <p className="text-sm sm:text-base text-[#202427]/75 mt-2">
+            <p className="text-base sm:text-lg text-[#202427]/75 mt-2">
               Select a product form below to view dedicated configurations, pressure classes, and dimensions for {material.name}:
             </p>
           </div>
@@ -255,26 +255,26 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                    <div className="absolute top-2.5 left-2.5 bg-[#202427]/90 text-white text-[10px] font-mono px-2 py-0.5 rounded font-bold">
+                    <div className="absolute top-2.5 left-2.5 bg-[#202427]/90 text-white text-xs font-mono px-2.5 py-0.5 rounded font-bold">
                       {prod.division}
                     </div>
                   </div>
 
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-1">
-                      <h3 className="text-sm font-extrabold text-[#202427] group-hover:text-[#A94728] transition-colors">
+                  <div className="p-4 sm:p-5">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <h3 className="text-base sm:text-lg font-bold text-[#202427] group-hover:text-[#A94728] transition-colors">
                         {material.name} {prod.name}
                       </h3>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#A94728] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                      <ArrowRight className="w-4 h-4 text-[#A94728] group-hover:translate-x-1 transition-transform flex-shrink-0" />
                     </div>
 
-                    <p className="text-xs text-[#202427]/70 line-clamp-2 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#202427]/75 line-clamp-2 leading-relaxed">
                       {prod.shortDesc || prod.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3 bg-white/80 border-t border-[#D9D9D6] flex items-center justify-between text-[11px] font-mono font-bold text-[#A94728]">
+                <div className="p-3.5 bg-white/80 border-t border-[#D9D9D6] flex items-center justify-between text-xs font-mono font-bold text-[#A94728]">
                   <span>{prod.hasTypes ? 'SPECIFIC TYPES & GRADES' : 'AVAILABLE GRADES'}</span>
                   <span>→</span>
                 </div>

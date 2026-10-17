@@ -2,9 +2,9 @@
 // Redesigned with user-supplied assets, 25 export countries, partner SVGs, and brand color rhythm
 
 // Import matching high-definition Hero backgrounds corresponding directly to content
-import heroPipesImg from '../assets/Product BG/precision pipes and fitting.png';
-import heroFlangesImg from '../assets/Product BG/kptron-hero-slide1-global.jpg';
-import heroPlatesCoilsImg from '../assets/Product BG/premium steel solution build for industry.png';
+import heroPipesImg from '../assets/Product BG/precision-pipes-tubes-hero-bg.png';
+import heroFlangesImg from '../assets/Product BG/forged-flanges-fittings-hero-bg.jpg';
+import heroPlatesCoilsImg from '../assets/Product BG/heavy-engineering-hero-bg.jpg';
 import heroBarsAlloysImg from '../assets/Product BG/superior round and bars engineeres to be perfomed.png';
 
 // Import user-provided Product images
@@ -77,10 +77,23 @@ export const COMPANY_DETAILS = {
 export const HERO_SLIDES = [
   {
     id: "01",
+    eyebrow: "ISO 9001:2015 Certified Stockist & Supplier",
     titlePrefix: "PRECISION PIPES, TUBES & ",
     titleHighlight: "HIGH-PERFORMANCE",
     titleSuffix: " ALLOYS",
     description: "ISO 9001:2015 certified stockist & global supplier of Stainless Steel 304, 304L, 316, 316L, 321, 310S, and Duplex piping infrastructure.",
+    cardCategory: "1. Stainless Steel & Piping",
+    cardHeading: "Austenitic & Duplex Stainless Steel.",
+    cardGrades: "SS 304 · 304L · 316 · 316L · 321 · Duplex 2205",
+    cardAction: "Explore Pipes & Tubes",
+    cardProductSlug: "pipes-tubes",
+    productChips: [
+      { name: "SS 304 / 304L", desc: "ASTM A312 seamless & welded austenitic piping", spec: "ASTM A312" },
+      { name: "SS 316 / 316L", desc: "Corrosion-resistant marine & chemical process tubes", spec: "ASTM A213 / A269" },
+      { name: "DUPLEX 2205", desc: "High-strength alloy for offshore & chemical plants", spec: "UNS S31803 / S32205" },
+      { name: "SUPER DUPLEX 2507", desc: "Maximum pitting & crevice corrosion resistance", spec: "UNS S32750" },
+      { name: "FLANGES & FITTINGS", desc: "Forged flanges & high-pressure pipeline fittings", spec: "ASME B16.5 & B16.9" }
+    ],
     specs: [
       { label: "AUSTENITIC GRADES", value: "304, 304L, 316, 316L" },
       { label: "HEAT RESISTANT", value: "321, 321H, 310S, 347" },
@@ -101,10 +114,23 @@ export const HERO_SLIDES = [
   },
   {
     id: "02",
+    eyebrow: "ANSI / ASME Engineered Quality Standards",
     titlePrefix: "FORGED INDUSTRIAL ",
     titleHighlight: "FLANGES",
     titleSuffix: " & PIPELINE FITTINGS",
     description: "ANSI / ASME forged stainless steel flanges including Weld Neck, Slip-On, Blind, and Socketweld fittings in ASTM A182 F304L, F316L, and Duplex grades.",
+    cardCategory: "2. Industrial Flanges",
+    cardHeading: "ANSI / ASME Forged Flanges & Fittings.",
+    cardGrades: "Weld Neck · Slip-On · Blind · Socketweld · ASTM A182",
+    cardAction: "Explore Flanges Range",
+    cardProductSlug: "flanges",
+    productChips: [
+      { name: "WELD NECK FLANGES", desc: "ASME B16.5 high-pressure engineered connections", spec: "Cl. 150 – 2500" },
+      { name: "SLIP-ON FLANGES", desc: "Machined raised-face & flat-face pipeline hubs", spec: "ASTM A182" },
+      { name: "BLIND FLANGES", desc: "Pressure vessel & pipeline termination", spec: "ASME B16.5" },
+      { name: "SOCKETWELD FITTINGS", desc: "Forged high-pressure elbows, tees & couplings", spec: "ASME B16.11 3000#" },
+      { name: "BUTTWELD FITTINGS", desc: "Seamless & welded long radius elbows & reducers", spec: "ASTM A403 WP304L/316L" }
+    ],
     specs: [
       { label: "FLANGE TYPES", value: "Weld Neck, Slip-On, Blind" },
       { label: "AUSTENITIC (A182)", value: "F304, F304L, F316, F316L" },
@@ -125,10 +151,23 @@ export const HERO_SLIDES = [
   },
   {
     id: "03",
-    titlePrefix: "",
-    titleHighlight: "HEAVY",
-    titleSuffix: " ENGINEERING PLATES, COILS & ROUND BARS",
+    eyebrow: "Precision Metallurgy & Structural Stock",
+    titlePrefix: "HEAVY ENGINEERING ",
+    titleHighlight: "PLATES, COILS",
+    titleSuffix: " & ROUND BARS",
     description: "Cold & hot rolled sheets, heavy plates, and precision ground round/hex bars in SS 304, 304L, 316, 316L, 321, 310S, 347, and Duplex 2205.",
+    cardCategory: "3. Heavy Engineering",
+    cardHeading: "Industrial Plates, Coils & Round Bars.",
+    cardGrades: "ASTM A240 / A276 · 304L · 316L · 321 · 310S",
+    cardAction: "Explore Sheets & Bars",
+    cardProductSlug: "sheets-plates-coils",
+    productChips: [
+      { name: "SS 304 / 316L PLATES", desc: "ASTM A240 hot & cold rolled structural sheets", spec: "ASTM A240" },
+      { name: "SS 321 / 310S COILS", desc: "High-temperature oxidation resistant up to 1150°C", spec: "Heat Resistant" },
+      { name: "PRECISION ROUND BARS", desc: "Centerless ground finish for precision engineering", spec: "ASTM A276" },
+      { name: "HEX & FLAT BARS", desc: "Bright drawn structural bars for CNC machining", spec: "Engineered Stock" },
+      { name: "CUSTOM CUT SIZES", desc: "CNC laser, plasma and precision waterjet cutting", spec: "Custom Profiling" }
+    ],
     specs: [
       { label: "SHEET & PLATE", value: "ASTM A240 304, 316L, 321" },
       { label: "ROUND BAR SPEC", value: "ASTM A276 304, 316L, 310S" },
@@ -149,10 +188,23 @@ export const HERO_SLIDES = [
   },
   {
     id: "04",
-    titlePrefix: "",
-    titleHighlight: "CORROSION-RESISTANT",
-    titleSuffix: " METALS FOR CRITICAL INDUSTRIES",
+    eyebrow: "Corrosion-Resistant Industrial Alloys",
+    titlePrefix: "DUPLEX & ",
+    titleHighlight: "HIGH-PERFORMANCE",
+    titleSuffix: " SPECIALTY ALLOYS",
     description: "Trusted stockist & supplier of high-alloy austenitic, Duplex 2205, and Super Duplex 2507 stainless steels for severe chemical and marine applications.",
+    cardCategory: "4. High Performance Alloys",
+    cardHeading: "Duplex 2205 & Super Duplex 2507.",
+    cardGrades: "UNS S31803 / S32205 · UNS S32750 · 904L · Titanium",
+    cardAction: "Explore Duplex & Alloys",
+    cardProductSlug: "duplex-stainless-steel",
+    productChips: [
+      { name: "DUPLEX 2205", desc: "High-strength corrosion resistant alloy for sour gas", spec: "UNS S31803 / S32205" },
+      { name: "SUPER DUPLEX 2507", desc: "High-performance stainless steel for marine & offshore", spec: "UNS S32750" },
+      { name: "ALLOY 904L", desc: "Severe sulfuric & phosphoric acid processing grade", spec: "UNS N08904" },
+      { name: "TITANIUM GRADES", desc: "High strength-to-weight ratio for aerospace & naval", spec: "Gr. 2 & Gr. 5" },
+      { name: "NICKEL ALLOYS", desc: "Inconel 625 & Monel 400 high-pressure alloys", spec: "Inconel & Monel" }
+    ],
     specs: [
       { label: "DUPLEX 2205", value: "UNS S31803 / UNS S32205" },
       { label: "SUPER DUPLEX 2507", value: "UNS S32750 (25% Cr)" },
@@ -170,6 +222,29 @@ export const HERO_SLIDES = [
     ],
     image: heroBarsAlloysImg,
     alt: "Corrosion-resistant metals for critical industries"
+  }
+];
+
+export const VERIFIED_TRUST_METRICS = [
+  {
+    metric: "ISO 9001:2015",
+    label: "Certified Quality System",
+    detail: "Accreditation No. 26DQQC40"
+  },
+  {
+    metric: "18+ Categories",
+    label: "Industrial Product Lines",
+    detail: "Pipes, Tubes, Flanges & Fasteners"
+  },
+  {
+    metric: "9 Material Grades",
+    label: "Certified Alloys & Metals",
+    detail: "Austenitic, Duplex & High Alloys"
+  },
+  {
+    metric: "Global Supply",
+    label: "Pan-India & Export Ready",
+    detail: "EN 10204 3.1 Mill Test Reports"
   }
 ];
 

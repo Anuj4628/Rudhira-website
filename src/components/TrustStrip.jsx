@@ -1,37 +1,41 @@
 import React from 'react';
-import { TRUST_STRIP_ITEMS, COMPANY_DETAILS } from '../data/industrialData';
+import { VERIFIED_TRUST_METRICS } from '../data/industrialData';
 
 export default function TrustStrip() {
   return (
-    <div id="trust-strip" className="w-full bg-[#F4E5DC] border-b border-[#D9D9D6] py-4 sm:py-5 px-4 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        {/* Verification Tag */}
-        <div className="hidden lg:flex items-center gap-2 text-xs font-mono text-[#A94728] uppercase tracking-wider font-bold border-r border-[#A94728]/25 pr-6">
-          <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-          <span>INDUSTRIAL GRADE SUPPLY</span>
-        </div>
+    <section
+      id="trust-strip"
+      className="relative z-30 w-full bg-[#A94728] py-7 sm:py-8 lg:py-9 px-4 sm:px-6 lg:px-8 select-none"
+      aria-label="Verified Industrial Accreditations & Supply Capabilities"
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+          {VERIFIED_TRUST_METRICS.map((item, index) => (
+            <div
+              key={item.metric}
+              className={`flex flex-col text-left justify-center py-4 sm:py-2 px-3 sm:px-6 lg:px-8 ${
+                index === 0 ? 'sm:pl-0' : ''
+              } ${index === VERIFIED_TRUST_METRICS.length - 1 ? 'sm:pr-0' : ''}`}
+            >
+              {/* Primary Large Number / Heading */}
+              <div className="text-3xl sm:text-4xl lg:text-[38px] xl:text-[42px] font-extrabold text-white tracking-tight font-sans leading-none">
+                {item.metric}
+              </div>
 
-        {/* 4 Strip Items */}
-        <div className="w-full flex-1 flex flex-wrap items-center justify-around gap-y-3 gap-x-6 text-center">
-          {TRUST_STRIP_ITEMS.map((item, index) => (
-            <div key={item} className="flex items-center gap-3">
-              <span className="tech-label text-[#202427] font-bold text-xs sm:text-sm tracking-widest uppercase hover:text-[#A94728] transition-colors">
-                {item}
-              </span>
-              {index < TRUST_STRIP_ITEMS.length - 1 && (
-                <span className="text-[#A94728] font-mono text-xs hidden sm:inline">
-                  •
-                </span>
-              )}
+              {/* Secondary Label */}
+              <div className="mt-2.5 text-sm sm:text-[15px] font-bold text-white uppercase tracking-wider font-sans leading-snug">
+                {item.label}
+              </div>
+
+              {/* Supporting Detail */}
+              <div className="mt-1 text-xs sm:text-sm text-white/80 font-normal font-sans leading-relaxed">
+                {item.detail}
+              </div>
             </div>
           ))}
         </div>
-
-        {/* Location & Sector indicator */}
-        <div className="hidden xl:flex items-center gap-2 text-xs font-mono text-[#202427]/70 border-l border-[#A94728]/25 pl-6 font-semibold">
-          <span>MUMBAI, INDIA</span>
-        </div>
       </div>
-    </div>
+    </section>
   );
 }
+
