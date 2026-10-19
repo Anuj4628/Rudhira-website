@@ -237,14 +237,17 @@ body {
   }
 }
 
-.marquee-track-continuous {
+.marquee-track-continuous,
+.marquee-slider-track {
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: marquee-infinite-slide 30s linear infinite;
+  animation: marquee-infinite-slide 38s linear infinite;
 }
 
-.marquee-track-continuous:hover {
+.marquee-track-continuous:hover,
+.marquee-slider-track:hover,
+.marquee-container:hover .marquee-slider-track {
   animation-play-state: paused;
 }
 
@@ -500,9 +503,6 @@ a.btn-wave span,
 .btn-wave strong,
 .btn-wave p,
 .btn-wave div,
-[role="button"],
-[role="button"] *,
-[role="button"] span,
 input[type="button"],
 input[type="submit"] {
   color: #000000 !important;
@@ -513,9 +513,7 @@ button svg path,
 a.btn-wave svg,
 a.btn-wave svg path,
 .btn-wave svg,
-.btn-wave svg path,
-[role="button"] svg,
-[role="button"] svg path {
+.btn-wave svg path {
   color: #000000 !important;
   stroke: #000000 !important;
 }
@@ -534,9 +532,7 @@ a.btn-wave:hover span,
 .btn-wave:hover span,
 .btn-wave:hover strong,
 .btn-wave:hover p,
-.btn-wave:hover div,
-[role="button"]:hover,
-[role="button"]:hover * {
+.btn-wave:hover div {
   color: #000000 !important;
 }
 
@@ -545,9 +541,7 @@ button:hover svg path,
 a.btn-wave:hover svg,
 a.btn-wave:hover svg path,
 .btn-wave:hover svg,
-.btn-wave:hover svg path,
-[role="button"]:hover svg,
-[role="button"]:hover svg path {
+.btn-wave:hover svg path {
   color: #000000 !important;
   stroke: #000000 !important;
 }
@@ -610,4 +604,104 @@ a.btn-wave:hover svg path,
 .footer-quote-btn svg.fill-white path {
   fill: #FFFFFF !important;
 }
+
+/* ========================================================
+   MATERIALS SECTION HIGH CONTRAST & VISIBILITY OVERRIDES
+   Guarantees material card names and section buttons are 
+   crisp, vivid, and 100% visible with white typography
+   ======================================================== */
+.materials-marquee-section .material-card-title,
+.materials-marquee-section .material-card-title *,
+.material-card .material-card-title,
+.material-card .material-card-title span,
+.materials-view-btn,
+.materials-view-btn *,
+.materials-view-btn span {
+  color: #FFFFFF !important;
+}
+
+.materials-view-btn:hover,
+.materials-view-btn:hover *,
+.materials-view-btn:hover span {
+  color: #FFFFFF !important;
+}
+
+.materials-marquee-section .material-card:hover .material-card-title {
+  color: #F4E5DC !important;
+}
+
+/* ========================================================
+   VALUE ADDED SERVICES 3D FLIP CARDS
+   Smooth, hardware-accelerated 3D flip with perspective
+   ======================================================== */
+.service-card-3d-wrapper {
+  perspective: 1400px;
+  -webkit-perspective: 1400px;
+}
+
+.service-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+/* Desktop Hover Flip */
+@media (hover: hover) and (pointer: fine) {
+  .service-card-3d-wrapper:hover .service-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .service-card-3d-wrapper:hover .service-card-front {
+    z-index: 1;
+  }
+
+  .service-card-3d-wrapper:hover .service-card-back {
+    z-index: 2;
+  }
+}
+
+/* Mobile Tap / Active Flipped State */
+.service-card-3d-wrapper.is-flipped .service-card-inner {
+  transform: rotateY(180deg);
+}
+
+.service-card-3d-wrapper.is-flipped .service-card-front {
+  z-index: 1;
+}
+
+.service-card-3d-wrapper.is-flipped .service-card-back {
+  z-index: 2;
+}
+
+.service-card-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.service-card-front {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.service-card-back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .service-card-inner {
+    transition: transform 0.01ms !important;
+  }
+}
+
+
 
