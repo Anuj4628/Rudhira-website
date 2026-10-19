@@ -7,6 +7,7 @@ import MaterialsMegaMenu from './mega-menu/MaterialsMegaMenu';
 import CertificatesMegaMenu from './mega-menu/CertificatesMegaMenu';
 import CertificateModal from './common/CertificateModal';
 import { PRODUCT_CATEGORIES, MATERIAL_CATEGORIES, getMaterialSeoSlug, getProductSeoSlug } from '../data/productsData';
+import brandLogo from '../assets/New Logo/Rudhira Metal Logo Emblem.png';
 
 export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -295,12 +296,12 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                 aria-label="Rudhira Metal Industries - Home"
               >
                 <img
-                  src="/assets/rudhira-logo.png"
+                  src={brandLogo}
                   alt="Rudhira Metal Industries Logo"
                   className={`w-auto object-contain transition-all duration-300 origin-left ${
                     isScrolled
-                      ? 'h-12 sm:h-14 lg:h-16 xl:h-[68px]'
-                      : 'h-16 sm:h-20 lg:h-24 xl:h-[96px]'
+                      ? 'h-10 sm:h-11 md:h-12 lg:h-14 xl:h-[62px]'
+                      : 'h-12 sm:h-14 md:h-16 lg:h-20 xl:h-[84px]'
                   }`}
                   loading="eager"
                 />
@@ -479,9 +480,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
               {/* Header with Logo & Close Button */}
               <div className="flex items-center justify-between pb-4 border-b border-gray-100">
                 <img
-                  src="/assets/rudhira-logo.png"
+                  src={brandLogo}
                   alt="Rudhira Metal Industries"
-                  className="h-16 sm:h-20 w-auto object-contain"
+                  className="h-12 sm:h-14 w-auto object-contain"
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}

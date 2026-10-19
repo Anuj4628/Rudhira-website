@@ -39,20 +39,20 @@ export default function FinalCTA({ onOpenEnquiry }) {
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
           <button
             onClick={onOpenEnquiry}
-            className="btn-wave inline-flex items-center gap-2.5 border-2 border-white text-white text-sm sm:text-base font-extrabold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-xl transition-all duration-150 active:scale-[0.97] cursor-pointer group"
+            className="btn-wave inline-flex items-center gap-2.5 border-2 border-white bg-white hover:bg-white/90 text-black !text-black text-sm sm:text-base font-extrabold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-xl transition-all duration-150 active:scale-[0.97] cursor-pointer group"
           >
-            <span>Send an Enquiry</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <span className="text-black !text-black">Send an Enquiry</span>
+            <ArrowUpRight className="w-4 h-4 text-black !text-black transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
 
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-wave inline-flex items-center gap-2.5 border border-white/60 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-7 sm:px-8 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97]"
+            className="btn-wave inline-flex items-center gap-2.5 border border-white bg-white/95 hover:bg-white text-black !text-black text-sm sm:text-base font-bold uppercase tracking-wider px-7 sm:px-8 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97]"
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
-            <span>WhatsApp Us</span>
+            <span className="text-black !text-black">WhatsApp Us</span>
           </a>
         </div>
 

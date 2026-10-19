@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, MapPin, ArrowUpRight, Globe } from 'lucide-react';
 import { FaWhatsapp, FaPhone } from 'react-icons/fa6';
 import { COMPANY_DETAILS } from '../data/industrialData';
+import brandLogo from '../assets/New Logo/Rudhira Metal Logo Emblem.png';
 
 export default function Footer({ onNavigate, onOpenEnquiry }) {
   const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
@@ -33,13 +34,13 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
               <a
                 href="/"
                 onClick={(e) => handleFooterNav(e, 'home')}
-                className="inline-block cursor-pointer hover:opacity-95 transition-opacity"
+                className="inline-flex items-center bg-white rounded-xl px-3.5 py-2.5 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all border border-white/20"
                 aria-label="Rudhira Metal Industries - Home"
               >
                 <img
-                  src="/assets/rudhira-logo.png"
+                  src={brandLogo}
                   alt="Rudhira Metal Industries Logo"
-                  className="h-18 sm:h-22 lg:h-24 w-auto object-contain"
+                  className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
                 />
               </a>
             </div>
@@ -223,11 +224,12 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
 
             <div className="mt-5">
               <button
+                type="button"
                 onClick={onOpenEnquiry}
-                className="btn-wave inline-flex items-center gap-2 border border-[#A94728] text-white text-sm font-bold uppercase tracking-wider px-5 py-3 rounded-sm transition-all active:scale-[0.97] cursor-pointer shadow-sm hover:bg-[#A94728]"
+                className="footer-quote-btn contact-hero-btn inline-flex items-center gap-2.5 bg-[#A94728] hover:bg-[#8F3B20] border-2 border-[#A94728] hover:border-[#C34B2B] text-white !text-white text-sm font-black uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-xl shadow-[#A94728]/35 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] cursor-pointer group"
               >
-                <span>Request Quotation Proposal</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <span className="text-white !text-white font-black tracking-wider">Request Quotation Proposal</span>
+                <ArrowUpRight className="w-4 h-4 text-white !text-white stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
             </div>
           </div>

@@ -18,7 +18,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { COMPANY_DETAILS, INDUSTRIES_SERVED } from '../data/industrialData';
 
 // Image assets
-import aboutHeroImg from '../assets/images/about-hero-steels.jpg';
+import aboutHeroPipeImg from '../assets/Product Images/Pipes and Tubes/seamless_alloy_steel_pipes_a335.jpg';
 import whoWeAreImg from '../assets/images/from-steel-to-supply.jpg';
 import capabilityImg from '../assets/images/slide-1.jpg';
 
@@ -36,16 +36,16 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
     window.scrollTo(0, 0);
 
     const ctx = gsap.context(() => {
-      // Hero entrance animation
+      // Hero entrance animation (matching Home hero smooth staggered slide-in)
       gsap.fromTo(
         '.about-hero-anim',
-        { opacity: 0, y: 35 },
+        { opacity: 0, x: 35 },
         {
           opacity: 1,
-          y: 0,
-          duration: 0.9,
-          stagger: 0.15,
-          ease: 'power2.out',
+          x: 0,
+          duration: 0.75,
+          stagger: 0.08,
+          ease: 'power3.out',
         }
       );
 
@@ -174,87 +174,150 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
   const coreIndustries = INDUSTRIES_SERVED.slice(0, 6);
 
   return (
-    <div ref={pageRef} className="pt-[88px] sm:pt-[96px] lg:pt-[104px]">
+    <div ref={pageRef} className="w-full">
       {/* ========================================================
-          SECTION 1 — ABOUT HERO
+          SECTION 1 — ABOUT HERO (ADVERTISEMENT CLUSTER & PIPE BACKDROP)
           ======================================================== */}
       <section
         ref={heroRef}
-        className="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] flex items-center justify-center bg-[#202427] text-white overflow-hidden border-b border-[#202427]/40"
+        className="relative w-full h-[100dvh] min-h-[600px] bg-[#0c0f12] select-none flex flex-col justify-center pt-20 sm:pt-24 lg:pt-[85px] pb-16 sm:pb-20 lg:pb-0 overflow-hidden border-b border-[#202427]/40"
+        aria-label="Rudhira Metal Industries - About Us"
       >
-        {/* Background Industrial Image */}
-        <div className="absolute inset-0 z-0">
+        {/* 1. FULL-WIDTH BACKGROUND INDUSTRIAL PIPE PHOTOGRAPHY - FULLY CLEAR */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <img
-            src={aboutHeroImg}
-            alt="Rudhira Metal Industries - Modern Precision Metal Manufacturing & Supply"
-            className="w-full h-full object-cover object-center transform scale-105 transition-transform duration-1000 ease-out"
+            src={aboutHeroPipeImg}
+            alt="Rudhira Metal Industries - Precision Industrial Steel Pipes & Metal Products Supply"
+            className="w-full h-full object-cover object-center sm:object-[35%_center] lg:object-center transform scale-105 transition-transform duration-1000 ease-out"
             loading="eager"
           />
-          {/* Multi-layered dark gradient overlay for optimal readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#171A1C]/95 via-[#202427]/85 to-[#202427]/65" />
-          <div className="absolute inset-0 bg-dark-grid-pattern opacity-30 pointer-events-none" />
+          {/* Fully clear background without any black overlays */}
         </div>
 
-        {/* Content Container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
-          <div className="max-w-3xl">
-            {/* Small Eyebrow */}
-            <div className="about-hero-anim inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 backdrop-blur-md mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-              <span className="tech-label text-xs sm:text-[13px] font-bold tracking-widest text-[#F4E5DC] uppercase">
-                ABOUT RUDHIRA METAL INDUSTRIES
-              </span>
-            </div>
+        {/* 2. ADVERTISEMENT GRAPHIC COMPOSITION MATCHING HOME HERO */}
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-4 sm:py-6">
+          <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+            
+            {/* Left Column: Negative Space allowing background pipe photography to breathe */}
+            <div className="hidden lg:block lg:flex-1" />
 
-            {/* Main Heading (76–96px desktop) */}
-            <h1 className="about-hero-anim text-4xl sm:text-6xl lg:text-[70px] xl:text-[76px] font-extrabold text-white tracking-tight leading-[1.05] mb-6 font-sans">
-              Built on Strength.{' '}
-              <span className="text-[#F4E5DC] block mt-1">
-                Driven by Precision.
-              </span>
-            </h1>
+            {/* Right Column: Advertisement Design Layout Cluster */}
+            <div className="w-full lg:w-[620px] xl:w-[680px] 2xl:w-[720px] lg:ml-auto flex flex-col items-start text-left">
+              
+              {/* A. TOP PROMOTIONAL RIBBON */}
+              <div className="about-hero-anim flex flex-wrap items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3.5 w-full">
+                <div
+                  className="bg-[#C34B2B] text-white text-xs sm:text-xs md:text-sm font-black tracking-wider uppercase px-4 sm:px-5 py-1.5 sm:py-2 shadow-lg relative inline-block"
+                  style={{
+                    clipPath: 'polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%)'
+                  }}
+                >
+                  <span>ABOUT RUDHIRA METAL INDUSTRIES</span>
+                </div>
 
-            {/* Supporting Text (18–20px desktop) */}
-            <p className="about-hero-anim text-base sm:text-lg lg:text-[20px] text-[#E7EEF2]/95 font-normal leading-relaxed mb-10 max-w-2xl font-sans">
-              Rudhira Metal Industries is committed to delivering dependable metal solutions with a strong focus on quality, precision, consistency and long-term customer relationships.
-            </p>
-
-            {/* CTA Buttons (15–17px, Bold 700) */}
-            <div className="about-hero-anim flex flex-wrap items-center gap-4 sm:gap-5">
-              <button
-                onClick={() => onNavigate('home', '#products')}
-                className="btn-wave inline-flex items-center gap-2.5 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer group"
-              >
-                <span>Explore Our Products</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </button>
-
-              <button
-                onClick={() => onNavigate('contact')}
-                className="btn-wave inline-flex items-center gap-2.5 border border-white/60 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-md transition-all duration-150 active:scale-[0.97] cursor-pointer"
-              >
-                <span>Get in Touch</span>
-                <ArrowRight className="w-4 h-4 text-white" />
-              </button>
-            </div>
-
-            {/* Technical Credential Pills */}
-            <div className="about-hero-anim mt-12 pt-8 border-t border-white/15 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs sm:text-[13px] font-mono text-[#D9D9D6]">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
-                <span>MUMBAI CENTRAL INDUSTRIAL STOCKIST</span>
+                {/* Compact Dark Technical Badge */}
+                <div className="bg-[#111417]/95 text-[#E7EEF2] text-[11px] sm:text-xs font-mono font-bold tracking-wider px-3.5 sm:px-4 py-1.5 sm:py-2 border border-white/20 uppercase shadow-md flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
+                  <span>ESTABLISHED EXCELLENCE</span>
+                </div>
               </div>
-              <span className="text-white/20 hidden sm:inline">|</span>
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
-                <span>STAINLESS, CARBON &amp; ALLOY STEELS</span>
+
+              {/* B. MAIN HEADLINE & SUPPORTING LINE */}
+              <div className="about-hero-anim mb-3 sm:mb-3.5">
+                <h1 className="text-2xl sm:text-4xl lg:text-[40px] xl:text-[46px] 2xl:text-[50px] font-black text-white tracking-tight uppercase leading-[1.08] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] [text-shadow:_0_3px_12px_rgba(0,0,0,0.85)] font-sans">
+                  BUILT ON STRENGTH
+                </h1>
+                <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-[#E05A36] tracking-wide uppercase mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)] font-sans">
+                  DRIVEN BY PRECISION • COMMITTED TO EXCELLENCE
+                </div>
               </div>
-              <span className="text-white/20 hidden md:inline">|</span>
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
-                <span>PAN-INDIA &amp; EXPORT DISPATCH</span>
+
+              {/* C. COMPACT TECHNICAL PRODUCT / COMPANY DETAILS BOX */}
+              <div className="about-hero-anim w-full bg-[#111417]/92 backdrop-blur-md border-l-4 border-l-[#C34B2B] border-y border-r border-white/15 p-3.5 sm:p-4 mb-3.5 sm:mb-4 shadow-xl">
+                <div className="text-[11px] sm:text-xs font-mono font-bold text-[#E05A36] uppercase tracking-wider mb-1">
+                  COMPANY PROFILE // INDUSTRIAL METAL SPECIALISTS
+                </div>
+                <div className="text-xs sm:text-sm lg:text-[15px] font-sans text-white font-medium leading-relaxed mb-1.5">
+                  Rudhira Metal Industries is committed to delivering dependable metal solutions with a strong focus on quality, precision, consistency and long-term customer relationships.
+                </div>
+                <div className="text-[11px] sm:text-xs font-mono text-white/75 font-medium">
+                  STOCKIST &amp; SUPPLIERS // PIPES, TUBES, FLANGES, FORGED FITTINGS, SHEETS &amp; PLATES
+                </div>
               </div>
+
+              {/* D. ADVERTISEMENT-STYLE GRAPHIC BADGES */}
+              <div className="about-hero-anim flex items-center w-full max-w-[480px] sm:max-w-[520px] mb-4 sm:mb-5 relative">
+                {/* Angled Gold Bar */}
+                <div
+                  className="flex-1 bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-white py-2 sm:py-2.5 px-5 sm:px-7 shadow-lg"
+                  style={{
+                    clipPath: 'polygon(18px 0, 100% 0, 100% 100%, 0 100%)'
+                  }}
+                >
+                  <div className="text-[10px] sm:text-[11px] font-mono font-black tracking-wider text-black/80 uppercase">
+                    TRUSTED INDUSTRIAL PARTNER
+                  </div>
+                  <div className="text-base sm:text-xl lg:text-2xl font-black text-white tracking-wide uppercase leading-tight drop-shadow-sm">
+                    GOVT. RECOGNIZED SUPPLIER
+                  </div>
+                </div>
+
+                {/* Overlapping Red Circular Badge */}
+                <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-[#B91C1C] text-white border-2 border-white shadow-xl flex flex-col items-center justify-center text-center -ml-4 sm:-ml-6 z-20 flex-shrink-0 transform transition-transform hover:scale-105">
+                  <span className="text-[9px] sm:text-[10px] font-black tracking-wider leading-none uppercase">
+                    100%
+                  </span>
+                  <span className="text-xs sm:text-sm lg:text-base font-black tracking-wider leading-none uppercase my-0.5">
+                    QUALITY
+                  </span>
+                  <span className="text-[8px] sm:text-[9px] font-mono font-bold tracking-widest text-[#F4E5DC] leading-none uppercase">
+                    TESTED
+                  </span>
+                </div>
+              </div>
+
+              {/* E. CTA BUTTONS */}
+              <div className="about-hero-anim flex flex-wrap items-center gap-3 sm:gap-3.5">
+                {/* Primary Solid Terracotta Button */}
+                <button
+                  type="button"
+                  onClick={() => onNavigate('home', '#products')}
+                  className="inline-flex items-center justify-center gap-2 bg-[#C34B2B] hover:bg-[#A93F23] text-black !text-black text-xs sm:text-sm font-black tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                  aria-label="Explore Our Products"
+                >
+                  <span className="text-black !text-black font-black">EXPLORE OUR PRODUCTS</span>
+                  <ArrowUpRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5] text-black !text-black" />
+                </button>
+
+                {/* Secondary Outlined Button */}
+                <button
+                  type="button"
+                  onClick={() => onNavigate('contact')}
+                  className="inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-black !text-black text-xs sm:text-sm font-black tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
+                  aria-label="Get in Touch"
+                >
+                  <span className="text-black !text-black font-black">GET IN TOUCH</span>
+                  <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-black !text-black" />
+                </button>
+              </div>
+
             </div>
+          </div>
+        </div>
+
+        {/* 3. DEDICATED BOTTOM STATUS STRIP (Matching Home Hero layout) */}
+        <div className="absolute bottom-5 sm:bottom-7 left-6 sm:left-10 lg:left-16 z-30 hidden sm:flex items-center gap-3 bg-[#111417]/85 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-white/20 shadow-2xl">
+          <div className="flex items-center gap-1.5 font-mono text-xs sm:text-sm text-white/90">
+            <span className="font-extrabold text-[#E05A36]">ABOUT</span>
+            <span className="text-white/30">/</span>
+            <span className="text-white/60">01</span>
+          </div>
+          <div className="h-3.5 w-px bg-white/25" />
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+            <span className="font-mono text-[11px] text-white/80 tracking-wider uppercase font-semibold">
+              RUDHIRA METAL INDUSTRIES • MUMBAI, INDIA
+            </span>
           </div>
         </div>
       </section>
@@ -492,10 +555,10 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               <div className="mt-8 pt-4 border-t border-white/20">
                 <button
                   onClick={onOpenEnquiry}
-                  className="btn-wave w-full inline-flex items-center justify-center gap-2 border-2 border-[#A94728] text-white text-xs font-bold uppercase tracking-wider py-3 rounded-sm shadow-sm transition-all cursor-pointer active:scale-95"
+                  className="btn-wave w-full inline-flex items-center justify-center gap-2 border-2 border-[#A94728] bg-white hover:bg-gray-50 text-black !text-black text-xs font-bold uppercase tracking-wider py-3 rounded-sm shadow-sm transition-all cursor-pointer active:scale-95"
                 >
-                  <span>Request RFQ Assessment</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  <span className="text-black !text-black">Request RFQ Assessment</span>
+                  <ArrowUpRight className="w-4 h-4 text-black !text-black" />
                 </button>
               </div>
             </div>
@@ -675,18 +738,18 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <button
               onClick={() => onNavigate('contact')}
-              className="btn-wave inline-flex items-center gap-2.5 border-2 border-white text-white text-sm font-extrabold uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl transition-all duration-150 active:scale-[0.97] cursor-pointer group"
+              className="btn-wave inline-flex items-center gap-2.5 border-2 border-white bg-white hover:bg-white/90 text-black !text-black text-sm font-extrabold uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl transition-all duration-150 active:scale-[0.97] cursor-pointer group"
             >
-              <span>Talk to Our Team</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="text-black !text-black">Talk to Our Team</span>
+              <ArrowUpRight className="w-4 h-4 text-black !text-black transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
 
             <button
               onClick={() => onNavigate('home', '#products')}
-              className="btn-wave inline-flex items-center gap-2.5 border border-white/40 text-white text-sm font-bold uppercase tracking-wider px-7 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer"
+              className="btn-wave inline-flex items-center gap-2.5 border border-white bg-white/95 hover:bg-white text-black !text-black text-sm font-bold uppercase tracking-wider px-7 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer"
             >
-              <span>View Products</span>
-              <ArrowRight className="w-4 h-4 text-white" />
+              <span className="text-black !text-black">View Products</span>
+              <ArrowRight className="w-4 h-4 text-black !text-black" />
             </button>
           </div>
 

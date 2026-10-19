@@ -326,7 +326,7 @@ Sent via Rudhira Metal Official Contact Portal`;
               Have a product requirement, project enquiry or sourcing need? Our team is ready to understand your requirement and help you move forward.
             </p>
 
-            {/* CTA Buttons (15–17px, Bold 700) */}
+            {/* CTA Buttons - High-Contrast & Clear Font Visibility */}
             <div className="contact-hero-anim flex flex-wrap items-center gap-4 sm:gap-5">
               <a
                 href="#quote-form"
@@ -334,26 +334,26 @@ Sent via Rudhira Metal Official Contact Portal`;
                   e.preventDefault();
                   document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="btn-wave inline-flex items-center gap-2.5 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer group"
+                className="contact-hero-btn inline-flex items-center gap-2.5 bg-[#A94728] hover:bg-[#8F3B20] border-2 border-[#A94728] hover:border-[#C34B2B] text-white !text-white text-sm sm:text-base font-black uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-xl shadow-[#A94728]/35 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] cursor-pointer group"
               >
-                <span>Request a Quote</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span className="text-white !text-white font-black tracking-wider">Request a Quote</span>
+                <ArrowUpRight className="w-4 h-4 text-white !text-white stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
 
               <a
                 href={`tel:${COMPANY_DETAILS.contacts[0].cleanPhone}`}
-                className="btn-wave inline-flex items-center gap-2.5 border border-white/60 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-md transition-all duration-150 active:scale-[0.97] cursor-pointer"
+                className="contact-hero-btn inline-flex items-center gap-2.5 bg-[#171A1C]/90 hover:bg-[#171A1C] border-2 border-white/85 hover:border-white text-white !text-white text-sm sm:text-base font-black uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-xl backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] cursor-pointer group"
               >
-                <FaPhone className="w-3.5 h-3.5 text-white" />
-                <span>Call Us ({COMPANY_DETAILS.contacts[0].phone})</span>
+                <FaPhone className="w-3.5 h-3.5 text-white !text-white fill-white" />
+                <span className="text-white !text-white font-black tracking-wider">Call Us ({COMPANY_DETAILS.contacts[0].phone})</span>
               </a>
 
               <button
                 type="button"
                 onClick={() => onNavigate('home', '#products')}
-                className="btn-wave inline-flex items-center gap-2 border border-white/40 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-4 rounded-sm transition-all duration-150 active:scale-[0.97] cursor-pointer"
+                className="contact-hero-btn inline-flex items-center gap-2 bg-[#171A1C]/80 hover:bg-[#171A1C] border-2 border-white/60 hover:border-white text-white !text-white text-sm sm:text-base font-black uppercase tracking-wider px-6 sm:px-7 py-4 rounded-sm shadow-lg backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] cursor-pointer"
               >
-                <span>View Products</span>
+                <span className="text-white !text-white font-black tracking-wider">View Products</span>
               </button>
             </div>
 

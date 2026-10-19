@@ -421,20 +421,20 @@ body {
   box-shadow: 0 8px 24px -4px rgba(169, 71, 40, 0.35);
 }
 
-/* Text and Icon Contrast: Smooth transition to clean white on hover */
+/* Text and Icon Contrast: Maintain crisp black font on hover */
 .btn-wave:hover,
 .btn-wave:hover > *,
 .btn-wave:hover span,
 .btn-wave:hover p,
 .btn-wave:hover div,
 .btn-wave:hover strong {
-  color: #FFFFFF !important;
+  color: #000000 !important;
 }
 
 .btn-wave:hover svg,
 .btn-wave:hover path {
-  color: #FFFFFF !important;
-  stroke: #FFFFFF !important;
+  color: #000000 !important;
+  stroke: #000000 !important;
 }
 
 /* Accessible focus-visible state */
@@ -479,3 +479,135 @@ body {
   animation: heroRoomMovement 7s cubic-bezier(0.25, 0.8, 0.35, 1) forwards;
   will-change: transform;
 }
+
+/* ========================================================
+   GLOBAL BUTTON BLACK FONT COLOR ENFORCEMENT
+   Guarantees EVERY button, button-like link, and .btn-wave 
+   across the website renders with #000000 black font color
+   ======================================================== */
+button,
+button *,
+button span,
+button strong,
+button p,
+button div,
+a.btn-wave,
+a.btn-wave *,
+a.btn-wave span,
+.btn-wave,
+.btn-wave *,
+.btn-wave span,
+.btn-wave strong,
+.btn-wave p,
+.btn-wave div,
+[role="button"],
+[role="button"] *,
+[role="button"] span,
+input[type="button"],
+input[type="submit"] {
+  color: #000000 !important;
+}
+
+button svg,
+button svg path,
+a.btn-wave svg,
+a.btn-wave svg path,
+.btn-wave svg,
+.btn-wave svg path,
+[role="button"] svg,
+[role="button"] svg path {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+/* Hover and Focus States: Always Maintain Black Font */
+button:hover,
+button:hover *,
+button:hover span,
+button:focus,
+button:focus *,
+a.btn-wave:hover,
+a.btn-wave:hover *,
+a.btn-wave:hover span,
+.btn-wave:hover,
+.btn-wave:hover *,
+.btn-wave:hover span,
+.btn-wave:hover strong,
+.btn-wave:hover p,
+.btn-wave:hover div,
+[role="button"]:hover,
+[role="button"]:hover * {
+  color: #000000 !important;
+}
+
+button:hover svg,
+button:hover svg path,
+a.btn-wave:hover svg,
+a.btn-wave:hover svg path,
+.btn-wave:hover svg,
+.btn-wave:hover svg path,
+[role="button"]:hover svg,
+[role="button"]:hover svg path {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+/* ========================================================
+   HIGH-CONTRAST CTA BUTTONS OVERRIDE (Contact Hero, Footer, etc.)
+   Guarantees maximum visibility, high contrast, and crisp
+   pure white typography (#FFFFFF) on dark backgrounds
+   ======================================================== */
+.contact-hero-btn,
+.footer-quote-btn,
+.contact-hero-btn *,
+.footer-quote-btn *,
+.contact-hero-btn span,
+.footer-quote-btn span,
+.contact-hero-btn strong,
+.footer-quote-btn strong,
+.contact-hero-btn p,
+.footer-quote-btn p,
+.contact-hero-btn div,
+.footer-quote-btn div,
+.contact-hero-btn:hover,
+.footer-quote-btn:hover,
+.contact-hero-btn:hover *,
+.footer-quote-btn:hover *,
+.contact-hero-btn:hover span,
+.footer-quote-btn:hover span,
+.contact-hero-btn:hover strong,
+.footer-quote-btn:hover strong,
+.contact-hero-btn:focus,
+.footer-quote-btn:focus,
+.contact-hero-btn:focus *,
+.footer-quote-btn:focus * {
+  color: #FFFFFF !important;
+}
+
+.contact-hero-btn svg,
+.footer-quote-btn svg,
+.contact-hero-btn svg path,
+.footer-quote-btn svg path,
+.contact-hero-btn:hover svg,
+.footer-quote-btn:hover svg,
+.contact-hero-btn:hover svg path,
+.footer-quote-btn:hover svg path {
+  color: #FFFFFF !important;
+}
+
+.contact-hero-btn svg:not(.fill-white):not([fill="currentColor"]),
+.footer-quote-btn svg:not(.fill-white):not([fill="currentColor"]),
+.contact-hero-btn svg:not(.fill-white):not([fill="currentColor"]) path,
+.footer-quote-btn svg:not(.fill-white):not([fill="currentColor"]) path {
+  stroke: #FFFFFF !important;
+}
+
+.contact-hero-btn svg[fill="currentColor"],
+.footer-quote-btn svg[fill="currentColor"],
+.contact-hero-btn svg.fill-white,
+.footer-quote-btn svg.fill-white,
+.contact-hero-btn svg.fill-white path,
+.footer-quote-btn svg.fill-white path {
+  fill: #FFFFFF !important;
+}
+
