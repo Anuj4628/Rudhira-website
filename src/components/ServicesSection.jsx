@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Scissors, Ruler, SearchCode, Sparkles, Box, Sliders, ArrowUpRight } from 'lucide-react';
 import { VALUE_ADDED_SERVICES } from '../data/industrialData';
 
-// Authentic service images mapped to each service
+// Authentic service images mapped to each service (updated with precision cutting & export packaging)
 import cuttingImg from '../assets/services/service-01-cutting.jpg';
 import customSizingImg from '../assets/services/service-02-custom-sizing.jpg';
 import inspectionImg from '../assets/services/service-03-material-inspection.jpg';

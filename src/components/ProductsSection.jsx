@@ -2,25 +2,106 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
-import { PRODUCTS_DATA } from '../data/industrialData';
-import { getProductSeoSlug } from '../data/productsData';
+
+// 8 Completely Distinct & Non-Repeating Industrial Images for Flanges, Forged Fittings & Butt Weld Fittings
+import ss304FlangesImg from '../assets/flanges/types/weld-neck-flanges.jpg';
+import ss316ForgedImg from '../assets/Product Section/Manufacturer division/Forged Fittings/stainles steel.jpg';
+import carbonSteelFlangesImg from '../assets/flanges/types/carbon-steel-flanges.jpg';
+import alloySteelBwImg from '../assets/New Product img/pipe fittings/alloy-steel-pipe-fittings.jpg';
+import duplexFlangesImg from '../assets/Product Section/Manufacturer division/Flanges/duplex.jpg';
+import superDuplexFlangesImg from '../assets/Product Section/Manufacturer division/Flanges/super duplex.jpg';
+import nickelAlloyBwImg from '../assets/New Product img/pipe fittings/nickel-pipe-fittings.jpg';
+import titaniumBwImg from '../assets/New Product img/pipe fittings/titanium-pipe-fittings.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// 8 Material/Grade Categories specifically related to Flanges, Forged Fittings, and Butt Weld Fittings
+const HOMEPAGE_PRODUCTS = [
+  {
+    id: '01',
+    name: 'STAINLESS STEEL 304 / 304L',
+    topLabel: 'SS 304 / 304L',
+    description: 'Reliable stainless steel grades for corrosion-resistant industrial applications.',
+    spec: 'Flanges • Forged Fittings • Butt Weld Fittings',
+    image: ss304FlangesImg,
+    productSlug: 'flanges',
+    materialSlug: 'stainless-steel',
+  },
+  {
+    id: '02',
+    name: 'STAINLESS STEEL 316 / 316L',
+    topLabel: 'SS 316 / 316L',
+    description: 'Superior corrosion resistance for demanding chemical, marine and process applications.',
+    spec: 'Flanges • Forged Fittings • Butt Weld Fittings',
+    image: ss316ForgedImg,
+    productSlug: 'forged-fittings',
+    materialSlug: 'stainless-steel',
+  },
+  {
+    id: '03',
+    name: 'CARBON STEEL',
+    topLabel: 'CARBON STEEL',
+    description: 'High-strength carbon steel solutions for pressure, piping and heavy industrial applications.',
+    spec: 'Flanges • Forged Fittings • Butt Weld Fittings',
+    image: carbonSteelFlangesImg,
+    productSlug: 'flanges',
+    materialSlug: 'carbon-steel',
+  },
+  {
+    id: '04',
+    name: 'ALLOY STEEL',
+    topLabel: 'ALLOY STEEL',
+    description: 'High-temperature and high-pressure alloy steel solutions for demanding industrial service.',
+    spec: 'Flanges • Forged Fittings • Butt Weld Fittings',
+    image: alloySteelBwImg,
+    productSlug: 'butt-weld-fittings',
+    materialSlug: 'alloy-steel',
+  },
+  {
+    id: '05',
+    name: 'DUPLEX STAINLESS STEEL',
+    topLabel: 'DUPLEX / UNS S31803',
+    description: 'High-strength duplex grades combining excellent corrosion resistance with mechanical performance.',
+    spec: 'Flanges • Forged Fittings • Butt Weld Fittings',
+    image: duplexFlangesImg,
+    productSlug: 'flanges',
+    materialSlug: 'duplex-stainless-steel',
+  },
+  {
+    id: '06',
+    name: 'SUPER DUPLEX',
+    topLabel: 'SUPER DUPLEX / UNS S32750',
+    description: 'Premium duplex alloys engineered for highly corrosive and demanding industrial environments.',
+    spec: 'Flanges • Forged Fittings • Butt Weld Fittings',
+    image: superDuplexFlangesImg,
+    productSlug: 'flanges',
+    materialSlug: 'super-duplex-stainless-steel',
+  },
+  {
+    id: '07',
+    name: 'NICKEL ALLOYS',
+    topLabel: 'NICKEL ALLOYS',
+    description: 'Specialized nickel-based materials for extreme temperature, corrosion and chemical service.',
+    spec: 'Flanges • Forged Fittings • Butt Weld Fittings',
+    image: nickelAlloyBwImg,
+    productSlug: 'butt-weld-fittings',
+    materialSlug: 'nickel-alloys',
+  },
+  {
+    id: '08',
+    name: 'TITANIUM ALLOYS',
+    topLabel: 'TITANIUM',
+    description: 'Lightweight, high-strength and corrosion-resistant materials for specialized industrial applications.',
+    spec: 'Flanges • Forged Fittings • Butt Weld Fittings',
+    image: titaniumBwImg,
+    productSlug: 'butt-weld-fittings',
+    materialSlug: 'titanium',
+  },
+];
 
 export default function ProductsSection({ onSelectProduct, onNavigate }) {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
-
-  const getProductSlug = (name) => {
-    const clean = name.toLowerCase();
-    if (clean.includes('flange')) return 'flanges';
-    if (clean.includes('fastener')) return 'fasteners';
-    if (clean.includes('pipe') && clean.includes('tube')) return 'pipes-and-tubes';
-    if (clean.includes('fitting')) return 'butt-weld-fittings';
-    if (clean.includes('sheet') || clean.includes('plate')) return 'sheets-and-plates';
-    if (clean.includes('bar')) return 'rods-and-bars';
-    return 'flanges';
-  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -41,16 +122,23 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
 
       gsap.fromTo(
         cardsRef.current,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 35 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
-          stagger: 0.1,
+          duration: 0.6,
+          stagger: 0.07,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: '.products-grid',
             start: 'top 85%',
+          },
+          onComplete: () => {
+            cardsRef.current.forEach((card) => {
+              if (card) {
+                gsap.set(card, { clearProps: 'y,opacity' });
+              }
+            });
           },
         }
       );
@@ -59,18 +147,40 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
     return () => ctx.revert();
   }, []);
 
+  // Subtle 3D tilt towards cursor on card hover
+  const handleMouseMove = (e, index) => {
+    const card = cardsRef.current[index];
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -4;
+    const rotateY = ((x - centerX) / centerX) * 4;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+  };
+
+  const handleMouseLeave = (index) => {
+    const card = cardsRef.current[index];
+    if (!card) return;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+  };
+
   return (
     <section
       id="products"
       ref={sectionRef}
-      className="py-24 sm:py-28 bg-[#F4E5DC]/60 relative overflow-hidden border-b border-[#D9D9D6]"
+      className="py-20 sm:py-24 lg:py-28 bg-[#F4E5DC]/60 relative overflow-hidden border-b border-[#D9D9D6]"
     >
       {/* Background Subtle Grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-70 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Centered Layout */}
-        <div className="products-header text-center mx-auto max-w-3xl mb-16 sm:mb-20">
+        <div className="products-header text-center mx-auto max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 sm:mb-5">
             <span className="w-2 h-2 rounded-full bg-[#A94728]" />
             <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
@@ -83,83 +193,100 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
           </h2>
 
           <p className="text-base sm:text-lg lg:text-[19px] text-[#202427]/80 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
-            Metal Products for Diverse Industrial Requirements. Precision-engineered solutions designed for demanding engineering applications.
+            Precision-engineered Flanges, Forged Fittings, and Butt Weld Fittings designed for critical industrial applications.
           </p>
         </div>
 
-        {/* 3x2 Grid Desktop - Increased Width (380-400px) & Expanded Clear Images */}
-        <div className="products-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-9 justify-items-center">
-          {PRODUCTS_DATA.map((product, index) => (
+        {/* 4x2 Grid Desktop (4 cols x 2 rows), 2x4 Tablet, 1x8 Mobile */}
+        <div className="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-5 xl:gap-6">
+          {HOMEPAGE_PRODUCTS.map((card, index) => (
             <div
-              key={product.id}
+              key={card.id}
               ref={(el) => (cardsRef.current[index] = el)}
+              onMouseMove={(e) => handleMouseMove(e, index)}
+              onMouseLeave={() => handleMouseLeave(index)}
               onClick={() => {
                 if (onNavigate) {
-                  const slug = getProductSlug(product.name);
-                  onNavigate('product-category', null, `/products/${getProductSeoSlug(slug)}`);
+                  onNavigate('product-material', null, `/products/${card.productSlug}/${card.materialSlug}`);
                 } else if (onSelectProduct) {
-                  onSelectProduct(product.name);
+                  onSelectProduct(card.name);
                 }
               }}
-              className="group relative w-full max-w-[390px] lg:max-w-[400px] bg-[#7E321F] border border-[#90391D]/60 rounded-lg overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#F4E5DC]/60 p-3.5 sm:p-4 shadow-xl"
+              style={{
+                transformStyle: 'preserve-3d',
+                transition: 'transform 0.22s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease',
+              }}
+              className="group relative w-full bg-[#7E321F] border border-[#90391D]/60 rounded-lg overflow-hidden flex flex-col justify-between cursor-pointer p-3.5 sm:p-4 shadow-xl hover:shadow-2xl hover:border-[#F4E5DC]/60 will-change-transform"
             >
-              {/* Subtle Inset Frame & Orange Corner Brackets */}
+              {/* Subtle Inset Frame & Corner Brackets */}
               <div className="corner-bracket-tl" />
               <div className="corner-bracket-br" />
 
-              {/* Increased Image Height (270-290px) for Crystal-Clear Product View */}
-              <div className="relative w-full h-[270px] sm:h-[290px] overflow-hidden rounded-md bg-black/25">
+              {/* Product Image Container */}
+              <div className="relative w-full h-[200px] sm:h-[210px] lg:h-[195px] xl:h-[215px] overflow-hidden rounded-md bg-black/25 flex-shrink-0">
                 <img
-                  src={product.image}
-                  alt={product.name}
+                  src={card.image}
+                  alt={card.name}
                   className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-106"
                   loading="lazy"
                 />
 
-                {/* Product ID Tag (Dark Graphite) */}
-                <div className="absolute top-3 left-3 bg-[#202427]/95 text-white px-2.5 py-1 text-xs font-mono font-bold tracking-wider rounded-sm border border-white/15 shadow-sm">
-                  {product.id}
+                {/* Card Number Badge (Dark Graphite) */}
+                <div className="absolute top-3 left-3 bg-[#202427]/95 text-white px-2.5 py-1 text-xs font-mono font-bold tracking-wider rounded-sm border border-white/15 shadow-sm select-none">
+                  {card.id}
                 </div>
 
-                {/* Category Badge (Crisp White with Dark Mono Text) */}
-                <div className="absolute top-3 right-3 bg-white text-[#202427] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm shadow-sm border border-black/10">
-                  {product.category}
+                {/* Top Specification Label Badge (Crisp White with Dark Mono Text) */}
+                <div className="absolute top-3 right-3 bg-white text-[#202427] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm shadow-sm border border-black/10 select-none max-w-[65%] truncate text-right">
+                  {card.topLabel}
                 </div>
 
-                {/* Orange Accent Line on Hover */}
+                {/* Orange/Cream Accent Line on Hover */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#F4E5DC] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </div>
 
-              {/* Bottom Content Area: Deep Burnt Orange with Crisp White Title and Soft Cream Description */}
-              <div className="pt-5 pb-2 px-1.5 flex-1 flex flex-col justify-between">
+              {/* Bottom Content Area: Deep Burnt Orange with Crisp Typography */}
+              <div className="pt-4 pb-1 px-1 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between gap-3 mb-2">
-                    <h3 className="text-2xl sm:text-[26px] font-extrabold text-white tracking-tight group-hover:text-[#F4E5DC] transition-colors font-sans">
-                      {product.name}
+                  {/* Heading & Arrow Button Row */}
+                  <div className="flex items-start justify-between gap-2.5 mb-2.5 min-h-[46px] sm:min-h-[50px]">
+                    <h3 className="text-base sm:text-[17px] lg:text-[15.5px] xl:text-[17px] font-extrabold text-white tracking-tight leading-snug group-hover:text-[#F4E5DC] transition-colors font-sans uppercase line-clamp-2">
+                      {card.name}
                     </h3>
-                    <div className="w-9 h-9 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#7E321F] transition-all duration-200 flex-shrink-0 shadow-sm">
+                    <div className="w-8 h-8 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#7E321F] transition-all duration-200 flex-shrink-0 shadow-sm mt-0.5">
                       <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </div>
 
-                  <p className="text-[15px] sm:text-base text-[#F4E5DC]/95 font-normal leading-relaxed line-clamp-2 font-sans">
-                    {product.description}
-                  </p>
+                  {/* Description Area */}
+                  <div className="min-h-[64px] sm:min-h-[68px] lg:min-h-[66px] flex items-start mb-2">
+                    <p className="text-[13px] sm:text-[13.5px] lg:text-[12.5px] xl:text-[13px] text-[#F4E5DC]/90 font-normal leading-relaxed line-clamp-3 font-sans">
+                      {card.description}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Technical Bottom Line */}
-                <div className="mt-5 pt-3.5 border-t border-white/20 flex items-center justify-between text-xs sm:text-[13px] font-mono text-[#F4E5DC]/80">
-                  <span className="tracking-wide">{product.spec}</span>
-                  <span className="text-[#F4E5DC] font-bold group-hover:translate-x-1 transition-transform">
-                    Inquire →
-                  </span>
+                {/* Bottom Specification Area - Prominently Displayed Without Truncation */}
+                <div className="mt-auto pt-3 border-t border-white/20 min-h-[62px] flex flex-col justify-between">
+                  <div className="text-[11.5px] sm:text-[12px] font-mono text-[#F4E5DC] font-semibold leading-snug flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4E5DC] flex-shrink-0" />
+                    <span className="whitespace-normal leading-tight">
+                      Flanges • Forged Fittings • Butt Weld Fittings
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] font-mono text-[#F4E5DC]/75 pt-1.5 mt-1 border-t border-white/10">
+                    <span className="uppercase tracking-wider text-[10px] text-[#F4E5DC]/65">ASTM / ASME B16 • EN 10204 3.1</span>
+                    <span className="text-[#F4E5DC] font-bold group-hover:translate-x-1 transition-transform flex items-center gap-0.5 text-xs flex-shrink-0">
+                      Inquire →
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* All Products Button Centered Below the 6th Product Card (15–17px, Bold 700) */}
+        {/* All Products Button Centered Below the 8 Cards Grid */}
         <div className="mt-12 sm:mt-16 text-center flex justify-center">
           <a
             href="/products"
