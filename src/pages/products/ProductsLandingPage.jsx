@@ -67,8 +67,8 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
                   onClick={() => setSelectedDivision(div)}
                   className={`px-4 py-2.5 rounded text-xs sm:text-sm font-bold tracking-wider transition-all whitespace-nowrap cursor-pointer ${
                     selectedDivision === div
-                      ? 'bg-[#A94728] text-white shadow-sm'
-                      : 'bg-white/10 text-white/80 hover:bg-white/20 hover:text-white'
+                      ? 'bg-[#A94728] text-white border border-[#A94728] shadow-sm'
+                      : 'bg-[#202427] text-white/90 border border-white/20 hover:border-[#A94728] hover:text-white'
                   }`}
                 >
                   {div === 'All' ? 'ALL PRODUCTS (18)' : `${div.toUpperCase()} DIVISION (9)`}
@@ -78,13 +78,13 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
 
             {/* Search Input */}
             <div className="relative flex-1 sm:max-w-xs">
-              <Search className="w-4 h-4 text-white/50 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Search className="w-4 h-4 text-white/60 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 type="text"
                 placeholder="Search products or standards..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-2.5 bg-white/10 border border-white/20 rounded text-sm text-white placeholder-white/50 focus:outline-none focus:border-[#A94728]"
+                className="w-full pl-9 pr-3 py-2.5 bg-[#202427] border border-white/20 rounded text-sm text-white placeholder-white/60 focus:outline-none focus:border-[#A94728] transition-colors"
               />
             </div>
           </div>

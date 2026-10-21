@@ -278,26 +278,26 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
 
               {/* E. CTA BUTTONS */}
               <div className="about-hero-anim flex flex-wrap items-center gap-3 sm:gap-3.5">
-                {/* Primary Solid Terracotta Button */}
+                {/* Primary Solid Rust Brand Button */}
                 <button
                   type="button"
                   onClick={() => onNavigate('home', '#products')}
-                  className="inline-flex items-center justify-center gap-2 bg-[#C34B2B] hover:bg-[#A93F23] text-black !text-black text-xs sm:text-sm font-black tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                  className="btn-wave inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
                   aria-label="Explore Our Products"
                 >
-                  <span className="text-black !text-black font-black">EXPLORE OUR PRODUCTS</span>
-                  <ArrowUpRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5] text-black !text-black" />
+                  <span className="text-white font-bold">EXPLORE OUR PRODUCTS</span>
+                  <ArrowUpRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5] text-white" />
                 </button>
 
-                {/* Secondary Outlined Button */}
+                {/* Secondary Button */}
                 <button
                   type="button"
                   onClick={() => onNavigate('contact')}
-                  className="inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-black !text-black text-xs sm:text-sm font-black tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
+                  className="btn-wave inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-[#202427] hover:text-[#A94728] text-xs sm:text-sm font-bold tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
                   aria-label="Get in Touch"
                 >
-                  <span className="text-black !text-black font-black">GET IN TOUCH</span>
-                  <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-black !text-black" />
+                  <span className="font-bold">GET IN TOUCH</span>
+                  <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                 </button>
               </div>
 
@@ -555,10 +555,10 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               <div className="mt-8 pt-4 border-t border-white/20">
                 <button
                   onClick={onOpenEnquiry}
-                  className="btn-wave w-full inline-flex items-center justify-center gap-2 border-2 border-[#A94728] bg-white hover:bg-gray-50 text-black !text-black text-xs font-bold uppercase tracking-wider py-3 rounded-sm shadow-sm transition-all cursor-pointer active:scale-95"
+                  className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs font-bold uppercase tracking-wider py-3 rounded-sm shadow-sm transition-all cursor-pointer active:scale-95"
                 >
-                  <span className="text-black !text-black">Request RFQ Assessment</span>
-                  <ArrowUpRight className="w-4 h-4 text-black !text-black" />
+                  <span>Request RFQ Assessment</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -738,18 +738,18 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <button
               onClick={() => onNavigate('contact')}
-              className="btn-wave inline-flex items-center gap-2.5 border-2 border-white bg-white hover:bg-white/90 text-black !text-black text-sm font-extrabold uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl transition-all duration-150 active:scale-[0.97] cursor-pointer group"
+              className="btn-wave inline-flex items-center gap-2.5 border-2 border-white bg-white hover:bg-gray-100 text-[#202427] hover:text-[#A94728] text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl transition-all duration-200 active:scale-[0.97] cursor-pointer group"
             >
-              <span className="text-black !text-black">Talk to Our Team</span>
-              <ArrowUpRight className="w-4 h-4 text-black !text-black transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span>Talk to Our Team</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
 
             <button
               onClick={() => onNavigate('home', '#products')}
-              className="btn-wave inline-flex items-center gap-2.5 border border-white bg-white/95 hover:bg-white text-black !text-black text-sm font-bold uppercase tracking-wider px-7 py-4 rounded-sm shadow-lg transition-all duration-150 active:scale-[0.97] cursor-pointer"
+              className="btn-wave inline-flex items-center gap-2.5 border border-white bg-white/95 hover:bg-white text-[#202427] hover:text-[#A94728] text-sm font-bold uppercase tracking-wider px-7 py-4 rounded-sm shadow-lg transition-all duration-200 active:scale-[0.97] cursor-pointer"
             >
-              <span className="text-black !text-black">View Products</span>
-              <ArrowRight className="w-4 h-4 text-black !text-black" />
+              <span>View Products</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 

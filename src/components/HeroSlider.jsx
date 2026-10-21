@@ -282,18 +282,18 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
 
             {/* E. CTA BUTTONS */}
             <div className="hero-slide-anim flex flex-wrap items-center gap-3 sm:gap-3.5">
-              {/* Primary Solid Terracotta Button */}
+              {/* Primary Solid Rust Brand Button */}
               <button
                 type="button"
                 onClick={() => onOpenEnquiry && onOpenEnquiry(slide.focus)}
-                className="inline-flex items-center justify-center gap-2 bg-[#C34B2B] hover:bg-[#A93F23] text-black !text-black text-xs sm:text-sm font-black tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                className="btn-wave inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
                 aria-label="Get A Quote"
               >
-                <span className="text-black !text-black font-black">GET A QUOTE</span>
-                <ArrowUpRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5] text-black !text-black" />
+                <span className="text-white font-bold">GET A QUOTE</span>
+                <ArrowUpRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5] text-white" />
               </button>
 
-              {/* Secondary Outlined Button */}
+              {/* Secondary Clean Button */}
               <a
                 href="#products"
                 onClick={(e) => {
@@ -302,11 +302,11 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
                     onNavigate('products-landing', '#products', '/products');
                   }
                 }}
-                className="inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-black !text-black text-xs sm:text-sm font-black tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
+                className="btn-wave inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-[#202427] hover:text-[#A94728] text-xs sm:text-sm font-bold tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
                 aria-label="View Product Range"
               >
-                <span className="text-black !text-black font-black">VIEW PRODUCT RANGE</span>
-                <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-black !text-black" />
+                <span className="font-bold">VIEW PRODUCT RANGE</span>
+                <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
               </a>
             </div>
 

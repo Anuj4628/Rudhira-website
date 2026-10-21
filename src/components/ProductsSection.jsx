@@ -296,7 +296,7 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
                 onNavigate('products-landing', null, '/products');
               }
             }}
-            className="btn-wave inline-flex items-center gap-2.5 border-2 border-[#A94728] text-[#A94728] text-sm sm:text-base font-extrabold uppercase tracking-widest px-8 sm:px-10 py-3.5 sm:py-4 rounded-sm shadow-md hover:shadow-xl transition-all duration-200 active:scale-95 group cursor-pointer"
+            className="btn-wave inline-flex items-center gap-2.5 border-2 border-[#A94728] text-[#A94728] hover:bg-[#A94728] hover:text-white text-sm sm:text-base font-extrabold uppercase tracking-widest px-8 sm:px-10 py-3.5 sm:py-4 rounded-sm shadow-md hover:shadow-xl transition-all duration-200 active:scale-95 group cursor-pointer"
           >
             <span>All Products</span>
             <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

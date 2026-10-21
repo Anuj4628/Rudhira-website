@@ -84,7 +84,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => onOpenEnquiry(product.name, 'Stainless Steel')}
-                  className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <span>Request a Quote for {product.name}</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -92,7 +92,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
 
                 <a
                   href="#select-material"
-                  className="btn-wave inline-flex items-center gap-2 border border-white/30 text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm transition-all cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-2 bg-transparent hover:bg-white/10 border border-white/30 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm transition-all cursor-pointer"
                 >
                   <span>Select Material ↓</span>
                 </a>
@@ -362,7 +362,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
             <div className="mt-8 pt-6 border-t border-white/20">
               <button
                 onClick={() => onOpenEnquiry(product.name, 'All Grades')}
-                className="btn-wave w-full inline-flex items-center justify-center gap-2 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
               >
                 <span>Request Custom Sizing & RFQ</span>
                 <ArrowUpRight className="w-4 h-4" />

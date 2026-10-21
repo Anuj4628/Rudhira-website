@@ -931,7 +931,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                 <div className="flex flex-wrap items-center justify-center gap-4">
                   <button
                     onClick={handleSendWhatsApp}
-                    className="btn-wave inline-flex items-center gap-2 border border-[#25D366] text-[#25D366] px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-sm"
+                    className="btn-wave inline-flex items-center gap-2 bg-white hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366] px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-sm"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>Forward via WhatsApp</span>
@@ -939,7 +939,7 @@ Sent via Rudhira Metal Official Contact Portal`;
 
                   <button
                     onClick={handleSendEmail}
-                    className="btn-wave inline-flex items-center gap-2 border border-[#202427]/40 text-[#202427] px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-sm"
+                    className="btn-wave inline-flex items-center gap-2 bg-white hover:bg-[#202427] text-[#202427] hover:text-white border border-[#202427]/40 px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-sm"
                   >
                     <Mail className="w-4 h-4" />
                     <span>Send via Email Client</span>
@@ -947,7 +947,7 @@ Sent via Rudhira Metal Official Contact Portal`;
 
                   <button
                     onClick={handleResetForm}
-                    className="btn-wave inline-flex items-center gap-2 border border-[#D9D9D6] text-[#202427] px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
+                    className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
                   >
                     <span>Submit Another Enquiry</span>
                   </button>
@@ -1234,7 +1234,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                     <button
                       type="button"
                       onClick={handleSendWhatsApp}
-                      className="btn-wave inline-flex items-center gap-2 border border-[#25D366] text-[#25D366] px-4 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-xs"
+                      className="btn-wave inline-flex items-center gap-2 bg-white hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366] px-4 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-xs"
                       title="Send directly on WhatsApp"
                     >
                       <FaWhatsapp className="w-3.5 h-3.5" />
@@ -1244,7 +1244,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                     <button
                       type="button"
                       onClick={handleSendEmail}
-                      className="btn-wave inline-flex items-center gap-2 border border-[#202427]/40 text-[#202427] px-4 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-xs"
+                      className="btn-wave inline-flex items-center gap-2 bg-white hover:bg-[#202427] text-[#202427] hover:text-white border border-[#202427]/40 px-4 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-xs"
                       title="Open draft in Email client"
                     >
                       <Mail className="w-3.5 h-3.5" />
@@ -1256,7 +1256,7 @@ Sent via Rudhira Metal Official Contact Portal`;
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-[#A94728] disabled:opacity-60 px-8 py-3.5 rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 shadow-md active:scale-95 cursor-pointer"
+                    className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white disabled:opacity-60 px-8 py-3.5 rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 shadow-md active:scale-95 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>

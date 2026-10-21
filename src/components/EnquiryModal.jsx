@@ -304,7 +304,7 @@ Sent via Rudhira Metal Official Portal`;
                 <button
                   type="button"
                   onClick={handleWhatsAppSend}
-                  className="btn-wave inline-flex items-center gap-1.5 px-4 py-2.5 border border-[#25D366] text-[#25D366] rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
+                  className="btn-wave inline-flex items-center gap-1.5 px-4 py-2.5 bg-white hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366] rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>Send via WhatsApp</span>
@@ -313,7 +313,7 @@ Sent via Rudhira Metal Official Portal`;
                 <button
                   type="button"
                   onClick={handleEmailSend}
-                  className="btn-wave inline-flex items-center gap-1.5 px-4 py-2.5 border border-[#202427]/40 text-[#202427] rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
+                  className="btn-wave inline-flex items-center gap-1.5 px-4 py-2.5 bg-white hover:bg-[#202427] text-[#202427] hover:text-white border border-[#202427]/40 rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
                 >
                   <Mail className="w-4 h-4" />
                   <span>Send via Email</span>
@@ -322,7 +322,7 @@ Sent via Rudhira Metal Official Portal`;
 
               <button
                 type="submit"
-                className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3 rounded-sm transition-all shadow-md active:scale-95 cursor-pointer"
+                className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3 rounded-sm transition-all shadow-md active:scale-95 cursor-pointer"
               >
                 <span>Submit RFQ</span>
                 <Send className="w-4 h-4" />

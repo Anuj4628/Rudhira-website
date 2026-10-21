@@ -354,105 +354,116 @@ body {
   }
 }
 
+/* ========================================================
+   INDUSTRIAL BUTTON SYSTEM & VISIBILITY STANDARDS
+   Rudhira Metal Industries - Brand Rust (#A94728 / #8F371B)
+   Clean 200ms transitions, high-contrast text, robust accessibility
+   ======================================================== */
+
 .btn-wave {
-  position: relative !important;
-  overflow: hidden !important;
-  isolation: isolate !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  transition: color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.2s ease !important;
-  z-index: 0;
-}
-
-/* Ensure all child text, icons, and contents sit safely above the liquid layers */
-.btn-wave > * {
   position: relative;
-  z-index: 3;
-  transition: color 0.3s ease, stroke 0.3s ease, fill 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  cursor: pointer;
+  user-select: none;
 }
 
-/* Primary Liquid Layer (Burnt Orange #A94728) with dynamic wave crest */
-.btn-wave::before {
-  content: "";
-  position: absolute;
-  left: -20%;
-  bottom: 0;
-  width: 140%;
-  height: calc(100% + 24px);
-  pointer-events: none;
-  z-index: 1;
-  background: 
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 60' preserveAspectRatio='none'%3E%3Cpath d='M0,25 C150,55 350,-5 450,25 C550,55 600,25 600,25 L600,60 L0,60 Z' fill='%23A94728'/%3E%3C/svg%3E") top left / 300px 18px repeat-x,
-    linear-gradient(#A94728, #A94728) bottom left / 100% calc(100% - 16px) no-repeat;
-  transform: translate3d(0, 102%, 0);
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-/* Secondary Depth Layer (Deep Burnt Orange #842E15) with offset wave crest for rich fluid realism */
-.btn-wave::after {
-  content: "";
-  position: absolute;
-  left: -20%;
-  bottom: 0;
-  width: 140%;
-  height: calc(100% + 32px);
-  pointer-events: none;
-  z-index: 2;
-  background: 
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 60' preserveAspectRatio='none'%3E%3Cpath d='M0,30 C120,-5 320,55 420,20 C520,-5 600,30 600,30 L600,60 L0,60 Z' fill='%23842E15' fill-opacity='0.7'/%3E%3C/svg%3E") top left / 360px 20px repeat-x,
-    linear-gradient(rgba(132, 46, 21, 0.7), rgba(132, 46, 21, 0.7)) bottom left / 100% calc(100% - 18px) no-repeat;
-  transform: translate3d(0, 102%, 0);
-  transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1);
-  will-change: transform;
-}
-
-/* Hover State: Wave rises smoothly from bottom to top while undulating horizontally */
-.btn-wave:hover::before {
-  transform: translate3d(0, 0%, 0);
-  animation: liquidWaveFlow 3s linear infinite;
-}
-
-.btn-wave:hover::after {
-  transform: translate3d(0, 0%, 0);
-  animation: liquidWaveFlow 2.2s linear infinite reverse;
-}
-
-/* Hover Border & Subtle Shadow */
 .btn-wave:hover {
-  border-color: #A94728 !important;
-  box-shadow: 0 8px 24px -4px rgba(169, 71, 40, 0.35);
+  transform: translateY(-1px);
 }
 
-/* Text and Icon Contrast: Maintain crisp black font on hover */
-.btn-wave:hover,
-.btn-wave:hover > *,
-.btn-wave:hover span,
-.btn-wave:hover p,
-.btn-wave:hover div,
-.btn-wave:hover strong {
-  color: #000000 !important;
+.btn-wave:active {
+  transform: translateY(0) scale(0.98);
 }
 
-.btn-wave:hover svg,
-.btn-wave:hover path {
-  color: #000000 !important;
-  stroke: #000000 !important;
-}
-
-/* Accessible focus-visible state */
-.btn-wave:focus-visible {
+.btn-wave:focus-visible,
+button:focus-visible,
+a:focus-visible {
   outline: 2px solid #A94728 !important;
-  outline-offset: 3px !important;
+  outline-offset: 2px !important;
 }
 
-/* Respect user's reduced-motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .btn-wave::before,
-  .btn-wave::after {
-    animation: none !important;
-    transition-duration: 0.01ms !important;
-  }
+/* Outlined buttons on light background hover fill with brand rust */
+.btn-wave.border-\[\#A94728\]:not([class*="bg-"]):hover,
+.btn-wave.border-2.border-\[\#A94728\]:not([class*="bg-"]):hover {
+  background-color: #A94728 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-wave.border-\[\#A94728\]:not([class*="bg-"]):hover *,
+.btn-wave.border-2.border-\[\#A94728\]:not([class*="bg-"]):hover * {
+  color: #FFFFFF !important;
+}
+
+/* Outlined buttons on dark background hover fill with brand rust */
+.btn-wave.border-white\/30:not([class*="bg-"]):hover,
+.btn-wave.border-white\/40:not([class*="bg-"]):hover {
+  background-color: #A94728 !important;
+  border-color: #A94728 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-wave.border-white\/30:not([class*="bg-"]):hover *,
+.btn-wave.border-white\/40:not([class*="bg-"]):hover * {
+  color: #FFFFFF !important;
+}
+
+/* Disabled button state */
+button:disabled,
+.btn-wave:disabled,
+.btn-wave[disabled] {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transform: none !important;
+}
+
+/* Standard Primary Button Utility */
+.btn-primary {
+  background-color: #A94728 !important;
+  border: 2px solid #A94728 !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #8F371B !important;
+  border-color: #8F371B !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(169, 71, 40, 0.3);
+}
+
+.btn-primary *,
+.btn-primary span,
+.btn-primary svg {
+  color: #FFFFFF !important;
+}
+
+/* Standard Secondary Button on Dark Utility */
+.btn-secondary-dark {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary-dark:hover {
+  background-color: #A94728 !important;
+  border-color: #A94728 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.btn-secondary-dark *,
+.btn-secondary-dark span,
+.btn-secondary-dark svg {
+  color: #FFFFFF !important;
 }
 
 /* Hero Slider Progress Bar Keyframes */
@@ -481,128 +492,6 @@ body {
 .hero-room-active {
   animation: heroRoomMovement 7s cubic-bezier(0.25, 0.8, 0.35, 1) forwards;
   will-change: transform;
-}
-
-/* ========================================================
-   GLOBAL BUTTON BLACK FONT COLOR ENFORCEMENT
-   Guarantees EVERY button, button-like link, and .btn-wave 
-   across the website renders with #000000 black font color
-   ======================================================== */
-button,
-button *,
-button span,
-button strong,
-button p,
-button div,
-a.btn-wave,
-a.btn-wave *,
-a.btn-wave span,
-.btn-wave,
-.btn-wave *,
-.btn-wave span,
-.btn-wave strong,
-.btn-wave p,
-.btn-wave div,
-input[type="button"],
-input[type="submit"] {
-  color: #000000 !important;
-}
-
-button svg,
-button svg path,
-a.btn-wave svg,
-a.btn-wave svg path,
-.btn-wave svg,
-.btn-wave svg path {
-  color: #000000 !important;
-  stroke: #000000 !important;
-}
-
-/* Hover and Focus States: Always Maintain Black Font */
-button:hover,
-button:hover *,
-button:hover span,
-button:focus,
-button:focus *,
-a.btn-wave:hover,
-a.btn-wave:hover *,
-a.btn-wave:hover span,
-.btn-wave:hover,
-.btn-wave:hover *,
-.btn-wave:hover span,
-.btn-wave:hover strong,
-.btn-wave:hover p,
-.btn-wave:hover div {
-  color: #000000 !important;
-}
-
-button:hover svg,
-button:hover svg path,
-a.btn-wave:hover svg,
-a.btn-wave:hover svg path,
-.btn-wave:hover svg,
-.btn-wave:hover svg path {
-  color: #000000 !important;
-  stroke: #000000 !important;
-}
-
-/* ========================================================
-   HIGH-CONTRAST CTA BUTTONS OVERRIDE (Contact Hero, Footer, etc.)
-   Guarantees maximum visibility, high contrast, and crisp
-   pure white typography (#FFFFFF) on dark backgrounds
-   ======================================================== */
-.contact-hero-btn,
-.footer-quote-btn,
-.contact-hero-btn *,
-.footer-quote-btn *,
-.contact-hero-btn span,
-.footer-quote-btn span,
-.contact-hero-btn strong,
-.footer-quote-btn strong,
-.contact-hero-btn p,
-.footer-quote-btn p,
-.contact-hero-btn div,
-.footer-quote-btn div,
-.contact-hero-btn:hover,
-.footer-quote-btn:hover,
-.contact-hero-btn:hover *,
-.footer-quote-btn:hover *,
-.contact-hero-btn:hover span,
-.footer-quote-btn:hover span,
-.contact-hero-btn:hover strong,
-.footer-quote-btn:hover strong,
-.contact-hero-btn:focus,
-.footer-quote-btn:focus,
-.contact-hero-btn:focus *,
-.footer-quote-btn:focus * {
-  color: #FFFFFF !important;
-}
-
-.contact-hero-btn svg,
-.footer-quote-btn svg,
-.contact-hero-btn svg path,
-.footer-quote-btn svg path,
-.contact-hero-btn:hover svg,
-.footer-quote-btn:hover svg,
-.contact-hero-btn:hover svg path,
-.footer-quote-btn:hover svg path {
-  color: #FFFFFF !important;
-}
-
-.contact-hero-btn svg:not(.fill-white):not([fill="currentColor"]),
-.footer-quote-btn svg:not(.fill-white):not([fill="currentColor"]),
-.contact-hero-btn svg:not(.fill-white):not([fill="currentColor"]) path,
-.footer-quote-btn svg:not(.fill-white):not([fill="currentColor"]) path {
-  stroke: #FFFFFF !important;
-}
-
-.contact-hero-btn svg[fill="currentColor"],
-.footer-quote-btn svg[fill="currentColor"],
-.contact-hero-btn svg.fill-white,
-.footer-quote-btn svg.fill-white,
-.contact-hero-btn svg.fill-white path,
-.footer-quote-btn svg.fill-white path {
-  fill: #FFFFFF !important;
 }
 
 /* ========================================================

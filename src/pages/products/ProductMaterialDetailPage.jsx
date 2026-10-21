@@ -261,7 +261,7 @@ export default function ProductMaterialDetailPage({
                 onClick={() =>
                   onOpenEnquiry(`${material.name} ${product.name}`, material.name)
                 }
-                className="btn-wave w-full border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3 rounded shadow-sm transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                className="btn-wave w-full bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3 rounded shadow-sm transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
               >
                 <span>Request Price & Delivery</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -346,7 +346,7 @@ export default function ProductMaterialDetailPage({
                           material.name
                         )
                       }
-                      className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-3 rounded shadow-sm transition-all active:scale-95 cursor-pointer"
+                      className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-3 rounded shadow-sm transition-all active:scale-95 cursor-pointer"
                     >
                       <span>Request Quote for {material.shortName} {product.name}</span>
                       <ArrowUpRight className="w-4 h-4" />

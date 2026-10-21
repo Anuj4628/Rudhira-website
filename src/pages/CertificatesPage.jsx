@@ -398,7 +398,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={() => onOpenEnquiry && onOpenEnquiry('', 'Certified Inventory')}
-              className="btn-wave inline-flex items-center gap-2 border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all cursor-pointer"
+              className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all cursor-pointer"
             >
               <span>Request Quote with MTC</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -406,7 +406,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
 
             <button
               onClick={() => onNavigate && onNavigate('contact')}
-              className="btn-wave inline-flex items-center gap-2 border border-white/30 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm transition-all cursor-pointer"
+              className="btn-wave inline-flex items-center gap-2 bg-transparent hover:bg-white/10 border border-white/30 hover:border-white text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm transition-all cursor-pointer"
             >
               <span>Contact Sales Desk</span>
             </button>

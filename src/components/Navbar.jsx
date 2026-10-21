@@ -437,11 +437,11 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   closeAllMenus();
                   if (onOpenEnquiry) onOpenEnquiry('Navbar Header RFQ');
                 }}
-                className="btn-wave group relative inline-flex items-center justify-center gap-2 border-2 border-[#A94728] bg-[#F4E5DC] hover:bg-[#EBD2C2] text-black !text-black text-xs sm:text-[13px] font-black uppercase tracking-wider px-5 sm:px-6 py-2 sm:py-2.5 rounded-md shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                className="btn-wave group relative inline-flex items-center justify-center gap-2 border-2 border-[#A94728] bg-[#A94728] hover:bg-[#8F371B] text-white text-xs sm:text-[13px] font-bold uppercase tracking-wider px-5 sm:px-6 py-2 sm:py-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
                 aria-label="Get A Quote"
               >
-                <span className="relative z-10 text-black !text-black font-black">GET A QUOTE</span>
-                <ArrowUpRight className="relative z-10 w-3.5 h-3.5 stroke-[2.5] text-black !text-black transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span className="relative z-10 text-white font-bold">GET A QUOTE</span>
+                <ArrowUpRight className="relative z-10 w-3.5 h-3.5 stroke-[2.5] text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
 
             </div>
@@ -453,10 +453,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   closeAllMenus();
                   if (onOpenEnquiry) onOpenEnquiry('Mobile Header RFQ');
                 }}
-                className="btn-wave inline-flex items-center justify-center gap-1.5 border-2 border-[#A94728] bg-[#F4E5DC] hover:bg-[#EBD2C2] text-black !text-black text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-md shadow-xs"
+                className="btn-wave inline-flex items-center justify-center gap-1.5 border-2 border-[#A94728] bg-[#A94728] hover:bg-[#8F371B] text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-md shadow-xs"
               >
-                <span className="text-black !text-black font-black">GET A QUOTE</span>
-                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] text-black !text-black" />
+                <span className="text-white font-bold">GET A QUOTE</span>
+                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] text-white" />
               </button>
 
               <button
