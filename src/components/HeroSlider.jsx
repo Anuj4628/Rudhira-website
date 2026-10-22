@@ -3,33 +3,15 @@ import gsap from 'gsap';
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, ShieldCheck } from 'lucide-react';
 
 // Crystal-clear industrial image assets
-import heroFlangesImg from '../assets/Product BG/forged-flanges-fittings-hero-bg.jpg';
-import heroFlangesSlide2Img from '../assets/Product BG/industrial-flanges-hero-bg.jpg';
-import heroForgedFittingsSlide3Img from '../assets/Product BG/forged-fittings-hero-bg.jpg';
-import heroButtWeldSlide4Img from '../assets/Product BG/butt-weld-fittings-hero-bg.jpg';
+import heroFlangesSlide1Img from '../hero sec/hero 2.png';
+import heroForgingFactorySlide2Img from '../hero sec/slide 2.png';
+import heroInspectionSlide3Img from '../hero sec/slide 3.png';
+import heroForgedFittingsSlide4Img from '../hero sec/hero 3.png';
 
 // Four slides adhering to the exact advertisement design system
 const HERO_SLIDES_DATA = [
   {
     id: "01",
-    focus: "Custom Product Requirements",
-    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
-    darkBadge: "INDUSTRIAL METAL PRODUCTS",
-    mainHeading: "METAL STOCK FOR YOUR REQUIREMENTS",
-    supportingLine: "PRODUCT RANGE • MATERIAL GRADES • CUT SIZES",
-    techHeader: "CONTACT OUR TEAM FOR PRODUCT AVAILABILITY AND QUOTATIONS",
-    techSpecs: "CNC PLASMA, LASER & WATERJET PLATE BLANKS",
-    techFinish: "FORGED FITTINGS, FLANGES & STRUCTURAL COMPONENTS",
-    adPromoEyebrow: "BESPOKE ORDERS",
-    adPromoTitle: "CUSTOM CUT SIZES",
-    badgeLine1: "EXPERT",
-    badgeLine2: "SALES",
-    badgeLine3: "DESK",
-    image: heroFlangesImg,
-    alt: "Custom cut stainless steel profiles and forged fittings"
-  },
-  {
-    id: "02",
     focus: "Industrial Flanges",
     topRibbon: "PRECISION FORGINGS • PIPELINE FLANGES",
     darkBadge: "ASME B16.5 & B16.47",
@@ -43,11 +25,41 @@ const HERO_SLIDES_DATA = [
     badgeLine1: "PRIME",
     badgeLine2: "FLANGES",
     badgeLine3: "ASME B16.5",
-    image: heroFlangesSlide2Img,
+    image: heroFlangesSlide1Img,
     alt: "Industrial Flanges - Weld Neck, Slip-On, and Blind Flanges"
   },
   {
+    id: "02",
+    focus: "Precision Forging",
+    topRibbon: "PRECISION FORGING • INDUSTRIAL COMPONENTS",
+    mainHeading: "ENGINEERED FOR STRENGTH.\nBUILT FOR PERFORMANCE.",
+    description: "Precision-forged components manufactured with controlled processes, reliable material quality, and consistent dimensional accuracy for demanding industrial applications.",
+    techHeader: "ENGINEERED TO MEET YOUR APPLICATION REQUIREMENTS",
+    techSpecs: "FORGED FLANGES • FORGED FITTINGS • INDUSTRIAL COMPONENTS",
+    primaryButtonText: "GET A QUOTE",
+    secondaryButtonText: "EXPLORE PRODUCTS",
+    subSupportingLine: "CUSTOM SIZES • MATERIAL OPTIONS • INDUSTRIAL APPLICATIONS",
+    image: heroForgingFactorySlide2Img,
+    alt: "Precision Industrial Forging Press - Hot Forged Ring and Finished Flanges",
+    objectPosition: "object-[18%_center] sm:object-[22%_center] lg:object-[left_center]"
+  },
+  {
     id: "03",
+    focus: "Quality & Testing",
+    topRibbon: "QUALITY INSPECTION • DIMENSIONAL ACCURACY",
+    mainHeading: "QUALITY YOU CAN\nMEASURE.",
+    description: "Every component is inspected for dimensional accuracy, material consistency, and finish to ensure reliable performance across demanding industrial applications.",
+    techHeader: "CONSISTENT QUALITY. CONTROLLED PROCESSES.",
+    techSpecs: "DIMENSIONAL CHECKS • THICKNESS TESTING • VISUAL INSPECTION",
+    primaryButtonText: "GET A QUOTE",
+    secondaryButtonText: "EXPLORE PRODUCTS",
+    subSupportingLine: "INSPECTION • TESTING • TRACEABILITY",
+    image: heroInspectionSlide3Img,
+    alt: "Quality Inspection and Testing - Dimensional Checks and Ultrasonic Thickness Gauge on Flanges",
+    objectPosition: "object-[18%_center] sm:object-[22%_center] lg:object-[left_center]"
+  },
+  {
+    id: "04",
     focus: "Forged Fittings",
     topRibbon: "HIGH PRESSURE PIPING • FORGED STEEL",
     darkBadge: "SOCKET WELD & THREADED",
@@ -61,26 +73,8 @@ const HERO_SLIDES_DATA = [
     badgeLine1: "FORGED",
     badgeLine2: "FITTINGS",
     badgeLine3: "ASME B16.11",
-    image: heroForgedFittingsSlide3Img,
+    image: heroForgedFittingsSlide4Img,
     alt: "Forged Fittings - High-Pressure Socket Weld and Threaded Fittings"
-  },
-  {
-    id: "04",
-    focus: "Butt Weld Fittings",
-    topRibbon: "PIPELINE INTEGRITY • BUTT WELD FITTINGS",
-    darkBadge: "SEAMLESS & WELDED",
-    mainHeading: "BUTT WELD FITTINGS",
-    supportingLine: "ELBOWS • EQUAL & REDUCING TEES • REDUCERS • END CAPS",
-    techHeader: "ASME B16.9 INDUSTRIAL BUTT WELD FITTINGS",
-    techSpecs: "ASTM A234 WPB CARBON STEEL • ASTM A403 WP304L & WP316L",
-    techFinish: "WALL SCHEDULES SCH 10 TO SCH XXS • SIZES 1/2\" TO 48\" NB",
-    adPromoEyebrow: "WALL SCHEDULES",
-    adPromoTitle: "SCH 10 TO SCH XXS",
-    badgeLine1: "BUTT",
-    badgeLine2: "WELD",
-    badgeLine3: "ASME B16.9",
-    image: heroButtWeldSlide4Img,
-    alt: "Butt Weld Fittings - ASME B16.9 Elbows, Tees, and Reducers"
   }
 ];
 
@@ -187,16 +181,17 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
                 key={`${item.id}-${isActive}`}
                 src={item.image}
                 alt={item.alt}
-                className={`w-full h-full object-cover object-center sm:object-[35%_center] lg:object-center ${
-                  isActive ? 'hero-room-active' : ''
-                }`}
+                className={`w-full h-full object-cover ${
+                  item.objectPosition || 'object-center sm:object-[35%_center] lg:object-center'
+                } ${isActive ? 'hero-room-active' : ''}`}
                 loading={index === 0 ? 'eager' : 'lazy'}
               />
             </div>
           );
         })}
 
-        {/* Fully clear background without any black overlays */}
+        {/* Subtle right-side readability vignette for text contrast without darkening the left forging machinery */}
+        <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] pointer-events-none bg-gradient-to-t lg:bg-gradient-to-l from-[#0c0f12]/85 via-[#0c0f12]/40 to-transparent z-[1]" />
       </div>
 
       {/* 2. ADVERTISEMENT GRAPHIC COMPOSITION WITH STAGGERED SLIDE-IN */}
@@ -221,19 +216,38 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
               </div>
 
               {/* Compact Dark Technical Badge */}
-              <div className="bg-[#111417]/95 text-[#E7EEF2] text-[11px] sm:text-xs font-mono font-bold tracking-wider px-3.5 sm:px-4 py-1.5 sm:py-2 border border-white/20 uppercase shadow-md">
-                <span>{slide.darkBadge}</span>
-              </div>
+              {slide.darkBadge && (
+                <div className="bg-[#111417]/95 text-[#E7EEF2] text-[11px] sm:text-xs font-mono font-bold tracking-wider px-3.5 sm:px-4 py-1.5 sm:py-2 border border-white/20 uppercase shadow-md">
+                  <span>{slide.darkBadge}</span>
+                </div>
+              )}
             </div>
 
             {/* B. MAIN PRODUCT HEADLINE */}
             <div className="hero-slide-anim mb-3 sm:mb-3.5">
               <h1 className="text-2xl sm:text-4xl lg:text-[40px] xl:text-[46px] 2xl:text-[50px] font-black text-white tracking-tight uppercase leading-[1.08] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] [text-shadow:_0_3px_12px_rgba(0,0,0,0.85)]">
-                {slide.mainHeading}
+                {slide.mainHeading.includes('\n') ? (
+                  slide.mainHeading.split('\n').map((line, idx) => (
+                    <React.Fragment key={idx}>
+                      {line}
+                      {idx < slide.mainHeading.split('\n').length - 1 && <br className="hidden sm:inline" />}
+                      {' '}
+                    </React.Fragment>
+                  ))
+                ) : (
+                  slide.mainHeading
+                )}
               </h1>
-              <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-[#E05A36] tracking-wide uppercase mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">
-                {slide.supportingLine}
-              </div>
+              {slide.supportingLine && (
+                <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-[#E05A36] tracking-wide uppercase mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">
+                  {slide.supportingLine}
+                </div>
+              )}
+              {slide.description && (
+                <p className="text-xs sm:text-sm lg:text-[14px] xl:text-[15px] text-white/95 font-medium leading-relaxed mt-2.5 max-w-[580px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  {slide.description}
+                </p>
+              )}
             </div>
 
             {/* C. COMPACT TECHNICAL PRODUCT DETAILS */}
@@ -244,41 +258,45 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
               <div className="text-xs sm:text-sm lg:text-[15px] font-mono text-white font-bold leading-snug mb-1">
                 {slide.techSpecs}
               </div>
-              <div className="text-[11px] sm:text-xs font-mono text-white/75 font-medium">
-                {slide.techFinish}
-              </div>
+              {slide.techFinish && (
+                <div className="text-[11px] sm:text-xs font-mono text-white/75 font-medium">
+                  {slide.techFinish}
+                </div>
+              )}
             </div>
 
             {/* D. ADVERTISEMENT-STYLE GRAPHIC BADGES */}
-            <div className="hero-slide-anim flex items-center w-full max-w-[480px] sm:max-w-[520px] mb-4 sm:mb-5 relative">
-              {/* Angled Gold Bar */}
-              <div
-                className="flex-1 bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-white py-2 sm:py-2.5 px-5 sm:px-7 shadow-lg"
-                style={{
-                  clipPath: 'polygon(18px 0, 100% 0, 100% 100%, 0 100%)'
-                }}
-              >
-                <div className="text-[10px] sm:text-[11px] font-mono font-black tracking-wider text-black/80 uppercase">
-                  {slide.adPromoEyebrow}
+            {slide.badgeLine1 && (
+              <div className="hero-slide-anim flex items-center w-full max-w-[480px] sm:max-w-[520px] mb-4 sm:mb-5 relative">
+                {/* Angled Gold Bar */}
+                <div
+                  className="flex-1 bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-white py-2 sm:py-2.5 px-5 sm:px-7 shadow-lg"
+                  style={{
+                    clipPath: 'polygon(18px 0, 100% 0, 100% 100%, 0 100%)'
+                  }}
+                >
+                  <div className="text-[10px] sm:text-[11px] font-mono font-black tracking-wider text-black/80 uppercase">
+                    {slide.adPromoEyebrow}
+                  </div>
+                  <div className="text-base sm:text-xl lg:text-2xl font-black text-white tracking-wide uppercase leading-tight drop-shadow-sm">
+                    {slide.adPromoTitle}
+                  </div>
                 </div>
-                <div className="text-base sm:text-xl lg:text-2xl font-black text-white tracking-wide uppercase leading-tight drop-shadow-sm">
-                  {slide.adPromoTitle}
-                </div>
-              </div>
 
-              {/* Overlapping Red Circular Badge */}
-              <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-[#B91C1C] text-white border-2 border-white shadow-xl flex flex-col items-center justify-center text-center -ml-4 sm:-ml-6 z-20 flex-shrink-0 transform transition-transform hover:scale-105">
-                <span className="text-[9px] sm:text-[10px] font-black tracking-wider leading-none uppercase">
-                  {slide.badgeLine1}
-                </span>
-                <span className="text-xs sm:text-sm lg:text-base font-black tracking-wider leading-none uppercase my-0.5">
-                  {slide.badgeLine2}
-                </span>
-                <span className="text-[8px] sm:text-[9px] font-mono font-bold tracking-widest text-[#F4E5DC] leading-none uppercase">
-                  {slide.badgeLine3}
-                </span>
+                {/* Overlapping Red Circular Badge */}
+                <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-[#B91C1C] text-white border-2 border-white shadow-xl flex flex-col items-center justify-center text-center -ml-4 sm:-ml-6 z-20 flex-shrink-0 transform transition-transform hover:scale-105">
+                  <span className="text-[9px] sm:text-[10px] font-black tracking-wider leading-none uppercase">
+                    {slide.badgeLine1}
+                  </span>
+                  <span className="text-xs sm:text-sm lg:text-base font-black tracking-wider leading-none uppercase my-0.5">
+                    {slide.badgeLine2}
+                  </span>
+                  <span className="text-[8px] sm:text-[9px] font-mono font-bold tracking-widest text-[#F4E5DC] leading-none uppercase">
+                    {slide.badgeLine3}
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
 
             {/* E. CTA BUTTONS */}
             <div className="hero-slide-anim flex flex-wrap items-center gap-3 sm:gap-3.5">
@@ -289,7 +307,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
                 className="btn-wave inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
                 aria-label="Get A Quote"
               >
-                <span className="text-white font-bold">GET A QUOTE</span>
+                <span className="text-white font-bold">{slide.primaryButtonText || "GET A QUOTE"}</span>
                 <ArrowUpRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5] text-white" />
               </button>
 
@@ -303,12 +321,20 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
                   }
                 }}
                 className="btn-wave inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-[#202427] hover:text-[#A94728] text-xs sm:text-sm font-bold tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
-                aria-label="View Product Range"
+                aria-label={slide.secondaryButtonText || "View Product Range"}
               >
-                <span className="font-bold">VIEW PRODUCT RANGE</span>
+                <span className="font-bold">{slide.secondaryButtonText || "VIEW PRODUCT RANGE"}</span>
                 <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
               </a>
             </div>
+
+            {/* F. SMALL SUPPORTING LINE */}
+            {slide.subSupportingLine && (
+              <div className="hero-slide-anim text-[10px] sm:text-[11px] font-mono font-bold text-white/85 tracking-widest uppercase mt-3.5 sm:mt-4 flex items-center gap-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C34B2B]" />
+                <span>{slide.subSupportingLine}</span>
+              </div>
+            )}
 
           </div>
         </div>
@@ -342,7 +368,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
         <div className="flex items-center gap-1.5 font-mono text-xs sm:text-sm text-white/90">
           <span className="font-extrabold text-[#E05A36]">0{currentSlide + 1}</span>
           <span className="text-white/30">/</span>
-          <span className="text-white/60">04</span>
+          <span className="text-white/60">0{HERO_SLIDES_DATA.length}</span>
         </div>
 
         <div className="h-3.5 w-px bg-white/25" />
