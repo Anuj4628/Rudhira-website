@@ -136,6 +136,18 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
                   <span className="text-[#A94728] text-sm">›</span> Contact
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Rudhira+Metal+Industries+Shop+No+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/85 hover:text-[#A94728] transition-colors flex items-center gap-1.5 font-medium"
+                  title="Get Directions to Rudhira Metal Industries on Google Maps"
+                >
+                  <span className="text-[#A94728] text-sm">›</span> Get Directions
+                  <ArrowUpRight className="w-3 h-3 text-[#A94728]" />
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -146,12 +158,26 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
             </div>
 
             <div className="space-y-4 text-sm sm:text-base text-white/85">
-              {/* Address */}
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#A94728] flex-shrink-0 mt-1" />
-                <span className="leading-relaxed text-sm text-white/85 font-sans">
-                  {COMPANY_DETAILS.address}
-                </span>
+              {/* Address with Get Directions Action */}
+              <div className="space-y-2">
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-[#A94728] flex-shrink-0 mt-1" />
+                  <span className="leading-relaxed text-sm text-white/85 font-sans">
+                    {COMPANY_DETAILS.address}
+                  </span>
+                </div>
+                <div className="pl-6.5">
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=Rudhira+Metal+Industries+Shop+No+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#A94728] hover:text-[#E05A36] transition-colors group/dir"
+                    title="Get Directions to Rudhira Metal Industries on Google Maps"
+                  >
+                    <span>Get Directions</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/dir:translate-x-0.5 group-hover/dir:-translate-y-0.5" />
+                  </a>
+                </div>
               </div>
 
               {/* Direct Phone Numbers & WhatsApp */}

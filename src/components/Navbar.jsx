@@ -540,28 +540,51 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                           {mobileProductExpanded && (
                             <div className="mt-2 pl-3 py-2 space-y-2 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20 max-h-60 overflow-y-auto sidebar-sticky-scroll">
                               <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase">
-                                MANUFACTURING DIVISION ({PRODUCT_CATEGORIES.filter((p) => p.division === 'Manufacturer').length})
+                                TOP PRIORITY PRODUCTS (9)
                               </div>
                               <div className="grid grid-cols-1 gap-1">
-                                {PRODUCT_CATEGORIES.filter((p) => p.division === 'Manufacturer').map((cat) => (
-                                  <button
-                                    key={cat.id}
-                                    onClick={() => {
-                                      closeAllMenus();
-                                      if (onNavigate) onNavigate('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`);
-                                    }}
-                                    className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
-                                  >
-                                    • {cat.name}
-                                  </button>
-                                ))}
+                                {[
+                                  'forged-fittings',
+                                  'flanges',
+                                  'butt-weld-fittings',
+                                  'ferrule-fittings',
+                                  'dairy-pharma-fittings',
+                                  'pipes-tubes',
+                                  'sheets-plates',
+                                  'fasteners',
+                                  'rods-bars'
+                                ]
+                                  .map((slug) => PRODUCT_CATEGORIES.find((p) => p.slug === slug))
+                                  .filter(Boolean)
+                                  .map((cat) => (
+                                    <button
+                                      key={cat.id}
+                                      onClick={() => {
+                                        closeAllMenus();
+                                        if (onNavigate) onNavigate('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`);
+                                      }}
+                                      className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
+                                    >
+                                      • {cat.name}
+                                    </button>
+                                  ))}
                               </div>
 
                               <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase pt-2 border-t border-gray-200">
-                                STOCKIST & SUPPLY DIVISION ({PRODUCT_CATEGORIES.filter((p) => p.division === 'Supplier').length})
+                                EXTENDED CATALOG (9)
                               </div>
                               <div className="grid grid-cols-1 gap-1">
-                                {PRODUCT_CATEGORIES.filter((p) => p.division === 'Supplier').map((cat) => (
+                                {PRODUCT_CATEGORIES.filter((p) => ![
+                                  'forged-fittings',
+                                  'flanges',
+                                  'butt-weld-fittings',
+                                  'ferrule-fittings',
+                                  'dairy-pharma-fittings',
+                                  'pipes-tubes',
+                                  'sheets-plates',
+                                  'fasteners',
+                                  'rods-bars'
+                                ].includes(p.slug)).map((cat) => (
                                   <button
                                     key={cat.id}
                                     onClick={() => {

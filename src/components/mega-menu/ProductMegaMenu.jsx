@@ -11,8 +11,27 @@ export default function ProductMegaMenu({
 }) {
   if (!isOpen) return null;
 
-  const mfgCategories = PRODUCT_CATEGORIES.filter((p) => p.division === 'Manufacturer');
-  const supCategories = PRODUCT_CATEGORIES.filter((p) => p.division === 'Supplier');
+  // 1. Top Priority Categories (Forged Fittings, Flanges, Butt Weld Fittings, other fittings, major categories)
+  const PRIORITY_PRODUCT_SLUGS = [
+    'forged-fittings',       // 1. Forged Fittings
+    'flanges',               // 2. Flanges
+    'butt-weld-fittings',    // 3. Butt Weld Fittings
+    'ferrule-fittings',      // 4. Other fitting categories
+    'dairy-pharma-fittings', // 5. Other fitting categories
+    'pipes-tubes',           // 6. Pipes & Tubes
+    'sheets-plates',         // 7. Sheets & Plates
+    'fasteners',             // 8. Fasteners
+    'rods-bars',             // 9. Other major product category
+  ];
+
+  const priorityCategories = PRIORITY_PRODUCT_SLUGS.map((slug) =>
+    PRODUCT_CATEGORIES.find((p) => p.slug === slug)
+  ).filter(Boolean);
+
+  // 2. Remaining Product Categories for Right Section
+  const remainingCategories = PRODUCT_CATEGORIES.filter(
+    (p) => !PRIORITY_PRODUCT_SLUGS.includes(p.slug)
+  );
 
   const handleCategoryClick = (e, slug) => {
     e.preventDefault();
@@ -52,24 +71,24 @@ export default function ProductMegaMenu({
             </span>
           </div>
           <span className="text-white/80 text-[11px] font-medium hidden sm:inline">
-            Manufacturing & Supply Divisions
+            Priority &amp; Extended Catalog
           </span>
         </div>
 
-        {/* Main Content: 2-Column Grid (Manufacturing & Stockist & Supply) */}
+        {/* Main Content: 2-Column Grid (Top Priority & Extended Catalog) */}
         <div className="p-3.5 sm:p-4 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           
-          {/* Left Column: Manufacturing Division */}
+          {/* Left Column: Top Priority Products */}
           <div className="space-y-1">
             <div className="flex items-center gap-1.5 pb-1.5 border-b border-white/20 text-white">
               <Factory className="w-3.5 h-3.5 text-white/90" />
               <h4 className="text-[11px] font-mono font-bold uppercase tracking-wider text-white">
-                MANUFACTURING ({mfgCategories.length})
+                TOP PRIORITY PRODUCTS ({priorityCategories.length})
               </h4>
             </div>
 
             <div className="grid grid-cols-1 gap-0.5 pt-1">
-              {mfgCategories.map((cat) => (
+              {priorityCategories.map((cat) => (
                 <a
                   key={cat.id}
                   href={`/products/${getProductSeoSlug(cat.slug)}`}
@@ -86,17 +105,17 @@ export default function ProductMegaMenu({
             </div>
           </div>
 
-          {/* Right Column: Stockist & Supply Division */}
+          {/* Right Column: Extended Catalog */}
           <div className="space-y-1 sm:border-l sm:border-white/20 sm:pl-4">
             <div className="flex items-center gap-1.5 pb-1.5 border-b border-white/20 text-white">
               <Layers className="w-3.5 h-3.5 text-white/90" />
               <h4 className="text-[11px] font-mono font-bold uppercase tracking-wider text-white">
-                STOCKIST & SUPPLY ({supCategories.length})
+                EXTENDED CATALOG ({remainingCategories.length})
               </h4>
             </div>
 
             <div className="grid grid-cols-1 gap-0.5 pt-1">
-              {supCategories.map((cat) => (
+              {remainingCategories.map((cat) => (
                 <a
                   key={cat.id}
                   href={`/products/${getProductSeoSlug(cat.slug)}`}

@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { X, Send, MessageCircle, Mail, CheckCircle2 } from 'lucide-react';
-import { COMPANY_DETAILS, PRODUCTS_DATA, MATERIALS_LIST } from '../data/industrialData';
+import { X, Send, ArrowRight } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa6';
+import { SiGmail } from 'react-icons/si';
+import { COMPANY_DETAILS, PRODUCTS_DATA } from '../data/industrialData';
 
 export default function EnquiryModal({ isOpen, onClose, initialProduct, initialMaterial }) {
   const [formData, setFormData] = useState({
     name: '',
-    company: '',
     email: '',
     phone: '',
-    product: '',
-    material: '',
-    specifications: '',
+    company: '',
+    product: initialProduct || '',
     quantity: '',
+    specification: initialMaterial || '',
+    message: '',
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
+  const [showChoice, setShowChoice] = useState(false);
   const [rfqNumber, setRfqNumber] = useState('');
 
   useEffect(() => {
@@ -22,7 +25,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
       setFormData((prev) => ({ ...prev, product: initialProduct }));
     }
     if (initialMaterial) {
-      setFormData((prev) => ({ ...prev, material: initialMaterial }));
+      setFormData((prev) => ({ ...prev, specification: initialMaterial }));
     }
   }, [initialProduct, initialMaterial]);
 
@@ -42,43 +45,112 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (formErrors[name]) {
+      setFormErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const validate = () => {
+    const errors = {};
+    if (!formData.name?.trim()) {
+      errors.name = 'Name is required.';
+    }
+    if (!formData.email?.trim()) {
+      errors.email = 'Email is required.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      errors.email = 'Please enter a valid email address.';
+    }
+    if (!formData.phone?.trim()) {
+      errors.phone = 'Phone number is required.';
+    } else if (formData.phone.replace(/[^0-9]/g, '').length < 8) {
+      errors.phone = 'Please enter a valid phone number (at least 8 digits).';
+    }
+    if (!formData.product?.trim()) {
+      errors.product = 'Product / Material Required is required.';
+    }
+    if (!formData.quantity?.trim()) {
+      errors.quantity = 'Quantity is required.';
+    }
+    if (!formData.message?.trim()) {
+      errors.message = 'Requirement / message is required.';
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const generateWhatsAppMessage = () => {
-    return `*RUDHIRA METAL INDUSTRIES - RFQ INQUIRY*
----------------------------------------
-*Name:* ${formData.name || 'N/A'}
-*Company:* ${formData.company || 'N/A'}
-*Phone:* ${formData.phone || 'N/A'}
-*Email:* ${formData.email || 'N/A'}
-*Product:* ${formData.product || 'General Metal Requirement'}
-*Material Grade:* ${formData.material || 'Standard Industrial Grade'}
-*Quantity / Specs:* ${formData.quantity || 'As required'}
-*Notes:* ${formData.specifications || 'Please share standard pricing and availability.'}
----------------------------------------
-Sent via Rudhira Metal Official Portal`;
+    let msg = `Hello RUDHIRA METAL INDUSTRIES,\n\nI would like to request a quotation.\n\n`;
+    msg += `CUSTOMER DETAILS\n`;
+    if (formData.name?.trim()) msg += `Name: ${formData.name.trim()}\n`;
+    if (formData.email?.trim()) msg += `Email: ${formData.email.trim()}\n`;
+    if (formData.phone?.trim()) msg += `Phone: ${formData.phone.trim()}\n`;
+    if (formData.company?.trim()) msg += `Company: ${formData.company.trim()}\n`;
+
+    const productReqs = [];
+    if (formData.product?.trim()) productReqs.push(`Product / Material: ${formData.product.trim()}`);
+    if (formData.quantity?.trim()) productReqs.push(`Quantity: ${formData.quantity.trim()}`);
+    if (formData.specification?.trim()) productReqs.push(`Specification / Grade: ${formData.specification.trim()}`);
+
+    if (productReqs.length > 0) {
+      msg += `\nPRODUCT REQUIREMENTS\n${productReqs.join('\n')}\n`;
+    }
+
+    if (formData.message?.trim()) {
+      msg += `\nREQUIREMENT / MESSAGE\n${formData.message.trim()}\n`;
+    }
+
+    msg += `\nPlease review my requirements and share your quotation.\n\nThank you.`;
+    return msg;
   };
 
-  const handleWhatsAppSend = (e) => {
-    e.preventDefault();
-    const msg = generateWhatsAppMessage();
-    const url = `https://wa.me/${COMPANY_DETAILS.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
+  const generateGmailMessage = () => {
+    let body = `Dear RUDHIRA METAL INDUSTRIES Team,\n\nI would like to request a quotation for the following requirements.\n\n`;
+    body += `CUSTOMER DETAILS\n`;
+    if (formData.name?.trim()) body += `Name: ${formData.name.trim()}\n`;
+    if (formData.email?.trim()) body += `Email: ${formData.email.trim()}\n`;
+    if (formData.phone?.trim()) body += `Phone: ${formData.phone.trim()}\n`;
+    if (formData.company?.trim()) body += `Company: ${formData.company.trim()}\n`;
+
+    const productReqs = [];
+    if (formData.product?.trim()) productReqs.push(`Product / Material: ${formData.product.trim()}`);
+    if (formData.quantity?.trim()) productReqs.push(`Quantity: ${formData.quantity.trim()}`);
+    if (formData.specification?.trim()) productReqs.push(`Specification / Grade: ${formData.specification.trim()}`);
+
+    if (productReqs.length > 0) {
+      body += `\nPRODUCT REQUIREMENTS\n${productReqs.join('\n')}\n`;
+    }
+
+    if (formData.message?.trim()) {
+      body += `\nREQUIREMENT / MESSAGE\n${formData.message.trim()}\n`;
+    }
+
+    body += `\nKindly review the above details and share your quotation, pricing, and applicable delivery information.\n\n`;
+    body += `Regards,\n${formData.name?.trim() || 'Client'}`;
+    return body;
   };
 
-  const handleEmailSend = (e) => {
-    e.preventDefault();
-    const subject = `RFQ Inquiry: ${formData.product || 'Metal Products'} - ${formData.company || formData.name || 'Client'}`;
-    const body = generateWhatsAppMessage();
-    const mailto = `mailto:${COMPANY_DETAILS.emails[0]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+  const handleSendWhatsApp = () => {
+    const text = generateWhatsAppMessage();
+    const cleanPhone = COMPANY_DETAILS.whatsappNumber.replace(/[^0-9]/g, '');
+    const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleSendGmail = () => {
+    const subject = `Quotation Request | RUDHIRA METAL INDUSTRIES${formData.product ? ` | ${formData.product}` : ''}`;
+    const body = generateGmailMessage();
+    const recipient = COMPANY_DETAILS.emails[0];
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validate()) return;
     const randomRef = 'RMI-RFQ-' + Math.floor(100000 + Math.random() * 900000);
     setRfqNumber(randomRef);
-    setSubmitted(true);
+    setShowChoice(true);
   };
 
   return (
@@ -88,141 +160,191 @@ Sent via Rudhira Metal Official Portal`;
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      <div className="relative w-full max-w-2xl bg-white border border-[#D9D9D6] rounded-lg shadow-2xl overflow-hidden my-8">
+      <div className="relative w-full max-w-2xl bg-white border border-[#D9D9D6] rounded-xl shadow-2xl overflow-hidden my-8">
         {/* Modal Top Bar */}
         <div className="bg-[#202427] text-white px-6 py-4 flex items-center justify-between border-b border-[#A94728]/40">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-            <h3 id="modal-title" className="tech-label text-sm font-bold text-white tracking-widest uppercase">
-              REQUEST FOR QUOTATION (RFQ) // COMMERCIAL DESK
+          <div>
+            <h3 id="modal-title" className="text-base sm:text-lg font-bold text-white tracking-wide">
+              Get Quote / Requirement Form
             </h3>
+            <p className="text-xs text-[#D9D9D6]/80 font-mono">
+              RUDHIRA METAL INDUSTRIES • COMMERCIAL SALES DESK
+            </p>
           </div>
           <button
             onClick={onClose}
-            className="text-white/60 hover:text-white p-1 rounded hover:bg-white/10 transition-colors cursor-pointer"
-            aria-label="Close RFQ dialog"
+            className="text-white/60 hover:text-white p-1.5 rounded-md hover:bg-white/10 transition-colors cursor-pointer"
+            aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {submitted ? (
-          <div className="p-8 text-center bg-[#F8F5F1]">
-            <div className="w-16 h-16 mx-auto mb-4 bg-[#A94728]/10 text-[#A94728] rounded-full flex items-center justify-center">
-              <CheckCircle2 className="w-10 h-10" />
+        {showChoice ? (
+          <div className="p-8 sm:p-10 text-center bg-[#F8F5F1]">
+            <div className="tech-label text-xs font-bold text-[#A94728] tracking-widest uppercase mb-2">
+              REQUIREMENT READY // CHOOSE DELIVERY CHANNEL
             </div>
-
-            <h4 className="text-2xl font-bold text-[#202427] mb-2">
-              Quotation Request Logged
+            <h4 className="text-2xl sm:text-3xl font-extrabold text-[#202427] mb-2">
+              Choose How to Send Your Quote
             </h4>
-
-            <p className="text-sm text-[#202427]/70 max-w-md mx-auto mb-6">
-              Thank you, {formData.name || 'valued partner'}. Your inquiry has been routed to our Mumbai commercial sales desk.
+            <p className="text-sm text-[#202427]/75 max-w-md mx-auto mb-8 leading-relaxed">
+              Your quote request is ready. Choose your preferred method to continue.
             </p>
 
-            <div className="p-4 bg-white border border-[#D9D9D6] rounded-lg max-w-sm mx-auto mb-6 font-mono text-xs text-left space-y-1">
-              <div><span className="text-[#6B7280]">REFERENCE:</span> <strong className="text-[#A94728]">{rfqNumber}</strong></div>
-              <div><span className="text-[#6B7280]">PRODUCT:</span> <strong>{formData.product || 'Industrial Metal Supply'}</strong></div>
-              <div><span className="text-[#6B7280]">DESK EMAIL:</span> <strong>{COMPANY_DETAILS.emails[0]}</strong></div>
+            {/* Reference info summary */}
+            <div className="p-4 bg-white border border-[#D9D9D6] rounded-lg max-w-md mx-auto mb-8 font-mono text-xs text-left space-y-1.5 shadow-xs">
+              <div className="flex items-center justify-between">
+                <span className="text-[#6B7280]">REFERENCE:</span>
+                <strong className="text-[#A94728]">{rfqNumber}</strong>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#6B7280]">PRODUCT:</span>
+                <strong className="text-[#202427]">{formData.product}</strong>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#6B7280]">QUANTITY:</span>
+                <strong className="text-[#202427]">{formData.quantity}</strong>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#6B7280]">CONTACT:</span>
+                <strong className="text-[#202427]">{formData.name}</strong>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#6B7280]">DESK EMAIL:</span>
+                <strong className="text-[#A94728]">{COMPANY_DETAILS.emails[0]}</strong>
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto mb-8">
+              {/* Option 1: WhatsApp */}
               <button
-                onClick={handleWhatsAppSend}
-                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-5 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer active:scale-95"
+                type="button"
+                onClick={handleSendWhatsApp}
+                className="group p-5 bg-white border-2 border-[#25D366]/40 hover:border-[#25D366] rounded-xl text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-lg cursor-pointer flex flex-col justify-between"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>Forward via WhatsApp</span>
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <FaWhatsapp className="w-6 h-6" />
+                  </div>
+                  <h5 className="text-base font-bold text-[#202427] mb-1 group-hover:text-[#25D366] transition-colors">
+                    Send via WhatsApp
+                  </h5>
+                  <p className="text-xs text-[#202427]/70 leading-relaxed">
+                    Open WhatsApp with your prepared enquiry.
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-[#D9D9D6] flex items-center justify-between text-xs font-bold text-[#25D366]">
+                  <span>Open WhatsApp</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
               </button>
 
+              {/* Option 2: Gmail */}
               <button
-                onClick={() => {
-                  setSubmitted(false);
-                  onClose();
-                }}
-                className="bg-[#202427] hover:bg-[#171A1C] text-white px-5 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer active:scale-95"
+                type="button"
+                onClick={handleSendGmail}
+                className="group p-5 bg-white border-2 border-[#EA4335]/40 hover:border-[#EA4335] rounded-xl text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-lg cursor-pointer flex flex-col justify-between"
               >
-                Done
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#EA4335]/10 text-[#EA4335] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <SiGmail className="w-6 h-6" />
+                  </div>
+                  <h5 className="text-base font-bold text-[#202427] mb-1 group-hover:text-[#EA4335] transition-colors">
+                    Send via Gmail
+                  </h5>
+                  <p className="text-xs text-[#202427]/70 leading-relaxed">
+                    Open Gmail with your prepared email.
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-[#D9D9D6] flex items-center justify-between text-xs font-bold text-[#EA4335]">
+                  <span>Open Gmail</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
               </button>
+            </div>
+
+            {/* Back to Edit & Clarification */}
+            <div className="flex flex-col items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setShowChoice(false)}
+                className="text-xs font-bold text-[#6B7280] hover:text-[#202427] underline transition-colors cursor-pointer"
+              >
+                ← Back to Edit Form
+              </button>
+              <p className="text-[11px] text-[#6B7280]">
+                WhatsApp or Gmail will open with your details prefilled. You review and click Send.
+              </p>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 sm:p-8 bg-[#F8F5F1]">
-            <div className="mb-6 pb-4 border-b border-[#D9D9D6]">
-              <p className="text-xs font-mono text-[#A94728] font-bold uppercase">
-                RUDHIRA METAL INDUSTRIES • MUMBAI, INDIA
-              </p>
-              <h4 className="text-xl sm:text-2xl font-extrabold text-[#202427]">
-                Specify Your Material & Product Requirement
-              </h4>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-              {/* Product Select */}
+          <form onSubmit={handleSubmit} className="p-6 sm:p-8 bg-white">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-5">
+              {/* 1. Name* */}
               <div>
-                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
-                  Product Category *
-                </label>
-                <select
-                  name="product"
-                  value={formData.product}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
-                >
-                  <option value="">Select Product...</option>
-                  {PRODUCTS_DATA.map((p) => (
-                    <option key={p.name} value={p.name}>
-                      {p.name}
-                    </option>
-                  ))}
-                  <option value="Forge Fittings & Flanges">Forge Fittings & Flanges</option>
-                  <option value="Custom Machined Parts">Custom Machined Parts</option>
-                </select>
-              </div>
-
-              {/* Material Grade */}
-              <div>
-                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
-                  Material Grade / Alloy *
-                </label>
-                <select
-                  name="material"
-                  value={formData.material}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
-                >
-                  <option value="">Select Material Grade...</option>
-                  {MATERIALS_LIST.map((m) => (
-                    <option key={m} value={m}>
-                      {m}
-                    </option>
-                  ))}
-                  <option value="Other / Client Spec">Other / Client Spec</option>
-                </select>
-              </div>
-
-              {/* Contact Name */}
-              <div>
-                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
-                  Contact Person *
+                <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
+                  Name <span className="text-[#A94728]">*</span>
                 </label>
                 <input
                   type="text"
                   name="name"
-                  placeholder="e.g. Rajesh Kumar"
+                  placeholder="e.g. John Doe"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
+                    formErrors.name ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
                 />
+                {formErrors.name && (
+                  <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.name}</p>
+                )}
               </div>
 
-              {/* Company Name */}
+              {/* 2. Email* */}
               <div>
-                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
-                  Company / Firm Name
+                <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
+                  Email <span className="text-[#A94728]">*</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="e.g. name@company.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
+                    formErrors.email ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                />
+                {formErrors.email && (
+                  <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.email}</p>
+                )}
+              </div>
+
+              {/* 3. Phone Number* */}
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
+                  Phone Number <span className="text-[#A94728]">*</span>
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="e.g. +91 98765 43210"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
+                    formErrors.phone ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                />
+                {formErrors.phone && (
+                  <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.phone}</p>
+                )}
+              </div>
+
+              {/* 4. Company Name (Optional) */}
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
+                  Company Name
                 </label>
                 <input
                   type="text"
@@ -230,103 +352,107 @@ Sent via Rudhira Metal Official Portal`;
                   placeholder="e.g. Apex Engineering Ltd"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors"
                 />
               </div>
 
-              {/* Email */}
+              {/* 5. Product / Material Required* */}
               <div>
-                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
-                  Official Email *
+                <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
+                  Product / Material Required <span className="text-[#A94728]">*</span>
                 </label>
                 <input
-                  type="email"
-                  name="email"
-                  placeholder="procurement@company.com"
-                  value={formData.email}
+                  type="text"
+                  name="product"
+                  list="enquiry-products-list"
+                  placeholder="e.g. Stainless Steel Pipes, Flanges"
+                  value={formData.product}
                   onChange={handleChange}
-                  required
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
+                    formErrors.product ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
                 />
+                <datalist id="enquiry-products-list">
+                  {PRODUCTS_DATA.map((p) => (
+                    <option key={p.name} value={p.name} />
+                  ))}
+                  <option value="Forged Fittings" />
+                  <option value="Flanges" />
+                  <option value="Butt Weld Fittings" />
+                  <option value="Pipes & Tubes" />
+                  <option value="Sheets & Plates" />
+                  <option value="Fasteners" />
+                </datalist>
+                {formErrors.product && (
+                  <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.product}</p>
+                )}
               </div>
 
-              {/* Phone / Mobile */}
+              {/* 6. Quantity* */}
               <div>
-                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
-                  Phone / WhatsApp *
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+91 98765 43210"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
-                />
-              </div>
-            </div>
-
-            {/* Quantity & Specifications */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-              <div className="sm:col-span-1">
-                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
-                  Quantity / Tonnage
+                <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
+                  Quantity <span className="text-[#A94728]">*</span>
                 </label>
                 <input
                   type="text"
                   name="quantity"
-                  placeholder="e.g. 500 Meters / 2 Tons"
+                  placeholder="e.g. 500 Meters / 10 Tons / 250 Pcs"
                   value={formData.quantity}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
+                    formErrors.quantity ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
                 />
+                {formErrors.quantity && (
+                  <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.quantity}</p>
+                )}
               </div>
 
+              {/* 7. Component Specification / Grade (Optional) */}
               <div className="sm:col-span-2">
-                <label className="block text-xs sm:text-sm font-bold text-[#202427] uppercase mb-1.5">
-                  Dimensions / Schedule / Wall Thickness / Notes
+                <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
+                  Component Specification / Grade
                 </label>
                 <input
                   type="text"
-                  name="specifications"
-                  placeholder="e.g. 2 inch NB, Sch 40, ASTM A312, Seamless"
-                  value={formData.specifications}
+                  name="specification"
+                  placeholder="e.g. 316L, Sch 40, ASTM A312"
+                  value={formData.specification}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base bg-white border border-[#D9D9D6] rounded-sm focus:outline-none focus:border-[#A94728]"
+                  className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors"
                 />
               </div>
-            </div>
 
-            {/* Action Buttons */}
-            <div className="pt-4 border-t border-[#D9D9D6] flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={handleWhatsAppSend}
-                  className="btn-wave inline-flex items-center gap-1.5 px-4 py-2.5 bg-white hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366] rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Send via WhatsApp</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleEmailSend}
-                  className="btn-wave inline-flex items-center gap-1.5 px-4 py-2.5 bg-white hover:bg-[#202427] text-[#202427] hover:text-white border border-[#202427]/40 rounded-sm text-xs sm:text-sm font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>Send via Email</span>
-                </button>
+              {/* 8. Requirement / Message* */}
+              <div className="sm:col-span-2">
+                <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
+                  Requirement / Message <span className="text-[#A94728]">*</span>
+                </label>
+                <textarea
+                  name="message"
+                  rows={4}
+                  placeholder="Technical requirements, specifications, dimensions, tolerances, and delivery timeline..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
+                    formErrors.message ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors resize-y`}
+                />
+                {formErrors.message && (
+                  <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.message}</p>
+                )}
               </div>
 
-              <button
-                type="submit"
-                className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3 rounded-sm transition-all shadow-md active:scale-95 cursor-pointer"
-              >
-                <span>Submit RFQ</span>
-                <Send className="w-4 h-4" />
-              </button>
+              {/* Full-Width Submit Button */}
+              <div className="sm:col-span-2 pt-2">
+                <button
+                  type="submit"
+                  className="w-full bg-[#A94728] hover:bg-[#8F371B] text-white font-bold py-3.5 px-6 rounded-md uppercase tracking-wider text-sm sm:text-base transition-all shadow-md active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <span>SEND REQUIREMENT</span>
+                  <Send className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </form>
         )}
