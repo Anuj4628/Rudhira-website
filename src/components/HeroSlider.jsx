@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import gsap from 'gsap';
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, ShieldCheck } from 'lucide-react';
 
-// Crystal-clear industrial image assets (preserved exactly)
-import heroPlatesCoilsImg from '../assets/Product BG/heavy-engineering-hero-bg.jpg';
-import heroPipesImg from '../assets/Product BG/industrial-steel-pipes-hero-bg.jpg';
-import heroBarsAlloysImg from '../assets/Product BG/precision-round-bars-hero-bg.jpg';
+// Crystal-clear industrial image assets
 import heroFlangesImg from '../assets/Product BG/forged-flanges-fittings-hero-bg.jpg';
+import heroFlangesSlide2Img from '../assets/Product BG/industrial-flanges-hero-bg.jpg';
+import heroForgedFittingsSlide3Img from '../assets/Product BG/forged-fittings-hero-bg.jpg';
+import heroButtWeldSlide4Img from '../assets/Product BG/butt-weld-fittings-hero-bg.jpg';
 
 // Four slides adhering to the exact advertisement design system
 const HERO_SLIDES_DATA = [
@@ -30,57 +30,57 @@ const HERO_SLIDES_DATA = [
   },
   {
     id: "02",
-    focus: "Industrial Steel Pipes",
-    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
-    darkBadge: "INDUSTRIAL METAL PRODUCTS",
-    mainHeading: "INDUSTRIAL STEEL PIPES",
-    supportingLine: "SEAMLESS • WELDED • ERW PIPES",
-    techHeader: "STAINLESS STEEL & ALLOY PIPES",
-    techSpecs: "SS 304 • 316L • 321H • DUPLEX 2205 • INCONEL",
-    techFinish: "AVAILABLE IN ASTM A312 / A358 • SCH 10S TO SCH XXS",
-    adPromoEyebrow: "PIPE SPECIFICATION",
-    adPromoTitle: "SEAMLESS & ERW PIPES",
+    focus: "Industrial Flanges",
+    topRibbon: "PRECISION FORGINGS • PIPELINE FLANGES",
+    darkBadge: "ASME B16.5 & B16.47",
+    mainHeading: "INDUSTRIAL FLANGES",
+    supportingLine: "WELD NECK • SLIP-ON • BLIND • SOCKET WELD • THREADED",
+    techHeader: "ASME B16.5 & B16.47 PIPELINE FLANGES",
+    techSpecs: "SS 304/304L • 316/316L • CARBON STEEL A105 • DUPLEX",
+    techFinish: "PRESSURE CLASS 150 TO 2500 • 1/2\" TO 64\" NB • RF / RTJ",
+    adPromoEyebrow: "PRESSURE RATINGS",
+    adPromoTitle: "CLASS 150 TO 2500#",
     badgeLine1: "PRIME",
-    badgeLine2: "PIPES",
-    badgeLine3: "100% PMI",
-    image: heroPipesImg,
-    alt: "Industrial steel pipes, seamless tubes and ERW piping stock"
+    badgeLine2: "FLANGES",
+    badgeLine3: "ASME B16.5",
+    image: heroFlangesSlide2Img,
+    alt: "Industrial Flanges - Weld Neck, Slip-On, and Blind Flanges"
   },
   {
     id: "03",
-    focus: "Heavy Engineering Plates",
-    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
-    darkBadge: "INDUSTRIAL METAL PRODUCTS",
-    mainHeading: "HEAVY ENGINEERING PLATES",
-    supportingLine: "SHEETS • PLATES • STRUCTURAL STEEL",
-    techHeader: "STAINLESS STEEL STOCK",
-    techSpecs: "SS 304 • 304L • 316 • 316L • 321 • 310S • DUPLEX 2205",
-    techFinish: "HOT & COLD ROLLED • PRECISION FINISH",
-    adPromoEyebrow: "SPECIFIED STOCK",
-    adPromoTitle: "CUSTOM CUT SIZES",
-    badgeLine1: "PRIME",
-    badgeLine2: "QUALITY",
-    badgeLine3: "100% PMI",
-    image: heroPlatesCoilsImg,
-    alt: "Heavy engineering plates, sheets and industrial steel stock"
+    focus: "Forged Fittings",
+    topRibbon: "HIGH PRESSURE PIPING • FORGED STEEL",
+    darkBadge: "SOCKET WELD & THREADED",
+    mainHeading: "FORGED FITTINGS",
+    supportingLine: "SOCKET WELD & THREADED • ELBOWS • TEES • UNIONS • COUPLINGS",
+    techHeader: "ASME B16.11 HIGH-PRESSURE FORGED FITTINGS",
+    techSpecs: "ASTM A105 CARBON STEEL • ASTM A182 F304L & F316L",
+    techFinish: "PRESSURE RATINGS 2000#, 3000#, 6000# & 9000# • 1/8\" TO 4\" NB",
+    adPromoEyebrow: "PRESSURE RATINGS",
+    adPromoTitle: "2000# TO 9000# LBS",
+    badgeLine1: "FORGED",
+    badgeLine2: "FITTINGS",
+    badgeLine3: "ASME B16.11",
+    image: heroForgedFittingsSlide3Img,
+    alt: "Forged Fittings - High-Pressure Socket Weld and Threaded Fittings"
   },
   {
     id: "04",
-    focus: "Precision Round Bars",
-    topRibbon: "PRECISION METALLURGY • STRUCTURAL STOCK",
-    darkBadge: "INDUSTRIAL METAL PRODUCTS",
-    mainHeading: "PRECISION ROUND BARS",
-    supportingLine: "ROUND • HEX • FLAT BARS",
-    techHeader: "ENGINEERED METAL STOCK FOR INDUSTRIAL APPLICATIONS",
-    techSpecs: "SS 304 / 316L • 17-4PH • DUPLEX 2205 • INCONEL",
-    techFinish: "CENTERLESS GROUND • 3MM TO 450MM DIAMETER",
-    adPromoEyebrow: "TOLERANCE GROUND",
-    adPromoTitle: "BRIGHT GROUND BARS",
-    badgeLine1: "READY",
-    badgeLine2: "STOCK",
-    badgeLine3: "H9 / H11",
-    image: heroBarsAlloysImg,
-    alt: "Superior precision round bars, hex bars and structural steel stock"
+    focus: "Butt Weld Fittings",
+    topRibbon: "PIPELINE INTEGRITY • BUTT WELD FITTINGS",
+    darkBadge: "SEAMLESS & WELDED",
+    mainHeading: "BUTT WELD FITTINGS",
+    supportingLine: "ELBOWS • EQUAL & REDUCING TEES • REDUCERS • END CAPS",
+    techHeader: "ASME B16.9 INDUSTRIAL BUTT WELD FITTINGS",
+    techSpecs: "ASTM A234 WPB CARBON STEEL • ASTM A403 WP304L & WP316L",
+    techFinish: "WALL SCHEDULES SCH 10 TO SCH XXS • SIZES 1/2\" TO 48\" NB",
+    adPromoEyebrow: "WALL SCHEDULES",
+    adPromoTitle: "SCH 10 TO SCH XXS",
+    badgeLine1: "BUTT",
+    badgeLine2: "WELD",
+    badgeLine3: "ASME B16.9",
+    image: heroButtWeldSlide4Img,
+    alt: "Butt Weld Fittings - ASME B16.9 Elbows, Tees, and Reducers"
   }
 ];
 
