@@ -22,6 +22,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
           scrollTrigger: {
             trigger: '.reach-export-header',
             start: 'top 80%',
+            once: true,
           },
         }
       );
@@ -37,6 +38,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
           scrollTrigger: {
             trigger: '.reach-india-header',
             start: 'top 80%',
+            once: true,
           },
         }
       );
@@ -53,6 +55,10 @@ export default function GlobalReach({ onOpenEnquiry }) {
           scrollTrigger: {
             trigger: '.countries-grid',
             start: 'top 85%',
+            once: true,
+          },
+          onComplete: () => {
+            gsap.set('.country-card', { clearProps: 'all' });
           },
         }
       );
@@ -69,6 +75,10 @@ export default function GlobalReach({ onOpenEnquiry }) {
           scrollTrigger: {
             trigger: '.india-grid',
             start: 'top 85%',
+            once: true,
+          },
+          onComplete: () => {
+            gsap.set('.india-state-card', { clearProps: 'all' });
           },
         }
       );

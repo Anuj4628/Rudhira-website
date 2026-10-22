@@ -86,6 +86,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
 
   const slidesContainerRef = useRef(null);
   const touchStartXRef = useRef(null);
+  const touchStartYRef = useRef(null);
   const autoPlayTimerRef = useRef(null);
 
   const nextSlide = useCallback(() => {
@@ -142,15 +143,23 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
 
   const handleTouchStart = (e) => {
     touchStartXRef.current = e.touches[0].clientX;
+    touchStartYRef.current = e.touches[0].clientY;
   };
 
   const handleTouchEnd = (e) => {
-    if (touchStartXRef.current === null) return;
+    if (touchStartXRef.current === null || touchStartYRef.current === null) return;
     const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartXRef.current - touchEndX;
-    if (diff > 50) nextSlide();
-    else if (diff < -50) prevSlide();
+    const touchEndY = e.changedTouches[0].clientY;
+    const diffX = touchStartXRef.current - touchEndX;
+    const diffY = touchStartYRef.current - touchEndY;
+
+    // Only switch slide if horizontal swipe is clearly dominant over vertical scrolling
+    if (Math.abs(diffX) > Math.abs(diffY) * 1.5 && Math.abs(diffX) > 50) {
+      if (diffX > 0) nextSlide();
+      else prevSlide();
+    }
     touchStartXRef.current = null;
+    touchStartYRef.current = null;
   };
 
   const slide = HERO_SLIDES_DATA[currentSlide];

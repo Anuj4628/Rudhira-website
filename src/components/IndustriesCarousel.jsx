@@ -35,6 +35,7 @@ export default function IndustriesCarousel({ onSelectIndustry }) {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
+            once: true,
           },
         }
       );

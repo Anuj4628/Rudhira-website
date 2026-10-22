@@ -28,6 +28,10 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
+            once: true,
+          },
+          onComplete: () => {
+            if (collageRef.current) gsap.set(collageRef.current, { clearProps: 'all' });
           },
         }
       );
@@ -44,6 +48,10 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
+            once: true,
+          },
+          onComplete: () => {
+            if (contentRef.current) gsap.set(contentRef.current, { clearProps: 'all' });
           },
         }
       );

@@ -34,13 +34,13 @@ import wireMeshDefault from '../assets/Product Section/Manufacturer division/Wir
 // Product Category Images (Supplier Division)
 // -------------------------------------------------------------
 import circleDefault from '../assets/Product Section/Supplier division/Circle/Stainless steel.png';
-import coilDefault from '../assets/New Product img/sheet plates coil/sheets-plates-showcase.png';
+import sheetsPlatesDefault from '../assets/New Product img/sheet plates coil/sheets-plates-showcase.png';
 import flatBarsDefault from '../assets/Product Section/Supplier division/flat/Stainless-Steel-Flat-Bar.jpg';
 import patapattiDefault from '../assets/Product Section/Supplier division/Patapatti/stainless steel.jpeg';
 import pipesTubesDefault from '../assets/New Product img/Pipes/pipes-showcase.jpg';
 import ringDefault from '../assets/Product Section/Supplier division/Ring/stainless steel.jpg';
 import rodsBarsDefault from '../assets/New Product img/Bars/bars-showcase.png';
-import sheetsPlatesDefault from '../assets/Product BG/premium steel solution build for industry.png';
+import coilDefault from '../assets/Product BG/premium steel solution build for industry.png';
 import wiresDefault from '../assets/Product Section/Supplier division/Wires/stainless steel.png';
 
 // -------------------------------------------------------------
@@ -521,12 +521,12 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     id: "prod-sup-02",
-    slug: "coil",
-    name: "Coil",
+    slug: "sheets-plates",
+    name: "Sheets & Plates",
     division: "Supplier",
-    shortDesc: "Continuous hot rolled & cold rolled coils, slit coils & foil rolls.",
-    heroDesc: "Prime mill-certified metal coils sourced directly from top-tier producers (Tata Steel, JSW, Jindal). Available in standard master widths or custom precision slit coils with tight width tolerances.",
-    defaultImage: coilDefault,
+    shortDesc: "Hot rolled heavy plates, cold rolled sheets, and checker plates.",
+    heroDesc: "Mill-tested industrial plates conforming to ASTM A240 and IS 2062. Available in prime stock sheets or custom plasma, laser, and waterjet cut-to-size dimensions with full mill test traceability.",
+    defaultImage: sheetsPlatesDefault,
     hasTypes: false,
     applicableMaterials: [
       "stainless-steel",
@@ -539,10 +539,10 @@ export const PRODUCT_CATEGORIES = [
       "exotic-alloys",
       "high-alloy-steel"
     ],
-    standards: ["ASTM A240", "ASTM A480", "EN 10088-2", "IS 2062"],
-    sizeRange: "Thickness 0.1mm to 16mm; Width 10mm to 2000mm",
-    schedules: "2B, No. 4 Hairline, BA (Bright Annealed), HR No. 1",
-    applications: ["Automotive Stampings", "Continuous Tube Mills", "Roll Forming Profiles", "White Goods Appliances", "Cable Armor Strips"]
+    standards: ["ASTM A240", "ASTM A516 Gr. 70 (Boiler Quality)", "IS 2062", "EN 10028"],
+    sizeRange: "Thickness 0.5mm to 150mm; Width up to 3000mm; Length up to 12000mm",
+    schedules: "Cold Rolled 2B, HRAP, Checker (Chequered) Pattern, Polished",
+    applications: ["Storage Tanks", "Boilers & Pressure Vessels", "Flange Cutting Stock", "Industrial Ducting", "Offshore Deck Fabrication"]
   },
   {
     id: "prod-sup-03",
@@ -670,12 +670,12 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     id: "prod-sup-08",
-    slug: "sheets-plates",
-    name: "Sheets & Plates",
+    slug: "coil",
+    name: "Coil",
     division: "Supplier",
-    shortDesc: "Hot rolled heavy plates, cold rolled sheets, and checker plates.",
-    heroDesc: "Mill-tested industrial plates conforming to ASTM A240 and IS 2062. Available in prime stock sheets or custom plasma, laser, and waterjet cut-to-size dimensions with full mill test traceability.",
-    defaultImage: sheetsPlatesDefault,
+    shortDesc: "Continuous hot rolled & cold rolled coils, slit coils & foil rolls.",
+    heroDesc: "Prime mill-certified metal coils sourced directly from top-tier producers (Tata Steel, JSW, Jindal). Available in standard master widths or custom precision slit coils with tight width tolerances.",
+    defaultImage: coilDefault,
     hasTypes: false,
     applicableMaterials: [
       "stainless-steel",
@@ -688,10 +688,10 @@ export const PRODUCT_CATEGORIES = [
       "exotic-alloys",
       "high-alloy-steel"
     ],
-    standards: ["ASTM A240", "ASTM A516 Gr. 70 (Boiler Quality)", "IS 2062", "EN 10028"],
-    sizeRange: "Thickness 0.5mm to 150mm; Width up to 3000mm; Length up to 12000mm",
-    schedules: "Cold Rolled 2B, HRAP, Checker (Chequered) Pattern, Polished",
-    applications: ["Storage Tanks", "Boilers & Pressure Vessels", "Flange Cutting Stock", "Industrial Ducting", "Offshore Deck Fabrication"]
+    standards: ["ASTM A240", "ASTM A480", "EN 10088-2", "IS 2062"],
+    sizeRange: "Thickness 0.1mm to 16mm; Width 10mm to 2000mm",
+    schedules: "2B, No. 4 Hairline, BA (Bright Annealed), HR No. 1",
+    applications: ["Automotive Stampings", "Continuous Tube Mills", "Roll Forming Profiles", "White Goods Appliances", "Cable Armor Strips"]
   },
   {
     id: "prod-sup-09",

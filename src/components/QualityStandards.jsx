@@ -33,6 +33,10 @@ export default function QualityStandards() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
+            once: true,
+          },
+          onComplete: () => {
+            gsap.set('.quality-module', { clearProps: 'all' });
           },
         }
       );

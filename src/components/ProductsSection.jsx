@@ -115,7 +115,8 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
           ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: 'top 85%',
+            once: true,
           },
         }
       );
@@ -132,11 +133,12 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
           scrollTrigger: {
             trigger: '.products-grid',
             start: 'top 85%',
+            once: true,
           },
           onComplete: () => {
             cardsRef.current.forEach((card) => {
               if (card) {
-                gsap.set(card, { clearProps: 'y,opacity' });
+                gsap.set(card, { clearProps: 'all' });
               }
             });
           },
@@ -146,28 +148,6 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
 
     return () => ctx.revert();
   }, []);
-
-  // Subtle 3D tilt towards cursor on card hover
-  const handleMouseMove = (e, index) => {
-    const card = cardsRef.current[index];
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / centerY) * -4;
-    const rotateY = ((x - centerX) / centerX) * 4;
-
-    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
-  };
-
-  const handleMouseLeave = (index) => {
-    const card = cardsRef.current[index];
-    if (!card) return;
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-  };
 
   return (
     <section
@@ -203,8 +183,6 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
             <div
               key={card.id}
               ref={(el) => (cardsRef.current[index] = el)}
-              onMouseMove={(e) => handleMouseMove(e, index)}
-              onMouseLeave={() => handleMouseLeave(index)}
               onClick={() => {
                 if (onNavigate) {
                   onNavigate('product-material', null, `/products/${card.productSlug}/${card.materialSlug}`);
@@ -212,11 +190,7 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
                   onSelectProduct(card.name);
                 }
               }}
-              style={{
-                transformStyle: 'preserve-3d',
-                transition: 'transform 0.22s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease',
-              }}
-              className="group relative w-full bg-[#7E321F] border border-[#90391D]/60 rounded-lg overflow-hidden flex flex-col justify-between cursor-pointer p-3.5 sm:p-4 shadow-xl hover:shadow-2xl hover:border-[#F4E5DC]/60 will-change-transform"
+              className="group relative w-full bg-[#7E321F] border border-[#90391D]/60 rounded-lg overflow-hidden flex flex-col justify-between cursor-pointer p-3.5 sm:p-4 shadow-xl hover:shadow-2xl hover:border-[#F4E5DC]/60 transition-all duration-300 hover:-translate-y-1.5"
             >
               {/* Subtle Inset Frame & Corner Brackets */}
               <div className="corner-bracket-tl" />

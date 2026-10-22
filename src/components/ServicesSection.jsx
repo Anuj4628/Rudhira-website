@@ -72,6 +72,7 @@ export default function ServicesSection({ onOpenEnquiry }) {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
+            once: true,
           },
         }
       );
@@ -88,6 +89,10 @@ export default function ServicesSection({ onOpenEnquiry }) {
           scrollTrigger: {
             trigger: '.services-grid',
             start: 'top 85%',
+            once: true,
+          },
+          onComplete: () => {
+            gsap.set('.service-card', { clearProps: 'all' });
           },
         }
       );

@@ -28,9 +28,9 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-anchor: auto;
 }
 
 body {
@@ -96,6 +96,7 @@ body {
 .sidebar-sticky-scroll {
   scrollbar-width: thin;
   scrollbar-color: #A94728 transparent;
+  overscroll-behavior: contain;
 }
 .sidebar-sticky-scroll::-webkit-scrollbar {
   width: 5px;
@@ -109,6 +110,13 @@ body {
 }
 .sidebar-sticky-scroll::-webkit-scrollbar-thumb:hover {
   background: #A94728;
+}
+
+/* Stable touch scrolling on marquee & cards */
+.marquee-container,
+.marquee-slider-track,
+.material-card {
+  touch-action: pan-y;
 }
 
 /* Industrial Corner Brackets */
