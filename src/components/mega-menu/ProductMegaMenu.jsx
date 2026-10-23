@@ -53,10 +53,16 @@ export default function ProductMegaMenu({
     <div
       role="menu"
       aria-label="Products Dropdown"
-      className="nav-dropdown-menu mt-2 w-[580px] max-w-[calc(100vw-32px)] bg-[#A94728] border border-[#923C20] rounded-xl shadow-2xl shadow-black/35 z-50 select-none before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 text-white"
+      className="nav-dropdown-menu mt-2 w-[580px] max-w-[calc(100vw-32px)] bg-[#A94728] border border-[#923C20] rounded-xl shadow-2xl shadow-black/35 select-none text-white pointer-events-auto"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
+      {/* Continuous invisible hover bridge between navbar item and dropdown */}
+      <div
+        className="absolute -top-3.5 left-0 right-0 h-4 bg-transparent pointer-events-auto"
+        aria-hidden="true"
+      />
+
       {/* Upward notch pointing directly to the Product nav link */}
       <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#A94728] rotate-45 border-t border-l border-[#923C20] pointer-events-none z-10" />
 

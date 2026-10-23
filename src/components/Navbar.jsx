@@ -38,9 +38,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   };
 
   const handleProductMouseLeave = () => {
+    if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
     productTimeoutRef.current = setTimeout(() => {
       setProductMegaOpen(false);
-    }, 200);
+    }, 280);
   };
 
   const handleMaterialMouseEnter = () => {
@@ -53,9 +54,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   };
 
   const handleMaterialMouseLeave = () => {
+    if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
     materialTimeoutRef.current = setTimeout(() => {
       setMaterialsMegaOpen(false);
-    }, 200);
+    }, 280);
   };
 
   const handleCertificatesMouseEnter = () => {
@@ -68,9 +70,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   };
 
   const handleCertificatesMouseLeave = () => {
+    if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
     certificatesTimeoutRef.current = setTimeout(() => {
       setCertificatesMegaOpen(false);
-    }, 200);
+    }, 280);
   };
 
   const closeAllMenus = () => {
@@ -83,6 +86,15 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     setMobileMenuOpen(false);
     setHoveredIndex(null);
   };
+
+  // Clear pending timeouts on component unmount
+  useEffect(() => {
+    return () => {
+      if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
+      if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
+      if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
+    };
+  }, []);
 
   // Close menus on Escape key or outside click
   useEffect(() => {
@@ -329,7 +341,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   return (
                     <div
                       key={link.name}
-                      className="relative py-1.5 select-none group"
+                      className={`relative py-1.5 select-none group ${
+                        isOpen ? 'z-50' : 'z-20'
+                      }`}
                       onMouseEnter={() => {
                         setHoveredIndex(index);
                         if (link.isMega === 'product') handleProductMouseEnter();
