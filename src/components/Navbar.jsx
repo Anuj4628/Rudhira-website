@@ -491,20 +491,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
             </div>
 
-            {/* Mobile / Tablet Header Controls */}
-            <div className="flex lg:hidden items-center gap-2 sm:gap-2.5">
-              <button
-                type="button"
-                onClick={() => {
-                  if (onOpenEnquiry) onOpenEnquiry('Mobile Header RFQ');
-                  closeAllMenus();
-                }}
-                className="btn-wave hidden sm:inline-flex items-center justify-center gap-1.5 border-2 border-[#A94728] bg-[#A94728] hover:bg-[#8F371B] text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-md shadow-xs cursor-pointer"
-              >
-                <span className="text-white font-bold">GET A QUOTE</span>
-                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] text-white" />
-              </button>
-
+            {/* Responsive Header Controls (Hamburger Toggle) */}
+            <div className="flex lg:hidden items-center">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
