@@ -24,6 +24,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const headerRef = useRef(null);
+  const mobileDrawerRef = useRef(null);
   const productTimeoutRef = useRef(null);
   const materialTimeoutRef = useRef(null);
   const certificatesTimeoutRef = useRef(null);
@@ -96,7 +97,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     };
   }, []);
 
-  // Close menus on Escape key or outside click
+  // Close menus on Escape key or outside click (preserving mobile drawer interactions)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -104,6 +105,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
       }
     };
     const handleClickOutside = (e) => {
+      // If user clicked inside the mobile drawer panel, do not prematurely close
+      if (mobileDrawerRef.current && mobileDrawerRef.current.contains(e.target)) {
+        return;
+      }
       if (headerRef.current && !headerRef.current.contains(e.target)) {
         closeAllMenus();
       }
@@ -130,11 +135,24 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Desktop Navigation Links (Preserves finalized desktop UI & spacing)
   const navLinks = [
     { name: 'Home', page: 'home', href: '/', anchor: '#hero', isMega: null },
     { name: 'About Us', page: 'about', href: '/about', anchor: null, isMega: null },
     { name: 'Product', page: 'products-landing', href: '/products', anchor: null, isMega: 'product' },
     { name: 'Material', page: 'materials-landing', href: '/materials', anchor: null, isMega: 'material' },
+    { name: 'Certificates', page: 'certificates', href: '/certificates', anchor: null, isMega: 'certificates' },
+    { name: 'Contact', page: 'contact', href: '/contact', anchor: null, isMega: null },
+  ];
+
+  // Mobile Navigation Links (Comprehensive catalog including Services & Industries)
+  const mobileNavLinks = [
+    { name: 'Home', page: 'home', href: '/', anchor: '#hero', isMega: null },
+    { name: 'About Us', page: 'about', href: '/about', anchor: null, isMega: null },
+    { name: 'Products', page: 'products-landing', href: '/products', anchor: null, isMega: 'product' },
+    { name: 'Materials', page: 'materials-landing', href: '/materials', anchor: null, isMega: 'material' },
+    { name: 'Services', page: 'home', href: '/#services', anchor: '#services', isMega: null },
+    { name: 'Industries', page: 'home', href: '/#industries', anchor: '#industries', isMega: null },
     { name: 'Certificates', page: 'certificates', href: '/certificates', anchor: null, isMega: 'certificates' },
     { name: 'Contact', page: 'contact', href: '/contact', anchor: null, isMega: null },
   ];
@@ -150,18 +168,28 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
       currentPage === 'grade-detail' ||
       currentPage === 'product-type-detail'
     ) {
-      return link.name === 'Product';
+      return link.isMega === 'product' || link.name === 'Product' || link.name === 'Products';
     }
     if (currentPage === 'materials-landing' || currentPage === 'material-family') {
-      return link.name === 'Material';
+      return link.isMega === 'material' || link.name === 'Material' || link.name === 'Materials';
     }
-    if (currentPage === 'home') return link.name === 'Home';
+    if (currentPage === 'home') {
+      if (link.name === 'Services' || link.anchor === '#services') return false;
+      if (link.name === 'Industries' || link.anchor === '#industries') return false;
+      return link.name === 'Home';
+    }
     return false;
+  };
+
+  const handleMobileNav = (page, anchor = null, urlPath = null) => {
+    if (onNavigate) {
+      onNavigate(page, anchor, urlPath);
+    }
+    closeAllMenus();
   };
 
   const handleNavClick = (e, link) => {
     e.preventDefault();
-    closeAllMenus();
     if (onNavigate) {
       if (link.isMega === 'product') {
         onNavigate('products-landing', null, '/products');
@@ -170,7 +198,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
       } else if (link.isMega === 'certificates' || link.name === 'Certificates') {
         onNavigate('certificates', null, '/certificates');
       } else {
-        onNavigate(link.page, link.anchor);
+        onNavigate(link.page, link.anchor, link.href);
       }
     } else if (link.anchor) {
       const target = document.querySelector(link.anchor);
@@ -178,6 +206,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
         target.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    closeAllMenus();
   };
 
   return (
@@ -289,11 +318,13 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
         {/* MAIN NAVIGATION BAR (Crisp White Background, Compact & Premium) */}
         <div
-          className={`transition-all duration-300 relative bg-white border-b border-gray-200/90 ${
-            isScrolled ? 'shadow-md py-1.5' : 'py-2 sm:py-2.5 shadow-xs'
+          className={`transition-all duration-300 relative bg-white border-b border-gray-200/90 flex items-center ${
+            isScrolled
+              ? 'shadow-md h-[56px] sm:h-[60px] md:h-[64px] lg:h-[72px] xl:h-[78px]'
+              : 'shadow-xs h-[68px] sm:h-[80px] md:h-[88px] lg:h-[104px] xl:h-[108px]'
           }`}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between">
             
             {/* LEFT: Rudhira Metal Logo */}
             <div className="flex items-center">
@@ -304,7 +335,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   closeAllMenus();
                   if (onNavigate) onNavigate('home');
                 }}
-                className="flex items-center focus:outline-none transition-transform duration-200 hover:opacity-95 py-0.5"
+                className="flex items-center focus:outline-none transition-transform duration-200 hover:opacity-95"
                 aria-label="Rudhira Metal Industries - Home"
               >
                 <img
@@ -312,8 +343,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   alt="Rudhira Metal Industries Logo"
                   className={`w-auto object-contain transition-all duration-300 origin-left ${
                     isScrolled
-                      ? 'h-10 sm:h-11 md:h-12 lg:h-14 xl:h-[62px]'
-                      : 'h-12 sm:h-14 md:h-16 lg:h-20 xl:h-[84px]'
+                      ? 'h-[50px] sm:h-[54px] md:h-[58px] lg:h-[66px] xl:h-[74px]'
+                      : 'h-[62px] sm:h-[74px] md:h-[82px] lg:h-[98px] xl:h-[104px]'
                   }`}
                   loading="eager"
                 />
@@ -463,19 +494,21 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
             {/* Mobile / Tablet Header Controls */}
             <div className="flex lg:hidden items-center gap-2 sm:gap-2.5">
               <button
+                type="button"
                 onClick={() => {
-                  closeAllMenus();
                   if (onOpenEnquiry) onOpenEnquiry('Mobile Header RFQ');
+                  closeAllMenus();
                 }}
-                className="btn-wave inline-flex items-center justify-center gap-1.5 border-2 border-[#A94728] bg-[#A94728] hover:bg-[#8F371B] text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-md shadow-xs"
+                className="btn-wave hidden sm:inline-flex items-center justify-center gap-1.5 border-2 border-[#A94728] bg-[#A94728] hover:bg-[#8F371B] text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-md shadow-xs cursor-pointer"
               >
                 <span className="text-white font-bold">GET A QUOTE</span>
                 <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] text-white" />
               </button>
 
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-1.5 sm:p-2 rounded-lg border border-gray-200 text-[#171A1C] hover:bg-gray-100 transition-colors cursor-pointer"
+                className="p-1.5 sm:p-2 rounded-lg border border-gray-200 text-[#171A1C] hover:bg-gray-100 transition-colors cursor-pointer flex items-center justify-center"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -488,19 +521,30 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
       {/* Redesigned Mobile Drawer Navigation with Active Indicator Bars */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="fixed top-0 right-0 w-full max-w-sm h-full bg-white border-l border-gray-200 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+        <div
+          className="fixed inset-0 z-50 lg:hidden bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              closeAllMenus();
+            }
+          }}
+        >
+          <div
+            ref={mobileDrawerRef}
+            className="fixed top-0 right-0 w-full max-w-sm h-full bg-white border-l border-gray-200 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto"
+          >
             <div>
               {/* Header with Logo & Close Button */}
               <div className="flex items-center justify-between pb-4 border-b border-gray-100">
                 <img
                   src={brandLogo}
                   alt="Rudhira Metal Industries"
-                  className="h-12 sm:h-14 w-auto object-contain"
+                  className="h-14 sm:h-16 w-auto object-contain"
                 />
                 <button
+                  type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100 transition-colors"
+                  className="p-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
                   aria-label="Close navigation menu"
                 >
                   <X className="w-5 h-5" />
@@ -514,7 +558,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                 </div>
 
                 <nav className="flex flex-col space-y-1">
-                  {navLinks.map((link) => {
+                  {mobileNavLinks.map((link) => {
                     const active = isLinkActive(link);
 
                     // Product Accordion
@@ -528,19 +572,18 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         >
                           <div className="flex items-center justify-between">
                             <button
-                              onClick={() => {
-                                closeAllMenus();
-                                if (onNavigate) onNavigate('products-landing', null, '/products');
-                              }}
-                              className={`text-base font-bold transition-colors ${
+                              type="button"
+                              onClick={() => handleMobileNav('products-landing', null, '/products')}
+                              className={`text-base font-bold transition-colors cursor-pointer ${
                                 active ? 'text-[#A94728] font-black' : 'text-[#1C2024]'
                               }`}
                             >
-                              Product
+                              Products
                             </button>
                             <button
+                              type="button"
                               onClick={() => setMobileProductExpanded(!mobileProductExpanded)}
-                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded"
+                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded cursor-pointer"
                               aria-label="Expand product categories"
                             >
                               <ChevronDown
@@ -573,10 +616,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                   .map((cat) => (
                                     <button
                                       key={cat.id}
-                                      onClick={() => {
-                                        closeAllMenus();
-                                        if (onNavigate) onNavigate('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`);
-                                      }}
+                                      type="button"
+                                      onClick={() => handleMobileNav('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`)}
                                       className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
                                     >
                                       • {cat.name}
@@ -601,10 +642,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                 ].includes(p.slug)).map((cat) => (
                                   <button
                                     key={cat.id}
-                                    onClick={() => {
-                                      closeAllMenus();
-                                      if (onNavigate) onNavigate('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`);
-                                    }}
+                                    type="button"
+                                    onClick={() => handleMobileNav('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`)}
                                     className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
                                   >
                                     • {cat.name}
@@ -614,10 +653,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
                               <div className="pt-2 border-t border-gray-200">
                                 <button
-                                  onClick={() => {
-                                    closeAllMenus();
-                                    if (onNavigate) onNavigate('products-landing', null, '/products');
-                                  }}
+                                  type="button"
+                                  onClick={() => handleMobileNav('products-landing', null, '/products')}
                                   className="text-[11px] font-mono font-bold text-[#A94728] hover:underline cursor-pointer"
                                 >
                                   View All {PRODUCT_CATEGORIES.length} Products Directory →
@@ -640,17 +677,16 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         >
                           <div className="flex items-center justify-between">
                             <button
-                              onClick={() => {
-                                closeAllMenus();
-                                if (onNavigate) onNavigate('materials-landing', null, '/materials');
-                              }}
-                              className={`text-base font-bold transition-colors ${
+                              type="button"
+                              onClick={() => handleMobileNav('materials-landing', null, '/materials')}
+                              className={`text-base font-bold transition-colors cursor-pointer ${
                                 active ? 'text-[#A94728] font-black' : 'text-[#1C2024]'
                               }`}
                             >
-                              Material
+                              Materials
                             </button>
                             <button
+                              type="button"
                               onClick={() => setMobileMaterialExpanded(!mobileMaterialExpanded)}
                               className="p-1.5 text-gray-500 hover:text-[#A94728] rounded cursor-pointer"
                               aria-label="Expand materials"
@@ -671,10 +707,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                               {MATERIAL_CATEGORIES.map((mat) => (
                                 <button
                                   key={mat.id}
-                                  onClick={() => {
-                                    closeAllMenus();
-                                    if (onNavigate) onNavigate('material-family', null, `/materials/${getMaterialSeoSlug(mat.slug)}`);
-                                  }}
+                                  type="button"
+                                  onClick={() => handleMobileNav('material-family', null, `/materials/${getMaterialSeoSlug(mat.slug)}`)}
                                   className="block text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
                                 >
                                   • {mat.name}
@@ -683,10 +717,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
                               <div className="pt-2 border-t border-gray-200">
                                 <button
-                                  onClick={() => {
-                                    closeAllMenus();
-                                    if (onNavigate) onNavigate('materials-landing', null, '/materials');
-                                  }}
+                                  type="button"
+                                  onClick={() => handleMobileNav('materials-landing', null, '/materials')}
                                   className="text-[11px] font-mono font-bold text-[#A94728] hover:underline cursor-pointer"
                                 >
                                   View All {MATERIAL_CATEGORIES.length} Metallurgy Families →
@@ -709,17 +741,16 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         >
                           <div className="flex items-center justify-between">
                             <button
-                              onClick={() => {
-                                closeAllMenus();
-                                if (onNavigate) onNavigate('certificates', null, '/certificates');
-                              }}
-                              className={`text-base font-bold transition-colors ${
+                              type="button"
+                              onClick={() => handleMobileNav('certificates', null, '/certificates')}
+                              className={`text-base font-bold transition-colors cursor-pointer ${
                                 active ? 'text-[#A94728] font-black' : 'text-[#1C2024]'
                               }`}
                             >
                               Certificates
                             </button>
                             <button
+                              type="button"
                               onClick={() => setMobileCertificatesExpanded(!mobileCertificatesExpanded)}
                               className="p-1.5 text-gray-500 hover:text-[#A94728] rounded cursor-pointer"
                               aria-label="Expand certificates"
@@ -741,12 +772,13 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
                               {/* ISO 9001:2015 Button */}
                               <button
+                                type="button"
                                 onClick={() => {
-                                  closeAllMenus();
                                   setActiveCertId('iso-9001-2015');
                                   setCertModalOpen(true);
+                                  closeAllMenus();
                                 }}
-                                className="w-full text-left p-2.5 bg-white hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors flex items-center justify-between"
+                                className="w-full text-left p-2.5 bg-white hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors flex items-center justify-between cursor-pointer"
                               >
                                 <div className="min-w-0 pr-2">
                                   <div className="text-xs font-bold text-[#1C2024] truncate">
@@ -763,12 +795,13 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
                               {/* GST REG-06 Button */}
                               <button
+                                type="button"
                                 onClick={() => {
-                                  closeAllMenus();
                                   setActiveCertId('gst-registration');
                                   setCertModalOpen(true);
+                                  closeAllMenus();
                                 }}
-                                className="w-full text-left p-2.5 bg-white hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors flex items-center justify-between"
+                                className="w-full text-left p-2.5 bg-white hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors flex items-center justify-between cursor-pointer"
                               >
                                 <div className="min-w-0 pr-2">
                                   <div className="text-xs font-bold text-[#1C2024] truncate">
@@ -785,11 +818,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
                               <div className="pt-2 border-t border-gray-200">
                                 <button
-                                  onClick={() => {
-                                    closeAllMenus();
-                                    if (onNavigate) onNavigate('certificates', null, '/certificates');
-                                  }}
-                                  className="text-[11px] font-mono font-bold text-[#A94728] hover:underline flex items-center gap-1"
+                                  type="button"
+                                  onClick={() => handleMobileNav('certificates', null, '/certificates')}
+                                  className="text-[11px] font-mono font-bold text-[#A94728] hover:underline flex items-center gap-1 cursor-pointer"
                                 >
                                   <span>View Quality & Compliance Center</span>
                                   <span>→</span>
@@ -801,13 +832,16 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                       );
                     }
 
-                    // Standard Links (Home, About Us, Contact)
+                    // Standard Links (Home, About Us, Services, Industries, Contact)
                     return (
                       <a
                         key={link.name}
                         href={link.href}
-                        onClick={(e) => handleNavClick(e, link)}
-                        className={`flex items-center justify-between text-base font-bold py-2.5 px-3 rounded-xl transition-all duration-200 ${
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleMobileNav(link.page, link.anchor, link.href);
+                        }}
+                        className={`flex items-center justify-between text-base font-bold py-2.5 px-3 rounded-xl transition-all duration-200 cursor-pointer ${
                           active
                             ? 'bg-[#A94728]/10 text-[#A94728] border-l-4 border-[#A94728] pl-3.5 font-extrabold shadow-2xs'
                             : 'text-[#1C2024] hover:text-[#A94728] hover:bg-gray-50'
@@ -864,11 +898,12 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
               {/* Get Quote Action */}
               <button
+                type="button"
                 onClick={() => {
-                  setMobileMenuOpen(false);
                   if (onOpenEnquiry) onOpenEnquiry('Mobile Drawer RFQ');
+                  closeAllMenus();
                 }}
-                className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8D381D] text-white text-sm font-extrabold uppercase tracking-wider py-3 rounded-md shadow-md transition-all active:scale-[0.97]"
+                className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8D381D] text-white text-sm font-extrabold uppercase tracking-wider py-3 rounded-md shadow-md transition-all active:scale-[0.97] cursor-pointer"
               >
                 <span className="text-white">GET A QUOTE</span>
                 <ArrowUpRight className="w-4 h-4 stroke-[2.5] text-white" />

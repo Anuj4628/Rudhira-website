@@ -82,9 +82,15 @@ function parseUrl(pathname) {
   if (parts[0] === 'certificates' || parts[0] === 'certificate' || parts[0] === 'certification' || parts[0] === 'certifications') {
     return { page: 'certificates', params: {} };
   }
+  if (parts[0] === 'services' || parts[0] === 'value-added-services') {
+    return { page: 'home', params: { scrollTo: '#services' } };
+  }
+  if (parts[0] === 'industries' || parts[0] === 'sectors') {
+    return { page: 'home', params: { scrollTo: '#industries' } };
+  }
 
   // Materials routing (/materials/:materialSlug)
-  if (parts[0] === 'materials') {
+  if (parts[0] === 'materials' || parts[0] === 'material') {
     if (parts.length === 1) {
       return { page: 'materials-landing', params: {} };
     }
@@ -95,7 +101,7 @@ function parseUrl(pathname) {
   }
 
   // Products routing
-  if (parts[0] === 'products') {
+  if (parts[0] === 'products' || parts[0] === 'product') {
     if (parts.length === 1) {
       return { page: 'products-landing', params: {} };
     }
@@ -152,11 +158,30 @@ export default function App() {
       const { page, params } = parseUrl(window.location.pathname);
       setCurrentPage(page);
       setRouteParams(params);
-      window.scrollTo(0, 0);
+      if (params.scrollTo) {
+        setTimeout(() => {
+          const el = document.querySelector(params.scrollTo);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      } else if (!window.location.hash) {
+        window.scrollTo(0, 0);
+      }
     };
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Handle initial scrollTo on direct load with hash or route
+  useEffect(() => {
+    const hash = window.location.hash || routeParams?.scrollTo;
+    if (hash) {
+      const timer = setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   // Update dynamic page titles, meta descriptions & canonical URLs for SEO & Browser Tabs
@@ -223,34 +248,43 @@ export default function App() {
     }
   }, [currentPage, routeParams]);
 
-  // Seamless client-side navigation handler supporting path updates
+  // Seamless client-side navigation handler supporting path updates and smooth anchor scrolling
   const navigateTo = (page, anchor = null, urlPath = null) => {
     let targetPath = urlPath;
     if (!targetPath) {
-      if (page === 'home') targetPath = '/';
-      else if (page === 'about') targetPath = '/about';
+      if (page === 'home') {
+        targetPath = anchor ? `/${anchor}` : '/';
+      } else if (page === 'about') targetPath = '/about';
       else if (page === 'contact') targetPath = '/contact';
       else if (page === 'certificates') targetPath = '/certificates';
       else if (page === 'products-landing') targetPath = '/products';
       else if (page === 'materials-landing') targetPath = '/materials';
+      else if (page === 'product-category' && routeParams?.productSlug) targetPath = `/products/${routeParams.productSlug}`;
+      else if (page === 'material-family' && routeParams?.materialSlug) targetPath = `/materials/${routeParams.materialSlug}`;
       else targetPath = '/';
     }
 
-    if (window.location.pathname !== targetPath) {
+    const cleanPath = targetPath.split('#')[0] || '/';
+    if (window.location.pathname !== cleanPath) {
       window.history.pushState(null, '', targetPath);
     }
 
-    const { page: resolvedPage, params: resolvedParams } = parseUrl(targetPath);
-    setCurrentPage(resolvedPage);
+    const { page: resolvedPage, params: resolvedParams } = parseUrl(cleanPath);
+    const destinationPage = page || resolvedPage;
+    setCurrentPage(destinationPage);
     setRouteParams(resolvedParams);
 
     if (anchor) {
-      setTimeout(() => {
+      const doScroll = () => {
         const el = document.querySelector(anchor);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
+      };
+      // Multi-phase execution handles both same-page and cross-page anchor scrolling smoothly
+      setTimeout(doScroll, 60);
+      setTimeout(doScroll, 220);
+      setTimeout(doScroll, 400);
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
