@@ -618,6 +618,25 @@ export const COMPANY_CERTIFICATES = [
     image: "/certificates/gst-registration-certificate-page-1.png",
     pdfUrl: "/certificates/gst-registration-certificate.pdf",
     tags: ["GSTIN: 27BXMPP3576J1ZQ", "Govt. of India", "Tax Verified", "Form GST REG-06"]
+  },
+  {
+    id: "udyam-registration",
+    type: "MSME REGISTRATION",
+    badge: "UDYAM REG",
+    title: "Udyam Registration Certificate",
+    subtitle: "Ministry of Micro, Small and Medium Enterprises — Government of India",
+    certificateNo: "UDYAM-MH-19-0475827",
+    legalName: "RUDHIRA METAL INDUSTRIES",
+    tradeName: "Rudhira Metal Industries",
+    enterpriseType: "Micro Enterprise (Manufacturing)",
+    issuingBody: "Ministry of MSME, Government of India",
+    jurisdiction: "DIC Mumbai City / MSME-DFO Mumbai, Maharashtra",
+    issueDate: "27/10/2026",
+    expiryDate: "Valid Ongoing (Permanent MSME Registration)",
+    scope: "Manufacture of Fabricated Metal Products (NIC 25999), Casting & Manufacture of Tubes, Pipes, Hollow Profiles and Tube/Pipe Fittings of Cast-Iron/Cast-Steel & Basic Iron and Steel (NIC 24311, 24106).",
+    image: "/certificates/udyam-registration-certificate.png",
+    pdfUrl: "/certificates/udyam-registration-certificate.pdf",
+    tags: ["UDYAM: UDYAM-MH-19-0475827", "Ministry of MSME", "Govt. of India", "Manufacturing Enterprise"]
   }
 ];
 

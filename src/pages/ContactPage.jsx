@@ -723,6 +723,15 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                 <span>View GST Certificate</span>
                 <ExternalLink className="w-3 h-3" />
               </button>
+
+              <button
+                type="button"
+                onClick={() => handleOpenCert('udyam-registration')}
+                className="btn-wave inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#202427]/40 text-[#202427] rounded text-xs font-mono font-bold transition-all cursor-pointer"
+              >
+                <span>View MSME Udyam</span>
+                <ExternalLink className="w-3 h-3" />
+              </button>
             </div>
           </div>
         </div>

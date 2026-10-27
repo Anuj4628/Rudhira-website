@@ -758,51 +758,30 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                 <span className="text-[9px] text-gray-400">{COMPANY_CERTIFICATES.length} DOCUMENTS</span>
                               </div>
 
-                              {/* ISO 9001:2015 Button */}
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setActiveCertId('iso-9001-2015');
-                                  setCertModalOpen(true);
-                                  closeAllMenus();
-                                }}
-                                className="w-full text-left p-2.5 bg-white hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors flex items-center justify-between cursor-pointer"
-                              >
-                                <div className="min-w-0 pr-2">
-                                  <div className="text-xs font-bold text-[#1C2024] truncate">
-                                    ISO 9001:2015 Certificate
+                              {COMPANY_CERTIFICATES.map((cert) => (
+                                <button
+                                  key={cert.id}
+                                  type="button"
+                                  onClick={() => {
+                                    setActiveCertId(cert.id);
+                                    setCertModalOpen(true);
+                                    closeAllMenus();
+                                  }}
+                                  className="w-full text-left p-2.5 bg-white hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors flex items-center justify-between cursor-pointer"
+                                >
+                                  <div className="min-w-0 pr-2">
+                                    <div className="text-xs font-bold text-[#1C2024] truncate">
+                                      {cert.title}
+                                    </div>
+                                    <div className="text-[10px] font-mono text-[#A94728] truncate">
+                                      {cert.badge} • {cert.certificateNo}
+                                    </div>
                                   </div>
-                                  <div className="text-[10px] font-mono text-[#A94728]">
-                                    Cert No: 26DQQC40
-                                  </div>
-                                </div>
-                                <span className="text-[10px] font-mono font-bold text-[#A94728] bg-[#A94728]/10 px-2 py-0.5 rounded">
-                                  VIEW
-                                </span>
-                              </button>
-
-                              {/* GST REG-06 Button */}
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setActiveCertId('gst-registration');
-                                  setCertModalOpen(true);
-                                  closeAllMenus();
-                                }}
-                                className="w-full text-left p-2.5 bg-white hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors flex items-center justify-between cursor-pointer"
-                              >
-                                <div className="min-w-0 pr-2">
-                                  <div className="text-xs font-bold text-[#1C2024] truncate">
-                                    GST Registration (REG-06)
-                                  </div>
-                                  <div className="text-[10px] font-mono text-[#A94728]">
-                                    GSTIN: 27BXMPP3576J1ZQ
-                                  </div>
-                                </div>
-                                <span className="text-[10px] font-mono font-bold text-[#A94728] bg-[#A94728]/10 px-2 py-0.5 rounded">
-                                  VIEW
-                                </span>
-                              </button>
+                                  <span className="text-[10px] font-mono font-bold text-[#A94728] bg-[#A94728]/10 px-2 py-0.5 rounded flex-shrink-0">
+                                    VIEW
+                                  </span>
+                                </button>
+                              ))}
 
                               <div className="pt-2 border-t border-gray-200">
                                 <button

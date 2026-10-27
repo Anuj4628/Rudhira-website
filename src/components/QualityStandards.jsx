@@ -157,12 +157,12 @@ export default function QualityStandards() {
               Certified Quality & Statutory Compliance
             </h3>
             <p className="text-sm sm:text-base text-[#E7EEF2]/85">
-              View and download our authenticated ISO 9001:2015 Quality Management System Certification and Government of India GST Registration Certificate.
+              View and download our authenticated ISO 9001:2015 Quality Management System Certification, Government of India GST Registration Certificate, and Ministry of MSME Udyam Registration Certificate.
             </p>
           </div>
 
-          {/* 2 Official Certificate Showcase Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* 3 Official Certificate Showcase Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
             {COMPANY_CERTIFICATES.map((cert) => (
               <div
                 key={cert.id}

@@ -81,7 +81,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
 
             {/* Subtitle (18–20px desktop) */}
             <p className="text-base sm:text-lg lg:text-[20px] text-[#E7EEF2]/95 leading-relaxed mb-8 max-w-2xl font-normal font-sans">
-              Rudhira Metal Industries operates under accredited quality systems and official government registrations. Inspect our third-party audited ISO 9001:2015 certification and Government of India GST credentials below.
+              Rudhira Metal Industries operates under accredited quality systems and official government registrations. Inspect our third-party audited ISO 9001:2015 certification, Government of India GST credentials, and Ministry of MSME Udyam Registration below.
             </p>
 
             {/* Key Credential Badges */}
@@ -96,6 +96,10 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
               </div>
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-white/5 border border-white/15">
                 <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
+                <span>UDYAM: UDYAM-MH-19-0475827</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-white/5 border border-white/15">
+                <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
                 <span>IAF MLA &amp; EIAC Accredited</span>
               </div>
             </div>
@@ -107,7 +111,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         {/* Filter / Filter Tabs */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-4 border-b border-[#D9D9D6]">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={() => setSelectedTab('all')}
               className={`px-4 py-2 rounded text-xs font-mono font-bold transition-all cursor-pointer ${
@@ -118,26 +122,19 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
             >
               All Documents ({COMPANY_CERTIFICATES.length})
             </button>
-            <button
-              onClick={() => setSelectedTab('iso-9001-2015')}
-              className={`px-4 py-2 rounded text-xs font-mono font-bold transition-all cursor-pointer ${
-                selectedTab === 'iso-9001-2015'
-                  ? 'bg-[#A94728] text-white shadow-sm'
-                  : 'bg-white text-[#202427] border border-[#D9D9D6] hover:border-[#A94728]'
-              }`}
-            >
-              ISO 9001:2015 Certificate
-            </button>
-            <button
-              onClick={() => setSelectedTab('gst-registration')}
-              className={`px-4 py-2 rounded text-xs font-mono font-bold transition-all cursor-pointer ${
-                selectedTab === 'gst-registration'
-                  ? 'bg-[#A94728] text-white shadow-sm'
-                  : 'bg-white text-[#202427] border border-[#D9D9D6] hover:border-[#A94728]'
-              }`}
-            >
-              GST Registration Certificate
-            </button>
+            {COMPANY_CERTIFICATES.map((cert) => (
+              <button
+                key={cert.id}
+                onClick={() => setSelectedTab(cert.id)}
+                className={`px-4 py-2 rounded text-xs font-mono font-bold transition-all cursor-pointer ${
+                  selectedTab === cert.id
+                    ? 'bg-[#A94728] text-white shadow-sm'
+                    : 'bg-white text-[#202427] border border-[#D9D9D6] hover:border-[#A94728]'
+                }`}
+              >
+                {cert.title}
+              </button>
+            ))}
           </div>
 
           <div className="text-xs font-mono text-[#202427]/70">
