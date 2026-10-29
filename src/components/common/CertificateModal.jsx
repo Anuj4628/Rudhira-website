@@ -50,7 +50,7 @@ export default function CertificateModal({ isOpen, onClose, initialCertId = 'iso
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse" />
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-[#A94728]" />
+              <ShieldCheck className="w-4 h-4 text-white" />
               <span className="font-mono text-xs sm:text-sm font-bold tracking-wider text-white uppercase">
                 OFFICIAL VERIFIED CERTIFICATION
               </span>
@@ -77,8 +77,8 @@ export default function CertificateModal({ isOpen, onClose, initialCertId = 'iso
                   onClick={() => setSelectedCertId(cert.id)}
                   className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold font-mono transition-all cursor-pointer ${
                     active
-                      ? 'bg-[#A94728] text-white shadow-xs'
-                      : 'bg-white text-[#202427] border border-[#D9D9D6] hover:border-[#A94728]'
+                      ? 'bg-[#123F91] text-white shadow-xs'
+                      : 'bg-white text-[#202427] border border-[#D9D9D6] hover:border-[#123F91]'
                   }`}
                 >
                   <FileText className="w-3.5 h-3.5" />
@@ -94,17 +94,17 @@ export default function CertificateModal({ isOpen, onClose, initialCertId = 'iso
               download
               className="inline-flex items-center gap-1.5 bg-[#202427] hover:bg-[#171A1C] text-white px-3.5 py-1.5 rounded-md text-xs font-bold font-mono transition-colors shadow-xs"
             >
-              <Download className="w-3.5 h-3.5 text-[#F4E5DC]" />
+              <Download className="w-3.5 h-3.5 text-[#EEF3FA]" />
               <span>Download PDF</span>
             </a>
             <a
               href={currentCert.pdfUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 bg-white hover:bg-[#F4E5DC]/50 text-[#202427] border border-[#D9D9D6] px-3 py-1.5 rounded-md text-xs font-bold font-mono transition-colors"
+              className="inline-flex items-center gap-1 bg-white hover:bg-[#EEF3FA]/50 text-[#202427] border border-[#D9D9D6] px-3 py-1.5 rounded-md text-xs font-bold font-mono transition-colors"
             >
               <span>Open Raw PDF</span>
-              <ExternalLink className="w-3 h-3 text-[#A94728]" />
+              <ExternalLink className="w-3 h-3 text-[#123F91]" />
             </a>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function CertificateModal({ isOpen, onClose, initialCertId = 'iso
             {/* Right: Technical Metadata & Compliance Details */}
             <div className="lg:col-span-5 space-y-4">
               <div className="bg-white p-5 rounded-lg border-2 border-[#D9D9D6] shadow-xs space-y-3">
-                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#A94728]/10 border border-[#A94728]/25 text-[#A94728] text-xs font-mono font-bold">
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#123F91]/10 border border-[#123F91]/25 text-[#123F91] text-xs font-mono font-bold">
                   <span>{currentCert.type}</span>
                 </div>
 
@@ -146,7 +146,7 @@ export default function CertificateModal({ isOpen, onClose, initialCertId = 'iso
                 <div className="pt-3 border-t border-[#D9D9D6] space-y-2.5 font-mono text-xs">
                   <div className="flex items-start justify-between gap-2 pb-1.5 border-b border-[#D9D9D6]/40">
                     <span className="text-[#6B7280]">Registration No:</span>
-                    <strong className="text-[#A94728] text-right font-bold break-all">
+                    <strong className="text-[#123F91] text-right font-bold break-all">
                       {currentCert.certificateNo}
                     </strong>
                   </div>
@@ -179,7 +179,7 @@ export default function CertificateModal({ isOpen, onClose, initialCertId = 'iso
                   {currentCert.tradeName && (
                     <div className="flex items-start justify-between gap-2 pb-1.5 border-b border-[#D9D9D6]/40">
                       <span className="text-[#6B7280]">Trade Name:</span>
-                      <strong className="text-[#A94728] text-right">
+                      <strong className="text-[#123F91] text-right">
                         {currentCert.tradeName}
                       </strong>
                     </div>
@@ -211,8 +211,8 @@ export default function CertificateModal({ isOpen, onClose, initialCertId = 'iso
 
               {/* Security & Verification Callout */}
               <div className="p-4 bg-[#202427] text-white rounded-lg border border-white/10 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#F4E5DC]">
-                  <ShieldCheck className="w-4 h-4 text-[#A94728]" />
+                <div className="flex items-center gap-2 text-xs font-bold text-[#EEF3FA]">
+                  <ShieldCheck className="w-4 h-4 text-white" />
                   <span>Compliance Guarantee</span>
                 </div>
                 <p className="text-[11px] text-[#D9D9D6]/80 leading-relaxed">

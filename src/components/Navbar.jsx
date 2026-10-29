@@ -208,13 +208,13 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
           setHoveredIndex(null);
         }}
       >
-        {/* TOP INFORMATION STRIP (Full-Width Terracotta Orange with White Angled Location Block) */}
-        <div className="hidden md:block bg-[#A94728] text-white select-none border-b border-[#923C20] shadow-xs">
+        {/* TOP INFORMATION STRIP (Full-Width Navy Blue with White Angled Location Block) */}
+        <div className="hidden md:block bg-[#123F91] text-white select-none border-b border-[#0B2863] shadow-xs">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
             
             {/* 1. Left: Contrasting White Angled Location Block */}
-            <div className="relative bg-white text-[#A94728] py-1 pl-4 sm:pl-5 pr-7 sm:pr-9 flex items-center gap-1.5 text-xs font-sans font-bold [clip-path:polygon(0_0,100%_0,calc(100%-16px)_100%,0_100%)] shadow-xs flex-shrink-0">
-              <MapPin className="w-3.5 h-3.5 text-[#A94728] flex-shrink-0 stroke-[2.2]" />
+            <div className="relative bg-white text-[#123F91] py-1 pl-4 sm:pl-5 pr-7 sm:pr-9 flex items-center gap-1.5 text-xs font-sans font-bold [clip-path:polygon(0_0,100%_0,calc(100%-16px)_100%,0_100%)] shadow-xs flex-shrink-0">
+              <MapPin className="w-3.5 h-3.5 text-[#123F91] flex-shrink-0 stroke-[2.2]" />
               <span className="whitespace-nowrap">Khetwadi, Mumbai - 400 004</span>
             </div>
 
@@ -371,8 +371,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         aria-haspopup={link.isMega ? 'menu' : undefined}
                         className={`inline-flex items-center gap-1.5 text-[14.5px] xl:text-[15.5px] font-bold font-sans tracking-tight transition-colors duration-200 cursor-pointer ${
                           isTarget || isOpen
-                            ? 'text-[#A94728]'
-                            : 'text-[#171A1C] hover:text-[#A94728]'
+                            ? 'text-[#123F91]'
+                            : 'text-[#171A1C] hover:text-[#123F91]'
                         }`}
                       >
                         <span>{link.name}</span>
@@ -380,10 +380,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                           <ChevronDown
                             className={`w-3.5 h-3.5 transition-transform duration-200 ${
                               isOpen
-                                ? 'rotate-180 text-[#A94728]'
+                                ? 'rotate-180 text-[#123F91]'
                                 : isTarget
-                                ? 'text-[#A94728]'
-                                : 'text-gray-400 group-hover:text-[#A94728]'
+                                ? 'text-[#123F91]'
+                                : 'text-gray-400 group-hover:text-[#123F91]'
                             }`}
                           />
                         )}
@@ -391,7 +391,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
                       {/* Brand-Colored Subtle Underline Indicator */}
                       <span
-                        className={`absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#A94728] rounded-full transition-all duration-200 ${
+                        className={`absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#123F91] rounded-full transition-all duration-200 ${
                           isTarget || isOpen
                             ? 'opacity-100 scale-x-100'
                             : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
@@ -459,7 +459,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   closeAllMenus();
                   if (onOpenEnquiry) onOpenEnquiry('Navbar Header RFQ');
                 }}
-                className="btn-wave group relative inline-flex items-center justify-center gap-2 border-2 border-[#A94728] bg-[#A94728] hover:bg-[#8F371B] text-white text-xs sm:text-[13px] font-bold uppercase tracking-wider px-5 sm:px-6 py-2 sm:py-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                className="btn-wave group relative inline-flex items-center justify-center gap-2 border-2 border-[#123F91] bg-[#123F91] hover:bg-[#0B2863] text-white text-xs sm:text-[13px] font-bold uppercase tracking-wider px-5 sm:px-6 py-2 sm:py-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
                 aria-label="Get A Quote"
               >
                 <span className="relative z-10 text-white font-bold">GET A QUOTE</span>
@@ -519,7 +519,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
               {/* Navigation Links Accordion */}
               <div className="mt-5">
-                <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase tracking-widest mb-2">
+                <div className="text-[10px] font-mono font-bold text-[#123F91] uppercase tracking-widest mb-2">
                   NAVIGATION MENU
                 </div>
 
@@ -533,7 +533,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         <div
                           key={link.name}
                           className={`border-b border-gray-100 py-1.5 rounded-xl transition-colors ${
-                            active ? 'border-l-4 border-l-[#A94728] bg-[#A94728]/5 pl-2.5' : ''
+                            active ? 'border-l-4 border-l-[#123F91] bg-[#123F91]/5 pl-2.5' : ''
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -541,7 +541,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                               type="button"
                               onClick={() => handleMobileNav('products-landing', null, '/products')}
                               className={`text-base font-bold transition-colors cursor-pointer ${
-                                active ? 'text-[#A94728] font-black' : 'text-[#1C2024]'
+                                active ? 'text-[#123F91] font-black' : 'text-[#1C2024]'
                               }`}
                             >
                               Products
@@ -549,20 +549,20 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                             <button
                               type="button"
                               onClick={() => setMobileProductExpanded(!mobileProductExpanded)}
-                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded cursor-pointer"
+                              className="p-1.5 text-gray-500 hover:text-[#123F91] rounded cursor-pointer"
                               aria-label="Expand product categories"
                             >
                               <ChevronDown
                                 className={`w-4 h-4 transition-transform ${
-                                  mobileProductExpanded ? 'rotate-180 text-[#A94728]' : ''
+                                  mobileProductExpanded ? 'rotate-180 text-[#123F91]' : ''
                                 }`}
                               />
                             </button>
                           </div>
 
                           {mobileProductExpanded && (
-                            <div className="mt-2 pl-3 py-2 space-y-2 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20 max-h-60 overflow-y-auto sidebar-sticky-scroll">
-                              <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase">
+                            <div className="mt-2 pl-3 py-2 space-y-2 bg-[#FAF9F7] rounded-xl border border-[#123F91]/20 max-h-60 overflow-y-auto sidebar-sticky-scroll">
+                              <div className="text-[10px] font-mono font-bold text-[#123F91] uppercase">
                                 TOP PRIORITY PRODUCTS (9)
                               </div>
                               <div className="grid grid-cols-1 gap-1">
@@ -584,14 +584,14 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                       key={cat.id}
                                       type="button"
                                       onClick={() => handleMobileNav('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`)}
-                                      className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
+                                      className="text-left text-xs font-medium text-gray-700 hover:text-[#123F91] py-1 truncate cursor-pointer"
                                     >
                                       • {cat.name}
                                     </button>
                                   ))}
                               </div>
 
-                              <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase pt-2 border-t border-gray-200">
+                              <div className="text-[10px] font-mono font-bold text-[#123F91] uppercase pt-2 border-t border-gray-200">
                                 EXTENDED CATALOG (9)
                               </div>
                               <div className="grid grid-cols-1 gap-1">
@@ -610,7 +610,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                     key={cat.id}
                                     type="button"
                                     onClick={() => handleMobileNav('product-category', null, `/products/${getProductSeoSlug(cat.slug)}`)}
-                                    className="text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
+                                    className="text-left text-xs font-medium text-gray-700 hover:text-[#123F91] py-1 truncate cursor-pointer"
                                   >
                                     • {cat.name}
                                   </button>
@@ -621,7 +621,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                 <button
                                   type="button"
                                   onClick={() => handleMobileNav('products-landing', null, '/products')}
-                                  className="text-[11px] font-mono font-bold text-[#A94728] hover:underline cursor-pointer"
+                                  className="text-[11px] font-mono font-bold text-[#123F91] hover:underline cursor-pointer"
                                 >
                                   View All {PRODUCT_CATEGORIES.length} Products Directory →
                                 </button>
@@ -638,7 +638,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         <div
                           key={link.name}
                           className={`border-b border-gray-100 py-1.5 rounded-xl transition-colors ${
-                            active ? 'border-l-4 border-l-[#A94728] bg-[#A94728]/5 pl-2.5' : ''
+                            active ? 'border-l-4 border-l-[#123F91] bg-[#123F91]/5 pl-2.5' : ''
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -646,7 +646,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                               type="button"
                               onClick={() => handleMobileNav('materials-landing', null, '/materials')}
                               className={`text-base font-bold transition-colors cursor-pointer ${
-                                active ? 'text-[#A94728] font-black' : 'text-[#1C2024]'
+                                active ? 'text-[#123F91] font-black' : 'text-[#1C2024]'
                               }`}
                             >
                               Materials
@@ -654,20 +654,20 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                             <button
                               type="button"
                               onClick={() => setMobileMaterialExpanded(!mobileMaterialExpanded)}
-                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded cursor-pointer"
+                              className="p-1.5 text-gray-500 hover:text-[#123F91] rounded cursor-pointer"
                               aria-label="Expand materials"
                             >
                               <ChevronDown
                                 className={`w-4 h-4 transition-transform ${
-                                  mobileMaterialExpanded ? 'rotate-180 text-[#A94728]' : ''
+                                  mobileMaterialExpanded ? 'rotate-180 text-[#123F91]' : ''
                                 }`}
                               />
                             </button>
                           </div>
 
                           {mobileMaterialExpanded && (
-                            <div className="mt-2 pl-3 py-2 space-y-1.5 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20 max-h-60 overflow-y-auto sidebar-sticky-scroll">
-                              <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase">
+                            <div className="mt-2 pl-3 py-2 space-y-1.5 bg-[#FAF9F7] rounded-xl border border-[#123F91]/20 max-h-60 overflow-y-auto sidebar-sticky-scroll">
+                              <div className="text-[10px] font-mono font-bold text-[#123F91] uppercase">
                                 {MATERIAL_CATEGORIES.length} ALLOY FAMILIES
                               </div>
                               {MATERIAL_CATEGORIES.map((mat) => (
@@ -675,7 +675,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                   key={mat.id}
                                   type="button"
                                   onClick={() => handleMobileNav('material-family', null, `/materials/${getMaterialSeoSlug(mat.slug)}`)}
-                                  className="block text-left text-xs font-medium text-gray-700 hover:text-[#A94728] py-1 truncate cursor-pointer"
+                                  className="block text-left text-xs font-medium text-gray-700 hover:text-[#123F91] py-1 truncate cursor-pointer"
                                 >
                                   • {mat.name}
                                 </button>
@@ -685,7 +685,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                 <button
                                   type="button"
                                   onClick={() => handleMobileNav('materials-landing', null, '/materials')}
-                                  className="text-[11px] font-mono font-bold text-[#A94728] hover:underline cursor-pointer"
+                                  className="text-[11px] font-mono font-bold text-[#123F91] hover:underline cursor-pointer"
                                 >
                                   View All {MATERIAL_CATEGORIES.length} Metallurgy Families →
                                 </button>
@@ -702,7 +702,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         <div
                           key={link.name}
                           className={`border-b border-gray-100 py-1.5 rounded-xl transition-colors ${
-                            active ? 'border-l-4 border-l-[#A94728] bg-[#A94728]/5 pl-2.5' : ''
+                            active ? 'border-l-4 border-l-[#123F91] bg-[#123F91]/5 pl-2.5' : ''
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -710,7 +710,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                               type="button"
                               onClick={() => handleMobileNav('certificates', null, '/certificates')}
                               className={`text-base font-bold transition-colors cursor-pointer ${
-                                active ? 'text-[#A94728] font-black' : 'text-[#1C2024]'
+                                active ? 'text-[#123F91] font-black' : 'text-[#1C2024]'
                               }`}
                             >
                               Certificates
@@ -718,20 +718,20 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                             <button
                               type="button"
                               onClick={() => setMobileCertificatesExpanded(!mobileCertificatesExpanded)}
-                              className="p-1.5 text-gray-500 hover:text-[#A94728] rounded cursor-pointer"
+                              className="p-1.5 text-gray-500 hover:text-[#123F91] rounded cursor-pointer"
                               aria-label="Expand certificates"
                             >
                               <ChevronDown
                                 className={`w-4 h-4 transition-transform ${
-                                  mobileCertificatesExpanded ? 'rotate-180 text-[#A94728]' : ''
+                                  mobileCertificatesExpanded ? 'rotate-180 text-[#123F91]' : ''
                                 }`}
                               />
                             </button>
                           </div>
 
                           {mobileCertificatesExpanded && (
-                            <div className="mt-2 pl-3 pr-2 py-2.5 space-y-2 bg-[#FAF9F7] rounded-xl border border-[#A94728]/20">
-                              <div className="text-[10px] font-mono font-bold text-[#A94728] uppercase flex items-center justify-between">
+                            <div className="mt-2 pl-3 pr-2 py-2.5 space-y-2 bg-[#FAF9F7] rounded-xl border border-[#123F91]/20">
+                              <div className="text-[10px] font-mono font-bold text-[#123F91] uppercase flex items-center justify-between">
                                 <span>OFFICIAL ACCREDITATIONS</span>
                                 <span className="text-[9px] text-gray-400">{COMPANY_CERTIFICATES.length} DOCUMENTS</span>
                               </div>
@@ -751,11 +751,11 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                     <div className="text-xs font-bold text-[#1C2024] truncate">
                                       {cert.title}
                                     </div>
-                                    <div className="text-[10px] font-mono text-[#A94728] truncate">
+                                    <div className="text-[10px] font-mono text-[#123F91] truncate">
                                       {cert.badge} • {cert.certificateNo}
                                     </div>
                                   </div>
-                                  <span className="text-[10px] font-mono font-bold text-[#A94728] bg-[#A94728]/10 px-2 py-0.5 rounded flex-shrink-0">
+                                  <span className="text-[10px] font-mono font-bold text-[#123F91] bg-[#123F91]/10 px-2 py-0.5 rounded flex-shrink-0">
                                     VIEW
                                   </span>
                                 </button>
@@ -765,7 +765,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                 <button
                                   type="button"
                                   onClick={() => handleMobileNav('certificates', null, '/certificates')}
-                                  className="text-[11px] font-mono font-bold text-[#A94728] hover:underline flex items-center gap-1 cursor-pointer"
+                                  className="text-[11px] font-mono font-bold text-[#123F91] hover:underline flex items-center gap-1 cursor-pointer"
                                 >
                                   <span>View Quality & Compliance Center</span>
                                   <span>→</span>
@@ -788,8 +788,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         }}
                         className={`flex items-center justify-between text-base font-bold py-2.5 px-3 rounded-xl transition-all duration-200 cursor-pointer ${
                           active
-                            ? 'bg-[#A94728]/10 text-[#A94728] border-l-4 border-[#A94728] pl-3.5 font-extrabold shadow-2xs'
-                            : 'text-[#1C2024] hover:text-[#A94728] hover:bg-gray-50'
+                            ? 'bg-[#123F91]/10 text-[#123F91] border-l-4 border-[#123F91] pl-3.5 font-extrabold shadow-2xs'
+                            : 'text-[#1C2024] hover:text-[#123F91] hover:bg-gray-50'
                         }`}
                       >
                         <span>{link.name}</span>
@@ -805,7 +805,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
             {/* Direct Contact Desk Section */}
             <div className="pt-5 border-t border-gray-200 space-y-4">
-              <div className="text-[10px] font-mono font-bold text-[#A94728] tracking-widest uppercase">
+              <div className="text-[10px] font-mono font-bold text-[#123F91] tracking-widest uppercase">
                 DIRECT SALES DESK
               </div>
 
@@ -815,14 +815,14 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   <div key={contact.name} className="flex items-center justify-between text-xs">
                     <div>
                       <div className="font-bold text-[#1C2024]">{contact.name}</div>
-                      <a href={`tel:${contact.cleanPhone}`} className="text-[#A94728] font-mono font-semibold">
+                      <a href={`tel:${contact.cleanPhone}`} className="text-[#123F91] font-mono font-semibold">
                         {contact.phone}
                       </a>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <a
                         href={`tel:${contact.cleanPhone}`}
-                        className="p-1.5 bg-white hover:bg-[#A94728] hover:text-white rounded-md text-[#202427] transition-colors border border-gray-200"
+                        className="p-1.5 bg-white hover:bg-[#123F91] hover:text-white rounded-md text-[#202427] transition-colors border border-gray-200"
                         title={`Call ${contact.name}`}
                       >
                         <FaPhone className="w-3 h-3" />
@@ -848,7 +848,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   if (onOpenEnquiry) onOpenEnquiry('Mobile Drawer RFQ');
                   closeAllMenus();
                 }}
-                className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8D381D] text-white text-sm font-extrabold uppercase tracking-wider py-3 rounded-md shadow-md transition-all active:scale-[0.97] cursor-pointer"
+                className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#123F91] hover:bg-[#0B2863] text-white text-sm font-extrabold uppercase tracking-wider py-3 rounded-md shadow-md transition-all active:scale-[0.97] cursor-pointer"
               >
                 <span className="text-white">GET A QUOTE</span>
                 <ArrowUpRight className="w-4 h-4 stroke-[2.5] text-white" />

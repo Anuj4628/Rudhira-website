@@ -353,8 +353,8 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
           <div className="max-w-3xl">
             {/* Eyebrow */}
             <div className="contact-hero-anim inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 backdrop-blur-md mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-              <span className="tech-label text-xs sm:text-[13px] font-bold tracking-widest text-[#F4E5DC] uppercase">
+              <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
+              <span className="tech-label text-xs sm:text-[13px] font-bold tracking-widest text-[#EEF3FA] uppercase">
                 CONTACT RUDHIRA METAL INDUSTRIES
               </span>
             </div>
@@ -362,7 +362,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
             {/* Main Heading (76–96px desktop) */}
             <h1 className="contact-hero-anim text-4xl sm:text-6xl lg:text-[70px] xl:text-[76px] font-extrabold text-white tracking-tight leading-[1.05] mb-6 font-sans">
               Let's Build the Right Metal{' '}
-              <span className="text-[#F4E5DC] block mt-1">
+              <span className="text-[#EEF3FA] block mt-1">
                 Solution Together
               </span>
             </h1>
@@ -380,7 +380,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   e.preventDefault();
                   document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="contact-hero-btn inline-flex items-center gap-2.5 bg-[#A94728] hover:bg-[#8F3B20] border-2 border-[#A94728] hover:border-[#C34B2B] text-white !text-white text-sm sm:text-base font-black uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-xl shadow-[#A94728]/35 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] cursor-pointer group"
+                className="contact-hero-btn inline-flex items-center gap-2.5 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] hover:border-[#1D4FA3] text-white !text-white text-sm sm:text-base font-black uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-xl shadow-[#123F91]/35 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] cursor-pointer group"
               >
                 <span className="text-white !text-white font-black tracking-wider">Request a Quote</span>
                 <ArrowUpRight className="w-4 h-4 text-white !text-white stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -406,17 +406,17 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
             {/* Quick Badges */}
             <div className="contact-hero-anim mt-12 pt-8 border-t border-white/15 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs font-mono text-[#D9D9D6]">
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
                 <span>DIRECT TECHNICAL DESK</span>
               </div>
               <span className="text-white/20 hidden sm:inline">|</span>
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
                 <span>FAST QUOTATION TURNAROUND</span>
               </div>
               <span className="text-white/20 hidden md:inline">|</span>
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
                 <span>MUMBAI CENTRAL INDUSTRIAL SUPPLY</span>
               </div>
             </div>
@@ -434,9 +434,9 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="max-w-3xl mb-14 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+              <span className="tech-label text-[#123F91] font-bold text-xs">
                 DIRECT CONTACT CHANNELS
               </span>
             </div>
@@ -453,13 +453,13 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
           {/* 4 Clean Corporate Information Cards - Equal Height Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 items-stretch">
             {/* Card 1: Office Address */}
-            <div className="contact-info-card group p-6 sm:p-7 bg-white hover:bg-[#F4E5DC]/30 border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-industrial flex flex-col justify-between h-full min-w-0">
+            <div className="contact-info-card group p-6 sm:p-7 bg-white hover:bg-[#EEF3FA]/30 border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-industrial flex flex-col justify-between h-full min-w-0">
               <div className="min-w-0">
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-md bg-[#A94728]/10 text-[#A94728] flex items-center justify-center border border-[#A94728]/20 group-hover:bg-[#A94728] group-hover:text-white transition-colors flex-shrink-0">
+                  <div className="w-12 h-12 rounded-md bg-[#123F91]/10 text-[#123F91] flex items-center justify-center border border-[#123F91]/20 group-hover:bg-[#123F91] group-hover:text-white transition-colors flex-shrink-0">
                     <MapPin className="w-6 h-6 stroke-[1.75]" />
                   </div>
-                  <span className="tech-label text-[10px] text-[#A94728] font-bold">
+                  <span className="tech-label text-[10px] text-[#123F91] font-bold">
                     HQ / OFFICE
                   </span>
                 </div>
@@ -482,7 +482,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   href="https://maps.google.com/?q=Shop+No.+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A94728] hover:text-[#7E321F] group-hover:underline"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#123F91] hover:text-[#0B2863] group-hover:underline"
                 >
                   <span>View on Google Maps</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -492,13 +492,13 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
             </div>
 
             {/* Card 2: Key Phone Contacts */}
-            <div className="contact-info-card group p-6 sm:p-7 bg-white hover:bg-[#F4E5DC]/30 border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-industrial flex flex-col justify-between h-full min-w-0">
+            <div className="contact-info-card group p-6 sm:p-7 bg-white hover:bg-[#EEF3FA]/30 border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-industrial flex flex-col justify-between h-full min-w-0">
               <div className="min-w-0">
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-md bg-[#A94728]/10 text-[#A94728] flex items-center justify-center border border-[#A94728]/20 group-hover:bg-[#A94728] group-hover:text-white transition-colors flex-shrink-0">
+                  <div className="w-12 h-12 rounded-md bg-[#123F91]/10 text-[#123F91] flex items-center justify-center border border-[#123F91]/20 group-hover:bg-[#123F91] group-hover:text-white transition-colors flex-shrink-0">
                     <Phone className="w-6 h-6 stroke-[1.75]" />
                   </div>
-                  <span className="tech-label text-[10px] text-[#A94728] font-bold">
+                  <span className="tech-label text-[10px] text-[#123F91] font-bold">
                     DIRECT CALL
                   </span>
                 </div>
@@ -513,7 +513,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
 
                 <div className="space-y-2.5 mb-4 min-w-0">
                   {COMPANY_DETAILS.contacts.map((contact) => (
-                    <div key={contact.name} className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs min-w-0 transition-colors hover:border-[#A94728]/50">
+                    <div key={contact.name} className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs min-w-0 transition-colors hover:border-[#123F91]/50">
                       <div className="font-bold text-[#202427] mb-1 flex items-center justify-between gap-1">
                         <span className="truncate text-[11px] uppercase tracking-wider text-[#6B7280]">{contact.name}</span>
                         <a
@@ -528,7 +528,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                       </div>
                       <a
                         href={`tel:${contact.cleanPhone}`}
-                        className="font-mono text-[#A94728] hover:underline font-bold block truncate text-xs"
+                        className="font-mono text-[#123F91] hover:underline font-bold block truncate text-xs"
                       >
                         {contact.phone}
                       </a>
@@ -549,13 +549,13 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
             </div>
 
             {/* Card 3: Official Email Inboxes (Cleanly Aligned with Copy Support) */}
-            <div className="contact-info-card group p-6 sm:p-7 bg-white hover:bg-[#F4E5DC]/30 border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-industrial flex flex-col justify-between h-full min-w-0">
+            <div className="contact-info-card group p-6 sm:p-7 bg-white hover:bg-[#EEF3FA]/30 border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-industrial flex flex-col justify-between h-full min-w-0">
               <div className="min-w-0">
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-md bg-[#A94728]/10 text-[#A94728] flex items-center justify-center border border-[#A94728]/20 group-hover:bg-[#A94728] group-hover:text-white transition-colors flex-shrink-0">
+                  <div className="w-12 h-12 rounded-md bg-[#123F91]/10 text-[#123F91] flex items-center justify-center border border-[#123F91]/20 group-hover:bg-[#123F91] group-hover:text-white transition-colors flex-shrink-0">
                     <Mail className="w-6 h-6 stroke-[1.75]" />
                   </div>
-                  <span className="tech-label text-[10px] text-[#A94728] font-bold">
+                  <span className="tech-label text-[10px] text-[#123F91] font-bold">
                     EMAIL INBOXES
                   </span>
                 </div>
@@ -570,13 +570,13 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
 
                 <div className="space-y-2.5 mb-4 min-w-0">
                   {/* Email 1: Sales Desk */}
-                  <div className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs min-w-0 transition-colors hover:border-[#A94728]/50">
+                  <div className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs min-w-0 transition-colors hover:border-[#123F91]/50">
                     <div className="font-bold text-[#202427] mb-1 flex items-center justify-between gap-1">
                       <span className="truncate text-[11px] uppercase tracking-wider text-[#6B7280]">Sales & RFQ Desk</span>
                       <button
                         type="button"
                         onClick={() => handleCopyEmail(COMPANY_DETAILS.emails[0])}
-                        className="text-[10px] font-mono font-bold text-[#A94728] hover:underline flex items-center gap-1 cursor-pointer"
+                        className="text-[10px] font-mono font-bold text-[#123F91] hover:underline flex items-center gap-1 cursor-pointer"
                         title="Copy sales email"
                       >
                         {copiedEmail === COMPANY_DETAILS.emails[0] ? (
@@ -588,7 +588,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                     </div>
                     <a
                       href={`mailto:${COMPANY_DETAILS.emails[0]}`}
-                      className="font-mono text-[#A94728] hover:underline font-bold block truncate text-xs"
+                      className="font-mono text-[#123F91] hover:underline font-bold block truncate text-xs"
                       title={COMPANY_DETAILS.emails[0]}
                     >
                       {COMPANY_DETAILS.emails[0]}
@@ -596,13 +596,13 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   </div>
 
                   {/* Email 2: Technical / Info Desk */}
-                  <div className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs min-w-0 transition-colors hover:border-[#A94728]/50">
+                  <div className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs min-w-0 transition-colors hover:border-[#123F91]/50">
                     <div className="font-bold text-[#202427] mb-1 flex items-center justify-between gap-1">
                       <span className="truncate text-[11px] uppercase tracking-wider text-[#6B7280]">Info & Tech Desk</span>
                       <button
                         type="button"
                         onClick={() => handleCopyEmail(COMPANY_DETAILS.emails[1])}
-                        className="text-[10px] font-mono font-bold text-[#A94728] hover:underline flex items-center gap-1 cursor-pointer"
+                        className="text-[10px] font-mono font-bold text-[#123F91] hover:underline flex items-center gap-1 cursor-pointer"
                         title="Copy info email"
                       >
                         {copiedEmail === COMPANY_DETAILS.emails[1] ? (
@@ -614,7 +614,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                     </div>
                     <a
                       href={`mailto:${COMPANY_DETAILS.emails[1]}`}
-                      className="font-mono text-[#202427] hover:text-[#A94728] hover:underline font-bold block truncate text-xs"
+                      className="font-mono text-[#202427] hover:text-[#123F91] hover:underline font-bold block truncate text-xs"
                       title={COMPANY_DETAILS.emails[1]}
                     >
                       {COMPANY_DETAILS.emails[1]}
@@ -629,7 +629,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                 </span>
                 <a
                   href={`mailto:${COMPANY_DETAILS.emails[0]}`}
-                  className="text-xs font-bold text-[#A94728] hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-[#123F91] hover:underline flex items-center gap-1"
                 >
                   <span>Write Email</span>
                   <ExternalLink className="w-3 h-3" />
@@ -638,13 +638,13 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
             </div>
 
             {/* Card 4: Business Hours & Sourcing Hub */}
-            <div className="contact-info-card group p-6 sm:p-7 bg-white hover:bg-[#F4E5DC]/30 border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-industrial flex flex-col justify-between h-full min-w-0">
+            <div className="contact-info-card group p-6 sm:p-7 bg-white hover:bg-[#EEF3FA]/30 border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-industrial flex flex-col justify-between h-full min-w-0">
               <div className="min-w-0">
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-md bg-[#A94728]/10 text-[#A94728] flex items-center justify-center border border-[#A94728]/20 group-hover:bg-[#A94728] group-hover:text-white transition-colors flex-shrink-0">
+                  <div className="w-12 h-12 rounded-md bg-[#123F91]/10 text-[#123F91] flex items-center justify-center border border-[#123F91]/20 group-hover:bg-[#123F91] group-hover:text-white transition-colors flex-shrink-0">
                     <Clock className="w-6 h-6 stroke-[1.75]" />
                   </div>
-                  <span className="tech-label text-[10px] text-[#A94728] font-bold">
+                  <span className="tech-label text-[10px] text-[#123F91] font-bold">
                     OPERATING HOURS
                   </span>
                 </div>
@@ -660,7 +660,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                 <div className="space-y-2 text-xs text-[#202427]/80 mb-4 min-w-0">
                   <div className="flex items-center justify-between p-2 bg-[#F8F5F1] rounded border border-[#D9D9D6] gap-2">
                     <span className="font-semibold text-[#202427] whitespace-nowrap">Mon – Sat:</span>
-                    <span className="font-mono text-[#A94728] font-bold text-right">9:30 AM – 7:30 PM</span>
+                    <span className="font-mono text-[#123F91] font-bold text-right">9:30 AM – 7:30 PM</span>
                   </div>
                   <div className="flex items-center justify-between p-2 bg-[#F8F5F1] rounded border border-[#D9D9D6] gap-2">
                     <span className="font-semibold text-[#202427] whitespace-nowrap">Sunday:</span>
@@ -676,7 +676,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                 <span className="text-[11px] text-[#202427]/60 font-mono">
                   Timezone: IST (GMT +5:30)
                 </span>
-                <span className="text-[10px] font-mono text-[#A94728] font-bold">
+                <span className="text-[10px] font-mono text-[#123F91] font-bold">
                   FAST DISPATCH
                 </span>
               </div>
@@ -689,7 +689,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
                 <span className="font-bold text-[#202427]">GOVERNMENT OF INDIA GSTIN:</span>
-                <span className="bg-[#F8F5F1] px-2.5 py-1 rounded border border-[#D9D9D6] text-[#A94728] font-bold">
+                <span className="bg-[#F8F5F1] px-2.5 py-1 rounded border border-[#D9D9D6] text-[#123F91] font-bold">
                   27BXMPP3576J1ZQ
                 </span>
               </div>
@@ -697,7 +697,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
               <span className="text-[#D9D9D6] hidden md:inline">|</span>
 
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#A94728]" />
+                <ShieldCheck className="w-4 h-4 text-[#123F91]" />
                 <span className="font-bold text-[#202427]">QUALITY ACCREDITATION:</span>
                 <span className="bg-[#F8F5F1] px-2.5 py-1 rounded border border-[#D9D9D6] text-[#202427] font-bold">
                   ISO 9001:2015 CERTIFIED
@@ -709,7 +709,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
               <button
                 type="button"
                 onClick={() => handleOpenCert('iso-9001-2015')}
-                className="btn-wave inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#A94728] text-[#A94728] rounded text-xs font-mono font-bold transition-all cursor-pointer"
+                className="btn-wave inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#123F91] text-[#123F91] rounded text-xs font-mono font-bold transition-all cursor-pointer"
               >
                 <span>View ISO Certificate</span>
                 <ExternalLink className="w-3 h-3" />
@@ -747,9 +747,9 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="contact-map-anim max-w-3xl mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-3.5">
-              <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-3.5">
+              <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+              <span className="tech-label text-[#123F91] font-bold text-xs uppercase tracking-widest">
                 LOCATION & VISITATION
               </span>
             </div>
@@ -782,7 +782,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                 <div>
                   <div className="flex items-center gap-1.5 mb-1">
                     <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-                    <span className="text-[10px] font-mono font-bold tracking-widest text-[#F4E5DC] uppercase">
+                    <span className="text-[10px] font-mono font-bold tracking-widest text-[#EEF3FA] uppercase">
                       VERIFIED TRADING COUNTER
                     </span>
                   </div>
@@ -790,7 +790,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                     RUDHIRA METAL INDUSTRIES
                   </h4>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#A94728] flex items-center justify-center flex-shrink-0 text-white shadow-md">
+                <div className="w-8 h-8 rounded-full bg-[#123F91] flex items-center justify-center flex-shrink-0 text-white shadow-md">
                   <MapPin className="w-4 h-4" />
                 </div>
               </div>
@@ -804,7 +804,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   href="https://www.google.com/maps/search/?api=1&query=Rudhira+Metal+Industries+Shop+No.+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-[#A94728] hover:bg-[#8F371B] text-white text-[11px] font-bold px-3 py-1.5 rounded-xs transition-all duration-150 shadow-md cursor-pointer"
+                  className="inline-flex items-center gap-1.5 bg-[#123F91] hover:bg-[#0B2863] text-white text-[11px] font-bold px-3 py-1.5 rounded-xs transition-all duration-150 shadow-md cursor-pointer"
                 >
                   <span>Open in Google Maps</span>
                   <ExternalLink className="w-3 h-3" />
@@ -822,7 +822,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
             {/* Map Frame Bottom Info Bar */}
             <div className="absolute bottom-3 left-3 right-3 bg-[#171A1C]/92 backdrop-blur-md text-white px-4 py-3 rounded-lg border border-white/20 flex flex-wrap items-center justify-between gap-3 text-xs shadow-xl pointer-events-auto">
               <div className="flex items-center gap-2 min-w-0">
-                <MapPin className="w-4 h-4 text-[#A94728] flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-[#123F91] flex-shrink-0" />
                 <span className="font-mono text-[11px] sm:text-xs truncate text-[#E7EEF2]">
                   <strong>RUDHIRA METAL INDUSTRIES:</strong> Shop No. 6, Shantabi Bldg, 4th Cross Lane, Khetwadi, Mumbai - 400 004
                 </span>
@@ -835,7 +835,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   href="https://www.google.com/maps/search/?api=1&query=Rudhira+Metal+Industries+Shop+No.+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#F4E5DC] hover:text-white transition-colors underline decoration-[#A94728]"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#EEF3FA] hover:text-white transition-colors underline decoration-[#123F91]"
                 >
                   <span>Enlarge Map</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -856,9 +856,9 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="contact-procure-anim max-w-3xl mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-3.5">
-              <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-3.5">
+              <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+              <span className="tech-label text-[#123F91] font-bold text-xs uppercase tracking-widest">
                 GUIDED PROCUREMENT
               </span>
             </div>
@@ -880,18 +880,18 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   onClick={() => handleSelectCategory(opt.type)}
                   className={`contact-procure-anim p-5 rounded-xl border-2 transition-all duration-200 cursor-pointer flex flex-col justify-between h-full group ${
                     isSelected
-                      ? 'bg-[#F4E5DC]/60 border-[#A94728] shadow-md -translate-y-1'
-                      : 'bg-white border-[#D9D9D6] hover:border-[#A94728]/60 hover:bg-white hover:-translate-y-1 hover:shadow-sm'
+                      ? 'bg-[#EEF3FA]/60 border-[#123F91] shadow-md -translate-y-1'
+                      : 'bg-white border-[#D9D9D6] hover:border-[#123F91]/60 hover:bg-white hover:-translate-y-1 hover:shadow-sm'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className={`font-mono text-xs font-black ${isSelected ? 'text-[#A94728]' : 'text-[#6B7280]'}`}>
+                      <span className={`font-mono text-xs font-black ${isSelected ? 'text-[#123F91]' : 'text-[#6B7280]'}`}>
                         0{idx + 1}
                       </span>
                       <span
                         className={`w-2.5 h-2.5 rounded-full ${
-                          isSelected ? 'bg-[#A94728] animate-pulse' : 'bg-[#D9D9D6] group-hover:bg-[#A94728]/40'
+                          isSelected ? 'bg-[#123F91] animate-pulse' : 'bg-[#D9D9D6] group-hover:bg-[#123F91]/40'
                         }`}
                       />
                     </div>
@@ -909,8 +909,8 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                     <span
                       className={`w-full inline-flex items-center justify-center text-xs font-mono font-bold py-2 px-3 rounded transition-colors ${
                         isSelected
-                          ? 'bg-[#A94728] text-white shadow-xs'
-                          : 'bg-[#F8F5F1] text-[#202427]/75 border border-[#D9D9D6] group-hover:bg-[#A94728] group-hover:text-white group-hover:border-[#A94728]'
+                          ? 'bg-[#123F91] text-white shadow-xs'
+                          : 'bg-[#F8F5F1] text-[#202427]/75 border border-[#D9D9D6] group-hover:bg-[#123F91] group-hover:text-white group-hover:border-[#123F91]'
                       }`}
                     >
                       {isSelected ? 'SELECTED ✓' : 'SELECT →'}
@@ -925,7 +925,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
           <div className="contact-procure-anim p-5 sm:p-6 bg-[#202427] text-white rounded-xl border border-white/10 shadow-lg flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
             <div>
               <div className="text-sm sm:text-base font-extrabold text-white flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-[#A94728]" />
+                <HelpCircle className="w-5 h-5 text-white" />
                 <span>Need Help Choosing the Right Product?</span>
               </div>
               <p className="text-xs sm:text-sm text-[#D9D9D6]/80 mt-1 max-w-2xl leading-relaxed">
@@ -937,13 +937,13 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
               <button
                 type="button"
                 onClick={onOpenEnquiry}
-                className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/25 text-[#F4E5DC] text-xs sm:text-sm font-bold px-4 py-2.5 rounded-sm transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/25 text-[#EEF3FA] text-xs sm:text-sm font-bold px-4 py-2.5 rounded-sm transition-colors cursor-pointer"
               >
                 <span>Quick Modal RFQ</span>
               </button>
               <a
                 href={`tel:${COMPANY_DETAILS.contacts[0].cleanPhone}`}
-                className="inline-flex items-center gap-1.5 bg-[#A94728] hover:bg-[#8F371B] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-sm transition-colors cursor-pointer shadow-sm"
+                className="inline-flex items-center gap-1.5 bg-[#123F91] hover:bg-[#0B2863] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-sm transition-colors cursor-pointer shadow-sm"
               >
                 <FaPhone className="w-3 h-3" />
                 <span>Call Desk</span>
@@ -968,16 +968,16 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
       <section
         id="quote-form"
         ref={formSectionRef}
-        className="py-16 sm:py-20 lg:py-24 bg-[#F4E5DC] border-b border-[#D9D9D6] relative overflow-hidden"
+        className="py-16 sm:py-20 lg:py-24 bg-[#EEF3FA] border-b border-[#D9D9D6] relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-grid-pattern opacity-80 pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mx-auto max-w-2xl mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-3.5">
-              <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-3.5">
+              <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+              <span className="tech-label text-[#123F91] font-bold text-xs uppercase tracking-widest">
                 COMMERCIAL DESK // REQUIREMENT FORM
               </span>
             </div>
@@ -994,9 +994,9 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
           {/* Form Card Container */}
           <div className="bg-white border border-[#D9D9D6] rounded-xl shadow-md overflow-hidden relative">
             {/* Form Top Header Strip */}
-            <div className="bg-[#202427] text-white px-6 py-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#A94728]/40">
+            <div className="bg-[#202427] text-white px-6 py-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#123F91]/40">
               <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
                 <span className="tech-label text-xs sm:text-sm font-bold tracking-widest uppercase">
                   REQUIREMENT SPECIFICATION // COMMERCIAL RFQ
                 </span>
@@ -1009,7 +1009,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
             {/* Submission Choice Interface Rendering */}
             {isSubmitted ? (
               <div className="p-8 sm:p-14 text-center bg-[#F8F5F1]">
-                <div className="tech-label text-xs font-bold text-[#A94728] tracking-widest uppercase mb-2">
+                <div className="tech-label text-xs font-bold text-[#123F91] tracking-widest uppercase mb-2">
                   REQUIREMENT READY // CHOOSE DELIVERY CHANNEL
                 </div>
 
@@ -1025,7 +1025,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                 <div className="p-6 bg-white border-2 border-[#D9D9D6] rounded-lg max-w-md mx-auto mb-8 font-mono text-xs text-left space-y-2 shadow-xs">
                   <div className="flex items-center justify-between border-b border-[#D9D9D6] pb-2">
                     <span className="text-[#6B7280]">REFERENCE NUMBER:</span>
-                    <strong className="text-[#A94728] text-sm">{referenceCode}</strong>
+                    <strong className="text-[#123F91] text-sm">{referenceCode}</strong>
                   </div>
                   <div className="flex items-center justify-between border-b border-[#D9D9D6] pb-2">
                     <span className="text-[#6B7280]">NAME / COMPANY:</span>
@@ -1041,7 +1041,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-[#6B7280]">DESK INBOX:</span>
-                    <strong className="text-[#A94728]">{COMPANY_DETAILS.emails[0]}</strong>
+                    <strong className="text-[#123F91]">{COMPANY_DETAILS.emails[0]}</strong>
                   </div>
                 </div>
 
@@ -1114,7 +1114,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   {/* 1. Name* */}
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                      Name <span className="text-[#A94728]">*</span>
+                      Name <span className="text-[#123F91]">*</span>
                     </label>
                     <input
                       type="text"
@@ -1124,7 +1124,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                       onChange={handleInputChange}
                       className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                         formErrors.name ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                     />
                     {formErrors.name && (
                       <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.name}</p>
@@ -1134,7 +1134,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   {/* 2. Email* */}
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                      Email <span className="text-[#A94728]">*</span>
+                      Email <span className="text-[#123F91]">*</span>
                     </label>
                     <input
                       type="email"
@@ -1144,7 +1144,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                       onChange={handleInputChange}
                       className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                         formErrors.email ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                     />
                     {formErrors.email && (
                       <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.email}</p>
@@ -1154,7 +1154,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   {/* 3. Phone Number* */}
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                      Phone Number <span className="text-[#A94728]">*</span>
+                      Phone Number <span className="text-[#123F91]">*</span>
                     </label>
                     <input
                       type="tel"
@@ -1164,7 +1164,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                       onChange={handleInputChange}
                       className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                         formErrors.phone ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                     />
                     {formErrors.phone && (
                       <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.phone}</p>
@@ -1182,14 +1182,14 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                       placeholder="e.g. Apex Engineering Ltd"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors"
+                      className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors"
                     />
                   </div>
 
                   {/* 5. Product / Material Required* */}
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                      Product / Material Required <span className="text-[#A94728]">*</span>
+                      Product / Material Required <span className="text-[#123F91]">*</span>
                     </label>
                     <input
                       type="text"
@@ -1200,7 +1200,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                       onChange={handleInputChange}
                       className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                         formErrors.product ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                     />
                     <datalist id="contact-products-list">
                       {PRODUCTS_DATA.map((p) => (
@@ -1221,7 +1221,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   {/* 6. Quantity* */}
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                      Quantity <span className="text-[#A94728]">*</span>
+                      Quantity <span className="text-[#123F91]">*</span>
                     </label>
                     <input
                       type="text"
@@ -1231,7 +1231,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                       onChange={handleInputChange}
                       className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                         formErrors.quantity ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                     />
                     {formErrors.quantity && (
                       <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.quantity}</p>
@@ -1249,14 +1249,14 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                       placeholder="e.g. 316L, Sch 40, ASTM A312"
                       value={formData.specification}
                       onChange={handleInputChange}
-                      className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors"
+                      className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors"
                     />
                   </div>
 
                   {/* 8. Requirement / Message* */}
                   <div className="sm:col-span-2">
                     <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                      Requirement / Message <span className="text-[#A94728]">*</span>
+                      Requirement / Message <span className="text-[#123F91]">*</span>
                     </label>
                     <textarea
                       name="message"
@@ -1266,7 +1266,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                       onChange={handleInputChange}
                       className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                         formErrors.message ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors resize-y`}
+                      } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors resize-y`}
                     />
                     {formErrors.message && (
                       <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.message}</p>
@@ -1277,7 +1277,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                   <div className="sm:col-span-2 pt-2">
                     <button
                       type="submit"
-                      className="w-full bg-[#A94728] hover:bg-[#8F371B] text-white font-bold py-3.5 px-6 rounded-md uppercase tracking-wider text-sm sm:text-base transition-all shadow-md active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2"
+                      className="w-full bg-[#123F91] hover:bg-[#0B2863] text-white font-bold py-3.5 px-6 rounded-md uppercase tracking-wider text-sm sm:text-base transition-all shadow-md active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2"
                     >
                       <span>SEND REQUIREMENT</span>
                       <Send className="w-4 h-4" />
@@ -1298,14 +1298,14 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             {/* Point 1 */}
             <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-              <div className="w-12 h-12 rounded-md bg-white/10 text-[#F4E5DC] flex items-center justify-center border border-white/20 flex-shrink-0">
-                <Clock className="w-6 h-6 text-[#A94728]" />
+              <div className="w-12 h-12 rounded-md bg-white/10 text-[#EEF3FA] flex items-center justify-center border border-white/20 flex-shrink-0">
+                <Clock className="w-6 h-6 text-white" />
               </div>
               <div>
                 <h4 className="text-base font-extrabold text-white mb-1">
                   Quick Response
                 </h4>
-                <p className="text-xs text-[#D9D9D6]/80 leading-relaxed">
+                <p className="text-xs text-[#D9D9D6] leading-relaxed">
                   Our dedicated commercial sales desk ensures prompt quotation turnarounds and technical clarity within standard trading hours.
                 </p>
               </div>
@@ -1313,14 +1313,14 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
 
             {/* Point 2 */}
             <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-              <div className="w-12 h-12 rounded-md bg-white/10 text-[#F4E5DC] flex items-center justify-center border border-white/20 flex-shrink-0">
-                <Shield className="w-6 h-6 text-[#A94728]" />
+              <div className="w-12 h-12 rounded-md bg-white/10 text-[#EEF3FA] flex items-center justify-center border border-white/20 flex-shrink-0">
+                <Shield className="w-6 h-6 text-white" />
               </div>
               <div>
                 <h4 className="text-base font-extrabold text-white mb-1">
                   Reliable Guidance
                 </h4>
-                <p className="text-xs text-[#D9D9D6]/80 leading-relaxed">
+                <p className="text-xs text-[#D9D9D6] leading-relaxed">
                   Accurate metallurgical consultation on material grades, wall schedules, pressure classes, and equivalent international standards.
                 </p>
               </div>
@@ -1328,14 +1328,14 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
 
             {/* Point 3 */}
             <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-              <div className="w-12 h-12 rounded-md bg-white/10 text-[#F4E5DC] flex items-center justify-center border border-white/20 flex-shrink-0">
-                <Building2 className="w-6 h-6 text-[#A94728]" />
+              <div className="w-12 h-12 rounded-md bg-white/10 text-[#EEF3FA] flex items-center justify-center border border-white/20 flex-shrink-0">
+                <Building2 className="w-6 h-6 text-white" />
               </div>
               <div>
                 <h4 className="text-base font-extrabold text-white mb-1">
                   Industrial Expertise
                 </h4>
-                <p className="text-xs text-[#D9D9D6]/80 leading-relaxed">
+                <p className="text-xs text-[#D9D9D6] leading-relaxed">
                   Decades of combined market experience stocking, sourcing, and exporting mission-critical piping, fittings, flanges, and round bars.
                 </p>
               </div>

@@ -31,7 +31,7 @@ export default function FloatingActions() {
       {/* Direct Phone Call Floating Action Button */}
       <a
         href={callUrl}
-        className="group flex items-center justify-center gap-2 bg-[#202427] hover:bg-[#A94728] text-white h-11 w-11 sm:h-12 sm:w-auto sm:min-w-12 sm:px-3.5 rounded-full shadow-lg hover:shadow-xl border border-white/20 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+        className="group flex items-center justify-center gap-2 bg-[#202427] hover:bg-[#123F91] text-white h-11 w-11 sm:h-12 sm:w-auto sm:min-w-12 sm:px-3.5 rounded-full shadow-lg hover:shadow-xl border border-white/20 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
         aria-label={`Call Rudhira Metal Commercial Desk at ${COMPANY_DETAILS.phone}`}
         title={`Call ${COMPANY_DETAILS.phone}`}
       >

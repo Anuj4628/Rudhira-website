@@ -151,7 +151,7 @@ export default function ProductMaterialDetailPage({
             <div className="bg-white rounded-xl border border-[#D9D9D6] shadow-xs overflow-hidden">
               <div className="p-4 bg-[#202427] text-white flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-mono font-bold text-[#A94728] uppercase tracking-wider">
+                  <div className="text-xs font-mono font-bold text-white/80 uppercase tracking-wider">
                     MATERIALS / METALS
                   </div>
                   <h3 className="text-base font-extrabold text-white">
@@ -181,14 +181,14 @@ export default function ProductMaterialDetailPage({
                       }}
                       className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all text-left cursor-pointer ${
                         isActive
-                          ? 'bg-[#A94728] text-white shadow-xs font-extrabold'
-                          : 'bg-white hover:bg-[#F4E5DC]/60 text-[#202427] hover:text-[#A94728] border border-transparent hover:border-[#A94728]/20'
+                          ? 'bg-[#123F91] text-white shadow-xs font-extrabold'
+                          : 'bg-white hover:bg-[#EEF3FA]/60 text-[#202427] hover:text-[#123F91] border border-transparent hover:border-[#123F91]/20'
                       }`}
                     >
                       <span className="flex items-center gap-2 truncate">
                         <span
                           className={`w-2 h-2 rounded-full ${
-                            isActive ? 'bg-white' : 'bg-[#A94728]'
+                            isActive ? 'bg-white' : 'bg-[#123F91]'
                           }`}
                         />
                         <span className="truncate">{mat.name}</span>
@@ -196,7 +196,7 @@ export default function ProductMaterialDetailPage({
 
                       <span
                         className={`text-xs font-mono font-bold ${
-                          isActive ? 'text-white' : 'text-[#A94728]'
+                          isActive ? 'text-white' : 'text-[#123F91]'
                         }`}
                       >
                         {isActive ? '● ACTIVE' : '→'}
@@ -209,8 +209,8 @@ export default function ProductMaterialDetailPage({
 
             {/* Card 2: Quick Quotation & Direct Contact Desk */}
             <div className="bg-white p-5 sm:p-6 rounded-xl border border-[#D9D9D6] shadow-xs space-y-4">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#A94728] uppercase">
-                <Zap className="w-3.5 h-3.5 text-[#A94728]" />
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#123F91] uppercase">
+                <Zap className="w-3.5 h-3.5 text-[#123F91]" />
                 <span>QUICK QUOTATION DESK</span>
               </div>
 
@@ -229,14 +229,14 @@ export default function ProductMaterialDetailPage({
                   <div key={c.name} className="flex items-center justify-between text-xs sm:text-sm">
                     <div>
                       <div className="font-bold text-[#202427]">{c.name}</div>
-                      <a href={`tel:${c.cleanPhone}`} className="text-[#A94728] font-mono font-bold">
+                      <a href={`tel:${c.cleanPhone}`} className="text-[#123F91] font-mono font-bold">
                         {c.phone}
                       </a>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <a
                         href={`tel:${c.cleanPhone}`}
-                        className="p-2 bg-[#F8F5F1] hover:bg-[#A94728] hover:text-white rounded text-[#202427] transition-colors"
+                        className="p-2 bg-[#F8F5F1] hover:bg-[#123F91] hover:text-white rounded text-[#202427] transition-colors"
                         title={`Call ${c.name}`}
                       >
                         <FaPhone className="w-3 h-3" />
@@ -261,7 +261,7 @@ export default function ProductMaterialDetailPage({
                 onClick={() =>
                   onOpenEnquiry(`${material.name} ${product.name}`, material.name)
                 }
-                className="btn-wave w-full bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3 rounded shadow-sm transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                className="btn-wave w-full bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3 rounded shadow-sm transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
               >
                 <span>Request Price & Delivery</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -270,21 +270,21 @@ export default function ProductMaterialDetailPage({
 
             {/* Card 3: Quality Standards & Testing */}
             <div className="p-5 bg-[#F8F5F1] rounded-xl border border-[#D9D9D6] space-y-2.5 text-xs sm:text-sm text-[#202427]">
-              <div className="flex items-center gap-1.5 font-bold font-mono text-[#A94728] uppercase text-xs">
+              <div className="flex items-center gap-1.5 font-bold font-mono text-[#123F91] uppercase text-xs">
                 <ShieldCheck className="w-4 h-4" />
                 <span>CERTIFIED ASSURANCE</span>
               </div>
               <ul className="space-y-1.5 text-xs sm:text-sm text-[#202427]/85">
                 <li className="flex items-center gap-2">
-                  <span className="text-[#A94728] font-bold">✓</span>
+                  <span className="text-[#123F91] font-bold">✓</span>
                   <span>EN 10204 3.1 Mill Test Certificates</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-[#A94728] font-bold">✓</span>
+                  <span className="text-[#123F91] font-bold">✓</span>
                   <span>100% Positive Material Identification (PMI)</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-[#A94728] font-bold">✓</span>
+                  <span className="text-[#123F91] font-bold">✓</span>
                   <span>Hydrostatic & Ultrasonic Testing</span>
                 </li>
               </ul>
@@ -299,7 +299,7 @@ export default function ProductMaterialDetailPage({
             <div className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               {/* Header Badges */}
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="px-2.5 py-1 rounded text-xs font-mono font-bold bg-[#A94728]/10 text-[#A94728] border border-[#A94728]/25 uppercase">
+                <span className="px-2.5 py-1 rounded text-xs font-mono font-bold bg-[#123F91]/10 text-[#123F91] border border-[#123F91]/25 uppercase">
                   {material.name}
                 </span>
                 <span className="px-2.5 py-1 rounded text-xs font-mono font-bold bg-[#202427] text-white uppercase">
@@ -324,13 +324,13 @@ export default function ProductMaterialDetailPage({
                   </p>
 
                   <div className="p-4 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6] space-y-2">
-                    <div className="text-xs font-mono font-bold text-[#A94728] uppercase">
+                    <div className="text-xs font-mono font-bold text-[#123F91] uppercase">
                       KEY METALLURGICAL PERFORMANCE:
                     </div>
                     <ul className="space-y-1.5 text-xs sm:text-sm text-[#202427]/85">
                       {material.keyCharacteristics.slice(0, 3).map((char) => (
                         <li key={char} className="flex items-start gap-2">
-                          <Check className="w-4 h-4 text-[#A94728] flex-shrink-0 mt-0.5" />
+                          <Check className="w-4 h-4 text-[#123F91] flex-shrink-0 mt-0.5" />
                           <span>{char}</span>
                         </li>
                       ))}
@@ -346,7 +346,7 @@ export default function ProductMaterialDetailPage({
                           material.name
                         )
                       }
-                      className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-3 rounded shadow-sm transition-all active:scale-95 cursor-pointer"
+                      className="btn-wave inline-flex items-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-3 rounded shadow-sm transition-all active:scale-95 cursor-pointer"
                     >
                       <span>Request Quote for {material.shortName} {product.name}</span>
                       <ArrowUpRight className="w-4 h-4" />
@@ -354,27 +354,27 @@ export default function ProductMaterialDetailPage({
 
                     <a
                       href="#available-grades-section"
-                      className="inline-flex items-center gap-1.5 bg-[#F8F5F1] hover:bg-[#F4E5DC] text-[#202427] text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-3 rounded border border-[#D9D9D6] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 bg-[#F8F5F1] hover:bg-[#EEF3FA] text-[#202427] text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-3 rounded border border-[#D9D9D6] transition-colors cursor-pointer"
                     >
-                      <span className="w-2 h-2 rounded-full bg-[#A94728]" />
+                      <span className="w-2 h-2 rounded-full bg-[#123F91]" />
                       <span>Certified Grades ({grades.length}) ↓</span>
                     </a>
 
                     {types.length > 0 && (
                       <a
                         href="#product-types-section"
-                        className="inline-flex items-center gap-1.5 bg-[#F8F5F1] hover:bg-[#F4E5DC] text-[#202427] text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-3 rounded border border-[#D9D9D6] transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-1.5 bg-[#F8F5F1] hover:bg-[#EEF3FA] text-[#202427] text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-3 rounded border border-[#D9D9D6] transition-colors cursor-pointer"
                       >
-                        <Layers className="w-4 h-4 text-[#A94728]" />
+                        <Layers className="w-4 h-4 text-[#123F91]" />
                         <span>Types & Profiles ({types.length}) ↓</span>
                       </a>
                     )}
 
                     <a
                       href="#specifications-section"
-                      className="inline-flex items-center gap-1.5 bg-[#F8F5F1] hover:bg-[#F4E5DC] text-[#202427] text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-3 rounded border border-[#D9D9D6] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 bg-[#F8F5F1] hover:bg-[#EEF3FA] text-[#202427] text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-3 rounded border border-[#D9D9D6] transition-colors cursor-pointer"
                     >
-                      <FileText className="w-4 h-4 text-[#A94728]" />
+                      <FileText className="w-4 h-4 text-[#123F91]" />
                       <span>Specifications Matrix ↓</span>
                     </a>
                   </div>
@@ -390,7 +390,7 @@ export default function ProductMaterialDetailPage({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                     <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white text-[11px] font-mono">
-                      <span className="font-bold text-[#F4E5DC]">{material.name}</span> // Prime Quality
+                      <span className="font-bold text-[#EEF3FA]">{material.name}</span> // Prime Quality
                     </div>
                   </div>
                 </div>
@@ -405,9 +405,9 @@ export default function ProductMaterialDetailPage({
               className="bg-white p-6 sm:p-8 rounded-xl border-2 border-[#D9D9D6] shadow-xs scroll-mt-28"
             >
               <div className="pb-3 mb-6 border-b border-[#D9D9D6]">
-                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-                  <span className="text-xs font-mono font-bold text-[#A94728] uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+                  <span className="text-xs font-mono font-bold text-white/80 uppercase tracking-wider">
                     STEP 01 // METALLURGICAL GRADES DIRECTORY
                   </span>
                 </div>
@@ -415,7 +415,7 @@ export default function ProductMaterialDetailPage({
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
                     Available Grades — {material.name} {product.name}
                   </h2>
-                  <span className="text-xs sm:text-sm font-mono font-bold text-[#A94728] bg-[#F8F5F1] px-3 py-1 rounded border border-[#D9D9D6]">
+                  <span className="text-xs sm:text-sm font-mono font-bold text-[#123F91] bg-[#F8F5F1] px-3 py-1 rounded border border-[#D9D9D6]">
                     {grades.length} Certified Grades
                   </span>
                 </div>
@@ -436,15 +436,15 @@ export default function ProductMaterialDetailPage({
                         `/products/${getProductSeoSlug(product.slug)}/${getProductMaterialSeoSlug(product.slug, material.slug)}/${grade.slug}`
                       )
                     }
-                    className="group p-5 bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl shadow-xs hover:shadow-industrial transition-all duration-200 cursor-pointer flex flex-col justify-between"
+                    className="group p-5 bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl shadow-xs hover:shadow-industrial transition-all duration-200 cursor-pointer flex flex-col justify-between"
                   >
                     <div>
                       {/* Top Row: Grade Name + Arrow */}
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-lg font-bold text-[#202427] group-hover:text-[#A94728] transition-colors">
+                        <span className="text-lg font-bold text-[#202427] group-hover:text-[#123F91] transition-colors">
                           {grade.name.startsWith('Grade') ? grade.name : `Grade ${grade.name}`}
                         </span>
-                        <span className="text-sm font-mono text-[#A94728] font-bold group-hover:translate-x-1 transition-transform">
+                        <span className="text-sm font-mono text-[#123F91] font-bold group-hover:translate-x-1 transition-transform">
                           →
                         </span>
                       </div>
@@ -461,7 +461,7 @@ export default function ProductMaterialDetailPage({
                     </div>
 
                     {/* Card Footer: Clear action prompt */}
-                    <div className="pt-2.5 border-t border-[#D9D9D6]/60 flex items-center justify-between text-xs font-mono font-bold text-[#A94728]">
+                    <div className="pt-2.5 border-t border-[#D9D9D6]/60 flex items-center justify-between text-xs font-mono font-bold text-[#123F91]">
                       <span>VIEW {product.name.toUpperCase()} SPEC</span>
                       <span>›</span>
                     </div>
@@ -480,9 +480,9 @@ export default function ProductMaterialDetailPage({
               >
                 <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#D9D9D6]">
                   <div>
-                    <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
-                      <span className="text-xs font-mono font-bold text-[#A94728] uppercase">
+                    <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#123F91]" />
+                      <span className="text-xs font-mono font-bold text-[#123F91] uppercase">
                         STEP 02 // CONFIGURATIONS & TYPES ARCHITECTURE
                       </span>
                     </div>
@@ -493,7 +493,7 @@ export default function ProductMaterialDetailPage({
                       Explore individual design configurations, face connection types, and standard pressure classes in {material.name}:
                     </p>
                   </div>
-                  <span className="text-xs sm:text-sm font-mono font-bold text-[#A94728] bg-[#F8F5F1] px-3 py-1 rounded border border-[#D9D9D6]">
+                  <span className="text-xs sm:text-sm font-mono font-bold text-[#123F91] bg-[#F8F5F1] px-3 py-1 rounded border border-[#D9D9D6]">
                     {types.length} Types
                   </span>
                 </div>
@@ -510,7 +510,7 @@ export default function ProductMaterialDetailPage({
                             `/products/${getProductSeoSlug(product.slug)}/${getProductMaterialSeoSlug(product.slug, material.slug)}/types/${type.slug}`
                           )
                         }
-                        className="group bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 flex flex-col justify-between cursor-pointer"
+                        className="group bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 flex flex-col justify-between cursor-pointer"
                       >
                         <div>
                           {/* Moderate & consistent image area */}
@@ -528,7 +528,7 @@ export default function ProductMaterialDetailPage({
                           </div>
 
                           <div className="p-5">
-                            <h3 className="text-lg sm:text-xl font-bold text-[#202427] group-hover:text-[#A94728] transition-colors mb-1.5">
+                            <h3 className="text-lg sm:text-xl font-bold text-[#202427] group-hover:text-[#123F91] transition-colors mb-1.5">
                               {type.name}
                             </h3>
 
@@ -537,7 +537,7 @@ export default function ProductMaterialDetailPage({
                             </p>
 
                             {type.pressureClasses && (
-                              <div className="text-xs sm:text-sm font-mono text-[#A94728] font-bold truncate">
+                              <div className="text-xs sm:text-sm font-mono text-[#123F91] font-bold truncate">
                                 {type.pressureClasses}
                               </div>
                             )}
@@ -545,7 +545,7 @@ export default function ProductMaterialDetailPage({
                         </div>
 
                         <div className="p-5 pt-0 border-t border-[#D9D9D6]/60">
-                          <div className="w-full flex items-center justify-between text-xs sm:text-sm font-mono font-bold text-[#A94728] group-hover:text-[#7E321F] py-1">
+                          <div className="w-full flex items-center justify-between text-xs sm:text-sm font-mono font-bold text-[#123F91] group-hover:text-[#0B2863] py-1">
                             <span>EXPLORE {material.shortName.toUpperCase()} SPEC</span>
                             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                           </div>
@@ -564,9 +564,9 @@ export default function ProductMaterialDetailPage({
                 className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs scroll-mt-28"
               >
                 <div className="pb-3 mb-4 border-b border-[#D9D9D6]">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
-                    <span className="text-xs font-mono font-bold text-[#A94728] uppercase">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#123F91]" />
+                    <span className="text-xs font-mono font-bold text-[#123F91] uppercase">
                       STEP 02 // AVAILABLE CONFIGURATIONS & FORMS
                     </span>
                   </div>
@@ -579,10 +579,10 @@ export default function ProductMaterialDetailPage({
                   {productForms.map((form, idx) => (
                     <div
                       key={idx}
-                      className="p-4 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6] hover:border-[#A94728] transition-all"
+                      className="p-4 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6] hover:border-[#123F91] transition-all"
                     >
                       <div className="flex items-center gap-2 font-bold text-sm sm:text-base text-[#202427] mb-1">
-                        <span className="w-2 h-2 rounded-full bg-[#A94728]" />
+                        <span className="w-2 h-2 rounded-full bg-[#123F91]" />
                         <span>{form.title}</span>
                       </div>
                       <p className="text-xs sm:text-sm text-[#202427]/75 leading-relaxed">
@@ -602,9 +602,9 @@ export default function ProductMaterialDetailPage({
               className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs scroll-mt-28"
             >
               <div className="pb-3 mb-4 border-b border-[#D9D9D6]">
-                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
-                  <span className="text-xs font-mono font-bold text-[#A94728] uppercase">
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#123F91]" />
+                  <span className="text-xs font-mono font-bold text-[#123F91] uppercase">
                     STEP 03 // VERIFIED DATA MATRIX & TECHNICAL SPECIFICATIONS
                   </span>
                 </div>
@@ -627,7 +627,7 @@ export default function ProductMaterialDetailPage({
                   <tbody className="divide-y divide-[#D9D9D6]">
                     <tr className="bg-[#F8F5F1]/50">
                       <td className="py-3 px-4 font-bold text-[#202427] font-mono">Governing Standards</td>
-                      <td className="py-3 px-4 text-[#A94728] font-mono font-bold">
+                      <td className="py-3 px-4 text-[#123F91] font-mono font-bold">
                         {product.standards ? product.standards.join(', ') : 'ASTM / ASME / DIN'}
                       </td>
                     </tr>

@@ -105,7 +105,7 @@ export default function ServicesSection({ onOpenEnquiry }) {
     <section
       id="services"
       ref={sectionRef}
-      className="py-24 sm:py-28 bg-[#7E321F] text-white border-b border-black/20 relative overflow-hidden"
+      className="py-24 sm:py-28 bg-[#0B2863] text-white border-b border-black/20 relative overflow-hidden"
     >
       {/* Background Subtle Technical Grid */}
       <div className="absolute inset-0 bg-dark-grid-pattern opacity-25 pointer-events-none" />
@@ -114,8 +114,8 @@ export default function ServicesSection({ onOpenEnquiry }) {
         {/* Section Header - Centered Layout */}
         <div className="services-header text-center mx-auto max-w-3xl mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 mb-4 sm:mb-5">
-            <span className="w-2 h-2 rounded-full bg-[#F4E5DC]" />
-            <span className="tech-label text-[#F4E5DC] font-bold text-xs sm:text-[13px]">
+            <span className="w-2 h-2 rounded-full bg-[#EEF3FA]" />
+            <span className="tech-label text-[#EEF3FA] font-bold text-xs sm:text-[13px]">
               03 — VALUE ADDED SERVICES
             </span>
           </div>
@@ -124,7 +124,7 @@ export default function ServicesSection({ onOpenEnquiry }) {
             Value Added Services
           </h2>
 
-          <p className="text-base sm:text-lg lg:text-[19px] text-[#F4E5DC]/95 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
+          <p className="text-base sm:text-lg lg:text-[19px] text-[#EEF3FA]/95 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
             Supporting your requirements beyond standard supply. Precision secondary processing, specialized cutting, testing, finishing, and export packaging.
           </p>
         </div>
@@ -242,20 +242,20 @@ export default function ServicesSection({ onOpenEnquiry }) {
                     {/* Back Header: Service Number Badge + Tag */}
                     <div className="relative z-10 p-6 sm:p-7 flex items-center justify-between">
                       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-black/60 backdrop-blur-md border border-white/20 shadow-md">
-                        <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
+                        <span className="w-2 h-2 rounded-full bg-[#123F91] animate-pulse" />
                         <span className="font-mono text-xs font-bold text-white tracking-widest">
                           {service.id} / 06
                         </span>
                       </div>
 
-                      <span className="text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-sm bg-[#A94728] text-white uppercase shadow-md border border-white/20">
+                      <span className="text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-sm bg-[#123F91] text-white uppercase shadow-md border border-white/20">
                         {service.tag}
                       </span>
                     </div>
 
                     {/* Back Bottom: Title & Clean Action */}
                     <div className="relative z-10 p-6 sm:p-7">
-                      <div className="tech-label text-xs font-bold tracking-widest mb-1.5 text-[#F4E5DC] drop-shadow">
+                      <div className="tech-label text-xs font-bold tracking-widest mb-1.5 text-[#EEF3FA] drop-shadow">
                         {service.id} — VALUE ADDED
                       </div>
 
@@ -265,7 +265,7 @@ export default function ServicesSection({ onOpenEnquiry }) {
 
                       <div className="mt-4 pt-3 border-t border-white/25 flex items-center justify-between text-xs font-mono">
                         <span className="text-white/85 uppercase tracking-wider flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#A94728]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#123F91]" />
                           SPEC READY
                         </span>
 
@@ -275,7 +275,7 @@ export default function ServicesSection({ onOpenEnquiry }) {
                             e.stopPropagation();
                             if (onOpenEnquiry) onOpenEnquiry(service.title);
                           }}
-                          className="inline-flex items-center gap-1.5 font-bold text-white bg-[#A94728] hover:bg-[#8F371B] px-3.5 py-1.5 rounded-sm border border-white/30 transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
+                          className="inline-flex items-center gap-1.5 font-bold text-white bg-[#123F91] hover:bg-[#0B2863] px-3.5 py-1.5 rounded-sm border border-white/30 transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
                           aria-label={`Request specification for ${service.title}`}
                         >
                           <span>REQUEST SPEC</span>

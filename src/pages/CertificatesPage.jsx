@@ -58,15 +58,15 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
       {/* Hero Section */}
       <section className="relative bg-[#202427] text-white py-16 sm:py-20 lg:py-24 border-b border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-dark-grid-pattern opacity-30 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#A94728]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#123F91]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 backdrop-blur-md mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-              <ShieldCheck className="w-4 h-4 text-[#A94728]" />
-              <span className="tech-label text-xs sm:text-[13px] font-bold tracking-widest text-[#F4E5DC] uppercase">
+              <ShieldCheck className="w-4 h-4 text-white" />
+              <span className="tech-label text-xs sm:text-[13px] font-bold tracking-widest text-[#EEF3FA] uppercase">
                 OFFICIAL ACCREDITATIONS &amp; STATUTORY COMPLIANCE
               </span>
             </div>
@@ -74,7 +74,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
             {/* Main Title (76–96px desktop scale) */}
             <h1 className="text-4xl sm:text-6xl lg:text-[68px] xl:text-[74px] font-extrabold text-white tracking-tight leading-[1.05] mb-6 font-sans">
               Verified Certificates &amp;{' '}
-              <span className="text-[#F4E5DC] block mt-1">
+              <span className="text-[#EEF3FA] block mt-1">
                 Quality Management
               </span>
             </h1>
@@ -116,8 +116,8 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
               onClick={() => setSelectedTab('all')}
               className={`px-4 py-2 rounded text-xs font-mono font-bold transition-all cursor-pointer ${
                 selectedTab === 'all'
-                  ? 'bg-[#A94728] text-white shadow-sm'
-                  : 'bg-white text-[#202427] border border-[#D9D9D6] hover:border-[#A94728]'
+                  ? 'bg-[#123F91] text-white shadow-sm'
+                  : 'bg-white text-[#202427] border border-[#D9D9D6] hover:border-[#123F91]'
               }`}
             >
               All Documents ({COMPANY_CERTIFICATES.length})
@@ -128,8 +128,8 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
                 onClick={() => setSelectedTab(cert.id)}
                 className={`px-4 py-2 rounded text-xs font-mono font-bold transition-all cursor-pointer ${
                   selectedTab === cert.id
-                    ? 'bg-[#A94728] text-white shadow-sm'
-                    : 'bg-white text-[#202427] border border-[#D9D9D6] hover:border-[#A94728]'
+                    ? 'bg-[#123F91] text-white shadow-sm'
+                    : 'bg-white text-[#202427] border border-[#D9D9D6] hover:border-[#123F91]'
                 }`}
               >
                 {cert.title}
@@ -147,16 +147,16 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
           {filteredCerts.map((cert) => (
             <div
               key={cert.id}
-              className="bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-2xl shadow-industrial overflow-hidden transition-all duration-300"
+              className="bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-2xl shadow-industrial overflow-hidden transition-all duration-300"
             >
               {/* Card Top Header */}
               <div className="bg-[#202427] text-white px-6 sm:px-8 py-4 flex flex-wrap items-center justify-between gap-3 border-b border-white/10">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded bg-white/10 text-[#A94728] border border-white/15">
-                    <ShieldCheck className="w-5 h-5 text-[#F4E5DC]" />
+                  <div className="p-2 rounded bg-white/10 text-white border border-white/15">
+                    <ShieldCheck className="w-5 h-5 text-[#EEF3FA]" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-mono text-[#A94728] font-bold uppercase tracking-wider block">
+                    <span className="text-[11px] font-mono text-white/80 font-bold uppercase tracking-wider block">
                       {cert.type}
                     </span>
                     <h2 className="text-lg sm:text-xl font-extrabold text-white leading-tight">
@@ -190,7 +190,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
                       />
                       {/* Hover Overlay */}
                       <div className="absolute inset-0 bg-[#202427]/60 opacity-0 group-hover/preview:opacity-100 transition-opacity flex flex-col items-center justify-center gap-3 backdrop-blur-xs text-white p-4">
-                        <div className="w-12 h-12 rounded-full bg-[#A94728] flex items-center justify-center text-white shadow-lg">
+                        <div className="w-12 h-12 rounded-full bg-[#123F91] flex items-center justify-center text-white shadow-lg">
                           <Eye className="w-6 h-6" />
                         </div>
                         <span className="font-mono text-xs font-bold uppercase tracking-wider bg-white/20 px-3 py-1 rounded">
@@ -201,7 +201,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
 
                     <div className="mt-3 flex items-center justify-between text-xs text-[#202427]/70 font-mono px-1">
                       <span>Preview (Page 1)</span>
-                      <span className="text-[#A94728] font-bold group-hover/preview:underline">
+                      <span className="text-[#123F91] font-bold group-hover/preview:underline">
                         Zoom Document ↗
                       </span>
                     </div>
@@ -212,7 +212,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
                     <button
                       type="button"
                       onClick={() => handleOpenCertModal(cert.id)}
-                      className="flex-1 inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#7E321F] text-white px-4 py-2.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer shadow-sm"
+                      className="flex-1 inline-flex items-center justify-center gap-2 bg-[#123F91] hover:bg-[#0B2863] text-white px-4 py-2.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer shadow-sm"
                     >
                       <Eye className="w-3.5 h-3.5" />
                       <span>Inspect</span>
@@ -223,7 +223,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
                       download
                       className="flex-1 inline-flex items-center justify-center gap-2 bg-[#202427] hover:bg-[#171A1C] text-white px-4 py-2.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer shadow-sm"
                     >
-                      <Download className="w-3.5 h-3.5 text-[#F4E5DC]" />
+                      <Download className="w-3.5 h-3.5 text-[#EEF3FA]" />
                       <span>Download PDF</span>
                     </a>
                   </div>
@@ -232,7 +232,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
                 {/* Right: Detailed Certificate Breakdown & Verification Data */}
                 <div className="lg:col-span-7 space-y-6">
                   <div>
-                    <div className="tech-label text-xs font-bold text-[#A94728] uppercase tracking-wider mb-1">
+                    <div className="tech-label text-xs font-bold text-[#123F91] uppercase tracking-wider mb-1">
                       {cert.badge} VERIFICATION DOSSIER
                     </div>
                     <h3 className="text-2xl font-extrabold text-[#202427] mb-2">
@@ -248,11 +248,11 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
                     <div className="flex items-center justify-between border-b border-[#D9D9D6]/60 pb-2.5">
                       <span className="text-[#6B7280] uppercase">Certificate / Reg Number:</span>
                       <div className="flex items-center gap-2">
-                        <strong className="text-[#A94728] text-sm">{cert.certificateNo}</strong>
+                        <strong className="text-[#123F91] text-sm">{cert.certificateNo}</strong>
                         <button
                           type="button"
                           onClick={() => handleCopy(cert.certificateNo, cert.id)}
-                          className="p-1 text-[#6B7280] hover:text-[#A94728] cursor-pointer"
+                          className="p-1 text-[#6B7280] hover:text-[#123F91] cursor-pointer"
                           title="Copy certificate number"
                         >
                           {copiedText === cert.id ? (
@@ -286,7 +286,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
                     {cert.tradeName && (
                       <div className="flex items-center justify-between border-b border-[#D9D9D6]/60 pb-2.5">
                         <span className="text-[#6B7280] uppercase">Trade Name:</span>
-                        <strong className="text-[#A94728]">{cert.tradeName}</strong>
+                        <strong className="text-[#123F91]">{cert.tradeName}</strong>
                       </div>
                     )}
 
@@ -307,7 +307,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
                   {/* Certified Scope & Address */}
                   <div className="space-y-2">
                     <div className="text-xs font-mono font-bold text-[#202427] uppercase tracking-wider flex items-center gap-1.5">
-                      <Building2 className="w-3.5 h-3.5 text-[#A94728]" />
+                      <Building2 className="w-3.5 h-3.5 text-[#123F91]" />
                       <span>Certified Scope of Manufacturing & Supply:</span>
                     </div>
                     <div className="p-4 bg-white rounded-lg border-2 border-[#D9D9D6] text-xs text-[#202427]/85 leading-relaxed font-sans shadow-xs">
@@ -317,9 +317,9 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
 
                   {/* Security Verification Guarantee */}
                   <div className="p-4 bg-[#202427] text-white rounded-xl border border-white/10 flex items-start gap-3">
-                    <Award className="w-5 h-5 text-[#A94728] flex-shrink-0 mt-0.5" />
+                    <Award className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-xs font-bold text-[#F4E5DC] uppercase tracking-wider mb-1">
+                      <h4 className="text-xs font-bold text-[#EEF3FA] uppercase tracking-wider mb-1">
                         Third-Party Audit Compliance Guarantee
                       </h4>
                       <p className="text-xs text-[#D9D9D6]/85 leading-relaxed">
@@ -336,7 +336,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
         {/* Quality Framework Micro Strip */}
         <div className="bg-white border-2 border-[#D9D9D6] rounded-2xl p-8 sm:p-10 shadow-sm mb-16">
           <div className="max-w-3xl mb-8">
-            <div className="tech-label text-xs font-bold text-[#A94728] tracking-widest uppercase mb-1">
+            <div className="tech-label text-xs font-bold text-[#123F91] tracking-widest uppercase mb-1">
               SPECIFICATION ASSURANCE FRAMEWORK
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
@@ -355,7 +355,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-mono font-bold text-[#A94728] px-2 py-0.5 rounded bg-[#A94728]/10 border border-[#A94728]/20">
+                    <span className="text-[10px] font-mono font-bold text-[#123F91] px-2 py-0.5 rounded bg-[#123F91]/10 border border-[#123F91]/20">
                       {item.code}
                     </span>
                     <span className="text-[10px] font-mono text-[#202427]/50">
@@ -381,7 +381,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
         {/* Commercial Action Callout */}
         <div className="p-8 sm:p-12 bg-gradient-to-r from-[#202427] via-[#2A3136] to-[#202427] text-white rounded-2xl border-2 border-white/10 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="max-w-2xl text-center lg:text-left">
-            <div className="tech-label text-xs font-bold text-[#A94728] tracking-widest uppercase mb-2">
+            <div className="tech-label text-xs font-bold text-[#123F91] tracking-widest uppercase mb-2">
               NEED CERTIFIED MILL TEST REPORTS (MTC)?
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
@@ -395,7 +395,7 @@ export default function CertificatesPage({ onNavigate, onOpenEnquiry }) {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={() => onOpenEnquiry && onOpenEnquiry('', 'Certified Inventory')}
-              className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all cursor-pointer"
+              className="btn-wave inline-flex items-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all cursor-pointer"
             >
               <span>Request Quote with MTC</span>
               <ArrowUpRight className="w-4 h-4" />

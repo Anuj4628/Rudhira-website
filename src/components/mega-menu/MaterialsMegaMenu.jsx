@@ -31,7 +31,7 @@ export default function MaterialsMegaMenu({
     <div
       role="menu"
       aria-label="Materials Dropdown"
-      className="nav-dropdown-menu mt-2 w-[500px] max-w-[calc(100vw-32px)] bg-[#A94728] border border-[#923C20] rounded-xl shadow-2xl shadow-black/35 select-none text-white pointer-events-auto"
+      className="nav-dropdown-menu mt-2 w-[500px] max-w-[calc(100vw-32px)] bg-[#123F91] border border-[#0B2863] rounded-xl shadow-2xl shadow-black/35 select-none text-white pointer-events-auto"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -42,7 +42,7 @@ export default function MaterialsMegaMenu({
       />
 
       {/* Upward notch pointing directly to the Material nav link */}
-      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#A94728] rotate-45 border-t border-l border-[#923C20] pointer-events-none z-10" />
+      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#123F91] rotate-45 border-t border-l border-[#0B2863] pointer-events-none z-10" />
 
       {/* Inner rounded container */}
       <div className="rounded-xl overflow-hidden">

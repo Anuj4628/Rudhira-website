@@ -162,7 +162,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
     >
       <div className="relative w-full max-w-2xl bg-white border border-[#D9D9D6] rounded-xl shadow-2xl overflow-hidden my-8">
         {/* Modal Top Bar */}
-        <div className="bg-[#202427] text-white px-6 py-4 flex items-center justify-between border-b border-[#A94728]/40">
+        <div className="bg-[#202427] text-white px-6 py-4 flex items-center justify-between border-b border-[#123F91]/40">
           <div>
             <h3 id="modal-title" className="text-base sm:text-lg font-bold text-white tracking-wide">
               Get Quote / Requirement Form
@@ -182,7 +182,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
 
         {showChoice ? (
           <div className="p-8 sm:p-10 text-center bg-[#F8F5F1]">
-            <div className="tech-label text-xs font-bold text-[#A94728] tracking-widest uppercase mb-2">
+            <div className="tech-label text-xs font-bold text-[#123F91] tracking-widest uppercase mb-2">
               REQUIREMENT READY // CHOOSE DELIVERY CHANNEL
             </div>
             <h4 className="text-2xl sm:text-3xl font-extrabold text-[#202427] mb-2">
@@ -196,7 +196,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
             <div className="p-4 bg-white border border-[#D9D9D6] rounded-lg max-w-md mx-auto mb-8 font-mono text-xs text-left space-y-1.5 shadow-xs">
               <div className="flex items-center justify-between">
                 <span className="text-[#6B7280]">REFERENCE:</span>
-                <strong className="text-[#A94728]">{rfqNumber}</strong>
+                <strong className="text-[#123F91]">{rfqNumber}</strong>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[#6B7280]">PRODUCT:</span>
@@ -212,7 +212,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[#6B7280]">DESK EMAIL:</span>
-                <strong className="text-[#A94728]">{COMPANY_DETAILS.emails[0]}</strong>
+                <strong className="text-[#123F91]">{COMPANY_DETAILS.emails[0]}</strong>
               </div>
             </div>
 
@@ -284,7 +284,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
               {/* 1. Name* */}
               <div>
                 <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                  Name <span className="text-[#A94728]">*</span>
+                  Name <span className="text-[#123F91]">*</span>
                 </label>
                 <input
                   type="text"
@@ -294,7 +294,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
                   onChange={handleChange}
                   className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                     formErrors.name ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                 />
                 {formErrors.name && (
                   <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.name}</p>
@@ -304,7 +304,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
               {/* 2. Email* */}
               <div>
                 <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                  Email <span className="text-[#A94728]">*</span>
+                  Email <span className="text-[#123F91]">*</span>
                 </label>
                 <input
                   type="email"
@@ -314,7 +314,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
                   onChange={handleChange}
                   className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                     formErrors.email ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                 />
                 {formErrors.email && (
                   <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.email}</p>
@@ -324,7 +324,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
               {/* 3. Phone Number* */}
               <div>
                 <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                  Phone Number <span className="text-[#A94728]">*</span>
+                  Phone Number <span className="text-[#123F91]">*</span>
                 </label>
                 <input
                   type="tel"
@@ -334,7 +334,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
                   onChange={handleChange}
                   className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                     formErrors.phone ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                 />
                 {formErrors.phone && (
                   <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.phone}</p>
@@ -352,14 +352,14 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
                   placeholder="e.g. Apex Engineering Ltd"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors"
+                  className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors"
                 />
               </div>
 
               {/* 5. Product / Material Required* */}
               <div>
                 <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                  Product / Material Required <span className="text-[#A94728]">*</span>
+                  Product / Material Required <span className="text-[#123F91]">*</span>
                 </label>
                 <input
                   type="text"
@@ -370,7 +370,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
                   onChange={handleChange}
                   className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                     formErrors.product ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                 />
                 <datalist id="enquiry-products-list">
                   {PRODUCTS_DATA.map((p) => (
@@ -391,7 +391,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
               {/* 6. Quantity* */}
               <div>
                 <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                  Quantity <span className="text-[#A94728]">*</span>
+                  Quantity <span className="text-[#123F91]">*</span>
                 </label>
                 <input
                   type="text"
@@ -401,7 +401,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
                   onChange={handleChange}
                   className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                     formErrors.quantity ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors`}
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors`}
                 />
                 {formErrors.quantity && (
                   <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.quantity}</p>
@@ -419,14 +419,14 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
                   placeholder="e.g. 316L, Sch 40, ASTM A312"
                   value={formData.specification}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors"
+                  className="w-full px-3.5 py-2.5 text-sm bg-white border border-[#D9D9D6] rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors"
                 />
               </div>
 
               {/* 8. Requirement / Message* */}
               <div className="sm:col-span-2">
                 <label className="block text-xs sm:text-sm font-semibold text-[#202427] mb-1.5">
-                  Requirement / Message <span className="text-[#A94728]">*</span>
+                  Requirement / Message <span className="text-[#123F91]">*</span>
                 </label>
                 <textarea
                   name="message"
@@ -436,7 +436,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
                   onChange={handleChange}
                   className={`w-full px-3.5 py-2.5 text-sm bg-white border ${
                     formErrors.message ? 'border-[#EA4335] ring-1 ring-[#EA4335]' : 'border-[#D9D9D6]'
-                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#A94728] focus:ring-1 focus:ring-[#A94728] transition-colors resize-y`}
+                  } rounded-md text-[#202427] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#123F91] focus:ring-1 focus:ring-[#123F91] transition-colors resize-y`}
                 />
                 {formErrors.message && (
                   <p className="text-xs text-[#EA4335] mt-1 font-medium">{formErrors.message}</p>
@@ -447,7 +447,7 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct, initialM
               <div className="sm:col-span-2 pt-2">
                 <button
                   type="submit"
-                  className="w-full bg-[#A94728] hover:bg-[#8F371B] text-white font-bold py-3.5 px-6 rounded-md uppercase tracking-wider text-sm sm:text-base transition-all shadow-md active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full bg-[#123F91] hover:bg-[#0B2863] text-white font-bold py-3.5 px-6 rounded-md uppercase tracking-wider text-sm sm:text-base transition-all shadow-md active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2"
                 >
                   <span>SEND REQUIREMENT</span>
                   <Send className="w-4 h-4" />

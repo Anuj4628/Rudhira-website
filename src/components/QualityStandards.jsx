@@ -13,10 +13,10 @@ export default function QualityStandards() {
   const [activeCertId, setActiveCertId] = useState('iso-9001-2015');
 
   const icons = [
-    <FileCheck className="w-6 h-6 text-[#F4E5DC]" key="q1" />,
-    <Search className="w-6 h-6 text-[#F4E5DC]" key="q2" />,
-    <Ruler className="w-6 h-6 text-[#F4E5DC]" key="q3" />,
-    <Box className="w-6 h-6 text-[#F4E5DC]" key="q4" />,
+    <FileCheck className="w-6 h-6 text-[#EEF3FA]" key="q1" />,
+    <Search className="w-6 h-6 text-[#EEF3FA]" key="q2" />,
+    <Ruler className="w-6 h-6 text-[#EEF3FA]" key="q3" />,
+    <Box className="w-6 h-6 text-[#EEF3FA]" key="q4" />,
   ];
 
   useEffect(() => {
@@ -64,8 +64,8 @@ export default function QualityStandards() {
         {/* Section Header - Centered Layout */}
         <div className="quality-header text-center mx-auto max-w-3xl mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 mb-4 sm:mb-5">
-            <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-            <span className="tech-label text-[#F4E5DC] font-bold text-xs sm:text-[13px]">
+            <span className="w-2 h-2 rounded-full bg-[#123F91] animate-pulse" />
+            <span className="tech-label text-[#EEF3FA] font-bold text-xs sm:text-[13px]">
               08 — SPECIFICATION ASSURANCE
             </span>
           </div>
@@ -92,9 +92,9 @@ export default function QualityStandards() {
             return (
               <div
                 key={item.id}
-                className={`quality-module group relative p-7 sm:p-8 ${moduleBgs} border rounded-lg flex flex-col justify-between overflow-hidden shadow-xl hover:-translate-y-2 hover:border-[#A94728] transition-all duration-300`}
+                className={`quality-module group relative p-7 sm:p-8 ${moduleBgs} border rounded-lg flex flex-col justify-between overflow-hidden shadow-xl hover:-translate-y-2 hover:border-[#123F91] transition-all duration-300`}
               >
-                {/* Orange Corner Details */}
+                {/* Navy Corner Details */}
                 <div className="corner-bracket-tl" />
                 <div className="corner-bracket-br" />
 
@@ -106,21 +106,21 @@ export default function QualityStandards() {
                 <div>
                   {/* Top Bar: Icon Container & Technical Code */}
                   <div className="flex items-center justify-between mb-8">
-                    <div className="p-2.5 bg-[#344B5C] rounded-md border border-white/20 group-hover:bg-[#A94728] transition-colors shadow-sm">
+                    <div className="p-2.5 bg-[#344B5C] rounded-md border border-white/20 group-hover:bg-[#123F91] transition-colors shadow-sm">
                       {icons[index]}
                     </div>
-                    <span className="text-xs font-mono font-bold text-[#F4E5DC] bg-white/10 px-2.5 py-1 rounded-md border border-white/15">
+                    <span className="text-xs font-mono font-bold text-[#EEF3FA] bg-white/10 px-2.5 py-1 rounded-md border border-white/15">
                       {item.code}
                     </span>
                   </div>
 
                   {/* Module ID */}
-                  <div className="tech-label text-xs font-bold text-[#A94728] mb-1.5 tracking-widest">
+                  <div className="tech-label text-xs font-bold text-[#123F91] mb-1.5 tracking-widest">
                     MODULE // {item.id}
                   </div>
 
                   {/* Module Title */}
-                  <h3 className="text-xl sm:text-[22px] font-extrabold text-white mb-3 tracking-tight group-hover:text-[#F4E5DC] transition-colors font-sans">
+                  <h3 className="text-xl sm:text-[22px] font-extrabold text-white mb-3 tracking-tight group-hover:text-[#EEF3FA] transition-colors font-sans">
                     {item.title}
                   </h3>
 
@@ -133,7 +133,7 @@ export default function QualityStandards() {
                 {/* Bottom Technical Frame */}
                 <div className="mt-8 pt-4 border-t border-white/15 flex items-center justify-between text-[11px] font-mono text-[#E7EEF2]/60">
                   <span>SPEC COMPLIANT</span>
-                  <span className="text-[#A94728] font-bold group-hover:translate-x-1 transition-transform">
+                  <span className="text-[#123F91] font-bold group-hover:translate-x-1 transition-transform">
                     PASS 100% →
                   </span>
                 </div>
@@ -148,8 +148,8 @@ export default function QualityStandards() {
         <div className="pt-12 border-t border-white/20">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-3">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#F4E5DC]" />
-              <span className="tech-label text-[#F4E5DC] font-bold text-xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#EEF3FA]" />
+              <span className="tech-label text-[#EEF3FA] font-bold text-xs">
                 OFFICIAL ACCREDITATIONS & VERIFIED DOCUMENTS
               </span>
             </div>
@@ -166,15 +166,15 @@ export default function QualityStandards() {
             {COMPANY_CERTIFICATES.map((cert) => (
               <div
                 key={cert.id}
-                className="bg-[#202427] border-2 border-white/20 hover:border-[#A94728] rounded-xl p-6 sm:p-7 shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-[#202427] border-2 border-white/20 hover:border-[#123F91] rounded-xl p-6 sm:p-7 shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
               >
                 {/* Accent Top Ribbon */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#A94728] via-[#F4E5DC] to-[#A94728]" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#123F91] via-[#EEF3FA] to-[#123F91]" />
 
                 <div>
                   {/* Card Header */}
                   <div className="flex items-center justify-between mb-5">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#A94728]/20 border border-[#A94728]/50 text-[#F4E5DC] font-mono text-xs font-bold">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#123F91]/20 border border-[#123F91]/50 text-[#EEF3FA] font-mono text-xs font-bold">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
                       <span>{cert.badge}</span>
                     </div>
@@ -195,7 +195,7 @@ export default function QualityStandards() {
                       className="w-full h-full object-contain filter contrast-105 group-hover/img:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-[#202427]/60 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-xs">
-                      <div className="inline-flex items-center gap-2 bg-[#A94728] text-white px-4 py-2 rounded-sm text-xs font-mono font-bold uppercase tracking-wider shadow-lg">
+                      <div className="inline-flex items-center gap-2 bg-[#123F91] text-white px-4 py-2 rounded-sm text-xs font-mono font-bold uppercase tracking-wider shadow-lg">
                         <Eye className="w-4 h-4" />
                         <span>Inspect Certificate</span>
                       </div>
@@ -203,7 +203,7 @@ export default function QualityStandards() {
                   </div>
 
                   {/* Title & Metadata */}
-                  <h4 className="text-xl font-extrabold text-white mb-2 group-hover:text-[#F4E5DC] transition-colors">
+                  <h4 className="text-xl font-extrabold text-white mb-2 group-hover:text-[#EEF3FA] transition-colors">
                     {cert.title}
                   </h4>
                   <p className="text-xs text-[#E7EEF2]/75 leading-relaxed mb-4">
@@ -213,7 +213,7 @@ export default function QualityStandards() {
                   <div className="p-3 bg-white/5 rounded border border-white/10 space-y-1.5 font-mono text-xs mb-5">
                     <div className="flex items-center justify-between">
                       <span className="text-[#E7EEF2]/60">Certificate / Reg No:</span>
-                      <strong className="text-[#F4E5DC]">{cert.certificateNo}</strong>
+                      <strong className="text-[#EEF3FA]">{cert.certificateNo}</strong>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-[#E7EEF2]/60">Issuing Body:</span>
@@ -231,7 +231,7 @@ export default function QualityStandards() {
                   <button
                     type="button"
                     onClick={() => handleOpenCert(cert.id)}
-                    className="btn-wave inline-flex items-center gap-1.5 border border-[#A94728] text-[#F4E5DC] px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-all cursor-pointer shadow-md"
+                    className="btn-wave inline-flex items-center gap-1.5 border border-[#123F91] text-[#EEF3FA] px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-all cursor-pointer shadow-md"
                   >
                     <Eye className="w-3.5 h-3.5" />
                     <span>View Full Certificate</span>
@@ -240,7 +240,7 @@ export default function QualityStandards() {
                   <a
                     href={cert.pdfUrl}
                     download
-                    className="btn-wave inline-flex items-center gap-1.5 border border-white/30 text-[#F4E5DC] px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-all shadow-sm"
+                    className="btn-wave inline-flex items-center gap-1.5 border border-white/30 text-[#EEF3FA] px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider font-mono transition-all shadow-sm"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Download PDF</span>

@@ -54,8 +54,8 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
             {/* Left: Product Information */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-                <span className="tech-label text-xs font-bold text-[#F4E5DC] tracking-widest uppercase">
+                <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
+                <span className="tech-label text-xs font-bold text-[#EEF3FA] tracking-widest uppercase">
                   {product.division.toUpperCase()} DIVISION // SPECIFICATION CATALOG
                 </span>
               </div>
@@ -71,11 +71,11 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
               {/* Specification Highlights */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8 font-mono text-xs sm:text-sm">
                 <div className="p-3.5 bg-white/5 rounded border border-white/10">
-                  <span className="text-[#A94728] font-bold block mb-1">SIZE CAPABILITY</span>
+                  <span className="text-white font-bold block mb-1">SIZE CAPABILITY</span>
                   <span className="text-white/90">{product.sizeRange}</span>
                 </div>
                 <div className="p-3.5 bg-white/5 rounded border border-white/10">
-                  <span className="text-[#A94728] font-bold block mb-1">GOVERNING STANDARDS</span>
+                  <span className="text-white font-bold block mb-1">GOVERNING STANDARDS</span>
                   <span className="text-white/90">{product.standards.slice(0, 3).join(', ')}</span>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => onOpenEnquiry(product.name, 'Stainless Steel')}
-                  className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <span>Request a Quote for {product.name}</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -111,7 +111,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#202427]/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-3 left-3 right-3 p-3 bg-[#202427]/90 backdrop-blur-md rounded border border-white/20 text-xs font-mono text-[#D9D9D6]">
-                  <span className="text-[#A94728] font-bold">RMI SPECIFICATION:</span> Certified prime mill test records available for all batches.
+                  <span className="text-white font-bold">RMI SPECIFICATION:</span> Certified prime mill test records available for all batches.
                 </div>
               </div>
             </div>
@@ -124,9 +124,9 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
           ======================================================== */}
       <section id="select-material" className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-            <span className="tech-label text-[#A94728] font-bold text-xs">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+            <span className="tech-label text-[#123F91] font-bold text-xs">
               STEP 01 — SELECT MATERIAL FAMILY
             </span>
           </div>
@@ -152,7 +152,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
                   `/products/${getProductSeoSlug(product.slug)}/${getProductMaterialSeoSlug(product.slug, mat.slug)}`
                 )
               }
-              className="group bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-lg overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 flex flex-col justify-between cursor-pointer"
+              className="group bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-lg overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 flex flex-col justify-between cursor-pointer"
             >
               <div>
                 {/* Material Image Header */}
@@ -170,7 +170,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
 
                 {/* Card Content */}
                 <div className="p-5 sm:p-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#202427] group-hover:text-[#A94728] transition-colors mb-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#202427] group-hover:text-[#123F91] transition-colors mb-2">
                     {mat.name} {product.name}
                   </h3>
 
@@ -180,7 +180,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
 
                   {/* Popular Grades Chips */}
                   <div className="mb-4">
-                    <span className="text-xs font-mono text-[#A94728] font-bold block mb-1.5">
+                    <span className="text-xs font-mono text-[#123F91] font-bold block mb-1.5">
                       COMMONLY TRADED GRADES:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
@@ -199,7 +199,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
 
               {/* Action Strip */}
               <div className="p-5 sm:p-6 pt-0 border-t border-[#D9D9D6]/50">
-                <div className="w-full inline-flex items-center justify-between text-xs sm:text-sm font-bold text-[#A94728] group-hover:text-[#7E321F] uppercase font-mono tracking-wider py-2 group-hover:underline">
+                <div className="w-full inline-flex items-center justify-between text-xs sm:text-sm font-bold text-[#123F91] group-hover:text-[#0B2863] uppercase font-mono tracking-wider py-2 group-hover:underline">
                   <span>Explore {mat.shortName} {product.name}</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -213,12 +213,12 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
           SECTION 3 — RELEVANT PRODUCT TYPES (FOR FLANGES & FASTENERS)
           ======================================================== */}
       {types.length > 0 && (
-        <section className="py-16 sm:py-20 bg-[#F4E5DC]/50 border-t border-b border-[#D9D9D6]">
+        <section className="py-16 sm:py-20 bg-[#EEF3FA]/50 border-t border-b border-[#D9D9D6]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-3">
-                <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-                <span className="tech-label text-[#A94728] font-bold text-xs">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-3">
+                <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+                <span className="tech-label text-[#123F91] font-bold text-xs">
                   TYPES ARCHITECTURE // {product.name.toUpperCase()}
                 </span>
               </div>
@@ -244,7 +244,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
                       `/products/${getProductSeoSlug(product.slug)}/${getProductMaterialSeoSlug(product.slug, 'stainless-steel')}/types/${type.slug}`
                     )
                   }
-                  className="group bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 flex flex-col justify-between cursor-pointer"
+                  className="group bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 >
                   <div>
                     {/* Enlarged, consistent image area */}
@@ -263,7 +263,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
 
                     <div className="p-6">
                       <div className="flex items-center justify-between gap-2 mb-2">
-                        <h3 className="text-xl sm:text-2xl font-bold text-[#202427] group-hover:text-[#A94728] transition-colors">
+                        <h3 className="text-xl sm:text-2xl font-bold text-[#202427] group-hover:text-[#123F91] transition-colors">
                           {type.name}
                         </h3>
                       </div>
@@ -274,13 +274,13 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
 
                       {type.connectionType && (
                         <div className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs sm:text-sm font-mono text-[#202427]/80 mb-3 truncate">
-                          <span className="text-[#A94728] font-bold">JOINT: </span>
+                          <span className="text-[#123F91] font-bold">JOINT: </span>
                           <span>{type.connectionType}</span>
                         </div>
                       )}
 
                       {type.pressureClasses && (
-                        <div className="text-xs sm:text-sm font-mono text-[#A94728] font-bold truncate">
+                        <div className="text-xs sm:text-sm font-mono text-[#123F91] font-bold truncate">
                           RATING: {type.pressureClasses}
                         </div>
                       )}
@@ -296,7 +296,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
                           `/products/${getProductSeoSlug(product.slug)}/${getProductMaterialSeoSlug(product.slug, 'stainless-steel')}/types/${type.slug}`
                         )
                       }
-                      className="btn-wave w-full inline-flex items-center justify-between text-xs sm:text-sm font-bold text-[#A94728] uppercase font-mono tracking-wider px-4 py-2.5 rounded-sm border border-[#A94728]/40 hover:border-[#A94728] transition-all cursor-pointer"
+                      className="btn-wave w-full inline-flex items-center justify-between text-xs sm:text-sm font-bold text-[#123F91] uppercase font-mono tracking-wider px-4 py-2.5 rounded-sm border border-[#123F91]/40 hover:border-[#123F91] transition-all cursor-pointer"
                     >
                       <span>Explore {type.name}</span>
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -343,7 +343,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
 
           <div className="lg:col-span-5 bg-[#202427] text-white p-6 sm:p-8 rounded-lg border border-white/20 shadow-xl flex flex-col justify-between">
             <div>
-              <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase mb-2">
+              <div className="tech-label text-xs sm:text-sm font-bold text-white uppercase mb-2">
                 MISSION-CRITICAL SECTORS
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
@@ -352,7 +352,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
               <ul className="space-y-3 text-sm sm:text-base text-[#D9D9D6]">
                 {product.applications.map((app) => (
                   <li key={app} className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-5 h-5 text-[#A94728] flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#123F91] flex-shrink-0" />
                     <span>{app}</span>
                   </li>
                 ))}
@@ -362,7 +362,7 @@ export default function ProductCategoryPage({ productSlug, onNavigate, onOpenEnq
             <div className="mt-8 pt-6 border-t border-white/20">
               <button
                 onClick={() => onOpenEnquiry(product.name, 'All Grades')}
-                className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-sm sm:text-base font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
               >
                 <span>Request Custom Sizing & RFQ</span>
                 <ArrowUpRight className="w-4 h-4" />

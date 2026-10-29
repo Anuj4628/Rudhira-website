@@ -79,9 +79,9 @@ export default function IndustriesCarousel({ onSelectIndustry }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
         <div className="industries-header text-center mx-auto max-w-3xl">
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 sm:mb-5">
-            <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-            <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-4 sm:mb-5">
+            <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+            <span className="tech-label text-[#123F91] font-bold text-xs sm:text-[13px]">
               04 — SECTOR APPLICATIONS
             </span>
           </div>
@@ -98,7 +98,7 @@ export default function IndustriesCarousel({ onSelectIndustry }) {
           <div className="flex items-center justify-center gap-3">
             <button
               onClick={() => shiftManual('prev')}
-              className="p-3 bg-white hover:bg-[#A94728] hover:text-white text-[#202427] rounded-sm border border-[#D9D9D6] shadow-sm transition-colors cursor-pointer active:scale-95"
+              className="p-3 bg-white hover:bg-[#123F91] hover:text-white text-[#202427] rounded-sm border border-[#D9D9D6] shadow-sm transition-colors cursor-pointer active:scale-95"
               aria-label="Scroll industries previous"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -108,7 +108,7 @@ export default function IndustriesCarousel({ onSelectIndustry }) {
             </span>
             <button
               onClick={() => shiftManual('next')}
-              className="p-3 bg-white hover:bg-[#A94728] hover:text-white text-[#202427] rounded-sm border border-[#D9D9D6] shadow-sm transition-colors cursor-pointer active:scale-95"
+              className="p-3 bg-white hover:bg-[#123F91] hover:text-white text-[#202427] rounded-sm border border-[#D9D9D6] shadow-sm transition-colors cursor-pointer active:scale-95"
               aria-label="Scroll industries next"
             >
               <ArrowRight className="w-4 h-4" />
@@ -131,7 +131,7 @@ export default function IndustriesCarousel({ onSelectIndustry }) {
             <div
               key={`${item.id}-${idx}`}
               onClick={() => onSelectIndustry(item.name)}
-              className="relative w-[300px] sm:w-[340px] h-[380px] sm:h-[410px] flex-shrink-0 bg-[#202427] rounded-lg overflow-hidden border border-[#D9D9D6] hover:border-[#A94728] transition-all duration-300 group cursor-pointer shadow-industrial hover:shadow-industrial-hover"
+              className="relative w-[300px] sm:w-[340px] h-[380px] sm:h-[410px] flex-shrink-0 bg-[#202427] rounded-lg overflow-hidden border border-[#D9D9D6] hover:border-[#123F91] transition-all duration-300 group cursor-pointer shadow-industrial hover:shadow-industrial-hover"
             >
               {/* Dominant Industrial Image from user folder */}
               <img
@@ -146,12 +146,12 @@ export default function IndustriesCarousel({ onSelectIndustry }) {
 
               {/* Bottom content: industry name only as specified in 19 */}
               <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end">
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight group-hover:text-[#F4E5DC] group-hover:translate-x-1 transition-all">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight group-hover:text-[#EEF3FA] group-hover:translate-x-1 transition-all">
                   {item.name}
                 </h3>
 
-                {/* Orange line */}
-                <div className="mt-3 h-1 w-10 bg-[#A94728] group-hover:w-full transition-all duration-300 rounded-full" />
+                {/* Navy blue line */}
+                <div className="mt-3 h-1 w-10 bg-[#123F91] group-hover:w-full transition-all duration-300 rounded-full" />
               </div>
             </div>
           ))}

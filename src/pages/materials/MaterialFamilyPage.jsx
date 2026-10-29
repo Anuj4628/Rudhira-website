@@ -54,8 +54,8 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
             {/* Left Content */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-                <span className="tech-label text-xs font-bold text-[#F4E5DC] tracking-widest uppercase">
+                <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
+                <span className="tech-label text-xs font-bold text-[#EEF3FA] tracking-widest uppercase">
                   METALLURGICAL ALLOY FAMILY // {material.shortName.toUpperCase()}
                 </span>
               </div>
@@ -70,13 +70,13 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
 
               {/* Key Characteristics */}
               <div className="p-4 sm:p-5 bg-white/5 rounded-lg border border-white/10 mb-8 max-w-xl">
-                <div className="text-xs sm:text-sm font-mono font-bold text-[#A94728] uppercase mb-2">
+                <div className="text-xs sm:text-sm font-mono font-bold text-white uppercase mb-2">
                   METALLURGICAL PERFORMANCE PROFILE:
                 </div>
                 <ul className="space-y-2 text-xs sm:text-sm text-[#D9D9D6]">
                   {material.keyCharacteristics.map((char) => (
                     <li key={char} className="flex items-start gap-2">
-                      <span className="text-[#A94728] font-bold">›</span>
+                      <span className="text-white/80 font-bold">›</span>
                       <span>{char}</span>
                     </li>
                   ))}
@@ -87,7 +87,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => onOpenEnquiry(`${material.name} Requirements`, material.name)}
-                  className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <span>Request Quote for {material.shortName}</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -115,7 +115,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
 
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-[#A94728] font-bold">
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-[#123F91] font-bold">
                     CERTIFIED ALLOY CLASSIFICATION
                   </div>
                   <div className="text-xl font-extrabold truncate">
@@ -135,7 +135,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
         <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-8 border-b border-[#D9D9D6]">
           <div>
-            <span className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+            <span className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
               RESEARCHED ALLOY SPECIFICATIONS
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#202427]">
@@ -160,14 +160,14 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
                     `/products/flanges/${material.slug}/${grade.slug}`
                   )
                 }
-                className="group p-5 bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl shadow-xs hover:shadow-industrial transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                className="group p-5 bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl shadow-xs hover:shadow-industrial transition-all duration-300 cursor-pointer flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xl font-bold text-[#202427] group-hover:text-[#A94728] transition-colors">
+                    <span className="text-xl font-bold text-[#202427] group-hover:text-[#123F91] transition-colors">
                       {grade.name}
                     </span>
-                    <span className="text-xs font-mono text-[#A94728] font-bold group-hover:translate-x-1 transition-transform">
+                    <span className="text-xs font-mono text-[#123F91] font-bold group-hover:translate-x-1 transition-transform">
                       →
                     </span>
                   </div>
@@ -181,7 +181,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#D9D9D6]/60 flex items-center justify-between text-xs font-mono text-[#A94728] font-bold">
+                <div className="pt-3 border-t border-[#D9D9D6]/60 flex items-center justify-between text-xs font-mono text-[#123F91] font-bold">
                   <span>VIEW TECHNICAL DATASHEET</span>
                   <span>›</span>
                 </div>
@@ -197,20 +197,20 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
                     material.name
                   )
                 }
-                className="group p-5 bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl shadow-xs hover:shadow-industrial transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                className="group p-5 bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl shadow-xs hover:shadow-industrial transition-all duration-300 cursor-pointer flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xl font-bold text-[#202427] group-hover:text-[#A94728]">
+                    <span className="text-xl font-bold text-[#202427] group-hover:text-[#123F91]">
                       Grade {gName}
                     </span>
-                    <span className="text-xs font-mono text-[#A94728] font-bold">RFQ →</span>
+                    <span className="text-xs font-mono text-[#123F91] font-bold">RFQ →</span>
                   </div>
                   <p className="text-xs sm:text-sm text-[#202427]/70 leading-relaxed mb-4">
                     Standard commercial and high-integrity specification for {material.name.toLowerCase()} components.
                   </p>
                 </div>
-                <div className="pt-3 border-t border-[#D9D9D6]/60 text-xs font-mono text-[#A94728] font-bold">
+                <div className="pt-3 border-t border-[#D9D9D6]/60 text-xs font-mono text-[#123F91] font-bold">
                   REQUEST SPEC & PRICING
                 </div>
               </div>
@@ -223,7 +223,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
       <section id="product-forms" className="bg-white py-16 sm:py-20 border-t border-b border-[#D9D9D6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+            <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
               PRODUCT ARCHITECTURE
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#202427] tracking-tight">
@@ -245,7 +245,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
                     `/products/${prod.slug}/${material.slug}`
                   )
                 }
-                className="group bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-xl overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                className="group bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 cursor-pointer flex flex-col justify-between"
               >
                 <div>
                   <div className="relative h-44 overflow-hidden bg-black/5">
@@ -262,10 +262,10 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
 
                   <div className="p-4 sm:p-5">
                     <div className="flex items-center justify-between mb-1.5">
-                      <h3 className="text-base sm:text-lg font-bold text-[#202427] group-hover:text-[#A94728] transition-colors">
+                      <h3 className="text-base sm:text-lg font-bold text-[#202427] group-hover:text-[#123F91] transition-colors">
                         {material.name} {prod.name}
                       </h3>
-                      <ArrowRight className="w-4 h-4 text-[#A94728] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                      <ArrowRight className="w-4 h-4 text-[#123F91] group-hover:translate-x-1 transition-transform flex-shrink-0" />
                     </div>
 
                     <p className="text-xs sm:text-sm text-[#202427]/75 line-clamp-2 leading-relaxed">
@@ -274,7 +274,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
                   </div>
                 </div>
 
-                <div className="p-3.5 bg-white/80 border-t border-[#D9D9D6] flex items-center justify-between text-xs font-mono font-bold text-[#A94728]">
+                <div className="p-3.5 bg-white/80 border-t border-[#D9D9D6] flex items-center justify-between text-xs font-mono font-bold text-[#123F91]">
                   <span>{prod.hasTypes ? 'SPECIFIC TYPES & GRADES' : 'AVAILABLE GRADES'}</span>
                   <span>→</span>
                 </div>
@@ -287,7 +287,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
       {/* Alternative Material Families */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="pb-4 mb-8 border-b border-[#D9D9D6]">
-          <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+          <div className="tech-label text-xs font-bold text-[#123F91] uppercase">
             ALTERNATIVE METALLURGY
           </div>
           <h2 className="text-2xl font-extrabold text-[#202427]">
@@ -302,7 +302,7 @@ export default function MaterialFamilyPage({ materialSlug, onNavigate, onOpenEnq
               onClick={() =>
                 onNavigate('material-family', null, `/materials/${otherMat.slug}`)
               }
-              className="p-3 bg-white hover:bg-[#F4E5DC] border border-[#D9D9D6] hover:border-[#A94728] rounded-lg text-center transition-all cursor-pointer flex flex-col items-center justify-between"
+              className="p-3 bg-white hover:bg-[#EEF3FA] border border-[#D9D9D6] hover:border-[#123F91] rounded-lg text-center transition-all cursor-pointer flex flex-col items-center justify-between"
             >
               <div className="w-10 h-10 rounded-full overflow-hidden bg-black/5 mb-2 border border-[#D9D9D6]">
                 <img

@@ -1,10 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-orange: #A94728;
-  --color-brand-orange-deep: #7E321F;
-  --color-brand-orange-warm-light: #F4E5DC;
-  --color-brand-orange-hover: #90391D;
+  --color-brand-navy: #123F91;
+  --color-brand-navy-deep: #0B2863;
+  --color-brand-navy-royal: #1D4FA3;
+  --color-brand-navy-dark: #102D65;
+  --color-brand-navy-medium: #2457A6;
+  --color-brand-navy-light: #EEF3FA;
+  --color-brand-navy-subtle: #E8EEF8;
+  --color-brand-orange: #123F91;
+  --color-brand-orange-deep: #0B2863;
+  --color-brand-orange-warm-light: #EEF3FA;
+  --color-brand-orange-hover: #0B2863;
   --color-brand-cream: #F8F5F1;
   --color-brand-graphite: #202427;
   --color-brand-graphite-dark: #171A1C;
@@ -12,11 +19,11 @@
   --color-brand-steel-blue-dark: #273845;
   --color-brand-steel-blue-light: #415A6B;
   --color-brand-muted-blue: #5D7382;
-  --color-brand-light-blue: #E7EEF2;
+  --color-brand-light-blue: #EEF3FA;
   --color-brand-white: #FFFFFF;
-  --color-brand-border-grey: #D9D9D6;
-  --color-brand-border-light: #E5E4E0;
-  --color-brand-text-muted: #6B7280;
+  --color-brand-border-grey: #DCE4F0;
+  --color-brand-border-light: #E8EDF5;
+  --color-brand-text-muted: #667085;
 
   --font-sans: "Manrope", "Plus Jakarta Sans", system-ui, sans-serif;
   --font-display: "Barlow Condensed", sans-serif;
@@ -40,7 +47,7 @@ body {
 }
 
 ::selection {
-  background-color: #A94728;
+  background-color: #123F91;
   color: #FFFFFF;
 }
 
@@ -48,8 +55,8 @@ body {
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(169, 71, 40, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(169, 71, 40, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(18, 63, 145, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18, 63, 145, 0.08) 1px, transparent 1px);
 }
 
 .bg-steel-grid-pattern {
@@ -80,22 +87,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F4E5DC;
+  background: #EEF3FA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #A94728;
+  background: #123F91;
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7E321F;
+  background: #0B2863;
 }
 
 /* Slim Sticky Sidebar Scrollbar */
 .sidebar-sticky-scroll {
   scrollbar-width: thin;
-  scrollbar-color: #A94728 transparent;
+  scrollbar-color: #123F91 transparent;
   overscroll-behavior: contain;
 }
 .sidebar-sticky-scroll::-webkit-scrollbar {
@@ -105,11 +112,11 @@ body {
   background: transparent;
 }
 .sidebar-sticky-scroll::-webkit-scrollbar-thumb {
-  background: #A94728/40;
+  background: #123F91/40;
   border-radius: 4px;
 }
 .sidebar-sticky-scroll::-webkit-scrollbar-thumb:hover {
-  background: #A94728;
+  background: #123F91;
 }
 
 /* Stable touch scrolling on marquee & cards */
@@ -126,8 +133,8 @@ body {
   left: 8px;
   width: 12px;
   height: 12px;
-  border-top: 2px solid #A94728;
-  border-left: 2px solid #A94728;
+  border-top: 2px solid #123F91;
+  border-left: 2px solid #123F91;
   pointer-events: none;
 }
 
@@ -137,8 +144,8 @@ body {
   right: 8px;
   width: 12px;
   height: 12px;
-  border-bottom: 2px solid #A94728;
-  border-right: 2px solid #A94728;
+  border-bottom: 2px solid #123F91;
+  border-right: 2px solid #123F91;
   pointer-events: none;
 }
 
@@ -196,7 +203,7 @@ body {
   left: 50%;
   width: 0;
   height: 2.5px;
-  background-color: #A94728;
+  background-color: #123F91;
   border-radius: 2px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateX(-50%);
@@ -244,8 +251,8 @@ body {
 /* Subtle architectural grid pattern for mega menu sidebars */
 .bg-tech-grid {
   background-image: 
-    linear-gradient(to right, rgba(169, 71, 40, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(169, 71, 40, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(18, 63, 145, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18, 63, 145, 0.04) 1px, transparent 1px);
   background-size: 16px 16px;
 }
 
@@ -348,7 +355,7 @@ body {
 }
 
 .tech-border-glow {
-  background: linear-gradient(90deg, rgba(169, 71, 40, 0.2) 0%, rgba(255, 120, 79, 0.8) 50%, rgba(169, 71, 40, 0.2) 100%);
+  background: linear-gradient(90deg, rgba(18, 63, 145, 0.2) 0%, rgba(29, 79, 163, 0.8) 50%, rgba(18, 63, 145, 0.2) 100%);
   background-size: 200% 100%;
   animation: borderGlowPulse 3s ease-in-out infinite;
 }
@@ -364,7 +371,7 @@ body {
 
 /* ========================================================
    GLOBAL LIQUID WAVE RISING HOVER EFFECT
-   Transparent by default, rising burnt-orange wave fill on hover
+   Transparent by default, rising navy blue wave fill on hover
    ======================================================== */
 
 @keyframes liquidWaveFlow {
@@ -378,7 +385,7 @@ body {
 
 /* ========================================================
    INDUSTRIAL BUTTON SYSTEM & VISIBILITY STANDARDS
-   Rudhira Metal Industries - Brand Rust (#A94728 / #8F371B)
+   Rudhira Metal Industries - Brand Rust (#123F91 / #0B2863)
    Clean 200ms transitions, high-contrast text, robust accessibility
    ======================================================== */
 
@@ -404,27 +411,27 @@ body {
 .btn-wave:focus-visible,
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid #A94728 !important;
+  outline: 2px solid #123F91 !important;
   outline-offset: 2px !important;
 }
 
 /* Outlined buttons on light background hover fill with brand rust */
-.btn-wave.border-\[\#A94728\]:not([class*="bg-"]):hover,
-.btn-wave.border-2.border-\[\#A94728\]:not([class*="bg-"]):hover {
-  background-color: #A94728 !important;
+.btn-wave.border-\[\#123F91\]:not([class*="bg-"]):hover,
+.btn-wave.border-2.border-\[\#123F91\]:not([class*="bg-"]):hover {
+  background-color: #123F91 !important;
   color: #FFFFFF !important;
 }
 
-.btn-wave.border-\[\#A94728\]:not([class*="bg-"]):hover *,
-.btn-wave.border-2.border-\[\#A94728\]:not([class*="bg-"]):hover * {
+.btn-wave.border-\[\#123F91\]:not([class*="bg-"]):hover *,
+.btn-wave.border-2.border-\[\#123F91\]:not([class*="bg-"]):hover * {
   color: #FFFFFF !important;
 }
 
 /* Outlined buttons on dark background hover fill with brand rust */
 .btn-wave.border-white\/30:not([class*="bg-"]):hover,
 .btn-wave.border-white\/40:not([class*="bg-"]):hover {
-  background-color: #A94728 !important;
-  border-color: #A94728 !important;
+  background-color: #123F91 !important;
+  border-color: #123F91 !important;
   color: #FFFFFF !important;
 }
 
@@ -445,19 +452,19 @@ button:disabled,
 
 /* Standard Primary Button Utility */
 .btn-primary {
-  background-color: #A94728 !important;
-  border: 2px solid #A94728 !important;
+  background-color: #123F91 !important;
+  border: 2px solid #123F91 !important;
   color: #FFFFFF !important;
   font-weight: 700;
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: #8F371B !important;
-  border-color: #8F371B !important;
+  background-color: #0B2863 !important;
+  border-color: #0B2863 !important;
   color: #FFFFFF !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(169, 71, 40, 0.3);
+  box-shadow: 0 4px 14px rgba(18, 63, 145, 0.3);
 }
 
 .btn-primary *,
@@ -476,8 +483,8 @@ button:disabled,
 }
 
 .btn-secondary-dark:hover {
-  background-color: #A94728 !important;
-  border-color: #A94728 !important;
+  background-color: #123F91 !important;
+  border-color: #123F91 !important;
   color: #FFFFFF !important;
   transform: translateY(-1px);
 }
@@ -538,7 +545,7 @@ button:disabled,
 }
 
 .materials-marquee-section .material-card:hover .material-card-title {
-  color: #F4E5DC !important;
+  color: #EEF3FA !important;
 }
 
 /* ========================================================

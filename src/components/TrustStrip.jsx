@@ -5,7 +5,7 @@ export default function TrustStrip() {
   return (
     <section
       id="trust-strip"
-      className="relative z-30 w-full bg-[#A94728] py-7 sm:py-8 lg:py-9 px-4 sm:px-6 lg:px-8 select-none"
+      className="relative z-30 w-full bg-[#123F91] py-7 sm:py-8 lg:py-9 px-4 sm:px-6 lg:px-8 select-none"
       aria-label="Verified Industrial Accreditations & Supply Capabilities"
     >
       <div className="max-w-7xl mx-auto">

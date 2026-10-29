@@ -113,12 +113,12 @@ export default function GradeDetailPage({
             <div className="lg:col-span-8">
               {/* Badges */}
               <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-white/10 border border-white/20 text-xs font-mono font-bold text-[#F4E5DC] uppercase">
-                  <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-white/10 border border-white/20 text-xs font-mono font-bold text-[#EEF3FA] uppercase">
+                  <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
                   {material.name}
                 </span>
 
-                <span className="inline-flex items-center px-3 py-1 rounded-sm bg-[#A94728]/20 border border-[#A94728]/40 text-xs font-mono font-bold text-[#F4E5DC]">
+                <span className="inline-flex items-center px-3 py-1 rounded-sm bg-[#123F91]/20 border border-[#123F91]/40 text-xs font-mono font-bold text-[#EEF3FA]">
                   {grade.unNumber || `Grade ${cleanGradeName}`}
                 </span>
 
@@ -143,7 +143,7 @@ export default function GradeDetailPage({
                 </div>
                 <div>
                   <div className="text-xs font-mono text-white/60 uppercase">Tensile Strength</div>
-                  <div className="text-sm sm:text-base font-bold text-[#A94728] mt-1">
+                  <div className="text-sm sm:text-base font-bold text-white mt-1">
                     {propertiesData['Tensile Strength'] || 'Specification Dep.'}
                   </div>
                 </div>
@@ -168,7 +168,7 @@ export default function GradeDetailPage({
                       material.name
                     )
                   }
-                  className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <span>Request RFQ for Grade {cleanGradeName}</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -178,7 +178,7 @@ export default function GradeDetailPage({
                   href="#standards-table"
                   className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm sm:text-base font-bold uppercase tracking-wider px-5 py-3.5 rounded-sm border border-white/20 transition-all cursor-pointer"
                 >
-                  <FileText className="w-4 h-4 text-[#A94728]" />
+                  <FileText className="w-4 h-4 text-white" />
                   <span>View Governing Standards</span>
                 </a>
               </div>
@@ -186,8 +186,8 @@ export default function GradeDetailPage({
 
             {/* Right Card: Inspection & Test Certificate Guarantee */}
             <div className="lg:col-span-4 bg-white/5 backdrop-blur-md p-6 sm:p-7 rounded-xl border border-white/10">
-              <div className="flex items-center gap-2.5 text-xs font-mono font-bold text-[#A94728] uppercase mb-3">
-                <ShieldCheck className="w-4 h-4 text-[#A94728]" />
+              <div className="flex items-center gap-2.5 text-xs font-mono font-bold text-white uppercase mb-3">
+                <ShieldCheck className="w-4 h-4 text-white" />
                 <span>CERTIFICATION & TESTING</span>
               </div>
 
@@ -201,15 +201,15 @@ export default function GradeDetailPage({
 
               <div className="space-y-2.5 text-xs sm:text-sm text-[#D9D9D6] border-t border-white/10 pt-3">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#A94728] flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#25D366] flex-shrink-0" />
                   <span>100% PMI Spectro Tested</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#A94728] flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#25D366] flex-shrink-0" />
                   <span>Hydrostatic / Ultrasonic Tested</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#A94728] flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#25D366] flex-shrink-0" />
                   <span>Third-Party Inspection (TUV, DNV, BV)</span>
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function GradeDetailPage({
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#D9D9D6] gap-2">
                 <div>
-                  <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+                  <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
                     METALLURGICAL ANALYSIS
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
@@ -251,7 +251,7 @@ export default function GradeDetailPage({
                     {Object.entries(compositionData).map(([elem, value], idx) => (
                       <tr
                         key={elem}
-                        className={idx % 2 === 0 ? 'bg-[#F8F5F1]/50' : 'bg-white hover:bg-[#F4E5DC]/30'}
+                        className={idx % 2 === 0 ? 'bg-[#F8F5F1]/50' : 'bg-white hover:bg-[#EEF3FA]/30'}
                       >
                         <td className="py-3 px-4 font-bold text-[#202427] font-mono">{elem}</td>
                         <td className="py-3 px-4 text-[#202427] font-mono font-medium">{value}</td>
@@ -269,7 +269,7 @@ export default function GradeDetailPage({
             {/* Mechanical & Physical Properties */}
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               <div className="pb-4 mb-6 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
                   MECHANICAL INTEGRITY
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
@@ -297,14 +297,14 @@ export default function GradeDetailPage({
               <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#D9D9D6] gap-2">
                   <div>
-                    <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+                    <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
                       MANUFACTURING CONFIGURATIONS
                     </div>
                     <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
                       {product.name} Types Available in Grade {cleanGradeName}
                     </h2>
                   </div>
-                  <span className="text-xs sm:text-sm font-mono text-[#A94728] font-bold">
+                  <span className="text-xs sm:text-sm font-mono text-[#123F91] font-bold">
                     {types.length} Standard Types
                   </span>
                 </div>
@@ -320,12 +320,12 @@ export default function GradeDetailPage({
                           `/products/${product.slug}/${material.slug}/types/${type.slug}`
                         )
                       }
-                      className="group p-3.5 bg-[#F8F5F1] hover:bg-[#F4E5DC] border border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all cursor-pointer flex items-center justify-between"
+                      className="group p-3.5 bg-[#F8F5F1] hover:bg-[#EEF3FA] border border-[#D9D9D6] hover:border-[#123F91] rounded-lg transition-all cursor-pointer flex items-center justify-between"
                     >
-                      <span className="text-xs sm:text-sm font-bold text-[#202427] group-hover:text-[#A94728] transition-colors truncate">
+                      <span className="text-xs sm:text-sm font-bold text-[#202427] group-hover:text-[#123F91] transition-colors truncate">
                         {type.name}
                       </span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#A94728] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#123F91] group-hover:translate-x-1 transition-transform flex-shrink-0" />
                     </div>
                   ))}
                 </div>
@@ -335,7 +335,7 @@ export default function GradeDetailPage({
             {/* Governing Standards Table (SPECIFICATIONS THIRD) */}
             <section id="standards-table" className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs scroll-mt-28">
               <div className="pb-4 mb-6 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
                   SPECIFICATION DIRECTORY
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
@@ -367,18 +367,18 @@ export default function GradeDetailPage({
                       return (
                         <tr
                           key={idx}
-                          className={isCurrentForm ? 'bg-[#F4E5DC] font-bold' : idx % 2 === 0 ? 'bg-[#F8F5F1]/50' : 'bg-white'}
+                          className={isCurrentForm ? 'bg-[#EEF3FA] font-bold' : idx % 2 === 0 ? 'bg-[#F8F5F1]/50' : 'bg-white'}
                         >
                           <td className="py-3 px-4 text-[#202427]">
                             <span className="flex items-center gap-1.5">
-                              {isCurrentForm && <span className="w-2 h-2 rounded-full bg-[#A94728]" />}
+                              {isCurrentForm && <span className="w-2 h-2 rounded-full bg-[#123F91]" />}
                               <span>{std.productForm}</span>
                             </span>
                           </td>
-                          <td className="py-3 px-4 font-mono text-[#A94728] font-bold">{std.standard}</td>
+                          <td className="py-3 px-4 font-mono text-[#123F91] font-bold">{std.standard}</td>
                           <td className="py-3 px-4 text-xs font-mono">
                             {isCurrentForm ? (
-                              <span className="text-[#A94728] font-bold">● CURRENT PRODUCT</span>
+                              <span className="text-[#123F91] font-bold">● CURRENT PRODUCT</span>
                             ) : (
                               <span className="text-[#202427]/50">Applicable Form</span>
                             )}
@@ -394,7 +394,7 @@ export default function GradeDetailPage({
             {/* Industrial Applications */}
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               <div className="pb-4 mb-6 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
                   END-USE ENVIRONMENTS
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
@@ -405,7 +405,7 @@ export default function GradeDetailPage({
               <div className="space-y-3">
                 {applicationsList.map((app, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-3.5 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6]">
-                    <CheckCircle2 className="w-5 h-5 text-[#A94728] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#123F91] flex-shrink-0 mt-0.5" />
                     <span className="text-sm sm:text-base text-[#202427] font-medium leading-relaxed">
                       {app}
                     </span>
@@ -420,8 +420,8 @@ export default function GradeDetailPage({
             <aside className="space-y-6 lg:sticky lg:top-28 max-h-[calc(100vh-8.5rem)] lg:overflow-y-auto sidebar-sticky-scroll">
               {/* Direct Quote Prefilled Box */}
               <div className="bg-[#202427] text-white p-6 sm:p-7 rounded-xl border border-white/10 shadow-md">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#A94728] font-bold uppercase mb-2">
-                  <Zap className="w-4 h-4 text-[#A94728]" />
+                <div className="flex items-center gap-2 text-xs font-mono text-white font-bold uppercase mb-2">
+                  <Zap className="w-4 h-4 text-white" />
                   <span>QUICK QUOTE DESK</span>
                 </div>
 
@@ -444,7 +444,7 @@ export default function GradeDetailPage({
                   </div>
                   <div className="p-2.5 bg-white/5 rounded border border-white/10 flex justify-between">
                     <span className="text-white/60">Grade:</span>
-                    <span className="font-bold text-[#A94728]">Grade {cleanGradeName}</span>
+                    <span className="font-bold text-[#123F91]">Grade {cleanGradeName}</span>
                   </div>
                 </div>
 
@@ -455,7 +455,7 @@ export default function GradeDetailPage({
                       material.name
                     )
                   }
-                  className="btn-wave w-full bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+                  className="btn-wave w-full bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
                 >
                   <span>Request Price & Delivery</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -471,7 +471,7 @@ export default function GradeDetailPage({
               {/* Related Grades in the Same Material Family */}
               <div className="bg-white p-6 rounded-xl border border-[#D9D9D6] shadow-xs">
                 <div className="pb-3 mb-4 border-b border-[#D9D9D6]">
-                  <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+                  <div className="tech-label text-xs font-bold text-[#123F91] uppercase">
                     ALTERNATIVE GRADES
                   </div>
                   <h4 className="text-sm font-extrabold text-[#202427]">
@@ -492,7 +492,7 @@ export default function GradeDetailPage({
                             `/products/${product.slug}/${material.slug}/${relGrade.slug}`
                           )
                         }
-                        className="px-3 py-2 text-xs font-mono font-bold bg-[#F8F5F1] hover:bg-[#F4E5DC] text-[#202427] hover:text-[#A94728] border border-[#D9D9D6] hover:border-[#A94728] rounded-md transition-all cursor-pointer"
+                        className="px-3 py-2 text-xs font-mono font-bold bg-[#F8F5F1] hover:bg-[#EEF3FA] text-[#202427] hover:text-[#123F91] border border-[#D9D9D6] hover:border-[#123F91] rounded-md transition-all cursor-pointer"
                       >
                         Grade {relCleanName}
                       </button>
@@ -509,7 +509,7 @@ export default function GradeDetailPage({
                         `/products/${product.slug}/${material.slug}`
                       )
                     }
-                    className="text-xs font-bold text-[#A94728] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-bold text-[#123F91] hover:underline inline-flex items-center gap-1 cursor-pointer"
                   >
                     <span>Back to all {material.name} {product.name}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -519,7 +519,7 @@ export default function GradeDetailPage({
 
               {/* Technical Disclaimer */}
               <div className="p-4 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6] text-xs text-[#202427]/70 space-y-2">
-                <div className="flex items-center gap-2 text-[#A94728] font-bold font-mono">
+                <div className="flex items-center gap-2 text-[#123F91] font-bold font-mono">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   <span>AVAILABILITY NOTICE</span>
                 </div>

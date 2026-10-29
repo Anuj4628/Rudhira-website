@@ -43,8 +43,8 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
         <div className="absolute inset-0 bg-dark-grid-pattern opacity-25 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-white/10 border border-white/20 mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-            <span className="tech-label text-xs font-bold text-[#F4E5DC] tracking-widest uppercase">
+            <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
+            <span className="tech-label text-xs font-bold text-[#EEF3FA] tracking-widest uppercase">
               INDUSTRIAL PRODUCT CATALOG // 18 CATEGORIES
             </span>
           </div>
@@ -67,8 +67,8 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
                   onClick={() => setSelectedDivision(div)}
                   className={`px-4 py-2.5 rounded text-xs sm:text-sm font-bold tracking-wider transition-all whitespace-nowrap cursor-pointer ${
                     selectedDivision === div
-                      ? 'bg-[#A94728] text-white border border-[#A94728] shadow-sm'
-                      : 'bg-[#202427] text-white/90 border border-white/20 hover:border-[#A94728] hover:text-white'
+                      ? 'bg-[#123F91] text-white border border-[#123F91] shadow-sm'
+                      : 'bg-[#202427] text-white/90 border border-white/20 hover:border-[#123F91] hover:text-white'
                   }`}
                 >
                   {div === 'All' ? 'ALL PRODUCTS (18)' : `${div.toUpperCase()} DIVISION (9)`}
@@ -84,7 +84,7 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
                 placeholder="Search products or standards..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-2.5 bg-[#202427] border border-white/20 rounded text-sm text-white placeholder-white/60 focus:outline-none focus:border-[#A94728] transition-colors"
+                className="w-full pl-9 pr-3 py-2.5 bg-[#202427] border border-white/20 rounded text-sm text-white placeholder-white/60 focus:outline-none focus:border-[#123F91] transition-colors"
               />
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
       <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8 pb-4 border-b border-[#D9D9D6]">
           <div className="text-sm font-mono font-bold text-[#202427]">
-            SHOWING <span className="text-[#A94728]">{filteredProducts.length}</span> CATEGORIES
+            SHOWING <span className="text-[#123F91]">{filteredProducts.length}</span> CATEGORIES
           </div>
           <div className="text-xs sm:text-sm text-[#202427]/70 font-mono">
             CLICK ANY PRODUCT TO VIEW APPLICABLE MATERIALS & GRADES
@@ -106,7 +106,7 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
           {filteredProducts.map((prod) => (
             <div
               key={prod.id}
-              className="group bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-lg overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-lg overflow-hidden shadow-xs hover:shadow-industrial transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Image Header with Division Badge */}
@@ -121,7 +121,7 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
                     <span
                       className={`text-xs font-mono font-bold px-2.5 py-1 rounded shadow-sm ${
                         prod.division === 'Manufacturer'
-                          ? 'bg-[#A94728] text-white'
+                          ? 'bg-[#123F91] text-white'
                           : 'bg-[#202427] text-white'
                       }`}
                     >
@@ -137,7 +137,7 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[#202427] group-hover:text-[#A94728] transition-colors mb-2.5">
+                  <h3 className="text-2xl font-bold text-[#202427] group-hover:text-[#123F91] transition-colors mb-2.5">
                     {prod.name}
                   </h3>
                   <p className="text-sm sm:text-base text-[#202427]/80 leading-relaxed mb-4 line-clamp-2">
@@ -149,7 +149,7 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
                     <div className="text-xs sm:text-sm text-[#202427]/80 truncate">
                       <span className="font-bold text-[#202427]">Sizes:</span> {prod.sizeRange}
                     </div>
-                    <div className="text-xs sm:text-sm text-[#A94728] font-bold truncate">
+                    <div className="text-xs sm:text-sm text-[#123F91] font-bold truncate">
                       <span>Standards:</span> {prod.standards.slice(0, 3).join(', ')}
                     </div>
                   </div>
@@ -160,7 +160,7 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
               <div className="p-6 pt-0 border-t border-[#D9D9D6]/60 mt-auto flex items-center justify-between gap-3">
                 <button
                   onClick={() => onNavigate('product-category', null, `/products/${getProductSeoSlug(prod.slug)}`)}
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#A94728] hover:text-[#7E321F] uppercase tracking-wider cursor-pointer group-hover:underline"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#123F91] hover:text-[#0B2863] uppercase tracking-wider cursor-pointer group-hover:underline"
                 >
                   <span>Materials & Grades</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -168,7 +168,7 @@ export default function ProductsLandingPage({ onNavigate, onOpenEnquiry }) {
 
                 <button
                   onClick={() => onOpenEnquiry(prod.name, '')}
-                  className="btn-wave inline-flex items-center gap-1.5 border border-[#202427]/40 hover:border-[#A94728] hover:bg-[#A94728] hover:text-white text-[#202427] text-xs sm:text-sm font-bold px-3.5 py-2 rounded transition-all cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-1.5 border border-[#202427]/40 hover:border-[#123F91] hover:bg-[#123F91] hover:text-white text-[#202427] text-xs sm:text-sm font-bold px-3.5 py-2 rounded transition-all cursor-pointer"
                 >
                   <span>RFQ</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

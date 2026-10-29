@@ -4,8 +4,8 @@ import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, ShieldCheck } from
 
 // Crystal-clear industrial image assets
 import heroFlangesSlide1Img from '../hero sec/hero 2.png';
-import heroForgingFactorySlide2Img from '../hero sec/slide 2.png';
-import heroInspectionSlide3Img from '../hero sec/slide 3.png';
+import heroForgingFactorySlide2Img from '../hero sec/hero-slide2-forging.jpg';
+import heroInspectionSlide3Img from '../hero sec/hero-slide3-inspection.jpg';
 import heroForgedFittingsSlide4Img from '../hero sec/hero 3.png';
 
 // Four slides adhering to the exact advertisement design system
@@ -216,7 +216,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
             {/* A. TOP PROMOTIONAL RIBBON */}
             <div className="hero-slide-anim flex flex-wrap items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3.5 w-full">
               <div
-                className="bg-[#C34B2B] text-white text-xs sm:text-xs md:text-sm font-black tracking-wider uppercase px-4 sm:px-5 py-1.5 sm:py-2 shadow-lg relative inline-block"
+                className="bg-[#1D4FA3] text-white text-xs sm:text-xs md:text-sm font-black tracking-wider uppercase px-4 sm:px-5 py-1.5 sm:py-2 shadow-lg relative inline-block"
                 style={{
                   clipPath: 'polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%)'
                 }}
@@ -248,7 +248,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
                 )}
               </h1>
               {slide.supportingLine && (
-                <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-[#E05A36] tracking-wide uppercase mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">
+                <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-white tracking-wide uppercase mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">
                   {slide.supportingLine}
                 </div>
               )}
@@ -260,8 +260,8 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
             </div>
 
             {/* C. COMPACT TECHNICAL PRODUCT DETAILS */}
-            <div className="hero-slide-anim w-full bg-[#111417]/92 backdrop-blur-md border-l-4 border-l-[#C34B2B] border-y border-r border-white/15 p-3.5 sm:p-4 mb-3.5 sm:mb-4 shadow-xl">
-              <div className="text-[11px] sm:text-xs font-mono font-bold text-[#E05A36] uppercase tracking-wider mb-1">
+            <div className="hero-slide-anim w-full bg-[#111417]/92 backdrop-blur-md border-l-4 border-l-[#1D4FA3] border-y border-r border-white/15 p-3.5 sm:p-4 mb-3.5 sm:mb-4 shadow-xl">
+              <div className="text-[11px] sm:text-xs font-mono font-bold text-white uppercase tracking-wider mb-1">
                 {slide.techHeader}
               </div>
               <div className="text-xs sm:text-sm lg:text-[15px] font-mono text-white font-bold leading-snug mb-1">
@@ -300,7 +300,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
                   <span className="text-xs sm:text-sm lg:text-base font-black tracking-wider leading-none uppercase my-0.5">
                     {slide.badgeLine2}
                   </span>
-                  <span className="text-[8px] sm:text-[9px] font-mono font-bold tracking-widest text-[#F4E5DC] leading-none uppercase">
+                  <span className="text-[8px] sm:text-[9px] font-mono font-bold tracking-widest text-[#EEF3FA] leading-none uppercase">
                     {slide.badgeLine3}
                   </span>
                 </div>
@@ -313,7 +313,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
               <button
                 type="button"
                 onClick={() => onOpenEnquiry && onOpenEnquiry(slide.focus)}
-                className="btn-wave inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                className="btn-wave inline-flex items-center justify-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
                 aria-label="Get A Quote"
               >
                 <span className="text-white font-bold">{slide.primaryButtonText || "GET A QUOTE"}</span>
@@ -329,7 +329,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
                     onNavigate('products-landing', '#products', '/products');
                   }
                 }}
-                className="btn-wave inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-[#202427] hover:text-[#A94728] text-xs sm:text-sm font-bold tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
+                className="btn-wave inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-[#202427] hover:text-[#123F91] text-xs sm:text-sm font-bold tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
                 aria-label={slide.secondaryButtonText || "View Product Range"}
               >
                 <span className="font-bold">{slide.secondaryButtonText || "VIEW PRODUCT RANGE"}</span>
@@ -340,7 +340,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
             {/* F. SMALL SUPPORTING LINE */}
             {slide.subSupportingLine && (
               <div className="hero-slide-anim text-[10px] sm:text-[11px] font-mono font-bold text-white/85 tracking-widest uppercase mt-3.5 sm:mt-4 flex items-center gap-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C34B2B]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1D4FA3]" />
                 <span>{slide.subSupportingLine}</span>
               </div>
             )}
@@ -354,7 +354,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
       <button
         type="button"
         onClick={prevSlide}
-        className="absolute left-3 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/60 hover:bg-[#C34B2B] text-white/90 hover:text-white border border-white/20 hover:border-transparent flex items-center justify-center transition-all duration-200 cursor-pointer backdrop-blur-xs shadow-xl hover:scale-105 active:scale-95"
+        className="absolute left-3 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/60 hover:bg-[#1D4FA3] text-white/90 hover:text-white border border-white/20 hover:border-transparent flex items-center justify-center transition-all duration-200 cursor-pointer backdrop-blur-xs shadow-xl hover:scale-105 active:scale-95"
         aria-label="Previous Slide"
         title="Previous Slide"
       >
@@ -364,7 +364,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
       <button
         type="button"
         onClick={nextSlide}
-        className="absolute right-3 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/60 hover:bg-[#C34B2B] text-white/90 hover:text-white border border-white/20 hover:border-transparent flex items-center justify-center transition-all duration-200 cursor-pointer backdrop-blur-xs shadow-xl hover:scale-105 active:scale-95"
+        className="absolute right-3 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/60 hover:bg-[#1D4FA3] text-white/90 hover:text-white border border-white/20 hover:border-transparent flex items-center justify-center transition-all duration-200 cursor-pointer backdrop-blur-xs shadow-xl hover:scale-105 active:scale-95"
         aria-label="Next Slide"
         title="Next Slide"
       >
@@ -375,7 +375,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
       <div className="absolute bottom-5 sm:bottom-7 left-6 sm:left-10 lg:left-16 z-30 flex items-center gap-3 bg-[#111417]/85 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-white/20 shadow-2xl">
         {/* Slide Counter Numbers */}
         <div className="flex items-center gap-1.5 font-mono text-xs sm:text-sm text-white/90">
-          <span className="font-extrabold text-[#E05A36]">0{currentSlide + 1}</span>
+          <span className="font-extrabold text-white">0{currentSlide + 1}</span>
           <span className="text-white/30">/</span>
           <span className="text-white/60">0{HERO_SLIDES_DATA.length}</span>
         </div>
@@ -390,7 +390,7 @@ export default function HeroSlider({ onOpenEnquiry, onNavigate }) {
               onClick={() => setCurrentSlide(idx)}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer relative overflow-hidden ${
                 idx === currentSlide
-                  ? 'w-10 bg-[#C34B2B]'
+                  ? 'w-10 bg-[#1D4FA3]'
                   : 'w-2.5 bg-white/35 hover:bg-white/70'
               }`}
               aria-label={`Go to slide ${idx + 1}`}

@@ -97,9 +97,9 @@ export default function GlobalReach({ onOpenEnquiry }) {
         {/* AREA 01: COUNTRIES WE EXPORT TO - Centered Large Heading */}
         <div className="mb-24">
           <div className="reach-export-header text-center mx-auto max-w-3xl mb-14 sm:mb-16">
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 sm:mb-5">
-              <Globe className="w-4 h-4 text-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-4 sm:mb-5">
+              <Globe className="w-4 h-4 text-[#123F91]" />
+              <span className="tech-label text-[#123F91] font-bold text-xs sm:text-[13px]">
                 05 — GLOBAL REACH
               </span>
             </div>
@@ -118,7 +118,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
             {EXPORT_COUNTRIES.map((country) => (
               <div
                 key={country.name}
-                className="country-card group p-3.5 bg-white border border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-sm flex flex-col items-center text-center justify-center cursor-default"
+                className="country-card group p-3.5 bg-white border border-[#D9D9D6] hover:border-[#123F91] rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-sm flex flex-col items-center text-center justify-center cursor-default"
               >
                 {/* Clean, properly proportioned real flag asset */}
                 <div className="w-8 h-5 mb-2.5 overflow-hidden rounded-xs border border-black/10 shadow-xs flex items-center justify-center bg-gray-50">
@@ -131,7 +131,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
                 </div>
 
                 {/* Country Name Only */}
-                <span className="text-sm sm:text-[15px] font-bold text-[#202427] group-hover:text-[#A94728] transition-colors leading-tight font-sans">
+                <span className="text-sm sm:text-[15px] font-bold text-[#202427] group-hover:text-[#123F91] transition-colors leading-tight font-sans">
                   {country.name}
                 </span>
               </div>
@@ -142,9 +142,9 @@ export default function GlobalReach({ onOpenEnquiry }) {
         {/* AREA 02: SERVING REQUIREMENTS ACROSS INDIA - Centered Large Heading */}
         <div>
           <div className="reach-india-header text-center mx-auto max-w-3xl mb-14 sm:mb-16">
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 sm:mb-5">
-              <MapPin className="w-4 h-4 text-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-4 sm:mb-5">
+              <MapPin className="w-4 h-4 text-[#123F91]" />
+              <span className="tech-label text-[#123F91] font-bold text-xs sm:text-[13px]">
                 06 — NATIONWIDE DISTRIBUTION
               </span>
             </div>
@@ -158,8 +158,8 @@ export default function GlobalReach({ onOpenEnquiry }) {
             </p>
           </div>
 
-          {/* Premium India Distribution Section on Warm Light Orange / Cream (#F4E5DC) */}
-          <div className="india-grid bg-[#F4E5DC] border-2 border-[#D9D9D6] p-6 sm:p-10 rounded-lg relative overflow-hidden shadow-industrial">
+          {/* Premium India Distribution Section on Soft Navy Light / Cream (#EEF3FA) */}
+          <div className="india-grid bg-[#EEF3FA] border-2 border-[#D9D9D6] p-6 sm:p-10 rounded-lg relative overflow-hidden shadow-industrial">
             {/* Subtle Abstract Map Watermark */}
             <div className="absolute right-4 bottom-2 opacity-5 pointer-events-none select-none">
               <Globe className="w-96 h-96 text-[#202427]" />
@@ -174,27 +174,27 @@ export default function GlobalReach({ onOpenEnquiry }) {
                   Coordinated multimodal dispatch across Indian states and industrial corridors.
                 </p>
               </div>
-              <div className="tech-label text-xs font-mono bg-white text-[#A94728] font-bold px-3.5 py-2 rounded-md border border-[#D9D9D6] shadow-xs self-start">
+              <div className="tech-label text-xs font-mono bg-white text-[#123F91] font-bold px-3.5 py-2 rounded-md border border-[#D9D9D6] shadow-xs self-start">
                 CENTRAL HUB: MUMBAI, MAHARASHTRA
               </div>
             </div>
 
-            {/* Alternating state cards: cream, white, light orange with small orange dot */}
+            {/* Alternating state cards: cream, white, soft light blue with small navy dot */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
               {INDIAN_STATES.map((state, idx) => {
                 const bgStyles = [
                   'bg-white',
                   'bg-[#F8F5F1]',
-                  'bg-[#F4E5DC]/80',
+                  'bg-[#EEF3FA]/80',
                 ][idx % 3];
 
                 return (
                   <div
                     key={state}
-                    className={`india-state-card ${bgStyles} p-3 border border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all duration-200 flex items-center gap-2 group hover:-translate-y-0.5 hover:shadow-xs`}
+                    className={`india-state-card ${bgStyles} p-3 border border-[#D9D9D6] hover:border-[#123F91] rounded-lg transition-all duration-200 flex items-center gap-2 group hover:-translate-y-0.5 hover:shadow-xs`}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#A94728] flex-shrink-0 group-hover:scale-125 transition-transform" />
-                    <span className="text-xs sm:text-sm font-bold text-[#202427] group-hover:text-[#A94728] transition-colors truncate">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#123F91] flex-shrink-0 group-hover:scale-125 transition-transform" />
+                    <span className="text-xs sm:text-sm font-bold text-[#202427] group-hover:text-[#123F91] transition-colors truncate">
                       {state}
                     </span>
                   </div>
@@ -207,7 +207,7 @@ export default function GlobalReach({ onOpenEnquiry }) {
               <span className="font-semibold">FREIGHT COORDINATION: DIRECT ROAD & CONTAINER DISPATCH</span>
               <button
                 onClick={onOpenEnquiry}
-                className="text-[#A94728] font-bold uppercase hover:underline cursor-pointer"
+                className="text-[#123F91] font-bold uppercase hover:underline cursor-pointer"
               >
                 Inquire Nationwide Delivery Timelines →
               </button>

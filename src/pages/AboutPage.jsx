@@ -111,7 +111,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
       subtitle: "MATERIAL INTEGRITY",
       description: "Every requirement is approached with a strong focus on material quality, consistency and dependable performance.",
       badge: "RMI / 01",
-      icon: <ShieldCheck className="w-6 h-6 text-[#A94728] stroke-[1.5]" />
+      icon: <ShieldCheck className="w-6 h-6 text-[#123F91] stroke-[1.5]" />
     },
     {
       id: "02",
@@ -119,7 +119,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
       subtitle: "EXACT SPECIFICATIONS",
       description: "Attention to specification and detail helps us deliver reliable solutions for demanding industrial requirements.",
       badge: "RMI / 02",
-      icon: <Target className="w-6 h-6 text-[#A94728] stroke-[1.5]" />
+      icon: <Target className="w-6 h-6 text-[#123F91] stroke-[1.5]" />
     },
     {
       id: "03",
@@ -127,7 +127,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
       subtitle: "RESPONSIVE DESK",
       description: "We focus on understanding each customer's requirement and providing responsive, practical support.",
       badge: "RMI / 03",
-      icon: <Users className="w-6 h-6 text-[#A94728] stroke-[1.5]" />
+      icon: <Users className="w-6 h-6 text-[#123F91] stroke-[1.5]" />
     },
     {
       id: "04",
@@ -135,7 +135,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
       subtitle: "TIMELY DISPATCH",
       description: "Organized sourcing and supply coordination help customers receive the right material with confidence.",
       badge: "RMI / 04",
-      icon: <Truck className="w-6 h-6 text-[#A94728] stroke-[1.5]" />
+      icon: <Truck className="w-6 h-6 text-[#123F91] stroke-[1.5]" />
     },
     {
       id: "05",
@@ -143,7 +143,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
       subtitle: "SUSTAINED TRUST",
       description: "We aim to build lasting relationships based on trust, transparency and dependable service.",
       badge: "RMI / 05",
-      icon: <Handshake className="w-6 h-6 text-[#A94728] stroke-[1.5]" />
+      icon: <Handshake className="w-6 h-6 text-[#123F91] stroke-[1.5]" />
     }
   ];
 
@@ -151,22 +151,22 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
     {
       title: "Material Quality",
       description: "Comprehensive heat number tracking, certified mill test correlation (EN 10204 3.1), and positive material identification (PMI) ensuring uncompromised metallurgical composition.",
-      icon: <Award className="w-5 h-5 text-[#A94728]" />
+      icon: <Award className="w-5 h-5 text-[#123F91]" />
     },
     {
       title: "Product Reliability",
       description: "Strict dimensional compliance to ASME, ASTM, and DIN standards across seamless & welded pipes, forged flanges, butt weld fittings, and heavy plates.",
-      icon: <CheckCircle2 className="w-5 h-5 text-[#A94728]" />
+      icon: <CheckCircle2 className="w-5 h-5 text-[#123F91]" />
     },
     {
       title: "Technical Understanding",
       description: "Deep metallurgical guidance for demanding operating environments—matching alloy chemistry, wall thickness, and pressure classes to exact process requirements.",
-      icon: <Layers className="w-5 h-5 text-[#A94728]" />
+      icon: <Layers className="w-5 h-5 text-[#123F91]" />
     },
     {
       title: "Responsive Support",
       description: "Fast turnaround quotation desk, transparent order status updates, tailored cut-to-length processing, and sea-worthy export crating.",
-      icon: <FileCheck2 className="w-5 h-5 text-[#A94728]" />
+      icon: <FileCheck2 className="w-5 h-5 text-[#123F91]" />
     }
   ];
 
@@ -207,7 +207,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               {/* A. TOP PROMOTIONAL RIBBON */}
               <div className="about-hero-anim flex flex-wrap items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3.5 w-full">
                 <div
-                  className="bg-[#C34B2B] text-white text-xs sm:text-xs md:text-sm font-black tracking-wider uppercase px-4 sm:px-5 py-1.5 sm:py-2 shadow-lg relative inline-block"
+                  className="bg-[#1D4FA3] text-white text-xs sm:text-xs md:text-sm font-black tracking-wider uppercase px-4 sm:px-5 py-1.5 sm:py-2 shadow-lg relative inline-block"
                   style={{
                     clipPath: 'polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%)'
                   }}
@@ -217,7 +217,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
 
                 {/* Compact Dark Technical Badge */}
                 <div className="bg-[#111417]/95 text-[#E7EEF2] text-[11px] sm:text-xs font-mono font-bold tracking-wider px-3.5 sm:px-4 py-1.5 sm:py-2 border border-white/20 uppercase shadow-md flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
                   <span>ESTABLISHED EXCELLENCE</span>
                 </div>
               </div>
@@ -227,14 +227,14 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                 <h1 className="text-2xl sm:text-4xl lg:text-[40px] xl:text-[46px] 2xl:text-[50px] font-black text-white tracking-tight uppercase leading-[1.08] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] [text-shadow:_0_3px_12px_rgba(0,0,0,0.85)] font-sans">
                   BUILT ON STRENGTH
                 </h1>
-                <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-[#E05A36] tracking-wide uppercase mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)] font-sans">
+                <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-extrabold text-white tracking-wide uppercase mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)] font-sans">
                   DRIVEN BY PRECISION • COMMITTED TO EXCELLENCE
                 </div>
               </div>
 
               {/* C. COMPACT TECHNICAL PRODUCT / COMPANY DETAILS BOX */}
-              <div className="about-hero-anim w-full bg-[#111417]/92 backdrop-blur-md border-l-4 border-l-[#C34B2B] border-y border-r border-white/15 p-3.5 sm:p-4 mb-3.5 sm:mb-4 shadow-xl">
-                <div className="text-[11px] sm:text-xs font-mono font-bold text-[#E05A36] uppercase tracking-wider mb-1">
+              <div className="about-hero-anim w-full bg-[#111417]/92 backdrop-blur-md border-l-4 border-l-[#1D4FA3] border-y border-r border-white/15 p-3.5 sm:p-4 mb-3.5 sm:mb-4 shadow-xl">
+                <div className="text-[11px] sm:text-xs font-mono font-bold text-white uppercase tracking-wider mb-1">
                   COMPANY PROFILE // INDUSTRIAL METAL SPECIALISTS
                 </div>
                 <div className="text-xs sm:text-sm lg:text-[15px] font-sans text-white font-medium leading-relaxed mb-1.5">
@@ -270,7 +270,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                   <span className="text-xs sm:text-sm lg:text-base font-black tracking-wider leading-none uppercase my-0.5">
                     QUALITY
                   </span>
-                  <span className="text-[8px] sm:text-[9px] font-mono font-bold tracking-widest text-[#F4E5DC] leading-none uppercase">
+                  <span className="text-[8px] sm:text-[9px] font-mono font-bold tracking-widest text-[#EEF3FA] leading-none uppercase">
                     TESTED
                   </span>
                 </div>
@@ -282,7 +282,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                 <button
                   type="button"
                   onClick={() => onNavigate('home', '#products')}
-                  className="btn-wave inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
+                  className="btn-wave inline-flex items-center justify-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-6 sm:px-7 py-3 sm:py-3.5 rounded-xs shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-0.5 active:scale-95"
                   aria-label="Explore Our Products"
                 >
                   <span className="text-white font-bold">EXPLORE OUR PRODUCTS</span>
@@ -293,7 +293,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                 <button
                   type="button"
                   onClick={() => onNavigate('contact')}
-                  className="btn-wave inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-[#202427] hover:text-[#A94728] text-xs sm:text-sm font-bold tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
+                  className="btn-wave inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-white text-[#202427] hover:text-[#123F91] text-xs sm:text-sm font-bold tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 border border-white rounded-xs transition-all duration-200 cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-95"
                   aria-label="Get in Touch"
                 >
                   <span className="font-bold">GET IN TOUCH</span>
@@ -308,7 +308,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
         {/* 3. DEDICATED BOTTOM STATUS STRIP (Matching Home Hero layout) */}
         <div className="absolute bottom-5 sm:bottom-7 left-6 sm:left-10 lg:left-16 z-30 hidden sm:flex items-center gap-3 bg-[#111417]/85 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-white/20 shadow-2xl">
           <div className="flex items-center gap-1.5 font-mono text-xs sm:text-sm text-white/90">
-            <span className="font-extrabold text-[#E05A36]">ABOUT</span>
+            <span className="font-extrabold text-white">ABOUT</span>
             <span className="text-white/30">/</span>
             <span className="text-white/60">01</span>
           </div>
@@ -350,7 +350,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
 
                 {/* Floating Technical Badge */}
                 <div className="absolute bottom-5 left-5 right-5 sm:right-auto bg-[#202427]/90 backdrop-blur-md border border-white/20 p-4 rounded-md shadow-xl text-white">
-                  <div className="tech-label text-xs text-[#A94728] font-bold mb-1">
+                  <div className="tech-label text-xs text-white font-bold mb-1">
                     ESTABLISHED METAL STOCKIST
                   </div>
                   <div className="text-sm sm:text-base font-bold text-white font-sans">
@@ -366,9 +366,9 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
             {/* Right Column: Corporate Copy & Highlights */}
             <div className="who-we-are-anim lg:col-span-6 flex flex-col justify-center">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 self-start">
-                <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-                <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-4 self-start">
+                <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+                <span className="tech-label text-[#123F91] font-bold text-xs sm:text-[13px]">
                   WHO WE ARE
                 </span>
               </div>
@@ -394,7 +394,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               {/* Statistics / Highlights Row Below Copy */}
               <div className="mt-8 pt-6 border-t border-[#D9D9D6] grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="p-3 bg-white border border-[#D9D9D6] rounded-md shadow-xs">
-                  <div className="tech-label text-[10px] text-[#A94728] font-bold mb-1">
+                  <div className="tech-label text-[10px] text-white font-bold mb-1">
                     STANDARDS
                   </div>
                   <div className="text-sm font-extrabold text-[#202427]">
@@ -406,7 +406,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                 </div>
 
                 <div className="p-3 bg-white border border-[#D9D9D6] rounded-md shadow-xs">
-                  <div className="tech-label text-[10px] text-[#A94728] font-bold mb-1">
+                  <div className="tech-label text-[10px] text-white font-bold mb-1">
                     COMPLIANCE
                   </div>
                   <div className="text-sm font-extrabold text-[#202427]">
@@ -418,7 +418,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                 </div>
 
                 <div className="p-3 bg-white border border-[#D9D9D6] rounded-md shadow-xs">
-                  <div className="tech-label text-[10px] text-[#A94728] font-bold mb-1">
+                  <div className="tech-label text-[10px] text-white font-bold mb-1">
                     SERVICE
                   </div>
                   <div className="text-sm font-extrabold text-[#202427]">
@@ -430,7 +430,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                 </div>
 
                 <div className="p-3 bg-white border border-[#D9D9D6] rounded-md shadow-xs">
-                  <div className="tech-label text-[10px] text-[#A94728] font-bold mb-1">
+                  <div className="tech-label text-[10px] text-white font-bold mb-1">
                     LOGISTICS
                   </div>
                   <div className="text-sm font-extrabold text-[#202427]">
@@ -451,7 +451,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
           ======================================================== */}
       <section
         ref={setsApartRef}
-        className="py-20 sm:py-24 lg:py-28 bg-[#F4E5DC] border-b border-[#D9D9D6] relative overflow-hidden"
+        className="py-20 sm:py-24 lg:py-28 bg-[#EEF3FA] border-b border-[#D9D9D6] relative overflow-hidden"
       >
         {/* Engineering grid pattern overlay matching homepage WhyChooseUs */}
         <div className="absolute inset-0 bg-grid-pattern opacity-80 pointer-events-none" />
@@ -459,9 +459,9 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mx-auto max-w-3xl mb-14 sm:mb-18">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+              <span className="tech-label text-[#123F91] font-bold text-xs">
                 OUR APPROACH
               </span>
             </div>
@@ -480,7 +480,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
             {whatSetsUsApart.map((card, index) => (
               <div
                 key={card.id}
-                className={`apart-card-anim group relative p-7 bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-industrial-hover flex flex-col justify-between ${
+                className={`apart-card-anim group relative p-7 bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-industrial-hover flex flex-col justify-between ${
                   index === 3 || index === 4 ? 'lg:col-span-1' : ''
                 }`}
               >
@@ -491,21 +491,21 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                 <div>
                   {/* Top Number & Icon Container */}
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-3xl font-extrabold text-[#202427] group-hover:text-[#A94728] transition-colors">
+                    <span className="font-mono text-3xl font-extrabold text-[#202427] group-hover:text-[#123F91] transition-colors">
                       {card.id}
                     </span>
-                    <div className="p-2.5 bg-white rounded-md border border-[#D9D9D6] shadow-sm group-hover:border-[#A94728]/40 group-hover:bg-[#F4E5DC]/50 transition-all">
+                    <div className="p-2.5 bg-white rounded-md border border-[#D9D9D6] shadow-sm group-hover:border-[#123F91]/40 group-hover:bg-[#EEF3FA]/50 transition-all">
                       {card.icon}
                     </div>
                   </div>
 
                   {/* Subtitle Eyebrow */}
-                  <div className="tech-label text-[11px] text-[#A94728] mb-1 font-bold tracking-widest">
+                  <div className="tech-label text-[11px] text-[#123F91] mb-1 font-bold tracking-widest">
                     {card.subtitle}
                   </div>
 
                   {/* Main Card Title */}
-                  <h3 className="text-xl font-extrabold text-[#202427] mb-3 tracking-tight group-hover:text-[#A94728] transition-colors">
+                  <h3 className="text-xl font-extrabold text-[#202427] mb-3 tracking-tight group-hover:text-[#123F91] transition-colors">
                     {card.title}
                   </h3>
 
@@ -516,11 +516,11 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                 </div>
 
                 {/* Bottom Layered Border & Technical Badge: RMI / 01 → */}
-                <div className="mt-8 pt-4 border-t border-[#D9D9D6] group-hover:border-[#A94728]/40 flex items-center justify-between text-xs font-mono">
+                <div className="mt-8 pt-4 border-t border-[#D9D9D6] group-hover:border-[#123F91]/40 flex items-center justify-between text-xs font-mono">
                   <span className="font-bold text-[#202427] tracking-wider">
                     {card.badge}
                   </span>
-                  <span className="text-[#A94728] font-bold group-hover:translate-x-1 transition-transform">
+                  <span className="text-[#123F91] font-bold group-hover:translate-x-1 transition-transform">
                     →
                   </span>
                 </div>
@@ -528,14 +528,14 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
             ))}
 
             {/* 6th Card: Contact & RFQ Quick Callout */}
-            <div className="apart-card-anim group relative p-7 bg-[#202427] text-white border-2 border-[#202427] hover:border-[#A94728] rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-industrial-hover flex flex-col justify-between">
+            <div className="apart-card-anim group relative p-7 bg-[#202427] text-white border-2 border-[#202427] hover:border-[#123F91] rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-industrial-hover flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="tech-label text-xs font-bold text-[#A94728] tracking-widest uppercase">
+                  <span className="tech-label text-xs font-bold text-[#123F91] tracking-widest uppercase">
                     COMMERCIAL PARTNER
                   </span>
                   <div className="p-2.5 bg-white/10 rounded-md border border-white/20">
-                    <Sparkles className="w-6 h-6 text-[#F4E5DC]" />
+                    <Sparkles className="w-6 h-6 text-[#EEF3FA]" />
                   </div>
                 </div>
 
@@ -555,7 +555,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               <div className="mt-8 pt-4 border-t border-white/20">
                 <button
                   onClick={onOpenEnquiry}
-                  className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs font-bold uppercase tracking-wider py-3 rounded-sm shadow-sm transition-all cursor-pointer active:scale-95"
+                  className="btn-wave w-full inline-flex items-center justify-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-xs font-bold uppercase tracking-wider py-3 rounded-sm shadow-sm transition-all cursor-pointer active:scale-95"
                 >
                   <span>Request RFQ Assessment</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -576,9 +576,9 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="max-w-3xl mb-14 sm:mb-18">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-              <span className="tech-label text-[#A94728] font-bold text-xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+              <span className="tech-label text-[#123F91] font-bold text-xs">
                 CAPABILITY & QUALITY RIGOR
               </span>
             </div>
@@ -610,7 +610,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#202427]/85 via-transparent to-transparent pointer-events-none" />
 
                 <div className="absolute bottom-4 left-4 right-4 bg-[#202427]/90 backdrop-blur-md border border-white/20 p-3.5 rounded text-white">
-                  <div className="tech-label text-[10px] text-[#A94728] font-bold">
+                  <div className="tech-label text-[10px] text-white font-bold">
                     PRECISION FABRICATION & TESTING
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-white mt-0.5">
@@ -625,14 +625,14 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               {capabilityBlocks.map((block) => (
                 <div
                   key={block.title}
-                  className="p-6 bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#A94728] rounded-lg shadow-xs transition-all duration-300 hover:shadow-industrial flex flex-col justify-between group"
+                  className="p-6 bg-[#F8F5F1] hover:bg-white border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-lg shadow-xs transition-all duration-300 hover:shadow-industrial flex flex-col justify-between group"
                 >
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2.5 bg-white rounded-md border border-[#D9D9D6] group-hover:border-[#A94728]/40 group-hover:bg-[#F4E5DC]/40 transition-colors">
+                      <div className="p-2.5 bg-white rounded-md border border-[#D9D9D6] group-hover:border-[#123F91]/40 group-hover:bg-[#EEF3FA]/40 transition-colors">
                         {block.icon}
                       </div>
-                      <h3 className="text-base font-extrabold text-[#202427] group-hover:text-[#A94728] transition-colors">
+                      <h3 className="text-base font-extrabold text-[#202427] group-hover:text-[#123F91] transition-colors">
                         {block.title}
                       </h3>
                     </div>
@@ -642,7 +642,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-[#D9D9D6] text-[10px] font-mono text-[#A94728] font-bold tracking-wider uppercase">
+                  <div className="mt-5 pt-3 border-t border-[#D9D9D6] text-[10px] font-mono text-[#123F91] font-bold tracking-wider uppercase">
                     CERTIFIED PROCESS
                   </div>
                 </div>
@@ -654,7 +654,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
           <div className="pt-12 border-t border-[#D9D9D6]">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
               <div>
-                <div className="tech-label text-xs font-bold text-[#A94728] tracking-widest uppercase mb-2">
+                <div className="tech-label text-xs font-bold text-[#123F91] tracking-widest uppercase mb-2">
                   SECTOR APPLICATIONS
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#202427] tracking-tight">
@@ -671,7 +671,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
               {coreIndustries.map((ind) => (
                 <div
                   key={ind.id}
-                  className="group relative rounded-lg overflow-hidden border-2 border-[#D9D9D6] hover:border-[#A94728] bg-[#202427] shadow-industrial hover:shadow-industrial-hover transition-all duration-300 hover:-translate-y-1.5"
+                  className="group relative rounded-lg overflow-hidden border-2 border-[#D9D9D6] hover:border-[#123F91] bg-[#202427] shadow-industrial hover:shadow-industrial-hover transition-all duration-300 hover:-translate-y-1.5"
                 >
                   <div className="h-48 sm:h-52 w-full overflow-hidden relative">
                     <img
@@ -685,7 +685,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
 
                   <div className="p-5 relative bg-[#202427] border-t border-white/10">
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="font-mono text-xs text-[#A94728] font-bold">
+                      <span className="font-mono text-xs text-white/80 font-bold">
                         SECTOR // {ind.id}
                       </span>
                       <span className="text-xs text-white/50 font-mono">
@@ -693,7 +693,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
                       </span>
                     </div>
 
-                    <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-[#F4E5DC] transition-colors">
+                    <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-[#EEF3FA] transition-colors">
                       {ind.name}
                     </h4>
                   </div>
@@ -709,17 +709,17 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
           ======================================================== */}
       <section
         ref={ctaRef}
-        className="relative py-20 sm:py-24 lg:py-28 bg-[#7E321F] text-white overflow-hidden border-b border-black/20"
+        className="relative py-20 sm:py-24 lg:py-28 bg-[#0B2863] text-white overflow-hidden border-b border-black/20"
       >
         {/* Subtle Metallic Technical Grid Overlay */}
         <div className="absolute inset-0 bg-dark-grid-pattern opacity-25 pointer-events-none" />
 
         {/* Subtle Linear Gradient Texture */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#7E321F] via-[#90391D] to-[#692919] opacity-95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B2863] via-[#0B2863] to-[#123F91] opacity-95" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-white/10 border border-white/20 text-[#F4E5DC] text-xs font-mono font-bold tracking-widest uppercase mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-white/10 border border-white/20 text-[#EEF3FA] text-xs font-mono font-bold tracking-widest uppercase mb-6 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
             <span>OUR COMMITMENT TO CLIENTS</span>
           </div>
@@ -730,7 +730,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
           </h2>
 
           {/* Supporting Copy */}
-          <p className="text-base sm:text-lg text-[#F4E5DC]/90 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-base sm:text-lg text-[#EEF3FA]/90 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
             From product selection to supply, Rudhira Metal Industries is focused on delivering dependable solutions that support your business and project requirements.
           </p>
 
@@ -738,7 +738,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <button
               onClick={() => onNavigate('contact')}
-              className="btn-wave inline-flex items-center gap-2.5 border-2 border-white bg-white hover:bg-gray-100 text-[#202427] hover:text-[#A94728] text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl transition-all duration-200 active:scale-[0.97] cursor-pointer group"
+              className="btn-wave inline-flex items-center gap-2.5 border-2 border-white bg-white hover:bg-gray-100 text-[#202427] hover:text-[#123F91] text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl transition-all duration-200 active:scale-[0.97] cursor-pointer group"
             >
               <span>Talk to Our Team</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -746,7 +746,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
 
             <button
               onClick={() => onNavigate('home', '#products')}
-              className="btn-wave inline-flex items-center gap-2.5 border border-white bg-white/95 hover:bg-white text-[#202427] hover:text-[#A94728] text-sm font-bold uppercase tracking-wider px-7 py-4 rounded-sm shadow-lg transition-all duration-200 active:scale-[0.97] cursor-pointer"
+              className="btn-wave inline-flex items-center gap-2.5 border border-white bg-white/95 hover:bg-white text-[#202427] hover:text-[#123F91] text-sm font-bold uppercase tracking-wider px-7 py-4 rounded-sm shadow-lg transition-all duration-200 active:scale-[0.97] cursor-pointer"
             >
               <span>View Products</span>
               <ArrowRight className="w-4 h-4" />
@@ -754,7 +754,7 @@ export default function AboutPage({ onNavigate, onOpenEnquiry }) {
           </div>
 
           {/* Quick Info Micro Strip */}
-          <div className="mt-12 pt-8 border-t border-white/20 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-xs font-mono text-[#F4E5DC]/80">
+          <div className="mt-12 pt-8 border-t border-white/20 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-xs font-mono text-[#EEF3FA]/80">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-white" />
               <span>{COMPANY_DETAILS.shortAddress}</span>

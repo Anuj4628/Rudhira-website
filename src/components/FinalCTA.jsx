@@ -10,17 +10,17 @@ export default function FinalCTA({ onOpenEnquiry }) {
   return (
     <section
       id="final-cta"
-      className="relative py-24 sm:py-28 bg-[#7E321F] text-white overflow-hidden border-b border-black/20"
+      className="relative py-24 sm:py-28 bg-[#0B2863] text-white overflow-hidden border-b border-black/20"
     >
       {/* Subtle Metallic Technical Grid Overlay */}
       <div className="absolute inset-0 bg-dark-grid-pattern opacity-25 pointer-events-none" />
 
       {/* Subtle Linear Gradient Texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#7E321F] via-[#90391D] to-[#692919] opacity-95" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0B2863] via-[#0B2863] to-[#123F91] opacity-95" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-white/10 border border-white/20 text-[#F4E5DC] text-xs font-mono font-bold tracking-widest uppercase mb-6 shadow-sm">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-white/10 border border-white/20 text-[#EEF3FA] text-xs font-mono font-bold tracking-widest uppercase mb-6 shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           <span>DIRECT FACTORY & STOCKIST PROCUREMENT</span>
         </div>
@@ -31,7 +31,7 @@ export default function FinalCTA({ onOpenEnquiry }) {
         </h2>
 
         {/* Subtitle */}
-        <p className="text-base sm:text-lg lg:text-[19px] text-[#F4E5DC]/95 font-normal max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
+        <p className="text-base sm:text-lg lg:text-[19px] text-[#EEF3FA]/95 font-normal max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
           Let's discuss your material and product requirements. Our technical sales team is ready to evaluate specifications, verify stock availability, and submit quotation proposals.
         </p>
 
@@ -39,7 +39,7 @@ export default function FinalCTA({ onOpenEnquiry }) {
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
           <button
             onClick={onOpenEnquiry}
-            className="btn-wave inline-flex items-center gap-2.5 border-2 border-white bg-white hover:bg-gray-100 text-[#202427] hover:text-[#A94728] text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-xl transition-all duration-200 active:scale-[0.97] cursor-pointer group"
+            className="btn-wave inline-flex items-center gap-2.5 border-2 border-white bg-white hover:bg-gray-100 text-[#202427] hover:text-[#123F91] text-sm sm:text-base font-bold uppercase tracking-wider px-8 sm:px-9 py-4 rounded-sm shadow-xl transition-all duration-200 active:scale-[0.97] cursor-pointer group"
           >
             <span>Send an Enquiry</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -57,7 +57,7 @@ export default function FinalCTA({ onOpenEnquiry }) {
         </div>
 
         {/* Quick Contact Micro Strip */}
-        <div className="mt-12 pt-8 border-t border-white/20 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-xs font-mono text-[#F4E5DC]/80">
+        <div className="mt-12 pt-8 border-t border-white/20 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-xs font-mono text-[#EEF3FA]/80">
           <div className="flex items-center gap-2">
             <Mail className="w-3.5 h-3.5 text-white" />
             <span>{COMPANY_DETAILS.emails[0]}</span>

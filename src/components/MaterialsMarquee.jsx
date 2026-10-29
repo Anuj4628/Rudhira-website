@@ -95,7 +95,7 @@ export default function MaterialsMarquee({ onSelectMaterial, onNavigate }) {
       role="button"
       tabIndex={0}
       aria-label={`View ${card.name} material inventory`}
-      className="material-card group flex-shrink-0 w-36 sm:w-44 md:w-48 lg:w-52 bg-[#0C151D]/90 hover:bg-[#16222E] border border-white/20 hover:border-[#A94728]/80 rounded-xl p-2.5 sm:p-3 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 cursor-pointer flex flex-col items-center select-none backdrop-blur-md"
+      className="material-card group flex-shrink-0 w-36 sm:w-44 md:w-48 lg:w-52 bg-[#0C151D]/90 hover:bg-[#16222E] border border-white/20 hover:border-[#123F91]/80 rounded-xl p-2.5 sm:p-3 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 cursor-pointer flex flex-col items-center select-none backdrop-blur-md"
     >
       {/* Material/Product Image Container */}
       <div className="w-full h-24 sm:h-28 md:h-32 rounded-lg bg-white overflow-hidden flex items-center justify-center p-2 relative shadow-inner">
@@ -110,7 +110,7 @@ export default function MaterialsMarquee({ onSelectMaterial, onNavigate }) {
       {/* Material Name Underneath - Always high visibility white */}
       <div className="w-full mt-2.5 sm:mt-3 text-center px-1">
         <span
-          className="material-card-title block text-white group-hover:text-[#F4E5DC] font-bold text-xs sm:text-sm tracking-wide line-clamp-1 transition-colors drop-shadow"
+          className="material-card-title block text-white group-hover:text-[#EEF3FA] font-bold text-xs sm:text-sm tracking-wide line-clamp-1 transition-colors drop-shadow"
           style={{ color: '#FFFFFF' }}
         >
           {card.name}
@@ -144,8 +144,8 @@ export default function MaterialsMarquee({ onSelectMaterial, onNavigate }) {
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-center mb-10 sm:mb-12">
         <div className="inline-block max-w-4xl mx-auto bg-[#081017]/70 backdrop-blur-md px-6 sm:px-10 py-7 sm:py-8 rounded-2xl border border-white/15 shadow-2xl">
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 mb-4 sm:mb-5">
-            <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
-            <span className="tech-label text-[#F4E5DC] font-bold text-xs sm:text-[13px] tracking-wider">
+            <span className="w-2 h-2 rounded-full bg-[#123F91] animate-pulse" />
+            <span className="tech-label text-[#EEF3FA] font-bold text-xs sm:text-[13px] tracking-wider">
               02 — METALLURGICAL SPECTRUM
             </span>
           </div>
@@ -161,7 +161,7 @@ export default function MaterialsMarquee({ onSelectMaterial, onNavigate }) {
           {onNavigate && (
             <button
               onClick={() => onNavigate('materials-landing', null, '/materials')}
-              className="materials-view-btn inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8E3A1F] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 sm:px-7 py-2.5 sm:py-3 rounded-sm border border-white/30 hover:border-white/50 transition-all cursor-pointer shadow-lg hover:shadow-xl backdrop-blur-sm"
+              className="materials-view-btn inline-flex items-center gap-2 bg-[#123F91] hover:bg-[#0B2863] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 sm:px-7 py-2.5 sm:py-3 rounded-sm border border-white/30 hover:border-white/50 transition-all cursor-pointer shadow-lg hover:shadow-xl backdrop-blur-sm"
               style={{ color: '#FFFFFF' }}
             >
               <span style={{ color: '#FFFFFF' }}>View All 9 Certified Material Families →</span>

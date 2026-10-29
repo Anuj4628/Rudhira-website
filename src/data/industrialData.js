@@ -263,9 +263,9 @@ export const PRODUCTS_DATA = [
     category: "Seamless & Welded",
     spec: "ASME / ASTM Standards",
     image: pipesShowcase,
-    cardBg: "bg-[#7E321F]",
+    cardBg: "bg-[#0B2863]",
     textColor: "text-white",
-    borderColor: "border-[#90391D]/50",
+    borderColor: "border-[#0B2863]/50",
     tagBg: "bg-white text-[#202427]",
   },
   {
@@ -275,9 +275,9 @@ export const PRODUCTS_DATA = [
     category: "Hot & Cold Rolled",
     spec: "Precision Flatness",
     image: sheetsShowcase,
-    cardBg: "bg-[#7E321F]",
+    cardBg: "bg-[#0B2863]",
     textColor: "text-white",
-    borderColor: "border-[#90391D]/50",
+    borderColor: "border-[#0B2863]/50",
     tagBg: "bg-white text-[#202427]",
   },
   {
@@ -287,9 +287,9 @@ export const PRODUCTS_DATA = [
     category: "Forge & Butt Weld",
     spec: "High Pressure Rated",
     image: fittingsShowcase,
-    cardBg: "bg-[#7E321F]",
+    cardBg: "bg-[#0B2863]",
     textColor: "text-white",
-    borderColor: "border-[#90391D]/50",
+    borderColor: "border-[#0B2863]/50",
     tagBg: "bg-white text-[#202427]",
   },
   {
@@ -299,9 +299,9 @@ export const PRODUCTS_DATA = [
     category: "High Tensile & Stainless",
     spec: "Precision Threaded",
     image: fastenersShowcase,
-    cardBg: "bg-[#7E321F]",
+    cardBg: "bg-[#0B2863]",
     textColor: "text-white",
-    borderColor: "border-[#90391D]/50",
+    borderColor: "border-[#0B2863]/50",
     tagBg: "bg-white text-[#202427]",
   },
   {
@@ -311,9 +311,9 @@ export const PRODUCTS_DATA = [
     category: "Forged Industrial Flanges",
     spec: "Class 150 to 2500",
     image: flangesShowcase,
-    cardBg: "bg-[#7E321F]",
+    cardBg: "bg-[#0B2863]",
     textColor: "text-white",
-    borderColor: "border-[#90391D]/50",
+    borderColor: "border-[#0B2863]/50",
     tagBg: "bg-white text-[#202427]",
   },
   {
@@ -323,9 +323,9 @@ export const PRODUCTS_DATA = [
     category: "Round, Hex & Square",
     spec: "Bright & Black Finish",
     image: barsShowcase,
-    cardBg: "bg-[#7E321F]",
+    cardBg: "bg-[#0B2863]",
     textColor: "text-white",
-    borderColor: "border-[#90391D]/50",
+    borderColor: "border-[#0B2863]/50",
     tagBg: "bg-white text-[#202427]",
   }
 ];
@@ -384,17 +384,17 @@ export const VALUE_ADDED_SERVICES = [
     cardBg: "bg-[#F8F5F1]", // cream
     textColor: "text-[#202427]",
     borderColor: "border-[#D9D9D6]",
-    accentColor: "text-[#A94728]",
+    accentColor: "text-[#123F91]",
     tag: "TOLERANCE ±1MM"
   },
   {
     id: "02",
     title: "Custom Sizing",
     description: "Tailored dimensional cutting, custom wall thickness matching, and specialized diameter preparations.",
-    cardBg: "bg-[#7E321F]", // deep orange
+    cardBg: "bg-[#0B2863]", // deep navy blue
     textColor: "text-white",
     borderColor: "border-white/20",
-    accentColor: "text-[#F4E5DC]",
+    accentColor: "text-[#EEF3FA]",
     tag: "CLIENT SPECIFIC"
   },
   {
@@ -414,7 +414,7 @@ export const VALUE_ADDED_SERVICES = [
     cardBg: "bg-[#F8F5F1]", // warm cream
     textColor: "text-[#202427]",
     borderColor: "border-[#D9D9D6]",
-    accentColor: "text-[#A94728]",
+    accentColor: "text-[#123F91]",
     tag: "PROTECTIVE FINISH"
   },
   {
@@ -424,17 +424,17 @@ export const VALUE_ADDED_SERVICES = [
     cardBg: "bg-[#202427]", // graphite
     textColor: "text-white",
     borderColor: "border-white/20",
-    accentColor: "text-[#A94728]",
+    accentColor: "text-[#123F91]",
     tag: "EXPORT GRADE"
   },
   {
     id: "06",
     title: "Custom Requirements",
     description: "Bespoke sourcing for hard-to-find alloys, heavy wall pipes, and specialized engineering assemblies.",
-    cardBg: "bg-[#A94728]", // muted burnt orange
+    cardBg: "bg-[#123F91]", // primary navy blue
     textColor: "text-white",
     borderColor: "border-white/20",
-    accentColor: "text-[#F4E5DC]",
+    accentColor: "text-[#EEF3FA]",
     tag: "TAILORED SUPPLY"
   }
 ];

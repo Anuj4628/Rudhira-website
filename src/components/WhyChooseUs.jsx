@@ -4,8 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ShieldCheck, Layers, Truck, Headset, ArrowRight } from 'lucide-react';
 
 // Exactly two authentic industrial photographs for the overlapping collage
-import whyUsInspectionImg from '../assets/images/why-us-inspection.jpg';
-import whyUsMachineryImg from '../assets/images/why-us-machinery.jpg';
+import whyUsInspectionImg from '../assets/images/why-us-inspection-v2.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,33 +71,18 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
         {/* Two-Column Premium Industrial Layout */}
         <div className="flex flex-col lg:flex-row items-center lg:items-center gap-14 lg:gap-16 xl:gap-22">
           
-          {/* LEFT SIDE: Exactly Two Industrial Photographs in an Overlapping Collage */}
+          {/* LEFT SIDE: Authentic Industrial Quality Inspection Photograph */}
           <div
             ref={collageRef}
             className="w-full lg:w-1/2 flex items-center justify-center"
           >
-            <div className="relative w-full max-w-[540px] pb-12 sm:pb-16 pt-2">
-              
-              {/* Image 1 (Larger Primary Image): Metallurgical Inspection Engineer */}
-              <div className="relative z-10 w-[84%] sm:w-[82%] rounded-md overflow-hidden shadow-xl border-2 border-white bg-[#EFECE6]">
-                <img
-                  src={whyUsInspectionImg}
-                  alt="Quality assurance engineer inspecting precision steel flange and bar"
-                  className="w-full h-[320px] sm:h-[400px] lg:h-[440px] object-cover object-center transition-transform duration-500 hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Image 2 (Smaller Secondary Image): Industrial CNC Laser Processing Machinery */}
-              <div className="absolute z-20 bottom-0 right-0 w-[58%] sm:w-[56%] rounded-md overflow-hidden shadow-2xl border-4 border-[#FAF8F5] bg-[#EFECE6]">
-                <img
-                  src={whyUsMachineryImg}
-                  alt="Industrial CNC steel plate cutting machinery and steel coils"
-                  className="w-full h-[200px] sm:h-[250px] lg:h-[280px] object-cover object-center transition-transform duration-500 hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </div>
-
+            <div className="relative w-full max-w-[580px] rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-[#EFECE6] group">
+              <img
+                src={whyUsInspectionImg}
+                alt="Rudhira Metal Industries quality assurance engineer inspecting precision steel flange and shaft with digital caliper"
+                className="w-full h-auto aspect-[4/3] object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
+                loading="eager"
+              />
             </div>
           </div>
 
@@ -108,15 +92,15 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
             className="w-full lg:w-1/2 flex flex-col justify-center"
           >
             {/* Small Eyebrow Label (12–14px bold) */}
-            <div className="flex items-center gap-2.5 text-xs sm:text-[13px] font-mono tracking-widest text-[#C34B2B] uppercase font-bold mb-3 sm:mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#C34B2B]" />
+            <div className="flex items-center gap-2.5 text-xs sm:text-[13px] font-mono tracking-widest text-[#1D4FA3] uppercase font-bold mb-3 sm:mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#1D4FA3]" />
               <span>WHY CHOOSE US</span>
             </div>
 
             {/* Main Section Heading: 44–58px desktop, ExtraBold 800 */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[54px] font-extrabold text-[#191C1F] tracking-tight leading-[1.12] mb-5 sm:mb-6 font-sans">
               Built on Quality. <br />
-              <span className="text-[#C34B2B]">Driven by Reliability.</span>
+              <span className="text-[#1D4FA3]">Driven by Reliability.</span>
             </h2>
 
             {/* Main Description: 18–20px desktop */}
@@ -129,7 +113,7 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
               
               {/* 1. Quality-Focused Supply */}
               <div className="flex items-start gap-4">
-                <div className="p-2.5 rounded-sm bg-[#C34B2B]/10 text-[#C34B2B] flex-shrink-0 mt-1">
+                <div className="p-2.5 rounded-sm bg-[#1D4FA3]/10 text-[#1D4FA3] flex-shrink-0 mt-1">
                   <ShieldCheck className="w-5 h-5 stroke-[2.2]" />
                 </div>
                 <div>
@@ -144,7 +128,7 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
 
               {/* 2. Wide Product Range */}
               <div className="flex items-start gap-4">
-                <div className="p-2.5 rounded-sm bg-[#C34B2B]/10 text-[#C34B2B] flex-shrink-0 mt-1">
+                <div className="p-2.5 rounded-sm bg-[#1D4FA3]/10 text-[#1D4FA3] flex-shrink-0 mt-1">
                   <Layers className="w-5 h-5 stroke-[2.2]" />
                 </div>
                 <div>
@@ -159,7 +143,7 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
 
               {/* 3. Reliable Supply */}
               <div className="flex items-start gap-4">
-                <div className="p-2.5 rounded-sm bg-[#C34B2B]/10 text-[#C34B2B] flex-shrink-0 mt-1">
+                <div className="p-2.5 rounded-sm bg-[#1D4FA3]/10 text-[#1D4FA3] flex-shrink-0 mt-1">
                   <Truck className="w-5 h-5 stroke-[2.2]" />
                 </div>
                 <div>
@@ -174,7 +158,7 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
 
               {/* 4. Professional Support */}
               <div className="flex items-start gap-4">
-                <div className="p-2.5 rounded-sm bg-[#C34B2B]/10 text-[#C34B2B] flex-shrink-0 mt-1">
+                <div className="p-2.5 rounded-sm bg-[#1D4FA3]/10 text-[#1D4FA3] flex-shrink-0 mt-1">
                   <Headset className="w-5 h-5 stroke-[2.2]" />
                 </div>
                 <div>
@@ -200,11 +184,11 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
                     window.location.href = '/about';
                   }
                 }}
-                className="inline-flex items-center gap-2.5 text-sm sm:text-base font-bold tracking-wider uppercase text-[#191C1F] hover:text-[#C34B2B] transition-colors py-1 group cursor-pointer"
+                className="inline-flex items-center gap-2.5 text-sm sm:text-base font-bold tracking-wider uppercase text-[#191C1F] hover:text-[#1D4FA3] transition-colors py-1 group cursor-pointer"
                 aria-label="Learn More About Rudhira Metal Industries"
               >
                 <span>LEARN MORE ABOUT US</span>
-                <ArrowRight className="w-4 h-4 text-[#C34B2B] group-hover:translate-x-1.5 transition-transform duration-200" />
+                <ArrowRight className="w-4 h-4 text-[#1D4FA3] group-hover:translate-x-1.5 transition-transform duration-200" />
               </button>
             </div>
 

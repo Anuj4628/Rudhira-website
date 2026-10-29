@@ -313,7 +313,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-offwhite text-brand-graphite font-sans selection:bg-brand-orange selection:text-white flex flex-col">
+    <div className="min-h-screen bg-brand-offwhite text-brand-graphite font-sans selection:bg-brand-navy selection:text-white flex flex-col">
       {/* Sticky Top Navbar with Mega Menus */}
       <Navbar
         currentPage={currentPage}

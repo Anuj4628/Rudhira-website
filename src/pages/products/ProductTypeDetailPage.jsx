@@ -95,12 +95,12 @@ export default function ProductTypeDetailPage({
             <div className="lg:col-span-7">
               {/* Badges */}
               <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-white/10 border border-white/20 text-xs font-mono font-bold text-[#F4E5DC] uppercase">
-                  <span className="w-2 h-2 rounded-full bg-[#A94728] animate-pulse" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-white/10 border border-white/20 text-xs font-mono font-bold text-[#EEF3FA] uppercase">
+                  <span className="w-2 h-2 rounded-full bg-[#123F91] animate-pulse" />
                   {material.name}
                 </span>
 
-                <span className="inline-flex items-center px-3 py-1 rounded-sm bg-[#A94728]/20 border border-[#A94728]/40 text-xs font-mono font-bold text-[#F4E5DC]">
+                <span className="inline-flex items-center px-3 py-1 rounded-sm bg-[#123F91]/20 border border-[#123F91]/40 text-xs font-mono font-bold text-[#EEF3FA]">
                   {product.name} Configuration
                 </span>
               </div>
@@ -123,7 +123,7 @@ export default function ProductTypeDetailPage({
                 </div>
                 <div>
                   <div className="text-xs font-mono text-white/60 uppercase">Pressure Class / Thread</div>
-                  <div className="text-sm sm:text-base font-bold text-[#A94728] mt-1 truncate">
+                  <div className="text-sm sm:text-base font-bold text-white mt-1 truncate">
                     {type.pressureClass || 'Class 150 to 2500'}
                   </div>
                 </div>
@@ -144,7 +144,7 @@ export default function ProductTypeDetailPage({
                       material.name
                     )
                   }
-                  className="btn-wave inline-flex items-center gap-2 bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                  className="btn-wave inline-flex items-center gap-2 bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <span>Request Quote for {material.shortName} {type.name}</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -154,7 +154,7 @@ export default function ProductTypeDetailPage({
                   href="#material-switcher"
                   className="btn-wave inline-flex items-center gap-2 bg-transparent hover:bg-white/10 border border-white/30 hover:border-white text-white text-sm sm:text-base font-bold uppercase tracking-wider px-5 py-3.5 rounded-sm transition-all cursor-pointer"
                 >
-                  <Layers className="w-4 h-4 text-[#A94728]" />
+                  <Layers className="w-4 h-4 text-white" />
                   <span>Switch Material Family</span>
                 </a>
               </div>
@@ -172,7 +172,7 @@ export default function ProductTypeDetailPage({
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
 
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-[#A94728] font-bold">
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-white/90 font-bold">
                     PRECISION MACHINED SPECIFICATION
                   </div>
                   <div className="text-base font-extrabold truncate">
@@ -194,14 +194,14 @@ export default function ProductTypeDetailPage({
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#D9D9D6] gap-2">
                 <div>
-                  <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+                  <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
                     METALLURGICAL GRADES DIRECTORY
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
                     Popular {material.name} Grades for {type.name}
                   </h2>
                 </div>
-                <span className="text-xs sm:text-sm font-mono text-[#A94728] font-bold">
+                <span className="text-xs sm:text-sm font-mono text-[#123F91] font-bold">
                   Click to View Detailed Spec
                 </span>
               </div>
@@ -218,13 +218,13 @@ export default function ProductTypeDetailPage({
                           `/products/${product.slug}/${material.slug}/${g.slug}`
                         )
                       }
-                      className="group p-3.5 bg-[#F8F5F1] hover:bg-[#F4E5DC] border border-[#D9D9D6] hover:border-[#A94728] rounded-lg text-left transition-all cursor-pointer"
+                      className="group p-3.5 bg-[#F8F5F1] hover:bg-[#EEF3FA] border border-[#D9D9D6] hover:border-[#123F91] rounded-lg text-left transition-all cursor-pointer"
                     >
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-base font-bold text-[#202427] group-hover:text-[#A94728] transition-colors">
+                        <span className="text-base font-bold text-[#202427] group-hover:text-[#123F91] transition-colors">
                           {g.name}
                         </span>
-                        <span className="text-xs font-mono text-[#A94728] font-bold group-hover:translate-x-0.5 transition-transform">
+                        <span className="text-xs font-mono text-[#123F91] font-bold group-hover:translate-x-0.5 transition-transform">
                           →
                         </span>
                       </div>
@@ -243,12 +243,12 @@ export default function ProductTypeDetailPage({
                           material.name
                         )
                       }
-                      className="group p-3.5 bg-[#F8F5F1] hover:bg-[#F4E5DC] border border-[#D9D9D6] hover:border-[#A94728] rounded-lg text-left transition-all cursor-pointer"
+                      className="group p-3.5 bg-[#F8F5F1] hover:bg-[#EEF3FA] border border-[#D9D9D6] hover:border-[#123F91] rounded-lg text-left transition-all cursor-pointer"
                     >
-                      <div className="text-base font-bold text-[#202427] group-hover:text-[#A94728]">
+                      <div className="text-base font-bold text-[#202427] group-hover:text-[#123F91]">
                         Grade {gName}
                       </div>
-                      <div className="text-xs font-mono text-[#A94728]">
+                      <div className="text-xs font-mono text-[#123F91]">
                         RFQ Available
                       </div>
                     </button>
@@ -260,7 +260,7 @@ export default function ProductTypeDetailPage({
             {/* 2. Technical Characteristics & Engineering Design (TYPE PROFILE) */}
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               <div className="pb-4 mb-6 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
                   ENGINEERING CHARACTERISTICS
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
@@ -275,7 +275,7 @@ export default function ProductTypeDetailPage({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="p-4 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6]">
-                    <div className="text-xs sm:text-sm font-mono font-bold text-[#A94728] uppercase mb-1">
+                    <div className="text-xs sm:text-sm font-mono font-bold text-[#123F91] uppercase mb-1">
                       Facing Options
                     </div>
                     <div className="text-sm text-[#202427]/85">
@@ -284,7 +284,7 @@ export default function ProductTypeDetailPage({
                   </div>
 
                   <div className="p-4 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6]">
-                    <div className="text-xs sm:text-sm font-mono font-bold text-[#A94728] uppercase mb-1">
+                    <div className="text-xs sm:text-sm font-mono font-bold text-[#123F91] uppercase mb-1">
                       Weld & Connection Prep
                     </div>
                     <div className="text-sm text-[#202427]/85">
@@ -298,7 +298,7 @@ export default function ProductTypeDetailPage({
             {/* 3. Applicable Standards & Dimension Range (SPECIFICATIONS THIRD) */}
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               <div className="pb-4 mb-6 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
                   MANUFACTURING STANDARDS
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
@@ -329,7 +329,7 @@ export default function ProductTypeDetailPage({
                     </tr>
                     <tr className="bg-[#F8F5F1]/50">
                       <td className="py-3 px-4 font-bold text-[#202427] font-mono">Pressure Classes</td>
-                      <td className="py-3 px-4 text-[#A94728] font-bold font-mono">
+                      <td className="py-3 px-4 text-[#123F91] font-bold font-mono">
                         {type.pressureClass || 'Class 150, 300, 600, 900, 1500, 2500 LBS'}
                       </td>
                     </tr>
@@ -353,7 +353,7 @@ export default function ProductTypeDetailPage({
             {/* Industrial Applications */}
             <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
               <div className="pb-4 mb-6 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs sm:text-sm font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs sm:text-sm font-bold text-[#123F91] uppercase">
                   APPLICATION PROFILES
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202427]">
@@ -364,7 +364,7 @@ export default function ProductTypeDetailPage({
               <div className="space-y-3">
                 {type.applications.map((app, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-3.5 bg-[#F8F5F1] rounded-lg border border-[#D9D9D6]">
-                    <CheckCircle2 className="w-5 h-5 text-[#A94728] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#123F91] flex-shrink-0 mt-0.5" />
                     <span className="text-sm sm:text-base text-[#202427] font-medium leading-relaxed">
                       {app}
                     </span>
@@ -378,14 +378,14 @@ export default function ProductTypeDetailPage({
               <section className="bg-white p-6 sm:p-8 rounded-xl border border-[#D9D9D6] shadow-xs">
                 <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#D9D9D6]">
                   <div>
-                    <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+                    <div className="tech-label text-xs font-bold text-[#123F91] uppercase">
                       OTHER CONFIGURATIONS
                     </div>
                     <h2 className="text-xl sm:text-2xl font-extrabold text-[#202427]">
                       Related {product.name} Configurations in {material.name}
                     </h2>
                   </div>
-                  <span className="text-xs font-mono text-[#A94728] font-bold">
+                  <span className="text-xs font-mono text-[#123F91] font-bold">
                     {relatedTypes.length} Available
                   </span>
                 </div>
@@ -401,12 +401,12 @@ export default function ProductTypeDetailPage({
                           `/products/${product.slug}/${material.slug}/types/${relType.slug}`
                         )
                       }
-                      className="group p-3 bg-[#F8F5F1] hover:bg-[#F4E5DC] border border-[#D9D9D6] hover:border-[#A94728] rounded-lg transition-all cursor-pointer flex items-center justify-between"
+                      className="group p-3 bg-[#F8F5F1] hover:bg-[#EEF3FA] border border-[#D9D9D6] hover:border-[#123F91] rounded-lg transition-all cursor-pointer flex items-center justify-between"
                     >
-                      <span className="text-xs font-bold text-[#202427] group-hover:text-[#A94728] transition-colors truncate">
+                      <span className="text-xs font-bold text-[#202427] group-hover:text-[#123F91] transition-colors truncate">
                         {relType.name}
                       </span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#A94728] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#123F91] group-hover:translate-x-1 transition-transform flex-shrink-0" />
                     </div>
                   ))}
                 </div>
@@ -419,8 +419,8 @@ export default function ProductTypeDetailPage({
             <aside className="space-y-6 lg:sticky lg:top-28 max-h-[calc(100vh-8.5rem)] lg:overflow-y-auto sidebar-sticky-scroll">
               {/* Direct Quote Box */}
               <div className="bg-[#202427] text-white p-6 sm:p-7 rounded-xl border border-white/10 shadow-md">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#A94728] font-bold uppercase mb-2">
-                <Zap className="w-4 h-4 text-[#A94728]" />
+              <div className="flex items-center gap-2 text-xs font-mono text-white font-bold uppercase mb-2">
+                <Zap className="w-4 h-4 text-white" />
                 <span>COMMERCIAL QUOTE DESK</span>
               </div>
 
@@ -443,7 +443,7 @@ export default function ProductTypeDetailPage({
                 </div>
                 <div className="p-3 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
                   <span className="text-white/60">Configuration:</span>
-                  <span className="font-bold text-[#A94728]">{type.name}</span>
+                  <span className="font-bold text-[#123F91]">{type.name}</span>
                 </div>
               </div>
 
@@ -454,7 +454,7 @@ export default function ProductTypeDetailPage({
                     material.name
                   )
                 }
-                className="btn-wave w-full bg-[#A94728] hover:bg-[#8F371B] border-2 border-[#A94728] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+                className="btn-wave w-full bg-[#123F91] hover:bg-[#0B2863] border-2 border-[#123F91] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-3.5 rounded-sm shadow-md transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
               >
                 <span>Request Custom Quote</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -471,7 +471,7 @@ export default function ProductTypeDetailPage({
             {/* Requirement: User can switch materials while retaining the selected type! */}
             <div id="material-switcher" className="bg-white p-6 rounded-xl border border-[#D9D9D6] shadow-xs scroll-mt-28">
               <div className="pb-3 mb-4 border-b border-[#D9D9D6]">
-                <div className="tech-label text-xs font-bold text-[#A94728] uppercase">
+                <div className="tech-label text-xs font-bold text-[#123F91] uppercase">
                   MATERIAL CONTEXT
                 </div>
                 <h4 className="text-base font-extrabold text-[#202427]">
@@ -499,14 +499,14 @@ export default function ProductTypeDetailPage({
                       }}
                       className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all text-left cursor-pointer ${
                         isCurrent
-                          ? 'bg-[#A94728] text-white shadow-xs font-extrabold'
-                          : 'bg-[#F8F5F1] hover:bg-[#F4E5DC] text-[#202427] hover:text-[#A94728] border border-[#D9D9D6] hover:border-[#A94728]'
+                          ? 'bg-[#123F91] text-white shadow-xs font-extrabold'
+                          : 'bg-[#F8F5F1] hover:bg-[#EEF3FA] text-[#202427] hover:text-[#123F91] border border-[#D9D9D6] hover:border-[#123F91]'
                       }`}
                     >
                       <span className="flex items-center gap-2 truncate">
                         <span
                           className={`w-2 h-2 rounded-full ${
-                            isCurrent ? 'bg-white' : 'bg-[#A94728]'
+                            isCurrent ? 'bg-white' : 'bg-[#123F91]'
                           }`}
                         />
                         <span className="truncate">{mat.name}</span>
@@ -515,7 +515,7 @@ export default function ProductTypeDetailPage({
                       {isCurrent ? (
                         <span className="text-xs font-mono font-bold text-white">● CURRENT</span>
                       ) : (
-                        <span className="text-xs font-mono text-[#A94728] font-bold">SWITCH →</span>
+                        <span className="text-xs font-mono text-[#123F91] font-bold">SWITCH →</span>
                       )}
                     </button>
                   );
@@ -525,7 +525,7 @@ export default function ProductTypeDetailPage({
 
             {/* Technical Notice */}
             <div className="p-4 bg-[#F8F5F1] rounded-xl border border-[#D9D9D6] text-xs text-[#202427]/70 space-y-2">
-              <div className="flex items-center gap-2 text-[#A94728] font-bold font-mono">
+              <div className="flex items-center gap-2 text-[#123F91] font-bold font-mono">
                 <AlertCircle className="w-4 h-4 flex-shrink-0" />
                 <span>FLANGE & FASTENER STANDARDS</span>
               </div>

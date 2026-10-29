@@ -34,7 +34,7 @@ export default function CertificatesMegaMenu({
     <div
       role="menu"
       aria-label="Certificates Dropdown"
-      className="nav-dropdown-menu mt-2 w-[420px] max-w-[calc(100vw-32px)] bg-[#A94728] border border-[#923C20] rounded-xl shadow-2xl shadow-black/35 select-none text-white pointer-events-auto"
+      className="nav-dropdown-menu mt-2 w-[420px] max-w-[calc(100vw-32px)] bg-[#123F91] border border-[#0B2863] rounded-xl shadow-2xl shadow-black/35 select-none text-white pointer-events-auto"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -45,7 +45,7 @@ export default function CertificatesMegaMenu({
       />
 
       {/* Upward notch pointing directly to the Certificates nav link */}
-      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#A94728] rotate-45 border-t border-l border-[#923C20] pointer-events-none z-10" />
+      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#123F91] rotate-45 border-t border-l border-[#0B2863] pointer-events-none z-10" />
 
       {/* Inner rounded container */}
       <div className="rounded-xl overflow-hidden">
@@ -89,7 +89,7 @@ export default function CertificatesMegaMenu({
                 <button
                   type="button"
                   onClick={(e) => handleInspectCert(e, cert.id)}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-white text-[#A94728] hover:bg-[#F4E5DC] text-[11.5px] font-bold transition-all shadow-xs cursor-pointer active:scale-95"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-white text-[#123F91] hover:bg-[#EEF3FA] text-[11.5px] font-bold transition-all shadow-xs cursor-pointer active:scale-95"
                   title={`Inspect ${cert.title}`}
                 >
                   <Eye className="w-3 h-3" />

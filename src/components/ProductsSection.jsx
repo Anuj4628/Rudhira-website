@@ -153,7 +153,7 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
     <section
       id="products"
       ref={sectionRef}
-      className="py-20 sm:py-24 lg:py-28 bg-[#F4E5DC]/60 relative overflow-hidden border-b border-[#D9D9D6]"
+      className="py-20 sm:py-24 lg:py-28 bg-[#EEF3FA]/60 relative overflow-hidden border-b border-[#D9D9D6]"
     >
       {/* Background Subtle Grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-70 pointer-events-none" />
@@ -161,9 +161,9 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
       <div className="relative max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Centered Layout */}
         <div className="products-header text-center mx-auto max-w-3xl mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#A94728]/10 border border-[#A94728]/25 mb-4 sm:mb-5">
-            <span className="w-2 h-2 rounded-full bg-[#A94728]" />
-            <span className="tech-label text-[#A94728] font-bold text-xs sm:text-[13px]">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-4 sm:mb-5">
+            <span className="w-2 h-2 rounded-full bg-[#123F91]" />
+            <span className="tech-label text-[#123F91] font-bold text-xs sm:text-[13px]">
               01 — PRODUCT RANGE
             </span>
           </div>
@@ -190,7 +190,7 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
                   onSelectProduct(card.name);
                 }
               }}
-              className="group relative w-full bg-[#7E321F] border border-[#90391D]/60 rounded-lg overflow-hidden flex flex-col justify-between cursor-pointer p-3.5 sm:p-4 shadow-xl hover:shadow-2xl hover:border-[#F4E5DC]/60 transition-all duration-300 hover:-translate-y-1.5"
+              className="group relative w-full bg-[#0B2863] border border-[#0B2863]/60 rounded-lg overflow-hidden flex flex-col justify-between cursor-pointer p-3.5 sm:p-4 shadow-xl hover:shadow-2xl hover:border-[#EEF3FA]/60 transition-all duration-300 hover:-translate-y-1.5"
             >
               {/* Subtle Inset Frame & Corner Brackets */}
               <div className="corner-bracket-tl" />
@@ -215,26 +215,26 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
                   {card.topLabel}
                 </div>
 
-                {/* Orange/Cream Accent Line on Hover */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#F4E5DC] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                {/* Navy/Soft Blue Accent Line on Hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#EEF3FA] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </div>
 
-              {/* Bottom Content Area: Deep Burnt Orange with Crisp Typography */}
+              {/* Bottom Content Area: Deep Navy Blue with Crisp Typography */}
               <div className="pt-4 pb-1 px-1 flex-1 flex flex-col justify-between">
                 <div>
                   {/* Heading & Arrow Button Row */}
                   <div className="flex items-start justify-between gap-2.5 mb-2.5 min-h-[46px] sm:min-h-[50px]">
-                    <h3 className="text-base sm:text-[17px] lg:text-[15.5px] xl:text-[17px] font-extrabold text-white tracking-tight leading-snug group-hover:text-[#F4E5DC] transition-colors font-sans uppercase line-clamp-2">
+                    <h3 className="text-base sm:text-[17px] lg:text-[15.5px] xl:text-[17px] font-extrabold text-white tracking-tight leading-snug group-hover:text-[#EEF3FA] transition-colors font-sans uppercase line-clamp-2">
                       {card.name}
                     </h3>
-                    <div className="w-8 h-8 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#7E321F] transition-all duration-200 flex-shrink-0 shadow-sm mt-0.5">
+                    <div className="w-8 h-8 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#0B2863] transition-all duration-200 flex-shrink-0 shadow-sm mt-0.5">
                       <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </div>
 
                   {/* Description Area */}
                   <div className="min-h-[64px] sm:min-h-[68px] lg:min-h-[66px] flex items-start mb-2">
-                    <p className="text-[13px] sm:text-[13.5px] lg:text-[12.5px] xl:text-[13px] text-[#F4E5DC]/90 font-normal leading-relaxed line-clamp-3 font-sans">
+                    <p className="text-[13px] sm:text-[13.5px] lg:text-[12.5px] xl:text-[13px] text-[#EEF3FA]/90 font-normal leading-relaxed line-clamp-3 font-sans">
                       {card.description}
                     </p>
                   </div>
@@ -242,15 +242,15 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
 
                 {/* Bottom Specification Area - Prominently Displayed Without Truncation */}
                 <div className="mt-auto pt-3 border-t border-white/20 min-h-[62px] flex flex-col justify-between">
-                  <div className="text-[11.5px] sm:text-[12px] font-mono text-[#F4E5DC] font-semibold leading-snug flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4E5DC] flex-shrink-0" />
+                  <div className="text-[11.5px] sm:text-[12px] font-mono text-[#EEF3FA] font-semibold leading-snug flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#EEF3FA] flex-shrink-0" />
                     <span className="whitespace-normal leading-tight">
                       Flanges • Forged Fittings • Butt Weld Fittings
                     </span>
                   </div>
-                  <div className="flex items-center justify-between text-[11px] font-mono text-[#F4E5DC]/75 pt-1.5 mt-1 border-t border-white/10">
-                    <span className="uppercase tracking-wider text-[10px] text-[#F4E5DC]/65">ASTM / ASME B16 • EN 10204 3.1</span>
-                    <span className="text-[#F4E5DC] font-bold group-hover:translate-x-1 transition-transform flex items-center gap-0.5 text-xs flex-shrink-0">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-[#EEF3FA]/75 pt-1.5 mt-1 border-t border-white/10">
+                    <span className="uppercase tracking-wider text-[10px] text-[#EEF3FA]/65">ASTM / ASME B16 • EN 10204 3.1</span>
+                    <span className="text-[#EEF3FA] font-bold group-hover:translate-x-1 transition-transform flex items-center gap-0.5 text-xs flex-shrink-0">
                       Inquire →
                     </span>
                   </div>
@@ -270,7 +270,7 @@ export default function ProductsSection({ onSelectProduct, onNavigate }) {
                 onNavigate('products-landing', null, '/products');
               }
             }}
-            className="btn-wave inline-flex items-center gap-2.5 border-2 border-[#A94728] text-[#A94728] hover:bg-[#A94728] hover:text-white text-sm sm:text-base font-extrabold uppercase tracking-widest px-8 sm:px-10 py-3.5 sm:py-4 rounded-sm shadow-md hover:shadow-xl transition-all duration-200 active:scale-95 group cursor-pointer"
+            className="btn-wave inline-flex items-center gap-2.5 border-2 border-[#123F91] text-[#123F91] hover:bg-[#123F91] hover:text-white text-sm sm:text-base font-extrabold uppercase tracking-widest px-8 sm:px-10 py-3.5 sm:py-4 rounded-sm shadow-md hover:shadow-xl transition-all duration-200 active:scale-95 group cursor-pointer"
           >
             <span>All Products</span>
             <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

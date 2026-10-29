@@ -50,7 +50,7 @@ export default function Clientele() {
     <section
       id="clients"
       ref={sectionRef}
-      className="py-24 sm:py-28 bg-[#202427] text-white border-b border-white/10 relative overflow-hidden"
+      className="py-24 sm:py-28 bg-[#0B2863] text-white border-b border-white/10 relative overflow-hidden"
     >
       {/* Background Subtle Grid */}
       <div className="absolute inset-0 bg-dark-grid-pattern opacity-25 pointer-events-none" />
@@ -59,8 +59,8 @@ export default function Clientele() {
         {/* Section Header - Centered Layout */}
         <div className="clients-header text-center mx-auto max-w-3xl mb-14 sm:mb-16">
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-sm bg-white/10 border border-white/20 mb-4 sm:mb-5">
-            <Building2 className="w-4 h-4 text-[#A94728]" />
-            <span className="tech-label text-[#F4E5DC] font-bold text-xs sm:text-[13px]">
+            <Building2 className="w-4 h-4 text-[#123F91]" />
+            <span className="tech-label text-[#EEF3FA] font-bold text-xs sm:text-[13px]">
               07 — INDUSTRIAL PARTNERSHIPS
             </span>
           </div>
@@ -69,18 +69,18 @@ export default function Clientele() {
             Our Clients
           </h2>
 
-          <p className="text-base sm:text-lg lg:text-[19px] text-[#F4E5DC]/90 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
+          <p className="text-base sm:text-lg lg:text-[19px] text-[#EEF3FA]/90 font-normal max-w-2xl mx-auto leading-relaxed font-sans">
             Trusted by businesses across industrial and engineering sectors. Supplying precision metal products, fittings, and flanges to premier industrial enterprises.
           </p>
         </div>
 
         {/* ONE LARGE Premium Clientele Panel with Original Brand Color Logos */}
-        <div className="clientele-panel bg-[#272B2E] border-2 border-white/15 p-5 sm:p-8 rounded-lg shadow-2xl">
+        <div className="clientele-panel bg-[#102D65] border-2 border-white/15 p-5 sm:p-8 rounded-lg shadow-2xl">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
             {CLIENT_PARTNERS.map((client) => (
               <div
                 key={client.name}
-                className="client-logo-card group h-28 sm:h-[120px] bg-white border border-[#D9D9D6] hover:border-[#A94728] rounded-lg p-2.5 sm:p-3 flex flex-col items-center justify-between text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 cursor-default shadow-sm"
+                className="client-logo-card group h-28 sm:h-[120px] bg-white border border-[#D9D9D6] hover:border-[#123F91] rounded-lg p-2.5 sm:p-3 flex flex-col items-center justify-between text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 cursor-default shadow-sm"
               >
                 {/* 1. Large, properly scaled company logo maximizing available card space */}
                 <div className="w-full flex-1 flex items-center justify-center min-h-0 px-1">
@@ -93,7 +93,7 @@ export default function Clientele() {
                 </div>
 
                 {/* 2. Company Name neatly aligned underneath */}
-                <span className="text-[11px] sm:text-xs font-bold text-[#202427] group-hover:text-[#A94728] transition-colors leading-tight line-clamp-1 mt-1">
+                <span className="text-[11px] sm:text-xs font-bold text-[#202427] group-hover:text-[#123F91] transition-colors leading-tight line-clamp-1 mt-1">
                   {client.name}
                 </span>
               </div>
