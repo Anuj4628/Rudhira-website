@@ -10,7 +10,6 @@ import { PRODUCT_CATEGORIES, MATERIAL_CATEGORIES, getMaterialSeoSlug, getProduct
 import brandLogo from '../assets/New Logo/Rudhira Metal Logo Emblem.png';
 
 export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry }) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productMegaOpen, setProductMegaOpen] = useState(false);
   const [materialsMegaOpen, setMaterialsMegaOpen] = useState(false);
@@ -122,19 +121,6 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     };
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 24) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   // Desktop Navigation Links (Preserves finalized desktop UI & spacing)
   const navLinks = [
     { name: 'Home', page: 'home', href: '/', anchor: '#hero', isMega: null },
@@ -214,7 +200,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
       {/* Fixed Architectural Industrial Header */}
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        className="fixed top-0 left-0 right-0 z-50"
         onMouseLeave={() => {
           handleProductMouseLeave();
           handleMaterialMouseLeave();
@@ -263,15 +249,14 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
 
               <span className="text-white/40">|</span>
 
-              {/* 4. Bharat Phone & WhatsApp */}
+              {/* 4. First Phone & WhatsApp */}
               <div className="inline-flex items-center gap-1.5 flex-shrink-0">
-                <span className="text-white/80 hidden xl:inline text-xs">Bharat:</span>
                 <a
                   href={`tel:${COMPANY_DETAILS.contacts[0].cleanPhone}`}
-                  className="font-sans font-semibold text-white hover:text-white/85 transition-colors flex items-center gap-1 whitespace-nowrap"
-                  title="Call Bharat Kumar"
+                  className="font-sans font-semibold text-white hover:text-white/85 transition-colors flex items-center gap-1.5 whitespace-nowrap text-xs"
+                  title={`Call ${COMPANY_DETAILS.contacts[0].phone}`}
                 >
-                  <FaPhone className="w-2.5 h-2.5 text-white/90 sm:hidden" />
+                  <FaPhone className="w-2.5 h-2.5 text-white/90" />
                   <span>{COMPANY_DETAILS.contacts[0].phone}</span>
                 </a>
                 <a
@@ -279,24 +264,23 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-emerald-200 hover:scale-115 transition-transform p-0.5"
-                  title="Chat with Bharat Kumar on WhatsApp"
-                  aria-label="Chat with Bharat Kumar on WhatsApp"
+                  title={`WhatsApp ${COMPANY_DETAILS.contacts[0].phone}`}
+                  aria-label={`WhatsApp ${COMPANY_DETAILS.contacts[0].phone}`}
                 >
-                  <FaWhatsapp className="w-4 h-4 text-emerald-300 drop-shadow-xs" />
+                  <FaWhatsapp className="w-3.5 h-3.5 text-emerald-300 drop-shadow-xs" />
                 </a>
               </div>
 
               <span className="text-white/40 hidden sm:inline">|</span>
 
-              {/* 5. Navin Phone & WhatsApp */}
+              {/* 5. Second Phone & WhatsApp */}
               <div className="hidden sm:inline-flex items-center gap-1.5 flex-shrink-0">
-                <span className="text-white/80 hidden xl:inline text-xs">Navin:</span>
                 <a
                   href={`tel:${COMPANY_DETAILS.contacts[1].cleanPhone}`}
-                  className="font-sans font-semibold text-white hover:text-white/85 transition-colors flex items-center gap-1 whitespace-nowrap"
-                  title="Call Navin Kumar"
+                  className="font-sans font-semibold text-white hover:text-white/85 transition-colors flex items-center gap-1.5 whitespace-nowrap text-xs"
+                  title={`Call ${COMPANY_DETAILS.contacts[1].phone}`}
                 >
-                  <FaPhone className="w-2.5 h-2.5 text-white/90 sm:hidden" />
+                  <FaPhone className="w-2.5 h-2.5 text-white/90" />
                   <span>{COMPANY_DETAILS.contacts[1].phone}</span>
                 </a>
                 <a
@@ -304,10 +288,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-emerald-200 hover:scale-115 transition-transform p-0.5"
-                  title="Chat with Navin Kumar on WhatsApp"
-                  aria-label="Chat with Navin Kumar on WhatsApp"
+                  title={`WhatsApp ${COMPANY_DETAILS.contacts[1].phone}`}
+                  aria-label={`WhatsApp ${COMPANY_DETAILS.contacts[1].phone}`}
                 >
-                  <FaWhatsapp className="w-4 h-4 text-emerald-300 drop-shadow-xs" />
+                  <FaWhatsapp className="w-3.5 h-3.5 text-emerald-300 drop-shadow-xs" />
                 </a>
               </div>
 
@@ -316,18 +300,14 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
           </div>
         </div>
 
-        {/* MAIN NAVIGATION BAR (Crisp White Background, Compact & Premium) */}
+        {/* MAIN NAVIGATION BAR (Crisp White Background, Fixed Height & Large Logo) */}
         <div
-          className={`transition-all duration-300 relative bg-white border-b border-gray-200/90 flex items-center ${
-            isScrolled
-              ? 'shadow-md h-[56px] sm:h-[60px] md:h-[64px] lg:h-[72px] xl:h-[78px]'
-              : 'shadow-xs h-[68px] sm:h-[80px] md:h-[88px] lg:h-[104px] xl:h-[108px]'
-          }`}
+          className="relative bg-white border-b border-gray-200/90 shadow-xs flex items-center h-[76px] sm:h-[86px] md:h-[94px] lg:h-[106px] xl:h-[112px]"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-3 sm:gap-4">
             
-            {/* LEFT: Rudhira Metal Logo */}
-            <div className="flex items-center">
+            {/* LEFT: Rudhira Metal Logo (Prominent, High Clarity & Responsive) */}
+            <div className="flex items-center min-w-0">
               <a
                 href="/"
                 onClick={(e) => {
@@ -340,12 +320,9 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
               >
                 <img
                   src={brandLogo}
-                  alt="Rudhira Metal Industries Logo"
-                  className={`w-auto object-contain transition-all duration-300 origin-left ${
-                    isScrolled
-                      ? 'h-[50px] sm:h-[54px] md:h-[58px] lg:h-[66px] xl:h-[74px]'
-                      : 'h-[62px] sm:h-[74px] md:h-[82px] lg:h-[98px] xl:h-[104px]'
-                  }`}
+                  alt="Rudhira Metal Industries - An ISO 9001:2015 Certified Company"
+                  className="w-auto h-[60px] xs:h-[64px] sm:h-[72px] md:h-[80px] lg:h-[86px] xl:h-[92px] max-w-[calc(100vw-85px)] sm:max-w-[290px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[360px] object-contain origin-left"
+                  style={{ imageRendering: '-webkit-optimize-contrast' }}
                   loading="eager"
                 />
               </a>
@@ -492,7 +469,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
             </div>
 
             {/* Responsive Header Controls (Hamburger Toggle) */}
-            <div className="flex lg:hidden items-center">
+            <div className="flex lg:hidden items-center shrink-0 ml-2">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -523,16 +500,17 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
           >
             <div>
               {/* Header with Logo & Close Button */}
-              <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+              <div className="flex items-center justify-between pb-4 border-b border-gray-100 gap-3">
                 <img
                   src={brandLogo}
-                  alt="Rudhira Metal Industries"
-                  className="h-14 sm:h-16 w-auto object-contain"
+                  alt="Rudhira Metal Industries - An ISO 9001:2015 Certified Company"
+                  className="h-12 xs:h-14 sm:h-16 max-w-[240px] w-auto object-contain"
+                  style={{ imageRendering: '-webkit-optimize-contrast' }}
                 />
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
+                  className="p-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer shrink-0"
                   aria-label="Close navigation menu"
                 >
                   <X className="w-5 h-5" />

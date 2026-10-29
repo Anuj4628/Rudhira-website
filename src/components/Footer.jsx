@@ -30,17 +30,18 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-white/10">
           {/* Column 1: Brand & Credentials (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-6">
               <a
                 href="/"
                 onClick={(e) => handleFooterNav(e, 'home')}
-                className="inline-flex items-center bg-white rounded-xl px-3.5 py-2.5 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all border border-white/20"
+                className="inline-flex items-center bg-white rounded-2xl px-6 py-4 sm:px-7 sm:py-5 shadow-2xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 border border-white/20 group max-w-full"
                 aria-label="Rudhira Metal Industries - Home"
               >
                 <img
                   src={brandLogo}
                   alt="Rudhira Metal Industries Logo"
-                  className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
+                  className="h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 max-w-[280px] sm:max-w-[340px] md:max-w-[400px] lg:max-w-[460px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                  style={{ imageRendering: '-webkit-optimize-contrast' }}
                 />
               </a>
             </div>
@@ -181,37 +182,39 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
               </div>
 
               {/* Direct Phone Numbers & WhatsApp */}
-              <div className="p-3.5 bg-white/5 rounded-lg border border-white/10 space-y-3">
+              <div className="p-4 bg-white/5 rounded-xl border border-white/10 space-y-3">
                 <div className="text-xs font-mono uppercase tracking-wider text-[#A94728] font-bold flex items-center justify-between">
                   <span>KEY CONTACT DESK</span>
                   <span>CALL / WHATSAPP</span>
                 </div>
 
-                {COMPANY_DETAILS.contacts.map((contact) => (
-                  <div key={contact.name} className="flex items-center justify-between gap-2 text-sm">
-                    <span className="font-semibold text-white font-sans">{contact.name}</span>
-                    <div className="flex items-center gap-2.5 font-mono">
+                <div className="space-y-2.5">
+                  {COMPANY_DETAILS.contacts.map((contact, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between gap-3 py-2 px-3 rounded-lg bg-white/[0.03] border border-white/5 hover:border-[#A94728]/40 transition-colors"
+                    >
                       <a
                         href={`tel:${contact.cleanPhone}`}
-                        className="text-white hover:text-[#A94728] transition-colors inline-flex items-center gap-1.5 font-bold text-sm"
-                        title={`Call ${contact.name}`}
+                        className="inline-flex items-center gap-2 text-white hover:text-[#A94728] transition-colors font-mono font-bold text-sm sm:text-[15px]"
+                        title={`Call ${contact.phone}`}
                       >
-                        <FaPhone className="w-3 h-3 text-[#A94728] shrink-0" />
+                        <FaPhone className="w-3.5 h-3.5 text-[#A94728] shrink-0" />
                         <span>{contact.phone}</span>
                       </a>
                       <a
                         href={`https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(COMPANY_DETAILS.whatsappDefaultMsg)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366]/30 hover:border-[#25D366] transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer shadow-xs"
-                        title={`Chat with ${contact.name} on WhatsApp`}
-                        aria-label={`Chat with ${contact.name} on WhatsApp`}
+                        className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366]/30 hover:border-[#25D366] transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer shadow-xs shrink-0"
+                        title={`Chat with us on WhatsApp (${contact.phone})`}
+                        aria-label={`WhatsApp ${contact.phone}`}
                       >
                         <FaWhatsapp className="w-4 h-4 shrink-0" />
                       </a>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
               {/* Emails */}
