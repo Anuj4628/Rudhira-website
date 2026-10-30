@@ -321,7 +321,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                 <img
                   src={brandLogo}
                   alt="Rudhira Metal Industries - An ISO 9001:2015 Certified Company"
-                  className="w-auto h-[60px] xs:h-[64px] sm:h-[72px] md:h-[80px] lg:h-[86px] xl:h-[92px] max-w-[calc(100vw-85px)] sm:max-w-[290px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[360px] object-contain origin-left"
+                  className="w-auto h-[68px] xs:h-[70px] sm:h-[78px] md:h-[86px] lg:h-[98px] xl:h-[104px] max-w-[calc(100vw-80px)] sm:max-w-[320px] md:max-w-[350px] lg:max-w-[380px] xl:max-w-[420px] object-contain origin-left"
                   style={{ imageRendering: '-webkit-optimize-contrast' }}
                   loading="eager"
                 />
@@ -504,7 +504,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                 <img
                   src={brandLogo}
                   alt="Rudhira Metal Industries - An ISO 9001:2015 Certified Company"
-                  className="h-12 xs:h-14 sm:h-16 max-w-[240px] w-auto object-contain"
+                  className="h-14 xs:h-16 sm:h-20 max-w-[260px] w-auto object-contain"
                   style={{ imageRendering: '-webkit-optimize-contrast' }}
                 />
                 <button
