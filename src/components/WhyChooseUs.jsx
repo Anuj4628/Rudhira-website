@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ShieldCheck, Layers, Truck, Headset, ArrowRight } from 'lucide-react';
 
 // Exactly two authentic industrial photographs for the overlapping collage
-import whyUsInspectionImg from '../assets/images/why-us-inspection-v2.jpg';
+import whyUsInspectionImg from '../assets/images/why-us-inspection-v3.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,12 +76,13 @@ export default function WhyChooseUs({ onOpenEnquiry, onNavigate }) {
             ref={collageRef}
             className="w-full lg:w-1/2 flex items-center justify-center"
           >
-            <div className="relative w-full max-w-[580px] rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-[#EFECE6] group">
+            <div className="relative w-full max-w-[580px] xl:max-w-[620px] rounded-2xl overflow-hidden shadow-2xl shadow-black/10 border-2 border-white bg-[#EFECE6] group">
               <img
                 src={whyUsInspectionImg}
-                alt="Rudhira Metal Industries quality assurance engineer inspecting precision steel flange and shaft with digital caliper"
-                className="w-full h-auto aspect-[4/3] object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
+                alt="Rudhira Metal Industries quality assurance engineer performing Positive Material Identification spectrometer analysis on precision forged flange"
+                className="w-full h-auto aspect-[1024/763] object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
                 loading="eager"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
               />
             </div>
           </div>
