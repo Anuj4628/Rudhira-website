@@ -55,6 +55,60 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [referenceCode, setReferenceCode] = useState('');
   const [activeHelpCategory, setActiveHelpCategory] = useState('Request for Quote');
+  const [activeLocation, setActiveLocation] = useState('mumbai');
+
+  const branchLocations = [
+    {
+      id: 'mumbai',
+      name: 'Mumbai Head Office',
+      badge: 'HEAD OFFICE & TRADING COUNTER',
+      stateName: 'MAHARASHTRA',
+      city: 'Mumbai',
+      pincode: '400 004',
+      address: COMPANY_DETAILS.address,
+      shortAddress: COMPANY_DETAILS.shortAddress,
+      operatingHours: 'Monday – Saturday: 9:30 AM – 7:30 PM',
+      phone: COMPANY_DETAILS.contacts[0].phone,
+      cleanPhone: COMPANY_DETAILS.contacts[0].cleanPhone,
+      whatsappNumber: COMPANY_DETAILS.contacts[0].whatsappNumber,
+      mapEmbedSrc: 'https://maps.google.com/maps?q=Rudhira+Metal+Industries,+Shop+No.+6,+Shantabi+Building,+4th+Cross+Lane,+Khetwadi,+Mumbai+-+400004&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      googleMapsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Rudhira+Metal+Industries+Shop+No+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004'
+    },
+    {
+      id: 'ankleshwar',
+      name: 'ANKLESHWAR BRANCH',
+      badge: 'GUJARAT INDUSTRIAL HUB',
+      stateName: 'GUJARAT',
+      city: 'Ankleshwar',
+      pincode: '393002',
+      address: 'GROUND PLOT NO. 4201A/1, KHODIYAR PLASTIC INDUSTRIES GIDC ESTATE, ANKLESHWAR - 393002, GUJARAT, INDIA.',
+      shortAddress: 'Ground Plot No. 4201A/1, Khodiyar Plastic Industries, GIDC Estate, Ankleshwar - 393002',
+      operatingHours: 'Monday – Saturday: 9:30 AM – 7:00 PM',
+      phone: COMPANY_DETAILS.contacts[0].phone,
+      cleanPhone: COMPANY_DETAILS.contacts[0].cleanPhone,
+      whatsappNumber: COMPANY_DETAILS.contacts[0].whatsappNumber,
+      mapEmbedSrc: 'https://maps.google.com/maps?q=GROUND+PLOT+NO.+4201A%2F1%2C+KHODIYAR+PLASTIC+INDUSTRIES+GIDC+ESTATE+ANKLESHWAR+393002&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=GROUND+PLOT+NO.+4201A%2F1%2C+KHODIYAR+PLASTIC+INDUSTRIES+GIDC+ESTATE+ANKLESHWAR+393002'
+    },
+    {
+      id: 'hyderabad',
+      name: 'HYDERABAD BRANCH',
+      badge: 'TELANGANA COMMERCIAL HUB',
+      stateName: 'TELANGANA',
+      city: 'Hyderabad',
+      pincode: '500016',
+      address: 'First Floor, No. 5-4-22, 5-4-20, 21 & 22, Distillery Road, Near Ispat Bhavan, Ranigunj, Hyderabad, Telangana - 500016, India.',
+      shortAddress: 'First Floor, No. 5-4-22, Distillery Road, Near Ispat Bhavan, Ranigunj, Hyderabad - 500016',
+      operatingHours: 'Monday – Saturday: 9:30 AM – 7:00 PM',
+      phone: COMPANY_DETAILS.contacts[1].phone,
+      cleanPhone: COMPANY_DETAILS.contacts[1].cleanPhone,
+      whatsappNumber: COMPANY_DETAILS.contacts[1].whatsappNumber,
+      mapEmbedSrc: 'https://maps.google.com/maps?q=First+Floor%2C+No.+5-4-22%2C+5-4-20%2C+21%2622%2C+Distillery+Road%2C+near+ispat+bhavan+Ranigunj%2C+Hyderabad%2C+Telangana%2C+500016&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=First+Floor%2C+No.+5-4-22%2C+5-4-20%2C+21%2622%2C+Distillery+Road%2C+near+ispat+bhavan+Ranigunj%2C+Hyderabad%2C+Telangana%2C+500016'
+    }
+  ];
+
+  const currentActiveLocation = branchLocations.find((b) => b.id === activeLocation) || branchLocations[0];
 
   // Copy Email & Certificate Modal State
   const [copiedEmail, setCopiedEmail] = useState(null);
@@ -452,7 +506,7 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
 
           {/* 4 Clean Corporate Information Cards - Equal Height Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 items-stretch">
-            {/* Card 1: Office Address */}
+            {/* Card 1: Office & Branch Network */}
             <div className="contact-info-card group p-6 sm:p-7 bg-white hover:bg-[#EEF3FA]/30 border-2 border-[#D9D9D6] hover:border-[#123F91] rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-industrial flex flex-col justify-between h-full min-w-0">
               <div className="min-w-0">
                 <div className="flex items-center justify-between mb-5">
@@ -460,34 +514,61 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
                     <MapPin className="w-6 h-6 stroke-[1.75]" />
                   </div>
                   <span className="tech-label text-[10px] text-[#123F91] font-bold">
-                    HQ / OFFICE
+                    HQ &amp; BRANCHES
                   </span>
                 </div>
 
                 <h3 className="text-lg font-extrabold text-[#202427] mb-2">
-                  Office & Trading Address
+                  Office &amp; Branches
                 </h3>
 
-                <p className="text-xs text-[#202427]/70 mb-4">
-                  Centrally located in Mumbai's primary industrial metal cluster:
+                <p className="text-xs text-[#202427]/70 mb-3">
+                  Mumbai Head Office plus active industrial branches:
                 </p>
 
-                <div className="p-3 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs text-[#202427]/85 leading-relaxed font-sans mb-4">
-                  {COMPANY_DETAILS.address}
+                <div className="space-y-2 mb-4">
+                  <div className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs">
+                    <div className="font-bold text-[#123F91] text-[11px] uppercase tracking-wider mb-0.5 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]" />
+                      Head Office (Mumbai)
+                    </div>
+                    <div className="text-[#202427]/80 line-clamp-2 leading-relaxed text-[11px]">
+                      {COMPANY_DETAILS.shortAddress}
+                    </div>
+                  </div>
+                  <div className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs">
+                    <div className="font-bold text-[#123F91] text-[11px] uppercase tracking-wider mb-0.5 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#123F91]" />
+                      ANKLESHWAR BRANCH
+                    </div>
+                    <div className="text-[#202427]/80 line-clamp-2 leading-relaxed text-[11px]">
+                      Ground Plot No. 4201A/1, GIDC Estate, Ankleshwar - 393002
+                    </div>
+                  </div>
+                  <div className="p-2.5 bg-[#F8F5F1] rounded border border-[#D9D9D6] text-xs">
+                    <div className="font-bold text-[#123F91] text-[11px] uppercase tracking-wider mb-0.5 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#123F91]" />
+                      HYDERABAD BRANCH
+                    </div>
+                    <div className="text-[#202427]/80 line-clamp-2 leading-relaxed text-[11px]">
+                      Distillery Road, Near Ispat Bhavan, Ranigunj, Hyderabad - 500016
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#D9D9D6] flex items-center justify-between">
+              <div className="pt-3 border-t border-[#D9D9D6] flex items-center justify-between">
                 <a
-                  href="https://maps.google.com/?q=Shop+No.+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#123F91] hover:text-[#0B2863] group-hover:underline"
+                  href="#branch-locations"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('branch-locations')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#123F91] hover:text-[#0B2863] group-hover:underline cursor-pointer"
                 >
-                  <span>View on Google Maps</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Explore All Locations ↓</span>
                 </a>
-                <span className="text-[10px] font-mono text-[#202427]/50">MUMBAI</span>
+                <span className="text-[10px] font-mono text-[#202427]/50 font-bold">3 HUBS</span>
               </div>
             </div>
 
@@ -738,9 +819,10 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
       </section>
 
       {/* ========================================================
-          CONTACT SECTION 3 — LOCATION & VISITATION (FULL-WIDTH MAP)
+          CONTACT SECTION 3 — LOCATION & BRANCH NETWORK
           ======================================================== */}
       <section
+        id="branch-locations"
         ref={mapRef}
         className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#D9D9D6] relative overflow-hidden"
       >
@@ -750,96 +832,203 @@ export default function ContactPage({ onNavigate, onOpenEnquiry }) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#123F91]/10 border border-[#123F91]/25 mb-3.5">
               <span className="w-2 h-2 rounded-full bg-[#123F91]" />
               <span className="tech-label text-[#123F91] font-bold text-xs uppercase tracking-widest">
-                LOCATION & VISITATION
+                OFFICE &amp; BRANCH LOCATIONS
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#202427] tracking-tight leading-tight">
-              Our Mumbai Trading Counter
+              Our Office &amp; Branch Network
             </h2>
             <p className="text-sm sm:text-base text-[#202427]/75 font-normal leading-relaxed mt-2.5 max-w-2xl">
-              Centrally located in Khetwadi, Mumbai's primary industrial metal and hardware commercial corridor. Direct counter access for order collection, physical inspection, and material verification.
+              Centrally headquartered in Mumbai with active regional commercial branches in Ankleshwar (Gujarat) and Hyderabad (Telangana) for fast dispatch and procurement support.
             </p>
           </div>
 
-          {/* Dedicated Full-Width Map Container */}
-          <div className="contact-map-anim relative rounded-xl overflow-hidden border-2 border-[#D9D9D6] shadow-industrial bg-[#F8F5F1] h-[450px] sm:h-[500px] lg:h-[580px] w-full group">
-            {/* Google Map Embed centered on Rudhira Metal Industries */}
-            <iframe
-              title="Rudhira Metal Industries Location Map"
-              src="https://maps.google.com/maps?q=Rudhira+Metal+Industries,+Shop+No.+6,+Shantabi+Building,+4th+Cross+Lane,+Khetwadi,+Mumbai+-+400004&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full filter saturate-[1.1]"
-            />
+          {/* 3 Dedicated Branch Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 mb-10 items-stretch">
+            {branchLocations.map((loc) => {
+              const isSelected = activeLocation === loc.id;
+              return (
+                <div
+                  key={loc.id}
+                  className={`p-6 sm:p-7 rounded-2xl border-2 transition-all duration-300 flex flex-col justify-between ${
+                    isSelected
+                      ? 'bg-[#EEF3FA]/60 border-[#123F91] shadow-industrial'
+                      : 'bg-[#F8F5F1] hover:bg-white border-[#D9D9D6] hover:border-[#123F91]/40'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#123F91]/10 text-[#123F91]">
+                        <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-[#25D366] animate-pulse' : 'bg-[#123F91]'}`} />
+                        {loc.badge}
+                      </span>
+                      <span className="text-[11px] font-mono text-[#202427]/60 font-bold">
+                        {loc.stateName}
+                      </span>
+                    </div>
 
-            {/* Floating Custom Verified Marker Badge (Top-Left) */}
-            <div className="absolute top-4 left-4 z-10 max-w-[320px] sm:max-w-[360px] bg-[#171A1C]/95 backdrop-blur-md text-white p-4 sm:p-4.5 rounded-lg border border-white/20 shadow-2xl pointer-events-auto">
-              <div className="flex items-start justify-between gap-3 mb-2">
-                <div>
-                  <div className="flex items-center gap-1.5 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-                    <span className="text-[10px] font-mono font-bold tracking-widest text-[#EEF3FA] uppercase">
-                      VERIFIED TRADING COUNTER
-                    </span>
+                    <h3 className="text-lg sm:text-xl font-extrabold text-[#202427] mb-2 font-sans">
+                      {loc.name}
+                    </h3>
+
+                    <div className="p-3 bg-white rounded-lg border border-[#D9D9D6] mb-4 shadow-2xs">
+                      <p className="text-xs text-[#202427]/85 font-sans leading-relaxed">
+                        {loc.address}
+                      </p>
+                    </div>
+
+                    <div className="space-y-1.5 text-xs font-mono text-[#202427]/70 mb-4">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-3.5 h-3.5 text-[#123F91] shrink-0" />
+                        <span>{loc.operatingHours}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <FaPhone className="w-3 h-3 text-[#123F91] shrink-0" />
+                        <a href={`tel:${loc.cleanPhone}`} className="hover:text-[#123F91] transition-colors font-bold">
+                          {loc.phone}
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <h4 className="text-sm sm:text-base font-black text-white tracking-wide uppercase">
-                    RUDHIRA METAL INDUSTRIES
-                  </h4>
+
+                  <div className="pt-4 border-t border-[#D9D9D6] flex flex-wrap items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setActiveLocation(loc.id)}
+                      className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-sm transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-[#123F91] text-white shadow-xs'
+                          : 'bg-white hover:bg-gray-100 text-[#202427] border border-[#D9D9D6]'
+                      }`}
+                    >
+                      <MapPin className="w-3.5 h-3.5" />
+                      <span>{isSelected ? 'Viewing on Map ✓' : 'View on Map'}</span>
+                    </button>
+
+                    <a
+                      href={loc.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#123F91] hover:text-[#0B2863] group/dir cursor-pointer"
+                      title={`Open ${loc.name} in Google Maps`}
+                    >
+                      <span>Directions</span>
+                      <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover/dir:translate-x-0.5" />
+                    </a>
+                  </div>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#123F91] flex items-center justify-center flex-shrink-0 text-white shadow-md">
-                  <MapPin className="w-4 h-4" />
-                </div>
+              );
+            })}
+          </div>
+
+          {/* Interactive Map Section with Location Switcher */}
+          <div>
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <div className="text-xs font-mono font-bold text-[#202427] uppercase tracking-wider flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-[#123F91]" />
+                <span>INTERACTIVE LOCATION VIEW // {currentActiveLocation.name}</span>
               </div>
 
-              <p className="text-[11px] sm:text-xs text-[#E7EEF2]/85 leading-relaxed mb-3 font-sans">
-                Shop No. 6, Shantabi Building, 4th Cross Lane, Khetwadi, Mumbai - 400 004
-              </p>
-
-              <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-white/15">
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Rudhira+Metal+Industries+Shop+No.+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-[#123F91] hover:bg-[#0B2863] text-white text-[11px] font-bold px-3 py-1.5 rounded-xs transition-all duration-150 shadow-md cursor-pointer"
-                >
-                  <span>Open in Google Maps</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-                <a
-                  href={`tel:${COMPANY_DETAILS.contacts[0].cleanPhone}`}
-                  className="inline-flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-[11px] font-bold px-2.5 py-1.5 rounded-xs transition-all duration-150 cursor-pointer"
-                >
-                  <FaPhone className="w-2.5 h-2.5" />
-                  <span>Call Desk</span>
-                </a>
+              {/* Tab Switcher Pills */}
+              <div className="flex items-center gap-1.5 bg-[#F8F5F1] p-1 rounded-lg border border-[#D9D9D6]">
+                {branchLocations.map((loc) => (
+                  <button
+                    key={loc.id}
+                    type="button"
+                    onClick={() => setActiveLocation(loc.id)}
+                    className={`px-3 py-1.5 rounded text-xs font-mono font-bold transition-all cursor-pointer ${
+                      activeLocation === loc.id
+                        ? 'bg-[#123F91] text-white shadow-xs'
+                        : 'text-[#202427]/70 hover:text-[#202427] hover:bg-white/80'
+                    }`}
+                  >
+                    {loc.city}
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* Map Frame Bottom Info Bar */}
-            <div className="absolute bottom-3 left-3 right-3 bg-[#171A1C]/92 backdrop-blur-md text-white px-4 py-3 rounded-lg border border-white/20 flex flex-wrap items-center justify-between gap-3 text-xs shadow-xl pointer-events-auto">
-              <div className="flex items-center gap-2 min-w-0">
-                <MapPin className="w-4 h-4 text-[#123F91] flex-shrink-0" />
-                <span className="font-mono text-[11px] sm:text-xs truncate text-[#E7EEF2]">
-                  <strong>RUDHIRA METAL INDUSTRIES:</strong> Shop No. 6, Shantabi Bldg, 4th Cross Lane, Khetwadi, Mumbai - 400 004
-                </span>
+            {/* Dedicated Full-Width Map Container */}
+            <div className="contact-map-anim relative rounded-xl overflow-hidden border-2 border-[#D9D9D6] shadow-industrial bg-[#F8F5F1] h-[450px] sm:h-[500px] lg:h-[560px] w-full group">
+              {/* Google Map Embed for Current Active Location */}
+              <iframe
+                key={currentActiveLocation.id}
+                title={`${currentActiveLocation.name} Location Map`}
+                src={currentActiveLocation.mapEmbedSrc}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full filter saturate-[1.1]"
+              />
+
+              {/* Floating Custom Verified Marker Badge (Top-Left) */}
+              <div className="absolute top-4 left-4 z-10 max-w-[320px] sm:max-w-[380px] bg-[#171A1C]/95 backdrop-blur-md text-white p-4 sm:p-4.5 rounded-lg border border-white/20 shadow-2xl pointer-events-auto">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <div>
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+                      <span className="text-[10px] font-mono font-bold tracking-widest text-[#EEF3FA] uppercase">
+                        {currentActiveLocation.badge}
+                      </span>
+                    </div>
+                    <h4 className="text-sm sm:text-base font-black text-white tracking-wide uppercase">
+                      {currentActiveLocation.name}
+                    </h4>
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-[#123F91] flex items-center justify-center flex-shrink-0 text-white shadow-md">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                </div>
+
+                <p className="text-[11px] sm:text-xs text-[#E7EEF2]/90 leading-relaxed mb-3 font-sans">
+                  {currentActiveLocation.address}
+                </p>
+
+                <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-white/15">
+                  <a
+                    href={currentActiveLocation.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-[#123F91] hover:bg-[#0B2863] text-white text-[11px] font-bold px-3 py-1.5 rounded-xs transition-all duration-150 shadow-md cursor-pointer"
+                  >
+                    <span>Open in Google Maps</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <a
+                    href={`tel:${currentActiveLocation.cleanPhone}`}
+                    className="inline-flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-[11px] font-bold px-2.5 py-1.5 rounded-xs transition-all duration-150 cursor-pointer"
+                  >
+                    <FaPhone className="w-2.5 h-2.5" />
+                    <span>Call Desk</span>
+                  </a>
+                </div>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="hidden sm:inline font-mono text-[11px] text-[#25D366] font-bold">
-                  Mon – Sat: 9:30 AM – 7:30 PM
-                </span>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Rudhira+Metal+Industries+Shop+No.+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#EEF3FA] hover:text-white transition-colors underline decoration-[#123F91]"
-                >
-                  <span>Enlarge Map</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+
+              {/* Map Frame Bottom Info Bar */}
+              <div className="absolute bottom-3 left-3 right-3 bg-[#171A1C]/92 backdrop-blur-md text-white px-4 py-3 rounded-lg border border-white/20 flex flex-wrap items-center justify-between gap-3 text-xs shadow-xl pointer-events-auto">
+                <div className="flex items-center gap-2 min-w-0">
+                  <MapPin className="w-4 h-4 text-[#123F91] flex-shrink-0" />
+                  <span className="font-mono text-[11px] sm:text-xs truncate text-[#E7EEF2]">
+                    <strong>{currentActiveLocation.name}:</strong> {currentActiveLocation.shortAddress}
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="hidden sm:inline font-mono text-[11px] text-[#25D366] font-bold">
+                    {currentActiveLocation.operatingHours}
+                  </span>
+                  <a
+                    href={currentActiveLocation.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#EEF3FA] hover:text-white transition-colors underline decoration-[#123F91]"
+                  >
+                    <span>Enlarge Map</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

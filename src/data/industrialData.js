@@ -44,6 +44,32 @@ export const COMPANY_DETAILS = {
   specialization: "Mfg. of : Stainless Steel / Carbon Steel Pipes Fitting, Forge Fitting & Flanges. Stockist and Suppliers in : Stainless Steel, Pipe, Plate, Round & All Ferrous Metals",
   address: "Shop No. 6, Plumber Chawl, Shantabi Building, Ground Floor, 4th Cross Lane, Khetwadi, P. B Marg, Mumbai - 400 004, Maharashtra, India.",
   shortAddress: "Shop No. 6, Shantabi Bldg, 4th Cross Lane, Khetwadi, Mumbai - 400 004",
+  branches: [
+    {
+      id: "ankleshwar",
+      name: "Ankleshwar Branch",
+      label: "ANKLESHWAR BRANCH",
+      city: "Ankleshwar",
+      state: "Gujarat",
+      pincode: "393002",
+      address: "GROUND PLOT NO. 4201A/1, KHODIYAR PLASTIC INDUSTRIES GIDC ESTATE, ANKLESHWAR - 393002, GUJARAT, INDIA.",
+      shortAddress: "Ground Plot No. 4201A/1, Khodiyar Plastic Industries, GIDC Estate, Ankleshwar - 393002",
+      googleMapsSearch: "https://www.google.com/maps/search/?api=1&query=GROUND+PLOT+NO.+4201A%2F1%2C+KHODIYAR+PLASTIC+INDUSTRIES+GIDC+ESTATE+ANKLESHWAR+393002",
+      embedUrl: "https://maps.google.com/maps?q=GROUND+PLOT+NO.+4201A%2F1%2C+KHODIYAR+PLASTIC+INDUSTRIES+GIDC+ESTATE+ANKLESHWAR+393002&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    },
+    {
+      id: "hyderabad",
+      name: "Hyderabad Branch",
+      label: "HYDERABAD BRANCH",
+      city: "Hyderabad",
+      state: "Telangana",
+      pincode: "500016",
+      address: "First Floor, No. 5-4-22, 5-4-20, 21 & 22, Distillery Road, Near Ispat Bhavan, Ranigunj, Hyderabad, Telangana - 500016, India.",
+      shortAddress: "First Floor, No. 5-4-22, Distillery Road, Near Ispat Bhavan, Ranigunj, Hyderabad - 500016",
+      googleMapsSearch: "https://www.google.com/maps/search/?api=1&query=First+Floor%2C+No.+5-4-22%2C+5-4-20%2C+21%2622%2C+Distillery+Road%2C+near+ispat+bhavan+Ranigunj%2C+Hyderabad%2C+Telangana%2C+500016",
+      embedUrl: "https://maps.google.com/maps?q=First+Floor%2C+No.+5-4-22%2C+5-4-20%2C+21%2622%2C+Distillery+Road%2C+near+ispat+bhavan+Ranigunj%2C+Hyderabad%2C+Telangana%2C+500016&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    }
+  ],
   emails: [
     "sales@rudhirametalindustries.com",
     "info@rudhirametalindustries.com"

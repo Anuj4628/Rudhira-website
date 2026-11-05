@@ -248,6 +248,21 @@ body {
   }
 }
 
+/* Static, non-jittering fade-in for Dimensions Dropdown */
+.dimensions-dropdown-enter {
+  animation: dimensionsFadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity;
+}
+
+@keyframes dimensionsFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /* Subtle architectural grid pattern for mega menu sidebars */
 .bg-tech-grid {
   background-image: 

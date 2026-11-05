@@ -19,6 +19,11 @@ import EnquiryModal from './components/EnquiryModal';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import CertificatesPage from './pages/CertificatesPage';
+import FlangesDimensionsPage from './pages/dimensions/FlangesDimensionsPage';
+import ButtweldFittingsDimensionsPage from './pages/dimensions/ButtweldFittingsDimensionsPage';
+import ForgeFittingsDimensionsPage from './pages/dimensions/ForgeFittingsDimensionsPage';
+import FastenersDimensionsPage from './pages/dimensions/FastenersDimensionsPage';
+import PipesDimensionsPage from './pages/dimensions/PipesDimensionsPage';
 
 // Multi-Level Products & Materials System Pages
 import ProductsLandingPage from './pages/products/ProductsLandingPage';
@@ -81,6 +86,26 @@ function parseUrl(pathname) {
   }
   if (parts[0] === 'certificates' || parts[0] === 'certificate' || parts[0] === 'certification' || parts[0] === 'certifications') {
     return { page: 'certificates', params: {} };
+  }
+  if (parts[0] === 'dimension' || parts[0] === 'dimensions') {
+    if (parts.length >= 2) {
+      if (parts[1] === 'flanges' || parts[1] === 'flange') {
+        return { page: 'dimensions-flanges', params: {} };
+      }
+      if (parts[1] === 'buttweld-fittings' || parts[1] === 'buttweld' || parts[1] === 'butt-weld') {
+        return { page: 'dimensions-buttweld-fittings', params: {} };
+      }
+      if (parts[1] === 'forge-fittings' || parts[1] === 'forged-fittings' || parts[1] === 'forged' || parts[1] === 'forge') {
+        return { page: 'dimensions-forge-fittings', params: {} };
+      }
+      if (parts[1] === 'fasteners' || parts[1] === 'fastener') {
+        return { page: 'dimensions-fasteners', params: {} };
+      }
+      if (parts[1] === 'pipes-tubes' || parts[1] === 'pipes' || parts[1] === 'pipe' || parts[1] === 'tubes' || parts[1] === 'tube') {
+        return { page: 'dimensions-pipes-tubes', params: {} };
+      }
+    }
+    return { page: 'dimensions-flanges', params: {} };
   }
   if (parts[0] === 'services' || parts[0] === 'value-added-services') {
     return { page: 'home', params: { scrollTo: '#services' } };
@@ -199,6 +224,21 @@ export default function App() {
     } else if (currentPage === 'certificates') {
       document.title = 'Official Quality Certificates & ISO 9001:2015 Accreditations | Rudhira Metal Industries';
       updateMetaTag('description', 'Inspect certified ISO 9001:2015 registration and Government of India GST compliance documents for Rudhira Metal Industries.');
+    } else if (currentPage === 'dimensions-flanges' || currentPage === 'flanges') {
+      document.title = 'Flanges Dimensions (ASME B16.5, DIN, BS-10) | Technical Catalogue | Rudhira Metal Industries';
+      updateMetaTag('description', 'Comprehensive dimensional specifications, bolt hole sizes, weights, and tolerances for industrial pipe flanges (Class 150 to 2500, PN10/16, BS10) by Rudhira Metal Industries.');
+    } else if (currentPage === 'dimensions-buttweld-fittings' || currentPage === 'buttweld-fittings') {
+      document.title = 'Buttweld Fittings Dimensions (ANSI B16.9) | Technical Catalogue | Rudhira Metal Industries';
+      updateMetaTag('description', 'Complete dimensional charts for ASME/ANSI B16.9 buttweld elbows, tees, reducers, and caps from 1/2" to 36" NB by Rudhira Metal Industries.');
+    } else if (currentPage === 'dimensions-forge-fittings' || currentPage === 'forge-fittings') {
+      document.title = 'Forged Fittings Dimensions (ANSI B16.11 Screwed & Socket Weld) | Rudhira Metal Industries';
+      updateMetaTag('description', 'Engineering dimension standards for ANSI B16.11 forged threaded and socket weld pipe fittings (Class 3000# & 6000#) by Rudhira Metal Industries.');
+    } else if (currentPage === 'dimensions-fasteners' || currentPage === 'fasteners') {
+      document.title = 'Fasteners Dimensions (Screw Sizes & UNC / UNF Threads) | Technical Catalogue | Rudhira Metal Industries';
+      updateMetaTag('description', 'Standard machine screw sizes (#1 to #24) and ASME B1.1 unified standard thread specifications (UNC Coarse & UNF Fine) by Rudhira Metal Industries.');
+    } else if (currentPage === 'dimensions-pipes-tubes' || currentPage === 'pipes-tubes') {
+      document.title = 'Pipes & Tubes Dimensions (ASME B36.10M & B36.19M) | Technical Catalogue | Rudhira Metal Industries';
+      updateMetaTag('description', 'Complete pipe dimensions, wall thicknesses (Sch 5S to XXS), and weight tables (kg/mtr) for seamless and welded pipes from 1/8" to 48" NB by Rudhira Metal Industries.');
     } else if (currentPage === 'products-landing') {
       document.title = 'Industrial Products Catalog (18 Categories) | Rudhira Metal Industries';
       updateMetaTag('description', 'Explore 18 industrial product categories including flanges, fasteners, pipes, tubes, butt weld fittings, and sheets manufactured and stocked in Mumbai.');
@@ -257,6 +297,11 @@ export default function App() {
       } else if (page === 'about') targetPath = '/about';
       else if (page === 'contact') targetPath = '/contact';
       else if (page === 'certificates') targetPath = '/certificates';
+      else if (page === 'dimensions-flanges' || page === 'flanges') targetPath = '/dimensions/flanges';
+      else if (page === 'dimensions-buttweld-fittings' || page === 'buttweld-fittings') targetPath = '/dimensions/buttweld-fittings';
+      else if (page === 'dimensions-forge-fittings' || page === 'forge-fittings') targetPath = '/dimensions/forge-fittings';
+      else if (page === 'dimensions-fasteners' || page === 'fasteners') targetPath = '/dimensions/fasteners';
+      else if (page === 'dimensions-pipes-tubes' || page === 'pipes-tubes') targetPath = '/dimensions/pipes-tubes';
       else if (page === 'products-landing') targetPath = '/products';
       else if (page === 'materials-landing') targetPath = '/materials';
       else if (page === 'product-category' && routeParams?.productSlug) targetPath = `/products/${routeParams.productSlug}`;
@@ -384,6 +429,56 @@ export default function App() {
       {currentPage === 'certificates' && (
         <main className="flex-grow">
           <CertificatesPage
+            onNavigate={navigateTo}
+            onOpenEnquiry={handleOpenEnquiry}
+          />
+        </main>
+      )}
+
+      {/* Dimensions: Flanges (/dimensions/flanges) */}
+      {(currentPage === 'dimensions-flanges' || currentPage === 'flanges') && (
+        <main className="flex-grow">
+          <FlangesDimensionsPage
+            onNavigate={navigateTo}
+            onOpenEnquiry={handleOpenEnquiry}
+          />
+        </main>
+      )}
+
+      {/* Dimensions: Buttweld Fittings (/dimensions/buttweld-fittings) */}
+      {(currentPage === 'dimensions-buttweld-fittings' || currentPage === 'buttweld-fittings') && (
+        <main className="flex-grow">
+          <ButtweldFittingsDimensionsPage
+            onNavigate={navigateTo}
+            onOpenEnquiry={handleOpenEnquiry}
+          />
+        </main>
+      )}
+
+      {/* Dimensions: Forge Fittings (/dimensions/forge-fittings) */}
+      {(currentPage === 'dimensions-forge-fittings' || currentPage === 'forge-fittings') && (
+        <main className="flex-grow">
+          <ForgeFittingsDimensionsPage
+            onNavigate={navigateTo}
+            onOpenEnquiry={handleOpenEnquiry}
+          />
+        </main>
+      )}
+
+      {/* Dimensions: Fasteners (/dimensions/fasteners) */}
+      {(currentPage === 'dimensions-fasteners' || currentPage === 'fasteners') && (
+        <main className="flex-grow">
+          <FastenersDimensionsPage
+            onNavigate={navigateTo}
+            onOpenEnquiry={handleOpenEnquiry}
+          />
+        </main>
+      )}
+
+      {/* Dimensions: Pipes & Tubes (/dimensions/pipes-tubes) */}
+      {(currentPage === 'dimensions-pipes-tubes' || currentPage === 'pipes-tubes') && (
+        <main className="flex-grow">
+          <PipesDimensionsPage
             onNavigate={navigateTo}
             onOpenEnquiry={handleOpenEnquiry}
           />

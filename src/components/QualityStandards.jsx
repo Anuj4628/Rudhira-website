@@ -57,6 +57,10 @@ export default function QualityStandards() {
       className="py-24 sm:py-28 bg-[#344B5C] text-white border-b border-white/15 relative overflow-hidden"
       aria-label="Quality Standards Framework"
     >
+      {/* Invisible scroll targets with navbar offset */}
+      <div id="dimensions" className="absolute -top-28 left-0 pointer-events-none" />
+      <div id="dimension" className="absolute -top-28 left-0 pointer-events-none" />
+
       {/* Lighter-blue technical grid background */}
       <div className="absolute inset-0 bg-steel-grid-pattern opacity-30 pointer-events-none" />
 

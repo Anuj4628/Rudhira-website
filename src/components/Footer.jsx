@@ -130,6 +130,18 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
               </li>
               <li>
                 <a
+                  href="/dimensions/flanges"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) onNavigate('dimensions-flanges', null, '/dimensions/flanges');
+                  }}
+                  className="text-white/85 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
+                >
+                  <span className="text-white/60 text-sm">›</span> Dimensions
+                </a>
+              </li>
+              <li>
+                <a
                   href="/contact"
                   onClick={(e) => handleFooterNav(e, 'contact')}
                   className="text-white/85 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
@@ -159,25 +171,75 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
             </div>
 
             <div className="space-y-4 text-sm sm:text-base text-white/85">
-              {/* Address with Get Directions Action */}
-              <div className="space-y-2">
-                <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-white flex-shrink-0 mt-1" />
-                  <span className="leading-relaxed text-sm text-white/85 font-sans">
-                    {COMPANY_DETAILS.address}
-                  </span>
+              {/* Nationwide Locations & Branches */}
+              <div className="space-y-2.5">
+                {/* 1. Mumbai Head Office */}
+                <div className="p-3 bg-white/5 rounded-lg border border-white/10 space-y-1">
+                  <div className="flex items-center justify-between text-xs font-mono font-bold text-white">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-white shrink-0" />
+                      MUMBAI HEAD OFFICE
+                    </span>
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=Rudhira+Metal+Industries+Shop+No+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-white/80 hover:text-white transition-colors"
+                      title="Get Directions to Mumbai Head Office"
+                    >
+                      <span>Maps</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  </div>
+                  <p className="text-xs text-white/80 font-sans leading-relaxed">
+                    Shop No. 6, Shantabi Bldg, 4th Cross Lane, Khetwadi, Mumbai - 400 004, Maharashtra, India.
+                  </p>
                 </div>
-                <div className="pl-6.5">
-                  <a
-                    href="https://www.google.com/maps/dir/?api=1&destination=Rudhira+Metal+Industries+Shop+No+6+Shantabi+Building+4th+Cross+Lane+Khetwadi+Mumbai+400004"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-white/90 hover:text-white transition-colors group/dir"
-                    title="Get Directions to Rudhira Metal Industries on Google Maps"
-                  >
-                    <span>Get Directions</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/dir:translate-x-0.5 group-hover/dir:-translate-y-0.5" />
-                  </a>
+
+                {/* 2. Ankleshwar Branch */}
+                <div className="p-3 bg-white/5 rounded-lg border border-white/10 space-y-1">
+                  <div className="flex items-center justify-between text-xs font-mono font-bold text-white">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-white shrink-0" />
+                      ANKLESHWAR BRANCH
+                    </span>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=GROUND+PLOT+NO.+4201A%2F1%2C+KHODIYAR+PLASTIC+INDUSTRIES+GIDC+ESTATE+ANKLESHWAR+393002"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-white/80 hover:text-white transition-colors"
+                      title="Get Directions to Ankleshwar Branch"
+                    >
+                      <span>Maps</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  </div>
+                  <p className="text-xs text-white/80 font-sans leading-relaxed">
+                    GROUND PLOT NO. 4201A/1, KHODIYAR PLASTIC INDUSTRIES GIDC ESTATE, ANKLESHWAR - 393002, GUJARAT
+                  </p>
+                </div>
+
+                {/* 3. Hyderabad Branch */}
+                <div className="p-3 bg-white/5 rounded-lg border border-white/10 space-y-1">
+                  <div className="flex items-center justify-between text-xs font-mono font-bold text-white">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-white shrink-0" />
+                      HYDERABAD BRANCH
+                    </span>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=First+Floor%2C+No.+5-4-22%2C+5-4-20%2C+21%2622%2C+Distillery+Road%2C+near+ispat+bhavan+Ranigunj%2C+Hyderabad%2C+Telangana%2C+500016"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-white/80 hover:text-white transition-colors"
+                      title="Get Directions to Hyderabad Branch"
+                    >
+                      <span>Maps</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  </div>
+                  <p className="text-xs text-white/80 font-sans leading-relaxed">
+                    First Floor, No. 5-4-22, 5-4-20, 21 & 22, Distillery Road, Near Ispat Bhavan, Ranigunj, Hyderabad, Telangana - 500016
+                  </p>
                 </div>
               </div>
 
@@ -291,8 +353,8 @@ export default function Footer({ onNavigate, onOpenEnquiry }) {
               Terms & Conditions
             </span>
             <span>•</span>
-            <span className="text-white/90 font-bold">
-              MUMBAI, INDIA
+            <span className="text-white/90 font-bold tracking-wider">
+              MUMBAI • ANKLESHWAR • HYDERABAD
             </span>
           </div>
         </div>

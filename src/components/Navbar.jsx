@@ -5,7 +5,9 @@ import { COMPANY_DETAILS, COMPANY_CERTIFICATES } from '../data/industrialData';
 import ProductMegaMenu from './mega-menu/ProductMegaMenu';
 import MaterialsMegaMenu from './mega-menu/MaterialsMegaMenu';
 import CertificatesMegaMenu from './mega-menu/CertificatesMegaMenu';
+import DimensionsDropdown from './mega-menu/DimensionsDropdown';
 import CertificateModal from './common/CertificateModal';
+import { DIMENSIONS_CATEGORIES } from '../data/dimensionsData';
 import { PRODUCT_CATEGORIES, MATERIAL_CATEGORIES, getMaterialSeoSlug, getProductSeoSlug } from '../data/productsData';
 import brandLogo from '../assets/New Logo/Rudhira Metal Logo Emblem.png';
 
@@ -14,9 +16,11 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const [productMegaOpen, setProductMegaOpen] = useState(false);
   const [materialsMegaOpen, setMaterialsMegaOpen] = useState(false);
   const [certificatesMegaOpen, setCertificatesMegaOpen] = useState(false);
+  const [dimensionsDropdownOpen, setDimensionsDropdownOpen] = useState(false);
   const [mobileProductExpanded, setMobileProductExpanded] = useState(false);
   const [mobileMaterialExpanded, setMobileMaterialExpanded] = useState(false);
   const [mobileCertificatesExpanded, setMobileCertificatesExpanded] = useState(false);
+  const [mobileDimensionsExpanded, setMobileDimensionsExpanded] = useState(false);
   const [certModalOpen, setCertModalOpen] = useState(false);
   const [activeCertId, setActiveCertId] = useState('iso-9001-2015');
 
@@ -27,13 +31,16 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
   const productTimeoutRef = useRef(null);
   const materialTimeoutRef = useRef(null);
   const certificatesTimeoutRef = useRef(null);
+  const dimensionsTimeoutRef = useRef(null);
 
   const handleProductMouseEnter = () => {
     if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
     if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
     if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
+    if (dimensionsTimeoutRef.current) clearTimeout(dimensionsTimeoutRef.current);
     setMaterialsMegaOpen(false);
     setCertificatesMegaOpen(false);
+    setDimensionsDropdownOpen(false);
     setProductMegaOpen(true);
   };
 
@@ -48,8 +55,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
     if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
     if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
+    if (dimensionsTimeoutRef.current) clearTimeout(dimensionsTimeoutRef.current);
     setProductMegaOpen(false);
     setCertificatesMegaOpen(false);
+    setDimensionsDropdownOpen(false);
     setMaterialsMegaOpen(true);
   };
 
@@ -64,8 +73,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
     if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
     if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
+    if (dimensionsTimeoutRef.current) clearTimeout(dimensionsTimeoutRef.current);
     setProductMegaOpen(false);
     setMaterialsMegaOpen(false);
+    setDimensionsDropdownOpen(false);
     setCertificatesMegaOpen(true);
   };
 
@@ -76,13 +87,33 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     }, 280);
   };
 
+  const handleDimensionsMouseEnter = () => {
+    if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
+    if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
+    if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
+    if (dimensionsTimeoutRef.current) clearTimeout(dimensionsTimeoutRef.current);
+    setProductMegaOpen(false);
+    setMaterialsMegaOpen(false);
+    setCertificatesMegaOpen(false);
+    setDimensionsDropdownOpen(true);
+  };
+
+  const handleDimensionsMouseLeave = () => {
+    if (dimensionsTimeoutRef.current) clearTimeout(dimensionsTimeoutRef.current);
+    dimensionsTimeoutRef.current = setTimeout(() => {
+      setDimensionsDropdownOpen(false);
+    }, 350);
+  };
+
   const closeAllMenus = () => {
     if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
     if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
     if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
+    if (dimensionsTimeoutRef.current) clearTimeout(dimensionsTimeoutRef.current);
     setProductMegaOpen(false);
     setMaterialsMegaOpen(false);
     setCertificatesMegaOpen(false);
+    setDimensionsDropdownOpen(false);
     setMobileMenuOpen(false);
     setHoveredIndex(null);
   };
@@ -93,6 +124,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
       if (productTimeoutRef.current) clearTimeout(productTimeoutRef.current);
       if (materialTimeoutRef.current) clearTimeout(materialTimeoutRef.current);
       if (certificatesTimeoutRef.current) clearTimeout(certificatesTimeoutRef.current);
+      if (dimensionsTimeoutRef.current) clearTimeout(dimensionsTimeoutRef.current);
     };
   }, []);
 
@@ -127,6 +159,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     { name: 'About Us', page: 'about', href: '/about', anchor: null, isMega: null },
     { name: 'Product', page: 'products-landing', href: '/products', anchor: null, isMega: 'product' },
     { name: 'Material', page: 'materials-landing', href: '/materials', anchor: null, isMega: 'material' },
+    { name: 'Dimensions', page: 'dimensions-flanges', href: '/dimensions/flanges', anchor: null, isMega: 'dimensions' },
     { name: 'Certificates', page: 'certificates', href: '/certificates', anchor: null, isMega: 'certificates' },
     { name: 'Contact', page: 'contact', href: '/contact', anchor: null, isMega: null },
   ];
@@ -137,6 +170,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     { name: 'About Us', page: 'about', href: '/about', anchor: null, isMega: null },
     { name: 'Products', page: 'products-landing', href: '/products', anchor: null, isMega: 'product' },
     { name: 'Materials', page: 'materials-landing', href: '/materials', anchor: null, isMega: 'material' },
+    { name: 'Dimensions', page: 'dimensions-flanges', href: '/dimensions/flanges', anchor: null, isMega: 'dimensions' },
     { name: 'Services', page: 'home', href: '/#services', anchor: '#services', isMega: null },
     { name: 'Industries', page: 'home', href: '/#industries', anchor: '#industries', isMega: null },
     { name: 'Certificates', page: 'certificates', href: '/certificates', anchor: null, isMega: 'certificates' },
@@ -147,6 +181,20 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
     if (currentPage === 'about') return link.page === 'about';
     if (currentPage === 'contact') return link.page === 'contact';
     if (currentPage === 'certificates') return link.name === 'Certificates';
+    if (
+      currentPage === 'dimensions-flanges' ||
+      currentPage === 'dimensions-buttweld-fittings' ||
+      currentPage === 'dimensions-forge-fittings' ||
+      currentPage === 'dimensions-fasteners' ||
+      currentPage === 'dimensions-pipes-tubes' ||
+      currentPage === 'flanges' ||
+      currentPage === 'buttweld-fittings' ||
+      currentPage === 'forge-fittings' ||
+      currentPage === 'fasteners' ||
+      currentPage === 'pipes-tubes'
+    ) {
+      return link.isMega === 'dimensions' || link.name === 'Dimensions' || link.name === 'Dimension';
+    }
     if (
       currentPage === 'products-landing' ||
       currentPage === 'product-category' ||
@@ -183,6 +231,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
         onNavigate('materials-landing', null, '/materials');
       } else if (link.isMega === 'certificates' || link.name === 'Certificates') {
         onNavigate('certificates', null, '/certificates');
+      } else if (link.isMega === 'dimensions' || link.name === 'Dimensions' || link.name === 'Dimension') {
+        onNavigate('dimensions-flanges', null, '/dimensions/flanges');
       } else {
         onNavigate(link.page, link.anchor, link.href);
       }
@@ -205,6 +255,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
           handleProductMouseLeave();
           handleMaterialMouseLeave();
           handleCertificatesMouseLeave();
+          handleDimensionsMouseLeave();
           setHoveredIndex(null);
         }}
       >
@@ -329,10 +380,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
             </div>
 
             {/* RIGHT SIDE: Navigation Items + GET A QUOTE Button */}
-            <div className="hidden lg:flex items-center gap-5 xl:gap-7">
+            <div className="hidden lg:flex items-center gap-3.5 xl:gap-5.5">
               
               <nav
-                className="flex items-center gap-5 xl:gap-7"
+                className="flex items-center gap-3.5 xl:gap-5.5"
                 aria-label="Main Navigation"
                 onMouseLeave={() => setHoveredIndex(null)}
               >
@@ -344,7 +395,8 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                   const isOpen =
                     (link.isMega === 'product' && productMegaOpen) ||
                     (link.isMega === 'material' && materialsMegaOpen) ||
-                    (link.isMega === 'certificates' && certificatesMegaOpen);
+                    (link.isMega === 'certificates' && certificatesMegaOpen) ||
+                    (link.isMega === 'dimensions' && dimensionsDropdownOpen);
 
                   return (
                     <div
@@ -357,11 +409,13 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         if (link.isMega === 'product') handleProductMouseEnter();
                         else if (link.isMega === 'material') handleMaterialMouseEnter();
                         else if (link.isMega === 'certificates') handleCertificatesMouseEnter();
+                        else if (link.isMega === 'dimensions') handleDimensionsMouseEnter();
                       }}
                       onMouseLeave={() => {
                         if (link.isMega === 'product') handleProductMouseLeave();
                         else if (link.isMega === 'material') handleMaterialMouseLeave();
                         else if (link.isMega === 'certificates') handleCertificatesMouseLeave();
+                        else if (link.isMega === 'dimensions') handleDimensionsMouseLeave();
                       }}
                     >
                       <a
@@ -369,7 +423,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                         onClick={(e) => handleNavClick(e, link)}
                         aria-expanded={link.isMega ? isOpen : undefined}
                         aria-haspopup={link.isMega ? 'menu' : undefined}
-                        className={`inline-flex items-center gap-1.5 text-[14.5px] xl:text-[15.5px] font-bold font-sans tracking-tight transition-colors duration-200 cursor-pointer ${
+                        className={`inline-flex items-center gap-1.5 text-[13.5px] xl:text-[15px] font-bold font-sans tracking-tight transition-colors duration-200 cursor-pointer ${
                           isTarget || isOpen
                             ? 'text-[#123F91]'
                             : 'text-[#171A1C] hover:text-[#123F91]'
@@ -445,6 +499,20 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                             closeAllMenus();
                             setActiveCertId(certId);
                             setCertModalOpen(true);
+                          }}
+                        />
+                      )}
+
+                      {/* Dropdown 4: Dimensions Dropdown directly beneath Dimensions */}
+                      {link.isMega === 'dimensions' && (
+                        <DimensionsDropdown
+                          isOpen={dimensionsDropdownOpen}
+                          onClose={() => setDimensionsDropdownOpen(false)}
+                          onMouseEnter={handleDimensionsMouseEnter}
+                          onMouseLeave={handleDimensionsMouseLeave}
+                          onNavigate={(view, anchor, urlPath) => {
+                            closeAllMenus();
+                            if (onNavigate) onNavigate(view, anchor, urlPath);
                           }}
                         />
                       )}
@@ -771,6 +839,71 @@ export default function Navbar({ currentPage = 'home', onNavigate, onOpenEnquiry
                                   <span>→</span>
                                 </button>
                               </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+
+                    // Dimensions Accordion
+                    if (link.isMega === 'dimensions') {
+                      return (
+                        <div
+                          key={link.name}
+                          className={`border-b border-gray-100 py-1.5 rounded-xl transition-colors ${
+                            active ? 'border-l-4 border-l-[#123F91] bg-[#123F91]/5 pl-2.5' : ''
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <button
+                              type="button"
+                              onClick={() => handleMobileNav('dimensions-flanges', null, '/dimensions/flanges')}
+                              className={`text-base font-bold transition-colors cursor-pointer ${
+                                active ? 'text-[#123F91] font-black' : 'text-[#1C2024]'
+                              }`}
+                            >
+                              Dimensions
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setMobileDimensionsExpanded(!mobileDimensionsExpanded)}
+                              className="p-1.5 text-gray-500 hover:text-[#123F91] rounded cursor-pointer"
+                              aria-label="Expand dimensions categories"
+                            >
+                              <ChevronDown
+                                className={`w-4 h-4 transition-transform ${
+                                  mobileDimensionsExpanded ? 'rotate-180 text-[#123F91]' : ''
+                                }`}
+                              />
+                            </button>
+                          </div>
+
+                          {mobileDimensionsExpanded && (
+                            <div className="mt-2 pl-3 pr-2 py-2 space-y-1 bg-[#FAF9F7] rounded-xl border border-gray-200">
+                              {DIMENSIONS_CATEGORIES.map((cat) => (
+                                <button
+                                  key={cat.id}
+                                  type="button"
+                                  disabled={!cat.active}
+                                  onClick={() => {
+                                    if (cat.active) {
+                                      handleMobileNav(cat.slug, null, cat.path);
+                                    }
+                                  }}
+                                  className={`w-full text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center justify-between ${
+                                    cat.active
+                                      ? 'text-[#1C2024] hover:bg-[#123F91] hover:text-white cursor-pointer'
+                                      : 'text-gray-400 bg-transparent cursor-not-allowed opacity-60'
+                                  }`}
+                                >
+                                  <span>{cat.name}</span>
+                                  {!cat.active && (
+                                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-gray-200/80 text-gray-500">
+                                      Soon
+                                    </span>
+                                  )}
+                                </button>
+                              ))}
                             </div>
                           )}
                         </div>
